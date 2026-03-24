@@ -271,6 +271,8 @@ main{position:relative;z-index:1}
 }
 .head{
   display:grid;
+  grid-template-columns:minmax(0,1fr);
+  align-items:end;
   gap:14px;
   margin-bottom:30px;
 }
@@ -286,6 +288,30 @@ main{position:relative;z-index:1}
   font-size:15px;
   color:var(--muted);
   line-height:1.85;
+}
+#motion .head,
+#tiktok-lab .head{
+  grid-template-columns:minmax(0,1.05fr) minmax(280px,.95fr);
+  column-gap:34px;
+  margin-bottom:24px;
+}
+#motion .head .eyebrow,
+#tiktok-lab .head .eyebrow{
+  grid-column:1/-1;
+}
+#motion .head h2,
+#tiktok-lab .head h2{
+  max-width:8ch;
+}
+#tiktok-lab .head h2{
+  font-size:clamp(48px,5.2vw,78px);
+  max-width:7ch;
+}
+#motion .head p,
+#tiktok-lab .head p{
+  max-width:38ch;
+  justify-self:end;
+  margin-bottom:6px;
 }
 .reveal{
   opacity:0;
@@ -311,7 +337,11 @@ main{position:relative;z-index:1}
   display:grid;
   grid-template-columns:minmax(0,1.02fr) minmax(0,.98fr);
   gap:24px;
-  align-items:center;
+  align-items:end;
+}
+.launch-copy{
+  display:grid;
+  align-content:start;
 }
 .launch-copy h1{
   font-family:'Syne',sans-serif;
@@ -327,7 +357,7 @@ main{position:relative;z-index:1}
 }
 .launch-copy p{
   margin-top:20px;
-  max-width:60ch;
+  max-width:52ch;
   color:var(--muted);
   font-size:17px;
   line-height:1.9;
@@ -362,12 +392,16 @@ main{position:relative;z-index:1}
   grid-template-columns:repeat(3,1fr);
   gap:12px;
   margin-top:28px;
+  align-items:stretch;
 }
 .launch-stat{
   padding:18px;
   border-radius:24px;
   border:1px solid rgba(255,255,255,.08);
   background:rgba(255,255,255,.04);
+  min-height:160px;
+  display:grid;
+  align-content:start;
 }
 .launch-stat small{
   display:block;
@@ -414,6 +448,16 @@ main{position:relative;z-index:1}
     linear-gradient(90deg, transparent 0 96%, rgba(255,255,255,.03) 96%);
   background-size:100% 12%, 8% 100%;
   opacity:.34;
+}
+.scene-core::after{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(circle at 50% 18%, rgba(138,246,255,.12), transparent 22%),
+    radial-gradient(circle at 78% 32%, rgba(255,109,184,.12), transparent 22%),
+    linear-gradient(180deg, rgba(255,255,255,.03), transparent 30%, transparent 72%, rgba(0,0,0,.24));
+  pointer-events:none;
 }
 .screen-card{
   position:absolute;
@@ -527,6 +571,7 @@ main{position:relative;z-index:1}
 }
 .scene-note{
   position:absolute;
+  max-width:240px;
   padding:14px 16px;
   border-radius:20px;
   background:rgba(7,10,18,.72);
@@ -841,7 +886,7 @@ main{position:relative;z-index:1}
   padding:34px;
   border-radius:32px;
   border:1px solid var(--line);
-  background:rgba(255,255,255,.04);
+  background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.03));
   box-shadow:var(--shadow);
   display:grid;
   gap:18px;
@@ -928,14 +973,26 @@ main{position:relative;z-index:1}
   background-size:100% 12%, 12% 100%;
   opacity:.28;
 }
+.lab-stage::after{
+  content:'';
+  position:absolute;
+  inset:14% 18% 18%;
+  border-radius:50%;
+  background:radial-gradient(circle, rgba(138,246,255,.18), rgba(155,124,255,.12) 32%, rgba(255,109,184,.06) 52%, transparent 72%);
+  filter:blur(28px);
+  opacity:.88;
+  pointer-events:none;
+}
 .stage-note{
   position:absolute;
   z-index:4;
+  max-width:240px;
   padding:14px 16px;
   border-radius:20px;
   background:rgba(8,10,18,.78);
   border:1px solid rgba(255,255,255,.08);
   box-shadow:0 18px 40px rgba(0,0,0,.3);
+  backdrop-filter:blur(14px);
 }
 .stage-note small{
   display:block;
@@ -956,10 +1013,10 @@ main{position:relative;z-index:1}
   color:var(--muted);
   line-height:1.7;
 }
-.stage-note.n1{top:70px;left:38px}
-.stage-note.n2{top:180px;right:40px}
-.stage-note.n3{bottom:130px;left:60px}
-.stage-note.n4{bottom:92px;right:52px}
+.stage-note.n1{top:42px;left:28px}
+.stage-note.n2{top:116px;right:28px}
+.stage-note.n3{bottom:82px;left:34px}
+.stage-note.n4{bottom:34px;right:30px}
 .device-stack{
   position:absolute;
   inset:0;
@@ -1407,7 +1464,7 @@ main{position:relative;z-index:1}
   padding:28px;
   border-radius:32px;
   border:1px solid var(--line);
-  background:rgba(255,255,255,.04);
+  background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.03));
   box-shadow:var(--shadow);
 }
 .motion-block h3{
@@ -1902,6 +1959,16 @@ main{position:relative;z-index:1}
   background-size:100% 14%, 12% 100%;
   opacity:.22;
 }
+.tt-stage::after{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(circle at 50% 22%, rgba(138,246,255,.12), transparent 24%),
+    radial-gradient(circle at 24% 62%, rgba(255,109,184,.1), transparent 22%),
+    linear-gradient(180deg, transparent, rgba(0,0,0,.18));
+  pointer-events:none;
+}
 .tt-stage-head{
   position:absolute;
   top:24px;
@@ -1929,7 +1996,7 @@ main{position:relative;z-index:1}
   position:absolute;
   inset:110px auto auto 50%;
   transform:translateX(-50%);
-  width:min(390px,78%);
+  width:min(410px,80%);
   z-index:3;
 }
 .tt-phone{
@@ -1942,7 +2009,7 @@ main{position:relative;z-index:1}
     linear-gradient(145deg, rgba(255,255,255,.46), rgba(255,255,255,.05) 18%, rgba(8,10,18,.96) 32%, rgba(12,14,22,.96) 82%, rgba(255,255,255,.12)),
     linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,0));
   box-shadow:0 42px 90px rgba(0,0,0,.5), inset 0 0 0 1px rgba(255,255,255,.16);
-  transform:rotate(-8deg) rotateY(-10deg) rotateX(9deg);
+  transform:rotate(-6deg) rotateY(-9deg) rotateX(8deg);
   transform-style:preserve-3d;
   transition:transform .24s var(--ease);
 }
@@ -2134,6 +2201,7 @@ main{position:relative;z-index:1}
 .tt-float{
   position:absolute;
   z-index:2;
+  max-width:176px;
   padding:10px 14px;
   border-radius:18px;
   background:rgba(9,11,18,.62);
@@ -2141,16 +2209,16 @@ main{position:relative;z-index:1}
   box-shadow:0 18px 38px rgba(0,0,0,.24);
   backdrop-filter:blur(12px);
   font-family:'IBM Plex Mono',monospace;
-  font-size:10px;
+  font-size:9px;
   letter-spacing:.16em;
   text-transform:uppercase;
   color:rgba(255,255,255,.82);
   animation:floatBubble 5.4s ease-in-out infinite;
 }
-.tt-float.like{left:46px;top:160px}
-.tt-float.comment{right:30px;top:250px;animation-delay:-1.6s}
-.tt-float.share{left:60px;bottom:160px;animation-delay:-2.4s}
-.tt-float.save{right:44px;bottom:210px;animation-delay:-3.1s}
+.tt-float.like{left:34px;top:158px}
+.tt-float.comment{right:28px;top:238px;animation-delay:-1.6s}
+.tt-float.share{left:42px;bottom:156px;animation-delay:-2.4s}
+.tt-float.save{right:34px;bottom:214px;animation-delay:-3.1s}
 @keyframes floatBubble{
   0%,100%{transform:translateY(0)}
   50%{transform:translateY(-14px)}
@@ -2176,7 +2244,7 @@ main{position:relative;z-index:1}
   padding:24px;
   border-radius:32px;
   border:1px solid var(--line);
-  background:rgba(255,255,255,.04);
+  background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.03));
   box-shadow:var(--shadow);
 }
 .tt-panel h3{
@@ -2207,7 +2275,7 @@ main{position:relative;z-index:1}
 .tt-hook.on{
   border-color:rgba(138,246,255,.22);
   background:rgba(138,246,255,.06);
-  box-shadow:0 16px 34px rgba(138,246,255,.08);
+  box-shadow:0 16px 34px rgba(138,246,255,.08), inset 0 0 0 1px rgba(138,246,255,.08);
 }
 .tt-hook small,
 .tt-edit-item small{
@@ -2551,6 +2619,14 @@ main{position:relative;z-index:1}
 
 @media (max-width:1180px){
   .nav{display:none}
+  #motion .head,
+  #tiktok-lab .head{grid-template-columns:1fr}
+  #motion .head p,
+  #tiktok-lab .head p{
+    justify-self:start;
+    max-width:62ch;
+    margin-bottom:0;
+  }
   .launch-grid,
   .spectrum-grid,
   .lab,
@@ -2574,8 +2650,13 @@ main{position:relative;z-index:1}
     gap:10px;
   }
   .top-actions .ghost{display:none}
-  .launch{padding:120px 18px 22px}
-  .launch-copy h1{font-size:clamp(50px,17vw,88px)}
+  .launch{padding:104px 16px 18px}
+  .launch-grid{min-height:auto;align-items:start;gap:18px}
+  .launch-copy{gap:14px}
+  .launch-copy h1{font-size:clamp(44px,16vw,78px)}
+  .launch-copy p{font-size:15px;line-height:1.75}
+  .launch-meta{margin-top:20px}
+  .launch-stat{min-height:0}
   .launch-meta,
   .proof-metrics,
   .field-grid,
@@ -2592,7 +2673,7 @@ main{position:relative;z-index:1}
   .spectrum-grid{grid-template-columns:1fr}
   .spectrum-card,.spectrum-card.large{min-height:300px}
   .quote-main{font-size:28px}
-  .lab-stage{min-height:1100px}
+  .lab-stage{min-height:1040px}
   .stage-note{position:relative;top:auto!important;right:auto!important;left:auto!important;bottom:auto!important;margin:12px 18px 0}
   .hand{width:120%;left:48%}
   .device.main{width:min(300px,74%);top:170px}
@@ -2602,9 +2683,9 @@ main{position:relative;z-index:1}
   .mini-card{grid-template-columns:76px 1fr}
   .mini-card span{grid-column:2}
   .tt-phone-wrap{width:min(320px,82%);top:140px}
-  .tt-phone{transform:rotate(-6deg)}
+  .tt-phone{transform:rotate(-4deg)}
   .tt-float{position:relative;left:auto!important;right:auto!important;top:auto!important;bottom:auto!important;margin:10px 18px 0}
-  .tt-stage{min-height:1040px}
+  .tt-stage{min-height:1000px}
 }
 @media (prefers-reduced-motion: reduce){
   html{scroll-behavior:auto}
@@ -2744,7 +2825,7 @@ main{position:relative;z-index:1}
     <div class="head reveal">
       <div class="eyebrow">World building</div>
       <h2>Sharper contrast. Stronger worlds. Higher taste.</h2>
-      <p>V3 raises the bar by making the different design languages feel more deliberate and more distinct. The site is still one cohesive story, but each world now feels like its own launch universe rather than just another nicely styled section.</p>
+      <p>V4 makes the different design languages feel intentional instead of random. The site is still one cohesive story, but each world now lands like its own launch universe with a clearer reason to exist.</p>
     </div>
 
     <div class="spectrum-grid">
@@ -2837,7 +2918,7 @@ main{position:relative;z-index:1}
       <article class="lab-copy reveal">
         <div class="eyebrow">App design laboratory</div>
         <h2>Not one iPhone. A whole product story in motion.</h2>
-        <p>This section is the real jump from V2. Instead of one nice phone render, V3 shows a multi-device product reveal: a hand-held primary phone, supporting side devices, live state changes, and UI modes that make app design feel like a future product launch.</p>
+        <p>This section now sells app design like a flagship offer. Instead of one nice phone render, V4 builds a multi-device product reveal with a hand-held hero phone, supporting states, live transitions, and hardware-level presentation.</p>
 
         <div class="lab-list">
           <div class="lab-item">
@@ -2893,22 +2974,22 @@ main{position:relative;z-index:1}
         <div class="device-stack">
           <svg class="hand" viewBox="0 0 760 920" aria-hidden="true">
             <defs>
-              <linearGradient id="v3Skin" x1="0%" y1="0%" x2="100%" y2="100%">
+              <linearGradient id="handSkin" x1="0%" y1="0%" x2="100%" y2="100%">
                 <stop offset="0%" stop-color="#ffd6b7"/>
                 <stop offset="34%" stop-color="#ecb289"/>
                 <stop offset="68%" stop-color="#cd835f"/>
                 <stop offset="100%" stop-color="#a65d44"/>
               </linearGradient>
-              <linearGradient id="v3Gloss" x1="10%" y1="0%" x2="90%" y2="100%">
+              <linearGradient id="handGloss" x1="10%" y1="0%" x2="90%" y2="100%">
                 <stop offset="0%" stop-color="rgba(255,255,255,.45)"/>
                 <stop offset="55%" stop-color="rgba(255,255,255,.05)"/>
                 <stop offset="100%" stop-color="rgba(70,31,21,.14)"/>
               </linearGradient>
             </defs>
-            <path d="M170 880c78-172 121-286 154-366 15-36 25-64 38-84 25-37 64-67 114-71 53-4 94 21 118 61 15 24 22 49 23 87l4 155c1 46-5 98-37 139-34 44-81 74-145 95-67 22-155 23-269-16z" fill="url(#v3Skin)" opacity=".92"/>
-            <path d="M438 274c42-29 81-47 118-42 40 6 69 34 81 74 10 36 10 94 10 171 0 31 0 63-10 90-12 31-39 49-73 53-36 5-72-11-96-36-25-25-43-57-43-90V353c0-32 4-55 13-79z" fill="url(#v3Skin)"/>
-            <path d="M376 330c21-44 56-79 104-90 40-9 83 0 111 28 27 26 37 66 27 107-10 39-38 73-77 92-30 14-63 19-91 9-22-8-40-26-58-53-18-27-23-62-16-93z" fill="url(#v3Gloss)" opacity=".6"/>
-            <path d="M462 362c40-69 80-109 128-125 31-10 63-7 87 9 27 18 42 48 44 79 3 46-20 93-63 123-23 16-50 27-74 28-30 2-57-10-88-36-21-19-37-41-44-78-4-22 0-45 10-64z" fill="url(#v3Skin)"/>
+            <path d="M170 880c78-172 121-286 154-366 15-36 25-64 38-84 25-37 64-67 114-71 53-4 94 21 118 61 15 24 22 49 23 87l4 155c1 46-5 98-37 139-34 44-81 74-145 95-67 22-155 23-269-16z" fill="url(#handSkin)" opacity=".92"/>
+            <path d="M438 274c42-29 81-47 118-42 40 6 69 34 81 74 10 36 10 94 10 171 0 31 0 63-10 90-12 31-39 49-73 53-36 5-72-11-96-36-25-25-43-57-43-90V353c0-32 4-55 13-79z" fill="url(#handSkin)"/>
+            <path d="M376 330c21-44 56-79 104-90 40-9 83 0 111 28 27 26 37 66 27 107-10 39-38 73-77 92-30 14-63 19-91 9-22-8-40-26-58-53-18-27-23-62-16-93z" fill="url(#handGloss)" opacity=".6"/>
+            <path d="M462 362c40-69 80-109 128-125 31-10 63-7 87 9 27 18 42 48 44 79 3 46-20 93-63 123-23 16-50 27-74 28-30 2-57-10-88-36-21-19-37-41-44-78-4-22 0-45 10-64z" fill="url(#handSkin)"/>
           </svg>
 
           <div class="device main" id="mainDevice">
@@ -3075,7 +3156,7 @@ main{position:relative;z-index:1}
     <div class="head reveal">
       <div class="eyebrow">Systems and orchestration</div>
       <h2>What looks artistic should still feel operationally serious.</h2>
-      <p>V3 is not just styling harder. It also sharpens the message that the studio can design and connect the whole machine: landing pages, apps, Shopify, content, CRM, analytics, and AI layers that actually work together.</p>
+      <p>V4 is not just styling harder. It sharpens the message that the studio can design and connect the whole machine: landing pages, apps, Shopify, content, CRM, analytics, and AI layers that actually work together.</p>
     </div>
 
     <div class="systems-grid">
@@ -3382,9 +3463,9 @@ main{position:relative;z-index:1}
     <div class="proof-grid">
       <div class="proof-copy">
         <article class="proof-card reveal">
-          <div class="eyebrow">What V3 is really saying</div>
+          <div class="eyebrow">What V4 is proving</div>
           <h3>The business can sit at the intersection of product, growth, content, and systems.</h3>
-          <p>That is the bigger leap. Not just better visuals, but a stronger market position. This version is trying to make the studio feel like the partner you bring in when you want the brand, product, and growth engine to all evolve at the same time.</p>
+          <p>That is the bigger leap. Not just better visuals, but a stronger market position. This version makes the studio feel like the partner you bring in when you want the brand, product, and growth engine to evolve at the same time.</p>
           <div class="proof-metrics">
             <div><strong>Apps</strong><span>Mobile product design, onboarding, member systems, dashboards.</span></div>
             <div><strong>Commerce</strong><span>Shopify, CRO, bundles, subscriptions, high-conversion product stories.</span></div>
@@ -3494,16 +3575,28 @@ main{position:relative;z-index:1}
 </main>
 
 <script>
-const reducedMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-if(reducedMotion)document.body.classList.add('reduce-motion');
+const prefersReducedMotion=window.matchMedia('(prefers-reduced-motion: reduce)');
+let reducedMotion=prefersReducedMotion.matches;
+const canHover=window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+document.body.classList.toggle('reduce-motion',reducedMotion);
 
 setTimeout(()=>{
   document.getElementById('intro').classList.add('out');
-},1400);
+},reducedMotion?0:1400);
 
 const sectionEls=[...document.querySelectorAll('main section[id]')];
 const navEls=[...document.querySelectorAll('.nav a')];
 const progressBar=document.getElementById('progressBar');
+const runtime={
+  pageVisible:!document.hidden,
+  launchVisible:true,
+  labVisible:true,
+  motionVisible:true,
+  tiktokVisible:true
+};
+let labStateCycle;
+let editCycle;
+let ttCycle;
 const revealObserver=new IntersectionObserver((entries)=>{
   entries.forEach((entry)=>{
     if(entry.isIntersecting)entry.target.classList.add('in');
@@ -3522,11 +3615,16 @@ function updateScroll(){
   navEls.forEach((link)=>link.classList.toggle('active',link.getAttribute('href')===`#${active}`));
 }
 window.addEventListener('scroll',updateScroll,{passive:true});
+window.addEventListener('resize',updateScroll);
 updateScroll();
 
 const launchCanvas=document.getElementById('launchCanvas');
-const launchCtx=launchCanvas.getContext('2d');
-const stars=Array.from({length:130},()=>({
+const launchCtx=launchCanvas?launchCanvas.getContext('2d'):null;
+let launchWidth=0;
+let launchHeight=0;
+let launchFrame=0;
+const starCount=window.innerWidth<760?72:130;
+const stars=Array.from({length:starCount},()=>({
   x:Math.random(),
   y:Math.random(),
   vx:(Math.random()-.5)*.00042,
@@ -3535,40 +3633,83 @@ const stars=Array.from({length:130},()=>({
   o:Math.random()*.5+.12
 }));
 function sizeLaunchCanvas(){
-  launchCanvas.width=launchCanvas.offsetWidth;
-  launchCanvas.height=launchCanvas.offsetHeight;
+  if(!launchCanvas||!launchCtx)return;
+  const ratio=Math.min(window.devicePixelRatio||1,2);
+  launchWidth=launchCanvas.offsetWidth;
+  launchHeight=launchCanvas.offsetHeight;
+  launchCanvas.width=Math.round(launchWidth*ratio);
+  launchCanvas.height=Math.round(launchHeight*ratio);
+  launchCtx.setTransform(ratio,0,0,ratio,0,0);
 }
-sizeLaunchCanvas();
-window.addEventListener('resize',sizeLaunchCanvas);
+function shouldAnimateLaunch(){
+  return Boolean(launchCtx)&&!reducedMotion&&runtime.pageVisible&&runtime.launchVisible;
+}
+function stopLaunchDraw(){
+  if(!launchFrame)return;
+  cancelAnimationFrame(launchFrame);
+  launchFrame=0;
+}
+function queueLaunchDraw(){
+  if(launchFrame||!shouldAnimateLaunch())return;
+  launchFrame=requestAnimationFrame(drawLaunch);
+}
 function drawLaunch(){
-  launchCtx.clearRect(0,0,launchCanvas.width,launchCanvas.height);
+  launchFrame=0;
+  if(!launchCtx||!launchWidth||!launchHeight)return;
+  launchCtx.clearRect(0,0,launchWidth,launchHeight);
   stars.forEach((star,i)=>{
     star.x=(star.x+star.vx+1)%1;
     star.y=(star.y+star.vy+1)%1;
-    const x=star.x*launchCanvas.width;
-    const y=star.y*launchCanvas.height;
+    const x=star.x*launchWidth;
+    const y=star.y*launchHeight;
     launchCtx.beginPath();
     launchCtx.arc(x,y,star.r,0,Math.PI*2);
     launchCtx.fillStyle=`rgba(255,255,255,${star.o})`;
     launchCtx.fill();
     for(let j=i+1;j<stars.length;j+=1){
       const other=stars[j];
-      const dx=x-other.x*launchCanvas.width;
-      const dy=y-other.y*launchCanvas.height;
+      const otherX=other.x*launchWidth;
+      const otherY=other.y*launchHeight;
+      const dx=x-otherX;
+      const dy=y-otherY;
       const dist=Math.hypot(dx,dy);
       if(dist<120){
         launchCtx.beginPath();
         launchCtx.moveTo(x,y);
-        launchCtx.lineTo(other.x*launchCanvas.width,other.y*launchCanvas.height);
+        launchCtx.lineTo(otherX,otherY);
         launchCtx.strokeStyle=`rgba(138,246,255,${0.05*(1-dist/120)})`;
         launchCtx.lineWidth=.7;
         launchCtx.stroke();
       }
     }
   });
-  if(!reducedMotion)requestAnimationFrame(drawLaunch);
+  queueLaunchDraw();
 }
-drawLaunch();
+sizeLaunchCanvas();
+window.addEventListener('resize',()=>{
+  sizeLaunchCanvas();
+  syncAnimatedState();
+});
+
+function createCycle(step,delay,shouldRun){
+  let timer=0;
+  function stop(){
+    if(!timer)return;
+    clearTimeout(timer);
+    timer=0;
+  }
+  function start(){
+    stop();
+    if(!shouldRun())return;
+    timer=window.setTimeout(()=>{
+      timer=0;
+      if(!shouldRun())return;
+      step();
+      start();
+    },delay);
+  }
+  return {start,stop,refresh:start};
+}
 
 const mainPanes=[...document.querySelectorAll('.device-pane')];
 const leftPanes=[...document.querySelectorAll('#leftDevice .side-pane')];
@@ -3583,9 +3724,9 @@ function setState(index){
   rightPanes.forEach((pane,i)=>pane.classList.toggle('active',i===index%rightPanes.length));
 }
 setState(0);
-setInterval(()=>{
+labStateCycle=createCycle(()=>{
   setState((stateIndex+1)%mainPanes.length);
-},3200);
+},3200,()=>!reducedMotion&&runtime.pageVisible&&runtime.labVisible);
 
 const editWave=document.getElementById('editWave');
 if(editWave){
@@ -3646,9 +3787,9 @@ function setEditState(index){
   editClips.forEach((clip,i)=>clip.classList.toggle('lit',state.clips.includes(i)));
 }
 setEditState(0);
-setInterval(()=>{
+editCycle=createCycle(()=>{
   setEditState((editIndex+1)%editStates.length);
-},2800);
+},2800,()=>!reducedMotion&&runtime.pageVisible&&runtime.motionVisible);
 
 const ttPhone=document.getElementById('ttPhone');
 const ttStage=document.getElementById('ttStage');
@@ -3742,20 +3883,58 @@ function setTikTokState(index){
   if(ttFloatSave)ttFloatSave.textContent=state.floats[3];
 }
 function spawnTtBurst(){
-  if(!ttStage||reducedMotion)return;
+  if(!ttStage||reducedMotion||!runtime.pageVisible||!runtime.tiktokVisible)return;
   const burst=document.createElement('div');
   burst.className='tt-burst';
   burst.textContent=['❤','✦','♪','↗'][Math.floor(Math.random()*4)];
-  burst.style.left=`${55+Math.random()*220}px`;
-  burst.style.top=`${160+Math.random()*460}px`;
+  burst.style.left=`${18+Math.random()*64}%`;
+  burst.style.top=`${22+Math.random()*54}%`;
   ttStage.appendChild(burst);
   setTimeout(()=>burst.remove(),1000);
 }
 setTikTokState(0);
-setInterval(()=>{
+ttCycle=createCycle(()=>{
   setTikTokState((ttIndex+1)%ttData.length);
   spawnTtBurst();
-},3000);
+},3000,()=>!reducedMotion&&runtime.pageVisible&&runtime.tiktokVisible);
+
+function syncAnimatedState(){
+  if(labStateCycle)labStateCycle.refresh();
+  if(editCycle)editCycle.refresh();
+  if(ttCycle)ttCycle.refresh();
+  if(shouldAnimateLaunch())queueLaunchDraw();
+  else stopLaunchDraw();
+}
+
+prefersReducedMotion.addEventListener?.('change',(event)=>{
+  reducedMotion=event.matches;
+  document.body.classList.toggle('reduce-motion',reducedMotion);
+  syncAnimatedState();
+});
+
+document.addEventListener('visibilitychange',()=>{
+  runtime.pageVisible=!document.hidden;
+  syncAnimatedState();
+});
+
+const animatedSections={
+  top:'launchVisible',
+  lab:'labVisible',
+  motion:'motionVisible',
+  'tiktok-lab':'tiktokVisible'
+};
+const animatedSectionObserver=new IntersectionObserver((entries)=>{
+  entries.forEach((entry)=>{
+    const key=animatedSections[entry.target.id];
+    if(key)runtime[key]=entry.isIntersecting;
+  });
+  syncAnimatedState();
+},{threshold:.22});
+Object.keys(animatedSections).forEach((id)=>{
+  const el=document.getElementById(id);
+  if(el)animatedSectionObserver.observe(el);
+});
+syncAnimatedState();
 
 const launchScene=document.getElementById('launchScene');
 const mainDevice=document.getElementById('mainDevice');
@@ -3764,11 +3943,14 @@ const rightDevice=document.getElementById('rightDevice');
 const labStage=document.getElementById('labStage');
 
 function attachParallax(area,transforms){
-  if(!area||reducedMotion)return;
-  area.addEventListener('mousemove',(event)=>{
-    const rect=area.getBoundingClientRect();
-    const x=(event.clientX-rect.left)/rect.width-.5;
-    const y=(event.clientY-rect.top)/rect.height-.5;
+  if(!area||reducedMotion||!canHover)return;
+  let frame=0;
+  let nextX=0;
+  let nextY=0;
+  function applyTransforms(){
+    frame=0;
+    const x=nextX;
+    const y=nextY;
     Object.entries(transforms).forEach(([key,el])=>{
       if(!el)return;
       if(key==='scene'){
@@ -3784,16 +3966,27 @@ function attachParallax(area,transforms){
         el.style.transform=`rotate(${14+x*7}deg) rotateY(${-14+x*18}deg) translateY(${y*-8}px)`;
       }
       if(key==='phone'){
-        el.style.transform=`rotate(${-8+x*8}deg) rotateY(${-10+x*18}deg) rotateX(${9-y*14}deg) translateY(${y*-8}px)`;
+        el.style.transform=`rotate(${-6+x*7}deg) rotateY(${-9+x*16}deg) rotateX(${8-y*12}deg) translateY(${y*-6}px)`;
       }
     });
+  }
+  area.addEventListener('pointermove',(event)=>{
+    if(!runtime.pageVisible||reducedMotion)return;
+    const rect=area.getBoundingClientRect();
+    nextX=(event.clientX-rect.left)/rect.width-.5;
+    nextY=(event.clientY-rect.top)/rect.height-.5;
+    if(!frame)frame=requestAnimationFrame(applyTransforms);
   });
-  area.addEventListener('mouseleave',()=>{
+  area.addEventListener('pointerleave',()=>{
+    if(frame){
+      cancelAnimationFrame(frame);
+      frame=0;
+    }
     if(transforms.main)transforms.main.style.transform='translateX(-50%) rotate(-9deg) rotateY(-12deg) rotateX(10deg)';
     if(transforms.left)transforms.left.style.transform='rotate(-18deg) rotateY(16deg)';
     if(transforms.right)transforms.right.style.transform='rotate(14deg) rotateY(-14deg)';
     if(transforms.scene)transforms.scene.style.transform='translate(0,0)';
-    if(transforms.phone)transforms.phone.style.transform='rotate(-8deg) rotateY(-10deg) rotateX(9deg)';
+    if(transforms.phone)transforms.phone.style.transform='rotate(-6deg) rotateY(-9deg) rotateX(8deg)';
   });
 }
 attachParallax(launchScene,{scene:document.querySelector('.scene-core')});
@@ -3809,18 +4002,24 @@ function sendBriefV4(event){
   const message=document.getElementById('v4Message');
   const required=[name,email,service,message];
   let valid=true;
+  let firstInvalid=null;
   required.forEach((field)=>{
     field.classList.remove('error');
     if(!field.value.trim()){
       field.classList.add('error');
       valid=false;
+      if(!firstInvalid)firstInvalid=field;
     }
   });
   if(email.value.trim()&&!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value.trim())){
     email.classList.add('error');
     valid=false;
+    if(!firstInvalid)firstInvalid=email;
   }
-  if(!valid)return;
+  if(!valid){
+    if(firstInvalid)firstInvalid.focus();
+    return;
+  }
   const subject=encodeURIComponent(`APEX V4 project brief — ${name.value.trim()}`);
   const body=encodeURIComponent([
     `Name: ${name.value.trim()}`,
