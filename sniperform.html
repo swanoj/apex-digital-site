@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sniperform - High-Converting Shopify Landing Concept</title>
-<meta name="description" content="A cleaner, higher-converting Shopify landing page concept for Sniperform, built around LevelUp Performance Grips, ad-click traffic, stronger proof, real videos, and a sharper buy path.">
-<meta name="theme-color" content="#f3f5f7">
-<meta property="og:title" content="Sniperform - High-Converting Shopify Landing Concept">
-<meta property="og:description" content="A cleaner Apple/Tesla-style Shopify landing page concept for Sniperform, focused on product clarity, proof, and conversion.">
+<title>Sniperform | LevelUp Performance Grips</title>
+<meta name="description" content="A high-converting Sniperform landing page for LevelUp Performance Grips, built around real proof, real video, and a cleaner direct path into the Shopify checkout.">
+<meta name="theme-color" content="#050608">
+<meta property="og:title" content="Sniperform | LevelUp Performance Grips">
+<meta property="og:description" content="Patented alignment grips with thick-grip stimulus, real athlete proof, and a cleaner direct-response Shopify flow.">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,19 +15,20 @@
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#f3f5f7;
-  --bg-soft:#ecf0f3;
-  --panel:#ffffff;
-  --panel-soft:#f7f9fb;
-  --ink:#0b1014;
-  --ink-soft:#4f5b67;
-  --line:rgba(8,15,20,.08);
-  --line-strong:rgba(8,15,20,.14);
-  --green:#c9ff3f;
-  --mint:#85f0dd;
-  --cyan:#77bfff;
-  --shadow:0 24px 80px rgba(20,28,36,.08);
-  --shadow-strong:0 34px 100px rgba(10,15,20,.14);
+  --bg:#050608;
+  --bg-soft:#0c1014;
+  --panel:#0d1217;
+  --panel-soft:#131922;
+  --ink:#f7fbff;
+  --ink-soft:#a5b0bc;
+  --line:rgba(255,255,255,.08);
+  --line-strong:rgba(255,255,255,.14);
+  --green:#b5ff47;
+  --mint:#6cf5d7;
+  --cyan:#7dc2ff;
+  --purple:#8f5dff;
+  --shadow:0 24px 80px rgba(0,0,0,.22);
+  --shadow-strong:0 34px 100px rgba(0,0,0,.36);
   --ease:cubic-bezier(.22,.84,.24,1);
 }
 *{box-sizing:border-box;margin:0;padding:0}
@@ -36,9 +37,10 @@ body{
   min-height:100vh;
   overflow-x:hidden;
   background:
-    radial-gradient(circle at 20% 0%, rgba(119,191,255,.14), transparent 20%),
-    radial-gradient(circle at 82% 8%, rgba(133,240,221,.16), transparent 18%),
-    linear-gradient(180deg,#f7f9fb 0%, #eef2f5 38%, #f2f4f7 100%);
+    radial-gradient(circle at 18% 0%, rgba(143,93,255,.2), transparent 22%),
+    radial-gradient(circle at 82% 8%, rgba(181,255,71,.14), transparent 18%),
+    radial-gradient(circle at 48% 100%, rgba(125,194,255,.12), transparent 28%),
+    linear-gradient(180deg,#050608 0%, #07090d 48%, #040507 100%);
   color:var(--ink);
   font-family:'Sora',sans-serif;
 }
@@ -54,7 +56,7 @@ img,video{display:block;max-width:100%}
   position:fixed;
   inset:0 0 auto;
   height:3px;
-  background:rgba(8,15,20,.04);
+  background:rgba(255,255,255,.06);
   z-index:160;
 }
 #progressBar{
@@ -67,7 +69,7 @@ img,video{display:block;max-width:100%}
   position:sticky;
   top:0;
   z-index:150;
-  background:#0b1014;
+  background:#040506;
   color:rgba(255,255,255,.82);
   border-bottom:1px solid rgba(255,255,255,.08);
   overflow:hidden;
@@ -109,10 +111,10 @@ img,video{display:block;max-width:100%}
   justify-content:space-between;
   gap:18px;
   border-radius:24px;
-  border:1px solid rgba(8,15,20,.06);
-  background:rgba(255,255,255,.86);
+  border:1px solid rgba(255,255,255,.08);
+  background:rgba(10,14,20,.74);
   backdrop-filter:blur(18px);
-  box-shadow:0 16px 40px rgba(10,15,20,.06);
+  box-shadow:0 16px 40px rgba(0,0,0,.24);
 }
 .brand{
   display:inline-flex;
@@ -127,9 +129,9 @@ img,video{display:block;max-width:100%}
   border-radius:14px;
   display:grid;
   place-items:center;
-  background:linear-gradient(135deg,var(--cyan),var(--mint),var(--green));
+  background:linear-gradient(135deg,var(--purple),var(--cyan),var(--green));
   color:#091014;
-  box-shadow:0 10px 24px rgba(119,191,255,.16);
+  box-shadow:0 10px 24px rgba(125,194,255,.2);
 }
 .brand small{
   display:block;
@@ -137,7 +139,7 @@ img,video{display:block;max-width:100%}
   font-size:10px;
   letter-spacing:.16em;
   text-transform:uppercase;
-  color:var(--ink-soft);
+  color:#8fa0af;
 }
 .nav{
   display:flex;
@@ -146,7 +148,7 @@ img,video{display:block;max-width:100%}
 }
 .nav a{
   font-size:13px;
-  color:rgba(11,16,20,.6);
+  color:rgba(255,255,255,.62);
 }
 .nav a:hover,
 .nav a.active{color:var(--ink)}
@@ -165,11 +167,12 @@ img,video{display:block;max-width:100%}
 }
 .ghost{
   padding:11px 16px;
-  background:rgba(8,15,20,.04);
-  border:1px solid rgba(8,15,20,.08);
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.12);
   font-size:13px;
+  color:#f7fbff;
 }
-.ghost:hover{transform:translateY(-1px);border-color:rgba(8,15,20,.16)}
+.ghost:hover{transform:translateY(-1px);border-color:rgba(255,255,255,.2)}
 .cta{
   padding:11px 18px;
   background:linear-gradient(135deg,var(--green),var(--mint));
@@ -193,13 +196,13 @@ main{position:relative;z-index:1}
   font-size:11px;
   letter-spacing:.14em;
   text-transform:uppercase;
-  color:#577182;
+  color:#97abbb;
 }
 .eyebrow::before{
   content:'';
   width:30px;
   height:1px;
-  background:linear-gradient(90deg,var(--cyan),transparent);
+  background:linear-gradient(90deg,var(--green),transparent);
 }
 .reveal{
   opacity:0;
@@ -219,6 +222,8 @@ main{position:relative;z-index:1}
 }
 .hero-panel,
 .proof-card,
+.showcase-shell,
+.gallery-card,
 .video-shell,
 .offer-shell,
 .testimonial-shell,
@@ -227,14 +232,17 @@ main{position:relative;z-index:1}
 .cta-shell{
   border-radius:34px;
   border:1px solid var(--line);
-  background:rgba(255,255,255,.86);
+  background:linear-gradient(180deg,rgba(13,18,23,.92),rgba(8,11,15,.94));
   box-shadow:var(--shadow);
 }
 .hero-copy{
-  padding:42px;
+  padding:44px;
   display:grid;
   gap:18px;
   align-content:start;
+  background:
+    radial-gradient(circle at 86% 0%, rgba(125,194,255,.14), transparent 28%),
+    radial-gradient(circle at 0% 100%, rgba(143,93,255,.16), transparent 34%);
 }
 .hero-copy h1{
   font-size:clamp(62px,8vw,112px);
@@ -243,7 +251,7 @@ main{position:relative;z-index:1}
   max-width:8ch;
 }
 .hero-copy .accent{
-  background:linear-gradient(90deg,#0b1014,var(--cyan),var(--green));
+  background:linear-gradient(90deg,var(--cyan),#d4d9df,var(--green));
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
 }
@@ -266,10 +274,10 @@ main{position:relative;z-index:1}
 .trust-chip{
   padding:11px 14px;
   border-radius:999px;
-  border:1px solid rgba(8,15,20,.08);
-  background:var(--panel-soft);
+  border:1px solid rgba(255,255,255,.08);
+  background:rgba(255,255,255,.04);
   font-size:12px;
-  color:#22313d;
+  color:#d1d9e1;
 }
 .hero-stats{
   display:grid;
@@ -279,8 +287,8 @@ main{position:relative;z-index:1}
 .stat{
   padding:16px;
   border-radius:24px;
-  background:var(--panel-soft);
-  border:1px solid rgba(8,15,20,.06);
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.08);
 }
 .stat small{
   display:block;
@@ -288,7 +296,7 @@ main{position:relative;z-index:1}
   font-size:10px;
   letter-spacing:.14em;
   text-transform:uppercase;
-  color:#6a7b88;
+  color:#8fa0af;
   margin-bottom:8px;
 }
 .stat strong{
@@ -308,17 +316,18 @@ main{position:relative;z-index:1}
   padding:24px;
   overflow:hidden;
   background:
-    radial-gradient(circle at 50% 14%, rgba(119,191,255,.14), transparent 22%),
-    radial-gradient(circle at 72% 16%, rgba(133,240,221,.16), transparent 20%),
-    linear-gradient(180deg,#ffffff,#eef3f7 84%);
+    radial-gradient(circle at 22% 18%, rgba(143,93,255,.62), transparent 26%),
+    radial-gradient(circle at 78% 22%, rgba(181,255,71,.28), transparent 22%),
+    radial-gradient(circle at 48% 54%, rgba(125,194,255,.22), transparent 32%),
+    linear-gradient(135deg,#1d1034 0%, #251a44 28%, #132132 58%, #25461f 100%);
 }
 .hero-product::before{
   content:'';
   position:absolute;
   inset:0;
   background:
-    linear-gradient(transparent 0 96%, rgba(8,15,20,.02) 96%),
-    linear-gradient(90deg, transparent 0 96%, rgba(8,15,20,.02) 96%);
+    linear-gradient(transparent 0 96%, rgba(255,255,255,.06) 96%),
+    linear-gradient(90deg, transparent 0 96%, rgba(255,255,255,.05) 96%);
   background-size:100% 14%, 10% 100%;
   opacity:.5;
 }
@@ -332,22 +341,23 @@ main{position:relative;z-index:1}
   width:min(520px,100%);
   padding:28px;
   border-radius:34px;
-  background:rgba(255,255,255,.88);
-  border:1px solid rgba(8,15,20,.06);
+  background:rgba(8,11,15,.38);
+  border:1px solid rgba(255,255,255,.12);
   box-shadow:var(--shadow-strong);
+  backdrop-filter:blur(10px);
 }
 .product-frame img{
   width:100%;
   object-fit:contain;
-  filter:drop-shadow(0 34px 30px rgba(20,28,36,.14));
+  filter:drop-shadow(0 34px 30px rgba(0,0,0,.42));
 }
 .floating-note,
 .proof-banner{
   position:absolute;
   z-index:2;
-  background:rgba(255,255,255,.88);
-  border:1px solid rgba(8,15,20,.08);
-  box-shadow:0 20px 46px rgba(15,24,32,.12);
+  background:rgba(10,14,20,.58);
+  border:1px solid rgba(255,255,255,.12);
+  box-shadow:0 20px 46px rgba(0,0,0,.24);
   backdrop-filter:blur(16px);
 }
 .floating-note{
@@ -365,7 +375,7 @@ main{position:relative;z-index:1}
   font-size:10px;
   letter-spacing:.14em;
   text-transform:uppercase;
-  color:#6a7b88;
+  color:#a8b5c2;
   margin-bottom:8px;
 }
 .floating-note strong{
@@ -377,7 +387,7 @@ main{position:relative;z-index:1}
   margin-top:8px;
   font-size:12px;
   line-height:1.7;
-  color:var(--ink-soft);
+  color:rgba(255,255,255,.76);
 }
 .proof-banner{
   left:28px;
@@ -406,7 +416,7 @@ main{position:relative;z-index:1}
   margin-top:8px;
   font-size:13px;
   line-height:1.75;
-  color:var(--ink-soft);
+  color:rgba(255,255,255,.76);
 }
 .buy-card{
   position:absolute;
@@ -415,9 +425,10 @@ main{position:relative;z-index:1}
   bottom:24px;
   padding:18px;
   border-radius:28px;
-  background:#0b1014;
+  background:rgba(7,10,14,.88);
   color:#f8fbff;
-  box-shadow:0 28px 60px rgba(11,16,20,.24);
+  box-shadow:0 28px 60px rgba(0,0,0,.34);
+  border:1px solid rgba(255,255,255,.12);
 }
 .buy-card-top{
   display:flex;
@@ -477,7 +488,7 @@ main{position:relative;z-index:1}
   padding:18px;
   border-radius:28px;
   border:1px solid var(--line);
-  background:rgba(255,255,255,.78);
+  background:rgba(10,14,20,.78);
   box-shadow:var(--shadow);
   display:grid;
   gap:14px;
@@ -487,7 +498,7 @@ main{position:relative;z-index:1}
   font-size:11px;
   letter-spacing:.14em;
   text-transform:uppercase;
-  color:#6a7b88;
+  color:#8fa0af;
 }
 .partner-row{
   display:grid;
@@ -498,13 +509,13 @@ main{position:relative;z-index:1}
   padding:14px;
   border-radius:20px;
   text-align:center;
-  background:var(--panel-soft);
-  border:1px solid rgba(8,15,20,.06);
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.08);
   font-family:'IBM Plex Mono',monospace;
   font-size:12px;
   letter-spacing:.12em;
   text-transform:uppercase;
-  color:#24313c;
+  color:#eff4fa;
 }
 .proof-grid{
   display:grid;
@@ -526,12 +537,104 @@ main{position:relative;z-index:1}
   line-height:1.8;
   color:var(--ink-soft);
 }
+.showcase-head{
+  display:grid;
+  gap:16px;
+  margin-bottom:22px;
+}
+.showcase-head h2{
+  font-size:clamp(42px,6vw,86px);
+  line-height:.9;
+  letter-spacing:-.06em;
+  max-width:11ch;
+}
+.showcase-head p{
+  max-width:60ch;
+  color:var(--ink-soft);
+  font-size:15px;
+  line-height:1.85;
+}
+.filter-pills{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+}
+.filter-pill{
+  padding:10px 14px;
+  border-radius:999px;
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.08);
+  font-family:'IBM Plex Mono',monospace;
+  font-size:11px;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:#d6dde5;
+}
+.showcase-shell{
+  padding:24px;
+  background:
+    radial-gradient(circle at 84% 0%, rgba(181,255,71,.12), transparent 24%),
+    radial-gradient(circle at 0% 100%, rgba(143,93,255,.12), transparent 24%),
+    linear-gradient(180deg,rgba(11,15,21,.94),rgba(6,8,12,.98));
+}
+.gallery-grid{
+  display:grid;
+  grid-template-columns:1.3fr .8fr .9fr;
+  gap:16px;
+}
+.gallery-card{
+  position:relative;
+  min-height:280px;
+  overflow:hidden;
+}
+.gallery-card.tall{min-height:576px}
+.gallery-card.wide{grid-column:span 2}
+.gallery-card img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  filter:saturate(1.02) contrast(1.02);
+}
+.gallery-card::after{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg, rgba(0,0,0,.08), rgba(0,0,0,.62));
+}
+.gallery-copy{
+  position:absolute;
+  inset:auto 20px 20px;
+  z-index:2;
+  display:grid;
+  gap:8px;
+}
+.gallery-copy small{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:10px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:rgba(255,255,255,.68);
+}
+.gallery-copy strong{
+  font-size:28px;
+  line-height:.94;
+  letter-spacing:-.05em;
+}
+.gallery-copy p{
+  max-width:34ch;
+  font-size:13px;
+  line-height:1.7;
+  color:rgba(255,255,255,.78);
+}
 .dark-wrap{
-  background:#0b1014;
+  background:
+    radial-gradient(circle at 14% 0%, rgba(143,93,255,.16), transparent 24%),
+    linear-gradient(180deg,#090c11,#05070a 92%);
   color:#f7fbff;
   border-radius:40px;
   padding:40px;
-  box-shadow:0 40px 90px rgba(10,15,20,.18);
+  box-shadow:0 40px 90px rgba(0,0,0,.32);
+  border:1px solid rgba(255,255,255,.08);
 }
 .dark-wrap .eyebrow{color:#a8c4d6}
 .dark-wrap .eyebrow::before{background:linear-gradient(90deg,var(--mint),transparent)}
@@ -663,8 +766,8 @@ main{position:relative;z-index:1}
 .bundle-visual{
   padding:24px;
   border-radius:28px;
-  background:linear-gradient(180deg,#ffffff,#edf2f6);
-  border:1px solid rgba(8,15,20,.06);
+  background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.02));
+  border:1px solid rgba(255,255,255,.08);
 }
 .bundle-visual img{
   width:100%;
@@ -678,8 +781,8 @@ main{position:relative;z-index:1}
 .bundle-point{
   padding:16px 18px;
   border-radius:22px;
-  background:var(--panel-soft);
-  border:1px solid rgba(8,15,20,.06);
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.08);
   display:flex;
   align-items:center;
   justify-content:space-between;
@@ -718,14 +821,15 @@ main{position:relative;z-index:1}
   margin-top:14px;
   font-size:12px;
   line-height:1.75;
-  color:#6a7b88;
+  color:#8fa0af;
 }
 .quote-card{
   padding:22px;
   border-radius:28px;
-  background:#0b1014;
+  background:linear-gradient(180deg,#0a0d12,#05070b);
   color:#fff;
-  box-shadow:0 34px 80px rgba(8,15,20,.18);
+  box-shadow:0 34px 80px rgba(0,0,0,.3);
+  border:1px solid rgba(255,255,255,.08);
 }
 .quote-card blockquote{
   font-size:28px;
@@ -743,10 +847,12 @@ main{position:relative;z-index:1}
 .testimonial-media{
   padding:16px;
   border-radius:28px;
-  background:linear-gradient(180deg,#0b1014,#162029);
+  background:linear-gradient(180deg,#111621,#05070a);
   display:grid;
   gap:14px;
   color:#fff;
+  border:1px solid rgba(255,255,255,.08);
+  box-shadow:var(--shadow);
 }
 .testimonial-media img{
   width:100%;
@@ -788,8 +894,8 @@ main{position:relative;z-index:1}
   gap:12px;
   padding:16px 18px;
   border-radius:22px;
-  border:1px solid rgba(8,15,20,.06);
-  background:var(--panel-soft);
+  border:1px solid rgba(255,255,255,.08);
+  background:rgba(255,255,255,.04);
   align-items:center;
 }
 .comparison-row.headline{
@@ -797,13 +903,13 @@ main{position:relative;z-index:1}
   font-size:11px;
   letter-spacing:.14em;
   text-transform:uppercase;
-  color:#6a7b88;
+  color:#8fa0af;
 }
 .comparison-row span:nth-child(2){
-  color:#7c8791;
+  color:#85909c;
 }
 .comparison-row span:nth-child(3){
-  color:#163028;
+  color:var(--green);
   font-weight:600;
 }
 .faq-list{
@@ -813,8 +919,8 @@ main{position:relative;z-index:1}
 }
 .faq-item{
   border-radius:24px;
-  border:1px solid rgba(8,15,20,.08);
-  background:var(--panel-soft);
+  border:1px solid rgba(255,255,255,.08);
+  background:rgba(255,255,255,.04);
   overflow:hidden;
 }
 .faq-item button{
@@ -838,10 +944,10 @@ main{position:relative;z-index:1}
   width:30px;
   height:30px;
   border-radius:50%;
-  border:1px solid rgba(8,15,20,.12);
+  border:1px solid rgba(255,255,255,.14);
   display:grid;
   place-items:center;
-  color:#6a7b88;
+  color:#8fa0af;
   font-style:normal;
 }
 .faq-answer{
@@ -859,7 +965,7 @@ main{position:relative;z-index:1}
 .faq-item.open .faq-answer{grid-template-rows:1fr}
 .faq-item.open em{
   color:var(--ink);
-  border-color:rgba(8,15,20,.18);
+  border-color:rgba(255,255,255,.22);
 }
 .cta-shell{
   display:grid;
@@ -877,7 +983,7 @@ main{position:relative;z-index:1}
   justify-content:space-between;
   gap:12px;
   font-size:12px;
-  color:#6a7b88;
+  color:#8fa0af;
 }
 .footer-links{
   display:flex;
@@ -896,10 +1002,10 @@ main{position:relative;z-index:1}
   justify-content:space-between;
   gap:14px;
   border-radius:24px;
-  border:1px solid rgba(8,15,20,.08);
-  background:rgba(255,255,255,.92);
+  border:1px solid rgba(255,255,255,.12);
+  background:rgba(7,10,14,.88);
   backdrop-filter:blur(16px);
-  box-shadow:0 22px 50px rgba(12,16,20,.12);
+  box-shadow:0 22px 50px rgba(0,0,0,.34);
   opacity:0;
   pointer-events:none;
   transition:opacity .28s var(--ease), transform .28s var(--ease);
@@ -919,14 +1025,14 @@ main{position:relative;z-index:1}
   font-size:10px;
   letter-spacing:.14em;
   text-transform:uppercase;
-  color:#6a7b88;
+  color:#8fa0af;
 }
 .sticky-copy strong{
   font-size:18px;
 }
 .sticky-copy span{
   font-size:12px;
-  color:var(--ink-soft);
+  color:rgba(255,255,255,.72);
 }
 @media (max-width:1180px){
   .nav{display:none}
@@ -937,7 +1043,10 @@ main{position:relative;z-index:1}
   .cta-shell{grid-template-columns:1fr}
   .hero-product{min-height:760px}
   .proof-grid,
+  .gallery-grid,
   .partner-row{grid-template-columns:1fr 1fr}
+  .gallery-card.wide{grid-column:auto}
+  .gallery-card.tall{min-height:420px}
 }
 @media (max-width:760px){
   html{scroll-padding-top:82px}
@@ -962,6 +1071,7 @@ main{position:relative;z-index:1}
   .hero-stats,
   .proof-grid,
   .partner-row,
+  .gallery-grid,
   .video-grid,
   .cta-shell{grid-template-columns:1fr}
   .hero-product{
@@ -982,6 +1092,9 @@ main{position:relative;z-index:1}
   .buy-card-top{flex-direction:column}
   .dark-wrap{padding:24px;border-radius:30px}
   .dark-wrap h2{font-size:clamp(36px,12vw,58px)}
+  .showcase-head h2{font-size:clamp(36px,12vw,58px)}
+  .gallery-card,
+  .gallery-card.tall{min-height:320px}
   .video-card{min-height:420px;border-right:none;border-bottom:1px solid rgba(255,255,255,.08)}
   .video-card:last-child{border-bottom:none}
   .comparison-row{
@@ -1006,10 +1119,12 @@ main{position:relative;z-index:1}
   <div class="announcement-track">
     <span>Orders before 2pm AEDT are dispatched same day</span>
     <span>30-day money-back guarantee</span>
+    <span>Free shaker with every LevelUp order</span>
     <span>Secure Shopify checkout</span>
     <span>Now shipping to the U.S.A</span>
     <span>Orders before 2pm AEDT are dispatched same day</span>
     <span>30-day money-back guarantee</span>
+    <span>Free shaker with every LevelUp order</span>
     <span>Secure Shopify checkout</span>
     <span>Now shipping to the U.S.A</span>
   </div>
@@ -1018,17 +1133,18 @@ main{position:relative;z-index:1}
 <header class="topbar">
   <a class="brand" href="#top">
     <span class="brand-mark">SF</span>
-    <span>SNIPERFORM <small>Shopify ad landing concept</small></span>
+    <span>SNIPERFORM <small>Patented lifting system</small></span>
   </a>
   <nav class="nav">
     <a href="#benefits">Benefits</a>
+    <a href="#gallery">Gallery</a>
     <a href="#videos">Videos</a>
     <a href="#offer">Offer</a>
     <a href="#comparison">Compare</a>
     <a href="#faq">FAQ</a>
   </nav>
   <div class="top-actions">
-    <a class="ghost" href="v4.html">Back to V4</a>
+    <a class="ghost" href="https://sniperform.com.au/">Live store</a>
     <a class="cta" href="https://sniperform.com.au/products/level-up-alignment-grips">Buy on Shopify</a>
   </div>
 </header>
@@ -1036,9 +1152,9 @@ main{position:relative;z-index:1}
 <main>
   <section class="hero" id="top">
     <article class="hero-panel hero-copy reveal">
-      <div class="eyebrow">Ad-click Shopify landing page</div>
+      <div class="eyebrow">Patented alignment grips</div>
       <h1>Balanced <span class="accent">lifting</span>, bigger arms, and cleaner reps.</h1>
-      <p>This rebuild is designed for cold traffic. Someone lands from an ad, instantly understands the product, sees the proof, watches the product in action, and clicks through to the live Shopify checkout without friction.</p>
+      <p>LevelUp grips combine thick-grip arm stimulus with Sniperform's visual levelling feedback, so every set feels more stable, more deliberate, and easier to trust under load.</p>
       <div class="hero-actions">
         <a class="cta" href="https://sniperform.com.au/products/level-up-alignment-grips">Unlock my free shaker</a>
         <a class="ghost" href="#videos">Watch it in action</a>
@@ -1051,28 +1167,28 @@ main{position:relative;z-index:1}
       </div>
       <div class="hero-stats">
         <div class="stat">
-          <small>Offer</small>
+          <small>Starter deal</small>
           <strong>$59.95</strong>
-          <p>Lead with one flagship product and one clear bonus instead of splitting attention.</p>
+          <p>One flagship product, one free shaker bonus, and one direct path into the Shopify checkout.</p>
         </div>
         <div class="stat">
-          <small>Growth angle</small>
+          <small>Thick-grip effect</small>
           <strong>30%+</strong>
-          <p>The thicker grip story gives a clear reason to care from the first screen.</p>
+          <p>Thicker bar contact helps make forearms, biceps, and grip strength part of every working set.</p>
         </div>
         <div class="stat">
-          <small>Trust layer</small>
+          <small>Dispatch speed</small>
           <strong>2pm</strong>
-          <p>Same-day dispatch belongs right next to the action, not hidden in support pages.</p>
+          <p>Orders placed before 2pm AEDT are dispatched same day, so the buying decision feels low-friction.</p>
         </div>
       </div>
     </article>
 
     <article class="hero-panel hero-product reveal">
       <div class="floating-note">
-        <small>Why this should convert harder</small>
-        <strong>One product. One promise. One clear path to checkout.</strong>
-        <p>Less wandering, clearer proof, and better commercial pacing for paid traffic.</p>
+        <small>Why lifters care</small>
+        <strong>Grow the muscles you see and fix the imbalance you don't.</strong>
+        <p>LevelUp gives you thick-grip stimulus and a clean visual cue to keep the bar level through the rep.</p>
       </div>
       <div class="product-stage">
         <div class="product-frame">
@@ -1082,9 +1198,9 @@ main{position:relative;z-index:1}
       <div class="proof-banner">
         <img src="https://sniperform.com.au/cdn/shop/files/0F3A2480_square_crop_2000.webp?v=1769488611&width=1200" alt="Athlete using Sniperform LevelUp grips">
         <div>
-          <small>Short-form proof</small>
-          <strong>Show the lift. Show the problem. Show the outcome.</strong>
-          <p>The current site already has the right videos. This format just places them earlier and makes them work harder for conversion.</p>
+          <small>Train with feedback</small>
+          <strong>See the imbalance before it becomes your default pattern.</strong>
+          <p>That front-facing level indicator makes the product instantly understandable, even for someone landing cold from an ad.</p>
         </div>
       </div>
       <div class="buy-card" id="buyCard">
@@ -1110,7 +1226,7 @@ main{position:relative;z-index:1}
   </section>
 
   <section class="partner-strip reveal">
-    <p>Partner brands already used as trust on the live site</p>
+    <p>Partner brands and athlete proof already trusted by the live Sniperform store</p>
     <div class="partner-row">
       <div class="partner-chip">IFBB</div>
       <div class="partner-chip">ICN</div>
@@ -1126,31 +1242,92 @@ main{position:relative;z-index:1}
       <article class="proof-card reveal">
         <div class="eyebrow">Benefit 01</div>
         <strong>Bigger arms, faster.</strong>
-        <p>Lead with the thick-grip outcome because that is the ad-click reason most gym buyers care about first.</p>
+        <p>Thick-grip training increases the demand on your grip, forearms, and biceps without adding a more complicated setup.</p>
       </article>
       <article class="proof-card reveal">
         <div class="eyebrow">Benefit 02</div>
         <strong>Balanced barbell lifts.</strong>
-        <p>Move the levelling technology from “interesting feature” to obvious performance and injury-prevention benefit.</p>
+        <p>The built-in level gives you a real-time cue to clean up compensation patterns before they turn into messy reps.</p>
       </article>
       <article class="proof-card reveal">
         <div class="eyebrow">Benefit 03</div>
         <strong>Quick-lock and gym-ready.</strong>
-        <p>Setup speed, material quality, and fit reassurance help the page feel more serious and less gadget-like.</p>
+        <p>Clip them onto your bar or dumbbells, lock in, and train. No fiddly routine, no learning curve, no cheap-accessory feel.</p>
       </article>
       <article class="proof-card reveal">
         <div class="eyebrow">Benefit 04</div>
-        <strong>Cleaner ad-to-checkout flow.</strong>
-        <p>Build the page to answer questions in the order a paid visitor actually asks them, then push the live Shopify CTA.</p>
+        <strong>Confidence at the checkout.</strong>
+        <p>Free shaker, same-day dispatch, secure Shopify checkout, and a 30-day money-back guarantee remove hesitation fast.</p>
       </article>
+    </div>
+  </section>
+
+  <section class="section" id="gallery">
+    <div class="showcase-head reveal">
+      <div class="eyebrow">Train smarter</div>
+      <h2>Built for the lifts that expose weak grip and uneven reps.</h2>
+      <p>Use LevelUp on rows, presses, deadlifts, curls, and accessory work where thicker grip stimulus and bar-level feedback change the quality of the set immediately.</p>
+      <div class="filter-pills">
+        <div class="filter-pill">Rows</div>
+        <div class="filter-pill">Pressing</div>
+        <div class="filter-pill">Deadlifts</div>
+        <div class="filter-pill">Arm work</div>
+        <div class="filter-pill">Grip strength</div>
+        <div class="filter-pill">Balance control</div>
+      </div>
+    </div>
+
+    <div class="showcase-shell reveal">
+      <div class="gallery-grid">
+        <article class="gallery-card wide">
+          <img src="https://sniperform.com.au/cdn/shop/files/0F3A2557_square_crop_2000.webp?v=1769487620&width=1600" alt="Sniperform LevelUp grip showing the level indicator in use on a barbell">
+          <div class="gallery-copy">
+            <small>Visual feedback</small>
+            <strong>Stay level when the set gets hard.</strong>
+            <p>The front indicator turns form correction into something you can see in real time instead of guessing under fatigue.</p>
+          </div>
+        </article>
+        <article class="gallery-card tall">
+          <img src="https://sniperform.com.au/cdn/shop/files/0F3A3029_square_crop_2000.webp?v=1767933896&width=1400" alt="Athlete setting up a lift with Sniperform LevelUp grips">
+          <div class="gallery-copy">
+            <small>Gym-ready setup</small>
+            <strong>Clip on and go.</strong>
+            <p>Fast setup matters when the page promise is simple: bring them into the session and feel the difference in the first lift.</p>
+          </div>
+        </article>
+        <article class="gallery-card">
+          <img src="https://sniperform.com.au/cdn/shop/files/sniperform_grip_amazon_tight_v2_2000x2000_1f9db07d-6f90-4ad6-878a-a3d0ea33913c.jpg?v=1769488611&width=1200" alt="Sniperform LevelUp Performance Grips product shot">
+          <div class="gallery-copy">
+            <small>Product design</small>
+            <strong>Thick-grip stimulus with a built-in levelling system.</strong>
+            <p>That combination is the difference between another generic grip tool and a product with a real training mechanism.</p>
+          </div>
+        </article>
+        <article class="gallery-card">
+          <img src="https://sniperform.com.au/cdn/shop/files/0F3A2480_square_crop_2000.webp?v=1769488611&width=1200" alt="Athlete training with Sniperform LevelUp grips">
+          <div class="gallery-copy">
+            <small>Muscle focus</small>
+            <strong>More demand on your grip, forearms, and biceps.</strong>
+            <p>Use the thicker contact point to make the target muscles work harder without changing the entire movement.</p>
+          </div>
+        </article>
+        <article class="gallery-card wide">
+          <img src="https://sniperform.com.au/cdn/shop/files/0F3A2747.png?v=1738733865&width=1400" alt="Sniperform products grouped together">
+          <div class="gallery-copy">
+            <small>Premium build</small>
+            <strong>Serious enough to feel like gear, not a gimmick.</strong>
+            <p>Rounded hardware, strong materials, and cleaner visual branding help the product hold its own in a premium Shopify funnel.</p>
+          </div>
+        </article>
+      </div>
     </div>
   </section>
 
   <section class="section" id="videos">
     <div class="dark-wrap reveal">
       <div class="eyebrow">See it in action</div>
-      <h2>Real product videos, surfaced where they help conversion.</h2>
-      <p>The current Sniperform site already has strong short-form assets. This page makes them a core part of the landing experience instead of an optional side detail lower down the funnel.</p>
+      <h2>Short-form proof that sells the product in seconds.</h2>
+      <p>These are the exact kinds of clips that paid traffic responds to: fast setup, obvious problem framing, and a visible before-versus-after outcome inside the same scroll window.</p>
 
       <div class="video-shell">
         <div class="video-grid">
@@ -1161,7 +1338,7 @@ main{position:relative;z-index:1}
             </video>
             <div class="video-overlay">
               <strong>Clip on. Lift. Stay level.</strong>
-              <p>Open with the fastest explanation possible. Make setup and product logic feel obvious in seconds.</p>
+              <p>Start with the mechanical logic fast so a new buyer understands what the grip is doing before they ask any extra questions.</p>
             </div>
           </article>
           <article class="video-card">
@@ -1171,7 +1348,7 @@ main{position:relative;z-index:1}
             </video>
             <div class="video-overlay">
               <strong>Most lifters don't realise they're compensating.</strong>
-              <p>Use the second clip to make the problem feel real: one side takes over, imbalances build, and progress gets messy.</p>
+              <p>Show the imbalance clearly. When the problem looks familiar, the solution feels easier to justify.</p>
             </div>
           </article>
           <article class="video-card">
@@ -1181,7 +1358,7 @@ main{position:relative;z-index:1}
             </video>
             <div class="video-overlay">
               <strong>Cleaner reps under fatigue.</strong>
-              <p>Close on control, confidence, and performance. That ties the videos directly back to the purchase decision.</p>
+              <p>Finish on control and confidence so the viewer can connect the product to better sessions, not just a clever feature.</p>
             </div>
           </article>
         </div>
@@ -1195,7 +1372,7 @@ main{position:relative;z-index:1}
       <article class="offer-shell reveal">
         <div class="eyebrow">Limited-time offer</div>
         <h3>Get a free shaker with LevelUp grips.</h3>
-        <p>The live store already has the right offer. This page just puts it in the perfect spot, with cleaner price anchoring, stronger trust framing, and a more obvious relationship between the product, the bonus, and the checkout button.</p>
+        <p>Make the purchase feel immediate: one product, one bonus, and visible trust markers right before the click through to checkout.</p>
         <div class="offer-price">
           <strong>$59.95</strong>
           <span>$71.95</span>
@@ -1209,7 +1386,7 @@ main{position:relative;z-index:1}
           <a class="cta" href="https://sniperform.com.au/products/level-up-alignment-grips">Unlock my free shaker</a>
           <a class="ghost" href="https://sniperform.com.au/">Visit current store</a>
         </div>
-        <div class="offer-note">This concept page sends buyers to the live Sniperform Shopify product page for the actual purchase flow.</div>
+        <div class="offer-note">Checkout continues on the live Sniperform Shopify product page so stock, pricing, and checkout remain current.</div>
       </article>
 
       <article class="offer-shell bundle-card reveal">
@@ -1217,7 +1394,7 @@ main{position:relative;z-index:1}
           <img src="https://sniperform.com.au/cdn/shop/files/Firefly_put_these_two_products_together_in_1_image_for_website_product_shot_652364.png?v=1773714783&width=1200" alt="Sniperform LevelUp grips with free shaker bundle image">
         </div>
         <div class="eyebrow">Bundle framing</div>
-        <p>Put the visual of the bonus right next to the offer so the page feels like a direct-response landing page, not just a styled catalog.</p>
+        <p>Show the bonus visually, not just in copy. That makes the offer feel real before the user ever reaches the cart.</p>
       </article>
     </div>
   </section>
@@ -1226,8 +1403,8 @@ main{position:relative;z-index:1}
     <div class="testimonial-grid">
       <article class="testimonial-shell reveal">
         <div class="eyebrow">Testimonials and authority</div>
-        <h3>Social proof should feel immediate, not buried.</h3>
-        <p>For a gym buyer, proof matters fast. Use the pro endorsement, the five-star signal, and the partner-brand credibility to make the product feel safer and more serious before the comparison or FAQ sections even begin.</p>
+        <h3>Proof from a real athlete changes the quality of the click.</h3>
+        <p>When a buyer sees an IFBB pro backing the product, the page instantly feels more serious. That credibility lifts the offer, the comparison, and the final checkout CTA.</p>
         <div class="quote-card">
           <blockquote>"Sniperform has completely transformed the way I approach my lifts."</blockquote>
           <div class="byline">Nathan Williamson / IFBB Pro Bodybuilder</div>
@@ -1241,7 +1418,7 @@ main{position:relative;z-index:1}
         </video>
         <div class="testimonial-meta">
           <strong>What the pros have to say</strong>
-          <span>Keep the proof on the page, but give it a cleaner visual treatment and stronger placement in the flow.</span>
+          <span>High-intent traffic needs a fast signal that this is a serious training tool. Athlete proof does that immediately.</span>
         </div>
       </article>
     </div>
@@ -1252,7 +1429,7 @@ main{position:relative;z-index:1}
       <article class="comparison-shell reveal">
         <div class="eyebrow">Comparison</div>
         <h3>Why Sniperform beats a generic thick-grip tool.</h3>
-        <p>The current comparison content is strong. This version just makes it easier to scan and more credible for a paid visitor deciding whether this is meaningfully better than a normal grip accessory.</p>
+        <p>Generic thick grips only change the contact point. Sniperform adds a visual training cue that helps you hold cleaner mechanics when the weight gets harder to control.</p>
         <div class="comparison-table">
           <div class="comparison-row headline"><span>Feature</span><span>Standard thick grip</span><span>Sniperform</span></div>
           <div class="comparison-row"><span>Even weight distribution</span><span>No feedback</span><span>Built in</span></div>
@@ -1266,12 +1443,12 @@ main{position:relative;z-index:1}
 
       <article class="comparison-shell reveal">
         <div class="eyebrow">Positioning</div>
-        <h3>Make the levelling system the headline differentiator.</h3>
-        <p>The thicker grip benefit gets attention, but the real moat is the combination of arm-growth framing and visual alignment feedback. That is what separates Sniperform from the normal category language.</p>
+        <h3>Two clear reasons to buy, not one.</h3>
+        <p>Arm growth gets the click. The levelling system closes the case. Together they make the product feel more original, more useful, and more worth paying for.</p>
         <div class="bundle-points">
-          <div class="bundle-point"><strong>Explosive arm pumps</strong><span>Strong front-of-page hook</span></div>
-          <div class="bundle-point"><strong>Balanced barbell lifts</strong><span>Unique mechanism-based proof</span></div>
-          <div class="bundle-point"><strong>Engineered to last</strong><span>Removes “cheap accessory” doubt</span></div>
+          <div class="bundle-point"><strong>Explosive arm pumps</strong><span>High-attention click driver</span></div>
+          <div class="bundle-point"><strong>Balanced barbell lifts</strong><span>Mechanism the buyer can actually see</span></div>
+          <div class="bundle-point"><strong>Engineered to last</strong><span>Premium finish removes accessory doubt</span></div>
         </div>
       </article>
     </div>
@@ -1281,7 +1458,7 @@ main{position:relative;z-index:1}
     <article class="faq-shell reveal">
       <div class="eyebrow">FAQ</div>
       <h3>Answer the questions that stop the purchase.</h3>
-      <p>The current store already answers the right objections. This version just gives those answers a cleaner, faster structure that feels more premium and more useful to someone landing cold from an ad.</p>
+      <p>Compatibility, beginner fit, delivery speed, and the thick-grip effect are the main blockers. Answer them cleanly and the page can keep moving the user toward checkout.</p>
       <div class="faq-list">
         <div class="faq-item open">
           <button type="button">
@@ -1318,19 +1495,18 @@ main{position:relative;z-index:1}
   <section class="section">
     <article class="cta-shell reveal">
       <div>
-        <div class="eyebrow">Next step</div>
-        <h3>Port this structure into the live Shopify theme.</h3>
-        <p>This concept is built around the actual Sniperform offer, current videos, current proof, and current FAQ logic. The next real move is implementing this cleaner structure inside the live Shopify store so the ads and checkout path feel consistent end-to-end.</p>
+        <div class="eyebrow">Ready to train</div>
+        <h3>Level up your next session.</h3>
+        <p>Take the direct path to the live Shopify product page, claim the free shaker bonus, and bring the grips into your next push, pull, or arm day.</p>
       </div>
-      <a class="cta" href="https://sniperform.com.au/products/level-up-alignment-grips">Open live Shopify product</a>
+      <a class="cta" href="https://sniperform.com.au/products/level-up-alignment-grips">Buy on Shopify</a>
     </article>
   </section>
 </main>
 
 <footer class="footer">
-  <div>Sniperform landing-page concept focused on ad-click conversion</div>
+  <div>Sniperform landing page built around live product proof, video, and Shopify checkout</div>
   <div class="footer-links">
-    <a href="v4.html">Back to V4</a>
     <a href="https://sniperform.com.au/">Live store</a>
     <a href="https://sniperform.com.au/products/level-up-alignment-grips">Live product page</a>
   </div>
@@ -1340,7 +1516,7 @@ main{position:relative;z-index:1}
   <div class="sticky-copy">
     <small>Sniperform / LevelUp</small>
     <strong>$59.95 with free shaker bonus</strong>
-    <span>Same-day dispatch, 30-day money-back, secure Shopify checkout</span>
+    <span>Patented alignment grips, same-day dispatch, secure Shopify checkout</span>
   </div>
   <a class="cta" href="https://sniperform.com.au/products/level-up-alignment-grips">Buy on Shopify</a>
 </div>
@@ -1364,7 +1540,7 @@ document.querySelectorAll('.reveal').forEach((el)=>revealObserver.observe(el));
 function updateScroll(){
   const max=document.documentElement.scrollHeight-window.innerHeight;
   progressBar.style.width=`${max>0?(window.scrollY/max)*100:0}%`;
-  const stickyThreshold=window.innerWidth<760?640:920;
+  const stickyThreshold=window.innerWidth<760?1040:920;
   stickyBar.classList.toggle('show',window.scrollY>stickyThreshold);
   let active='top';
   sectionEls.forEach((section)=>{
