@@ -16,6 +16,7 @@ Open `http://localhost:8000`.
 - `v2.html` is the second, more ambitious concept version.
 - `v3.html` is the more radical hyperstaged concept version.
 - `v4.html` is the maximal-motion TikTok and live-edit concept version.
+- `sniperform.html` is a dedicated Sniperform Shopify conversion concept page.
 - `privacy.html` and `terms.html` back the footer links.
 - The chatbot is a local scripted assistant in the GitHub Pages build.
 - The contact form opens a prefilled email draft instead of posting to a backend.
