@@ -4,2422 +4,1814 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sniperform | LevelUp Performance Grips</title>
-<meta name="description" content="LevelUp Performance Grips by Sniperform. A conversion-focused single-product ecommerce page with live Shopify add-to-cart and buy-now actions, product proof, and a cleaner path to checkout.">
-<meta name="theme-color" content="#f4efe6">
+<meta name="description" content="Patented alignment grips from Sniperform. Thick-grip training plus real-time level feedback for bigger arms, cleaner reps, balanced barbell lifts, and faster trust at checkout.">
+<meta name="theme-color" content="#00c4b3">
 <meta property="og:title" content="Sniperform | LevelUp Performance Grips">
-<meta property="og:description" content="Patented alignment grips for cleaner reps, stronger forearms, bigger arms, and a faster path into the live Sniperform Shopify checkout.">
+<meta property="og:description" content="Build bigger arms without training blind. LevelUp combines thick-grip muscle demand with real-time level feedback for cleaner, more balanced reps.">
 <meta property="og:type" content="website">
 <meta property="og:image" content="https://sniperform.com.au/cdn/shop/files/hero-main-product.png?v=1771839582">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
-:root{
-  --bg:#f4efe6;
-  --bg-soft:#ede7dc;
-  --paper:#fbf8f2;
-  --panel:#ffffff;
-  --panel-soft:#f8f4ed;
-  --ink:#121417;
-  --ink-soft:#5c6370;
-  --line:rgba(18,20,23,.08);
-  --line-strong:rgba(18,20,23,.16);
-  --nav:#15181d;
-  --nav-soft:#232833;
-  --cyan:#39c4ff;
-  --blue:#4a75ff;
-  --mint:#5de6d1;
-  --teal:#1cd6c3;
-  --green:#9ef35b;
-  --shadow:0 20px 60px rgba(28,29,32,.08);
-  --shadow-strong:0 30px 80px rgba(18,20,23,.12);
-  --ease:cubic-bezier(.22,.84,.24,1);
-}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;scroll-padding-top:90px}
-body{
-  min-height:100vh;
-  background:
-    radial-gradient(circle at 18% 0%, rgba(57,196,255,.08), transparent 24%),
-    radial-gradient(circle at 100% 100%, rgba(94,230,209,.08), transparent 28%),
-    linear-gradient(180deg,#f7f2e9 0%, #f4efe6 36%, #f7f2ea 100%);
-  color:var(--ink);
-  font-family:'Sora',sans-serif;
-  overflow-x:hidden;
-}
-body.reduce-motion *{
-  animation-duration:.01ms !important;
-  animation-iteration-count:1 !important;
-  transition-duration:.01ms !important;
-}
-a{color:inherit;text-decoration:none}
-button,input{font:inherit}
-img,video{display:block;max-width:100%}
-.progress{
-  position:fixed;
-  inset:0 0 auto;
-  height:3px;
-  background:rgba(18,20,23,.05);
-  z-index:120;
-}
-#progressBar{
-  width:0;
-  height:100%;
-  background:linear-gradient(90deg,var(--cyan),var(--blue));
-  box-shadow:0 0 16px rgba(74,117,255,.22);
-}
-.site-header{
-  position:sticky;
-  top:0;
-  z-index:110;
-  width:100%;
-  background:rgba(21,24,29,.96);
-  border-bottom:1px solid rgba(255,255,255,.06);
-  box-shadow:0 16px 40px rgba(0,0,0,.08);
-}
-.header-inner{
-  width:min(1380px,calc(100% - 24px));
-  margin:0 auto;
-  min-height:78px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:18px;
-}
-.brand{
-  display:inline-flex;
-  align-items:center;
-  gap:12px;
-  font-weight:800;
-  letter-spacing:-.05em;
-  color:#fff;
-}
-.brand-mark{
-  width:14px;
-  height:14px;
-  border-radius:4px;
-  background:linear-gradient(135deg,var(--cyan),var(--blue));
-}
-.brand small{
-  display:block;
-  font-family:'IBM Plex Mono',monospace;
-  font-size:10px;
-  letter-spacing:.16em;
-  text-transform:uppercase;
-  color:rgba(255,255,255,.5);
-}
-.nav{
-  display:flex;
-  align-items:center;
-  gap:26px;
-  color:rgba(255,255,255,.7);
-}
-.nav a{
-  position:relative;
-  padding:4px 0;
-  font-size:15px;
-}
-.nav a.active,
-.nav a:hover{color:#fff}
-.nav a.active::after{
-  content:'';
-  position:absolute;
-  left:0;
-  right:0;
-  bottom:-19px;
-  height:3px;
-  border-radius:999px;
-  background:linear-gradient(90deg,var(--cyan),var(--blue));
-}
-.header-actions{
-  display:flex;
-  align-items:center;
-  gap:10px;
-}
-.ghost,
-.button,
-.button-dark{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  border-radius:999px;
-  transition:transform .24s var(--ease), box-shadow .24s var(--ease), border-color .24s var(--ease), background .24s var(--ease);
-}
-.ghost{
-  padding:11px 16px;
-  border:1px solid rgba(255,255,255,.12);
-  color:#fff;
-  background:rgba(255,255,255,.04);
-}
-.ghost:hover{transform:translateY(-1px)}
-.button{
-  padding:12px 20px;
-  background:linear-gradient(135deg,var(--cyan),var(--blue));
-  color:#fff;
-  font-weight:700;
-  box-shadow:0 14px 32px rgba(74,117,255,.24);
-}
-.button:hover{transform:translateY(-2px)}
-.button-dark{
-  padding:12px 20px;
-  background:#0f1115;
-  color:#fff;
-  font-weight:700;
-}
-.button-dark:hover{transform:translateY(-2px)}
-main{position:relative}
-.section{
-  width:min(1380px,calc(100% - 24px));
-  margin:0 auto;
-}
-.hero{
-  padding:42px 0 28px;
-}
-.hero-shell{
-  display:grid;
-  grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);
-  gap:30px;
-  align-items:center;
-  min-height:620px;
-}
-.eyebrow{
-  display:inline-flex;
-  align-items:center;
-  gap:10px;
-  font-family:'IBM Plex Mono',monospace;
-  font-size:12px;
-  letter-spacing:.14em;
-  text-transform:uppercase;
-  color:#7b7f87;
-}
-.eyebrow::before{
-  content:'';
-  width:26px;
-  height:1px;
-  background:rgba(18,20,23,.24);
-}
-.hero-copy{
-  max-width:660px;
-}
-.hero-copy h1{
-  margin-top:28px;
-  max-width:8.8ch;
-  font-size:clamp(54px,6vw,82px);
-  line-height:.94;
-  letter-spacing:-.08em;
-  font-weight:500;
-}
-.hero-copy .accent{
-  background:linear-gradient(90deg,var(--ink),var(--cyan),var(--blue));
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-}
-.hero-copy p{
-  max-width:540px;
-  margin-top:20px;
-  color:var(--ink-soft);
-  font-size:15px;
-  line-height:1.78;
-}
-.hero-actions{
-  display:flex;
-  flex-wrap:wrap;
-  gap:12px;
-  margin-top:24px;
-}
-.hero-actions .button-dark,
-.hero-actions .ghost-light{
-  min-width:178px;
-}
-.ghost-light{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  padding:12px 20px;
-  border-radius:999px;
-  border:1px solid rgba(18,20,23,.14);
-  background:transparent;
-  color:var(--ink);
-}
-.ghost-light:hover{transform:translateY(-1px);border-color:rgba(18,20,23,.24)}
-.hero-trust{
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px;
-  margin-top:18px;
-}
-.hero-trust span{
-  padding:9px 13px;
-  border-radius:999px;
-  border:1px solid rgba(18,20,23,.08);
-  background:rgba(255,255,255,.52);
-  color:#5e6470;
-  font-size:11px;
-}
-.hero-right{
-  display:grid;
-  grid-template-columns:minmax(0,1fr) 336px;
-  gap:18px;
-  align-items:stretch;
-}
-.hero-stage{
-  position:relative;
-  min-height:500px;
-  padding:18px;
-  border:1px solid rgba(18,20,23,.08);
-  border-radius:32px;
-  background:rgba(255,255,255,.58);
-  box-shadow:var(--shadow);
-  display:grid;
-  place-items:center;
-}
-.sphere-shell{
-  position:relative;
-  width:min(520px,90%);
-  aspect-ratio:1/1;
-  border-radius:50%;
-  display:grid;
-  place-items:center;
-}
-.sphere-shadow{
-  position:absolute;
-  inset:auto 16% 3% 16%;
-  height:58px;
-  border-radius:50%;
-  background:radial-gradient(circle, rgba(18,20,23,.12), rgba(18,20,23,0) 70%);
-  filter:blur(8px);
-}
-#heroSphere{
-  width:100%;
-  height:100%;
-  opacity:.78;
-}
-.product-float{
-  position:absolute;
-  width:min(440px,78%);
-  filter:drop-shadow(0 28px 46px rgba(18,20,23,.16));
-  animation:floatProduct 6.4s ease-in-out infinite;
-}
-@keyframes floatProduct{
-  0%,100%{transform:translateY(0) rotate(-4deg)}
-  50%{transform:translateY(-16px) rotate(2deg)}
-}
-.floating-tag{
-  position:absolute;
-  padding:14px 16px;
-  border-radius:22px;
-  border:1px solid rgba(18,20,23,.08);
-  background:rgba(255,255,255,.82);
-  box-shadow:var(--shadow);
-  backdrop-filter:blur(14px);
-}
-.floating-tag small{
-  display:block;
-  font-family:'IBM Plex Mono',monospace;
-  font-size:10px;
-  letter-spacing:.14em;
-  text-transform:uppercase;
-  color:#7b7f87;
-  margin-bottom:8px;
-}
-.floating-tag strong{
-  display:block;
-  font-size:17px;
-  line-height:1.14;
-  letter-spacing:-.04em;
-}
-.floating-tag p{
-  margin-top:8px;
-  color:#606874;
-  font-size:12px;
-  line-height:1.62;
-}
-.tag-one{
-  top:46px;
-  right:12px;
-  max-width:240px;
-}
-.tag-two{
-  left:10px;
-  bottom:74px;
-  max-width:210px;
-}
-.hero-buy-card{
-  padding:18px;
-  border:1px solid rgba(18,20,23,.08);
-  border-radius:32px;
-  background:rgba(255,255,255,.86);
-  box-shadow:var(--shadow-strong);
-  display:grid;
-  align-content:start;
-  gap:12px;
-}
-.hero-card-head{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:12px;
-}
-.hero-card-head small,
-.hero-card-head span{
-  font-family:'IBM Plex Mono',monospace;
-  font-size:10px;
-  letter-spacing:.14em;
-  text-transform:uppercase;
-  color:#7a808b;
-}
-.hero-card-head span{
-  padding:8px 10px;
-  border-radius:999px;
-  background:rgba(18,20,23,.04);
-  border:1px solid rgba(18,20,23,.08);
-}
-.hero-buy-card h3{
-  font-size:24px;
-  line-height:1.02;
-  letter-spacing:-.06em;
-  font-weight:500;
-}
-.hero-buy-card p{
-  color:#5d6571;
-  font-size:12px;
-  line-height:1.6;
-}
-.hero-price{
-  display:flex;
-  align-items:flex-end;
-  justify-content:space-between;
-  gap:12px;
-  padding-top:12px;
-  border-top:1px solid rgba(18,20,23,.08);
-}
-.hero-price strong{
-  font-size:36px;
-  line-height:.9;
-  letter-spacing:-.07em;
-}
-.hero-price span{
-  max-width:13ch;
-  text-align:right;
-  color:#69717c;
-  font-size:10px;
-  line-height:1.55;
-}
-.hero-rating{
-  padding:12px 14px;
-  border-radius:22px;
-  border:1px solid rgba(18,20,23,.08);
-  background:linear-gradient(135deg,rgba(57,196,255,.06),rgba(74,117,255,.08));
-}
-.hero-stars{
-  display:inline-flex;
-  gap:2px;
-  color:#0f1115;
-  letter-spacing:.12em;
-  font-size:11px;
-}
-.hero-rating p{
-  margin-top:6px;
-}
-.hero-perks{
-  display:flex;
-  flex-wrap:wrap;
-  gap:8px;
-}
-.hero-perks span{
-  padding:9px 11px;
-  border-radius:999px;
-  background:#fff;
-  border:1px solid rgba(18,20,23,.08);
-  font-size:11px;
-  color:#5a6370;
-}
-.hero-checkout{
-  display:grid;
-  grid-template-columns:118px 1fr;
-  gap:10px;
-}
-.hero-checkout .qty{
-  width:100%;
-  justify-content:space-between;
-}
-.hero-checkout .cart-form{
-  display:block;
-}
-.hero-checkout .buy-now{
-  grid-column:1 / -1;
-}
-.hero-payments{
-  display:flex;
-  flex-wrap:wrap;
-  gap:8px;
-}
-.hero-payments span{
-  padding:9px 11px;
-  border-radius:999px;
-  border:1px solid rgba(18,20,23,.08);
-  background:rgba(18,20,23,.03);
-  color:#56606d;
-  font-size:11px;
-}
-.metrics{
-  margin-top:24px;
-  border-top:1px solid rgba(18,20,23,.08);
-  border-bottom:1px solid rgba(18,20,23,.08);
-  background:rgba(255,255,255,.22);
-  overflow:hidden;
-}
-.metric-track{
-  display:flex;
-  gap:0;
-  width:max-content;
-  min-width:100%;
-}
-.metric{
-  min-width:240px;
-  padding:16px 24px;
-  display:flex;
-  align-items:baseline;
-  gap:10px;
-  border-right:1px solid rgba(18,20,23,.08);
-  white-space:nowrap;
-}
-.metric strong{
-  font-size:20px;
-  letter-spacing:-.05em;
-}
-.metric span{
-  color:#6d7480;
-  font-size:11px;
-  text-transform:uppercase;
-  letter-spacing:.08em;
-}
-.intro{
-  padding:64px 0 28px;
-}
-.section-head{
-  max-width:840px;
-}
-.section-head h2{
-  margin-top:20px;
-  font-size:clamp(36px,4vw,60px);
-  line-height:.98;
-  letter-spacing:-.08em;
-  font-weight:500;
-}
-.section-head p{
-  max-width:640px;
-  margin-top:16px;
-  color:var(--ink-soft);
-  font-size:15px;
-  line-height:1.78;
-}
-.capability-grid{
-  margin-top:36px;
-  display:grid;
-  grid-template-columns:repeat(4,minmax(0,1fr));
-  gap:16px;
-}
-.capability{
-  padding:22px;
-  border-radius:28px;
-  border:1px solid var(--line);
-  background:rgba(255,255,255,.62);
-  box-shadow:var(--shadow);
-}
-.capability small{
-  display:block;
-  font-family:'IBM Plex Mono',monospace;
-  font-size:10px;
-  letter-spacing:.14em;
-  text-transform:uppercase;
-  color:#858b97;
-  margin-bottom:14px;
-}
-.capability strong{
-  display:block;
-  font-size:24px;
-  line-height:1.02;
-  letter-spacing:-.05em;
-}
-.capability p{
-  margin-top:10px;
-  color:#606874;
-  font-size:13px;
-  line-height:1.72;
-}
-.product-section{
-  padding:72px 0 28px;
-}
-.product-shell{
-  display:grid;
-  grid-template-columns:minmax(0,1.08fr) 430px;
-  gap:22px;
-  align-items:start;
-}
-.gallery-panel,
-.buy-panel,
-.detail-panel,
-.attach-panel,
-.proof-panel,
-.faq-panel,
-.compare-panel,
-.cta-panel{
-  border:1px solid var(--line);
-  border-radius:32px;
-  background:rgba(255,255,255,.72);
-  box-shadow:var(--shadow);
-}
-.gallery-panel{
-  padding:20px;
-}
-.gallery-main{
-  position:relative;
-  min-height:560px;
-  border-radius:28px;
-  overflow:hidden;
-  background:linear-gradient(180deg,#fff,#f0ece5);
-  border:1px solid rgba(18,20,23,.06);
-}
-.gallery-main img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-}
-.gallery-copy{
-  position:absolute;
-  left:24px;
-  bottom:24px;
-  max-width:360px;
-  padding:18px 20px;
-  border-radius:24px;
-  border:1px solid rgba(18,20,23,.08);
-  background:rgba(255,255,255,.84);
-  box-shadow:var(--shadow);
-}
-.gallery-copy small{
-  display:block;
-  font-family:'IBM Plex Mono',monospace;
-  font-size:10px;
-  letter-spacing:.14em;
-  text-transform:uppercase;
-  color:#7b7f87;
-  margin-bottom:8px;
-}
-.gallery-copy strong{
-  display:block;
-  font-size:22px;
-  line-height:1.08;
-  letter-spacing:-.05em;
-}
-.gallery-copy p{
-  margin-top:8px;
-  color:#606874;
-  font-size:12px;
-  line-height:1.65;
-}
-.thumb-row{
-  display:grid;
-  grid-template-columns:repeat(5,minmax(0,1fr));
-  gap:10px;
-  margin-top:12px;
-}
-.thumb{
-  padding:8px;
-  border-radius:20px;
-  border:1px solid rgba(18,20,23,.08);
-  background:rgba(255,255,255,.74);
-  cursor:pointer;
-  transition:border-color .24s var(--ease), transform .24s var(--ease);
-}
-.thumb:hover{transform:translateY(-1px)}
-.thumb.active{border-color:rgba(57,196,255,.44)}
-.thumb img{
-  width:100%;
-  aspect-ratio:1/1;
-  object-fit:cover;
-  border-radius:14px;
-}
-.buy-panel{
-  position:sticky;
-  top:102px;
-  padding:22px;
-}
-.detail-panel{
-  position:sticky;
-  top:102px;
-  padding:24px;
-  display:grid;
-  gap:16px;
-  align-content:start;
-}
-.detail-panel small{
-  font-family:'IBM Plex Mono',monospace;
-  font-size:10px;
-  letter-spacing:.14em;
-  text-transform:uppercase;
-  color:#7b7f87;
-}
-.detail-panel h3{
-  font-size:30px;
-  line-height:1.02;
-  letter-spacing:-.06em;
-  font-weight:500;
-}
-.detail-panel p{
-  color:#5d6571;
-  font-size:14px;
-  line-height:1.72;
-}
-.detail-list{
-  display:grid;
-  gap:10px;
-}
-.detail-item{
-  padding:16px 18px;
-  border-radius:22px;
-  border:1px solid rgba(18,20,23,.08);
-  background:rgba(248,244,237,.72);
-}
-.detail-item strong{
-  display:block;
-  font-size:16px;
-  line-height:1.15;
-  letter-spacing:-.03em;
-}
-.detail-item span{
-  display:block;
-  margin-top:8px;
-  color:#616976;
-  font-size:12px;
-  line-height:1.62;
-}
-.mini-proof{
-  padding:18px;
-  border-radius:24px;
-  border:1px solid rgba(18,20,23,.08);
-  background:#fff;
-}
-.mini-proof .hero-stars{
-  font-size:12px;
-}
-.mini-proof blockquote{
-  margin-top:10px;
-  font-size:20px;
-  line-height:1.18;
-  letter-spacing:-.04em;
-}
-.mini-proof cite{
-  display:block;
-  margin-top:12px;
-  color:#6c7480;
-  font-style:normal;
-  font-size:12px;
-}
-.detail-actions{
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px;
-}
-.detail-actions .button,
-.detail-actions .ghost-light{
-  flex:1 1 160px;
-}
-.buy-panel small{
-  display:block;
-  font-family:'IBM Plex Mono',monospace;
-  font-size:10px;
-  letter-spacing:.14em;
-  text-transform:uppercase;
-  color:#7b7f87;
-}
-.buy-head{
-  display:flex;
-  align-items:flex-start;
-  justify-content:space-between;
-  gap:14px;
-  margin-top:10px;
-}
-.buy-head h3{
-  font-size:34px;
-  line-height:1;
-  letter-spacing:-.06em;
-}
-.buy-head span{
-  color:#7b7f87;
-  font-size:11px;
-  text-transform:uppercase;
-  letter-spacing:.08em;
-}
-.buy-panel p{
-  margin-top:14px;
-  color:#5d6571;
-  font-size:14px;
-  line-height:1.72;
-}
-.price-line{
-  display:flex;
-  align-items:flex-end;
-  justify-content:space-between;
-  gap:12px;
-  margin-top:24px;
-  padding-top:18px;
-  border-top:1px solid rgba(18,20,23,.08);
-}
-.price-line strong{
-  font-size:48px;
-  line-height:.9;
-  letter-spacing:-.07em;
-}
-.price-line span{
-  max-width:11ch;
-  text-align:right;
-  color:#6c7480;
-  font-size:12px;
-  line-height:1.6;
-}
-.spec-list{
-  display:grid;
-  gap:10px;
-  margin-top:24px;
-}
-.spec{
-  display:flex;
-  align-items:flex-start;
-  justify-content:space-between;
-  gap:12px;
-  padding:14px 16px;
-  border-radius:20px;
-  border:1px solid rgba(18,20,23,.08);
-  background:rgba(248,244,237,.7);
-}
-.spec strong{
-  font-size:13px;
-}
-.spec span{
-  max-width:17ch;
-  text-align:right;
-  color:#69717c;
-  font-size:11px;
-  line-height:1.6;
-}
-.qty-row{
-  display:grid;
-  grid-template-columns:150px 1fr 120px;
-  gap:10px;
-  margin-top:24px;
-}
-.qty{
-  display:flex;
-  align-items:center;
-  gap:8px;
-  padding:6px;
-  border-radius:999px;
-  border:1px solid rgba(18,20,23,.1);
-  background:#fff;
-}
-.qty button{
-  width:40px;
-  height:40px;
-  border:none;
-  border-radius:50%;
-  background:var(--panel-soft);
-  cursor:pointer;
-}
-.qty input{
-  width:48px;
-  border:none;
-  background:none;
-  text-align:center;
-  font-size:16px;
-}
-.cart-form button{
-  width:100%;
-  height:52px;
-  border:none;
-  cursor:pointer;
-}
-.buy-now{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  height:52px;
-  border-radius:999px;
-  background:#fff;
-  border:1px solid rgba(18,20,23,.12);
-  font-weight:700;
-}
-.buy-now:hover{transform:translateY(-1px)}
-.buy-links{
-  display:flex;
-  gap:10px;
-  margin-top:12px;
-}
-.buy-links a{
-  flex:1 1 0;
-  padding:12px 14px;
-  border-radius:999px;
-  border:1px solid rgba(18,20,23,.1);
-  text-align:center;
-  font-size:12px;
-  background:#fff;
-}
-.buy-note{
-  margin-top:16px;
-  padding:16px 18px;
-  border-radius:24px;
-  background:linear-gradient(135deg,rgba(57,196,255,.08),rgba(94,230,209,.12));
-  border:1px solid rgba(57,196,255,.14);
-  color:#41505f;
-  font-size:12px;
-  line-height:1.65;
-}
-.payment-row{
-  display:flex;
-  flex-wrap:wrap;
-  gap:8px;
-  margin-top:16px;
-}
-.payment-row span{
-  padding:10px 12px;
-  border-radius:999px;
-  border:1px solid rgba(18,20,23,.08);
-  background:#fff;
-  color:#5b6470;
-  font-size:11px;
-}
-.attach-section{
-  padding:64px 0 20px;
-}
-.attach-shell{
-  display:grid;
-  grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);
-  gap:22px;
-  align-items:center;
-}
-.attach-copy h2,
-.proof-copy h2,
-.faq-copy h2,
-.compare-copy h2{
-  margin-top:20px;
-  max-width:8.5ch;
-  font-size:clamp(32px,3.8vw,52px);
-  line-height:1;
-  letter-spacing:-.08em;
-  font-weight:500;
-}
-.attach-copy p,
-.proof-copy p,
-.faq-copy p,
-.compare-copy p{
-  max-width:560px;
-  margin-top:14px;
-  color:var(--ink-soft);
-  font-size:15px;
-  line-height:1.76;
-}
-.attach-steps{
-  display:grid;
-  gap:10px;
-  margin-top:28px;
-}
-.attach-step{
-  padding:18px 20px;
-  border-radius:24px;
-  border:1px solid rgba(18,20,23,.08);
-  background:rgba(255,255,255,.56);
-  cursor:pointer;
-  transition:border-color .24s var(--ease), background .24s var(--ease), transform .24s var(--ease);
-}
-.attach-step:hover{transform:translateY(-1px)}
-.attach-step.active{
-  border-color:rgba(57,196,255,.34);
-  background:#fff;
-}
-.attach-step small{
-  display:block;
-  font-family:'IBM Plex Mono',monospace;
-  font-size:10px;
-  letter-spacing:.14em;
-  text-transform:uppercase;
-  color:#7d8390;
-  margin-bottom:8px;
-}
-.attach-step strong{
-  display:block;
-  font-size:22px;
-  line-height:1.08;
-  letter-spacing:-.05em;
-}
-.attach-step p{
-  margin-top:8px;
-  color:#606874;
-  font-size:13px;
-  line-height:1.68;
-}
-.attach-panel{
-  padding:22px;
-}
-.attach-stage{
-  position:relative;
-  min-height:540px;
-  border-radius:28px;
-  border:1px solid rgba(18,20,23,.08);
-  background:
-    radial-gradient(circle at 50% 50%, rgba(57,196,255,.08), transparent 32%),
-    linear-gradient(180deg,#ffffff,#f3eee6);
-  overflow:hidden;
-}
-.attach-stage::before{
-  content:'';
-  position:absolute;
-  inset:0;
-  background:
-    linear-gradient(transparent 0 95%, rgba(18,20,23,.03) 95%),
-    linear-gradient(90deg, transparent 0 95%, rgba(18,20,23,.03) 95%);
-  background-size:100% 16%, 10% 100%;
-}
-.bar{
-  position:absolute;
-  left:14%;
-  right:14%;
-  top:52%;
-  height:22px;
-  border-radius:999px;
-  background:linear-gradient(180deg,#f7fbff,#a4afb9 18%, #3a4148 62%, #1b2128);
-  transform:translateY(-50%);
-  box-shadow:inset 0 2px 4px rgba(255,255,255,.36), 0 20px 40px rgba(18,20,23,.12);
-}
-.plate-stack{
-  position:absolute;
-  top:52%;
-  width:86px;
-  height:126px;
-  transform:translateY(-50%);
-}
-.plate-stack.left{left:10%}
-.plate-stack.right{right:10%}
-.plate{
-  position:absolute;
-  inset:auto 0 0;
-  width:100%;
-  height:100%;
-  border-radius:999px;
-  background:linear-gradient(180deg,#353e47,#171d23);
-  box-shadow:0 16px 34px rgba(18,20,23,.14);
-}
-.plate::before{
-  content:'';
-  position:absolute;
-  inset:18% 18%;
-  border-radius:999px;
-  border:1px solid rgba(255,255,255,.08);
-}
-.plate.one{transform:translateX(0)}
-.plate.two{transform:translateX(16px) scale(.94)}
-.plate-three{transform:translateX(28px) scale(.9)}
-.plate-stack.right .plate.one{transform:translateX(0)}
-.plate-stack.right .plate.two{transform:translateX(-16px) scale(.94)}
-.plate-stack.right .plate-three{transform:translateX(-28px) scale(.9)}
-.attach-product{
-  position:absolute;
-  top:50%;
-  left:8%;
-  width:min(380px,62%);
-  filter:drop-shadow(0 24px 36px rgba(18,20,23,.16));
-  transition:transform .85s var(--ease);
-  transform:translate3d(0,-88%,0) rotate(-10deg);
-}
-.attach-stage[data-step="lock"] .attach-product{
-  transform:translate3d(14%,-64%,0) rotate(-6deg);
-}
-.attach-stage[data-step="train"] .attach-product{
-  transform:translate3d(18%,-58%,0) rotate(-3deg);
-}
-.attach-chip{
-  position:absolute;
-  padding:16px 18px;
-  border-radius:24px;
-  border:1px solid rgba(18,20,23,.08);
-  background:rgba(255,255,255,.86);
-  box-shadow:var(--shadow);
-  max-width:240px;
-}
-.attach-chip small{
-  display:block;
-  font-family:'IBM Plex Mono',monospace;
-  font-size:10px;
-  letter-spacing:.14em;
-  text-transform:uppercase;
-  color:#7f8692;
-  margin-bottom:8px;
-}
-.attach-chip strong{
-  display:block;
-  font-size:18px;
-  line-height:1.1;
-  letter-spacing:-.04em;
-}
-.attach-chip p{
-  margin-top:8px;
-  color:#5e6672;
-  font-size:12px;
-  line-height:1.62;
-}
-.attach-chip.one{top:22px;left:22px}
-.attach-chip.two{right:22px;bottom:22px}
-.use-section{
-  padding:64px 0 20px;
-}
-.use-pills{
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px;
-  margin-top:28px;
-}
-.use-pill{
-  padding:11px 16px;
-  border-radius:999px;
-  border:1px solid rgba(18,20,23,.1);
-  background:rgba(255,255,255,.56);
-  font-family:'IBM Plex Mono',monospace;
-  font-size:11px;
-  letter-spacing:.12em;
-  text-transform:uppercase;
-  cursor:pointer;
-}
-.use-pill.active{
-  border-color:rgba(57,196,255,.36);
-  background:#fff;
-}
-.use-shell{
-  margin-top:18px;
-  display:grid;
-  grid-template-columns:minmax(0,1.08fr) 400px;
-  gap:22px;
-}
-.use-media{
-  position:relative;
-  min-height:560px;
-  border-radius:32px;
-  overflow:hidden;
-  border:1px solid var(--line);
-  box-shadow:var(--shadow);
-  background:#ddd;
-}
-.use-media img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-}
-.use-overlay{
-  position:absolute;
-  inset:0;
-  background:linear-gradient(180deg, rgba(18,20,23,.06), rgba(18,20,23,.38));
-}
-.use-tag{
-  position:absolute;
-  left:22px;
-  bottom:22px;
-  max-width:280px;
-  padding:18px 20px;
-  border-radius:24px;
-  border:1px solid rgba(255,255,255,.2);
-  background:rgba(255,255,255,.86);
-  box-shadow:var(--shadow);
-}
-.use-tag small{
-  display:block;
-  font-family:'IBM Plex Mono',monospace;
-  font-size:10px;
-  letter-spacing:.14em;
-  text-transform:uppercase;
-  color:#7f8591;
-  margin-bottom:8px;
-}
-.use-tag strong{
-  display:block;
-  font-size:22px;
-  line-height:1.08;
-  letter-spacing:-.04em;
-}
-.use-tag p{
-  margin-top:8px;
-  color:#5d6571;
-  font-size:12px;
-  line-height:1.62;
-}
-.use-copy{
-  padding:24px;
-  border-radius:32px;
-  border:1px solid var(--line);
-  background:rgba(255,255,255,.66);
-  box-shadow:var(--shadow);
-}
-.use-copy h3{
-  margin-top:12px;
-  font-size:34px;
-  line-height:1;
-  letter-spacing:-.06em;
-  font-weight:500;
-}
-.use-copy p{
-  margin-top:14px;
-  color:var(--ink-soft);
-  font-size:14px;
-  line-height:1.72;
-}
-.benefit-list{
-  display:grid;
-  gap:10px;
-  margin-top:20px;
-}
-.benefit{
-  display:flex;
-  align-items:flex-start;
-  gap:12px;
-  padding:14px 16px;
-  border-radius:20px;
-  background:#fff;
-  border:1px solid rgba(18,20,23,.06);
-}
-.benefit::before{
-  content:'';
-  width:8px;
-  height:8px;
-  margin-top:7px;
-  border-radius:50%;
-  background:linear-gradient(135deg,var(--cyan),var(--blue));
-  flex:0 0 auto;
-}
-.benefit span{
-  color:#5c6571;
-  font-size:13px;
-  line-height:1.64;
-}
-.proof-section{
-  padding:64px 0 20px;
-}
-.proof-shell{
-  display:grid;
-  grid-template-columns:minmax(0,.86fr) minmax(0,1.14fr);
-  gap:22px;
-  align-items:start;
-}
-.proof-panel{
-  padding:24px;
-}
-.proof-video-grid{
-  display:grid;
-  grid-template-columns:repeat(3,minmax(0,1fr));
-  gap:12px;
-}
-.proof-video{
-  position:relative;
-  min-height:400px;
-  border-radius:24px;
-  overflow:hidden;
-  background:#111;
-}
-.proof-video video{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-}
-.proof-video::after{
-  content:'';
-  position:absolute;
-  inset:0;
-  background:linear-gradient(180deg, rgba(18,20,23,.08), rgba(18,20,23,.66));
-}
-.proof-caption{
-  position:absolute;
-  left:18px;
-  right:18px;
-  bottom:18px;
-  z-index:2;
-}
-.proof-caption small{
-  display:inline-flex;
-  padding:8px 12px;
-  border-radius:999px;
-  background:rgba(255,255,255,.18);
-  color:#fff;
-  font-family:'IBM Plex Mono',monospace;
-  font-size:10px;
-  letter-spacing:.14em;
-  text-transform:uppercase;
-}
-.proof-caption strong{
-  display:block;
-  margin-top:10px;
-  color:#fff;
-  font-size:21px;
-  line-height:1.08;
-  letter-spacing:-.04em;
-}
-.proof-caption p{
-  margin-top:8px;
-  color:rgba(255,255,255,.82);
-  font-size:12px;
-  line-height:1.6;
-}
-.proof-copy,
-.faq-copy,
-.compare-copy{
-  max-width:620px;
-}
-.review-card{
-  margin-top:28px;
-  padding:22px;
-  border-radius:28px;
-  border:1px solid rgba(18,20,23,.08);
-  background:#fff;
-  box-shadow:var(--shadow);
-}
-.review-card blockquote{
-  font-size:27px;
-  line-height:1.12;
-  letter-spacing:-.05em;
-}
-.review-card cite{
-  display:block;
-  margin-top:16px;
-  color:#6b7480;
-  font-style:normal;
-  font-size:13px;
-}
-.review-media{
-  margin-top:18px;
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:10px;
-}
-.review-media img,
-.review-media video{
-  width:100%;
-  border-radius:20px;
-  object-fit:cover;
-  background:#111;
-}
-.review-media img{aspect-ratio:4/4.5}
-.review-media video{aspect-ratio:16/9}
-.compare-section{
-  padding:64px 0 20px;
-}
-.compare-shell{
-  display:grid;
-  grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);
-  gap:22px;
-  align-items:start;
-}
-.compare-panel{
-  padding:24px;
-}
-.compare-table{
-  display:grid;
-  gap:10px;
-}
-.compare-row{
-  display:grid;
-  grid-template-columns:1.2fr .8fr .8fr;
-  gap:10px;
-  padding:14px 16px;
-  border-radius:22px;
-  border:1px solid rgba(18,20,23,.08);
-  background:#fff;
-  align-items:center;
-}
-.compare-row.head{
-  font-family:'IBM Plex Mono',monospace;
-  font-size:11px;
-  letter-spacing:.14em;
-  text-transform:uppercase;
-  color:#808692;
-}
-.compare-row span:nth-child(2){color:#818996}
-.compare-row span:nth-child(3){font-weight:700;color:#1e495f}
-.faq-section{
-  padding:64px 0 20px;
-}
-.faq-shell{
-  display:grid;
-  grid-template-columns:minmax(0,.76fr) minmax(0,1.24fr);
-  gap:22px;
-}
-.faq-panel{
-  padding:24px;
-}
-.faq-list{
-  display:grid;
-  gap:10px;
-}
-.faq-item{
-  border-radius:24px;
-  border:1px solid rgba(18,20,23,.08);
-  background:#fff;
-  overflow:hidden;
-}
-.faq-item button{
-  width:100%;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:18px;
-  padding:18px 20px;
-  border:none;
-  background:none;
-  text-align:left;
-  cursor:pointer;
-  color:inherit;
-}
-.faq-item strong{
-  font-size:16px;
-  line-height:1.34;
-}
-.faq-item em{
-  width:30px;
-  height:30px;
-  display:grid;
-  place-items:center;
-  border-radius:50%;
-  border:1px solid rgba(18,20,23,.12);
-  font-style:normal;
-  color:#7f8691;
-}
-.faq-answer{
-  display:grid;
-  grid-template-rows:0fr;
-  transition:grid-template-rows .28s var(--ease);
-}
-.faq-answer > div{overflow:hidden}
-.faq-answer p{
-  padding:0 20px 18px;
-  color:#606874;
-  font-size:13px;
-  line-height:1.72;
-}
-.faq-item.open .faq-answer{grid-template-rows:1fr}
-.cta-section{
-  padding:72px 0 20px;
-}
-.cta-panel{
-  padding:32px;
-  display:grid;
-  grid-template-columns:minmax(0,1fr) auto;
-  gap:18px;
-  align-items:center;
-}
-.cta-panel h3{
-  font-size:clamp(30px,3.6vw,48px);
-  line-height:1;
-  letter-spacing:-.08em;
-  font-weight:500;
-}
-.cta-panel p{
-  max-width:620px;
-  margin-top:14px;
-  color:#5f6672;
-  font-size:15px;
-  line-height:1.76;
-}
-.footer{
-  width:min(1380px,calc(100% - 24px));
-  margin:24px auto 120px;
-  display:flex;
-  flex-wrap:wrap;
-  align-items:center;
-  justify-content:space-between;
-  gap:12px;
-  color:#7b818d;
-  font-size:12px;
-}
-.footer-links{
-  display:flex;
-  flex-wrap:wrap;
-  gap:16px;
-}
-.sticky-dock{
-  position:fixed;
-  left:50%;
-  bottom:14px;
-  transform:translate(-50%,18px);
-  width:min(900px,calc(100% - 20px));
-  padding:12px 14px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:12px;
-  border-radius:26px;
-  border:1px solid rgba(18,20,23,.1);
-  background:rgba(255,255,255,.92);
-  box-shadow:0 20px 50px rgba(18,20,23,.12);
-  backdrop-filter:blur(18px);
-  opacity:0;
-  pointer-events:none;
-  transition:opacity .28s var(--ease), transform .28s var(--ease);
-  z-index:130;
-}
-.sticky-dock.show{
-  opacity:1;
-  pointer-events:auto;
-  transform:translate(-50%,0);
-}
-.dock-copy{
-  display:grid;
-  gap:4px;
-}
-.dock-copy small{
-  font-family:'IBM Plex Mono',monospace;
-  font-size:10px;
-  letter-spacing:.14em;
-  text-transform:uppercase;
-  color:#7d8592;
-}
-.dock-copy strong{
-  font-size:20px;
-  letter-spacing:-.05em;
-}
-.dock-copy span{
-  color:#616976;
-  font-size:11px;
-}
-.dock-actions{
-  display:flex;
-  align-items:center;
-  gap:10px;
-}
-.dock-actions .qty{
-  width:150px;
-}
-.reveal{
-  opacity:0;
-  transform:translateY(26px);
-  transition:opacity .7s var(--ease), transform .7s var(--ease);
-}
-.reveal.in{
-  opacity:1;
-  transform:translateY(0);
-}
-@media (max-width:1220px){
-  .hero-shell,
-  .product-shell,
-  .attach-shell,
-  .use-shell,
-  .proof-shell,
-  .compare-shell,
-  .faq-shell,
-  .cta-panel{grid-template-columns:1fr}
-  .hero-right{grid-template-columns:1fr}
-  .hero-buy-card{order:1}
-  .hero-stage{order:2}
-  .buy-panel{
+  :root{
+    --mint:#00c4b3;
+    --mint-deep:#006b69;
+    --mint-soft:#e9fffb;
+    --ink:#202730;
+    --ink-2:#333e48;
+    --slate:#626872;
+    --line:rgba(51,62,72,.14);
+    --line-strong:rgba(51,62,72,.22);
+    --paper:#f7fbfb;
+    --white:#fff;
+    --shadow:0 24px 70px rgba(20,32,40,.08);
+    --shadow-strong:0 35px 90px rgba(0,30,40,.16);
+    --radius:28px;
+    --ease:cubic-bezier(.22,.8,.18,1);
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;scroll-padding-top:100px}
+  body{
+    min-height:100vh;
+    color:var(--ink);
+    font-family:"Montserrat",sans-serif;
+    background:
+      radial-gradient(circle at 14% 0%, rgba(0,196,179,.13), transparent 26%),
+      radial-gradient(circle at 100% 18%, rgba(0,107,105,.10), transparent 20%),
+      linear-gradient(180deg,#ffffff 0%, #f7fbfb 44%, #ffffff 100%);
+    overflow-x:hidden;
+  }
+  body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:
+      linear-gradient(rgba(51,62,72,.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(51,62,72,.035) 1px, transparent 1px);
+    background-size:72px 72px;
+    mask-image:linear-gradient(180deg, rgba(0,0,0,.35), transparent 70%);
+    pointer-events:none;
+    z-index:-1;
+  }
+  a{color:inherit;text-decoration:none}
+  button,input{font:inherit}
+  img,video{display:block;max-width:100%}
+  .wrap{width:min(1240px,calc(100% - 28px));margin:0 auto}
+  .mono{
+    font-family:"IBM Plex Mono",monospace;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+  }
+  .eyebrow{
+    display:inline-flex;
+    align-items:center;
+    gap:12px;
+    color:var(--mint-deep);
+    font-size:12px;
+    font-weight:500;
+  }
+  .eyebrow::before{
+    content:"";
+    width:28px;
+    height:1px;
+    background:rgba(0,107,105,.35);
+  }
+  .section-head{
+    max-width:720px;
+    margin-bottom:32px;
+  }
+  .section-head h2{
+    margin-top:18px;
+    font-size:clamp(34px,4.5vw,56px);
+    line-height:.96;
+    letter-spacing:-.06em;
+    font-weight:800;
+  }
+  .section-head p{
+    margin-top:16px;
+    color:var(--slate);
+    font-size:16px;
+    line-height:1.78;
+  }
+  .pill{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:10px 14px;
+    border:1px solid var(--line);
+    border-radius:999px;
+    background:rgba(255,255,255,.88);
+    color:var(--ink-2);
+    font-size:12px;
+    font-weight:600;
+  }
+  .pill::before{
+    content:"";
+    width:8px;
+    height:8px;
+    border-radius:999px;
+    background:linear-gradient(135deg,var(--mint),var(--mint-deep));
+  }
+  .glass{
+    background:rgba(255,255,255,.88);
+    border:1px solid rgba(255,255,255,.7);
+    box-shadow:var(--shadow);
+    backdrop-filter:blur(18px);
+  }
+  .card{
+    border-radius:var(--radius);
+    border:1px solid var(--line);
+    background:rgba(255,255,255,.95);
+    box-shadow:var(--shadow);
+  }
+  .card-dark{
+    border-radius:var(--radius);
+    border:1px solid rgba(255,255,255,.09);
+    background:
+      linear-gradient(160deg, rgba(255,255,255,.08), rgba(255,255,255,.02)),
+      linear-gradient(180deg, #28313a 0%, #1b232b 100%);
+    color:#fff;
+    box-shadow:var(--shadow-strong);
+  }
+  .button,
+  .button-ghost,
+  .button-dark{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    min-height:54px;
+    padding:14px 22px;
+    border-radius:999px;
+    font-weight:800;
+    transition:transform .24s var(--ease), box-shadow .24s var(--ease), background .24s var(--ease), border-color .24s var(--ease);
+  }
+  .button{
+    color:#fff;
+    background:linear-gradient(135deg,var(--mint),var(--mint-deep));
+    box-shadow:0 14px 34px rgba(0,107,105,.24);
+  }
+  .button:hover,
+  .button-dark:hover,
+  .button-ghost:hover{transform:translateY(-2px)}
+  .button-dark{
+    color:#fff;
+    background:var(--ink);
+    box-shadow:0 12px 28px rgba(32,39,48,.18);
+  }
+  .button-ghost{
+    border:1px solid var(--line-strong);
+    color:var(--ink);
+    background:rgba(255,255,255,.7);
+  }
+
+  .announcement{
+    border-bottom:1px solid rgba(255,255,255,.4);
+    background:linear-gradient(90deg,#ddfff9 0%, #f7fffd 52%, #f1fbfb 100%);
+  }
+  .announcement .wrap{
+    min-height:42px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:18px;
+    flex-wrap:wrap;
+    color:var(--ink-2);
+    font-size:11px;
+    font-weight:700;
+  }
+  .announcement span{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+  }
+  .announcement span::before{
+    content:"";
+    width:6px;
+    height:6px;
+    border-radius:999px;
+    background:var(--mint);
+  }
+
+  .site-header{
+    position:sticky;
+    top:0;
+    z-index:80;
+    backdrop-filter:blur(18px);
+    background:rgba(255,255,255,.76);
+    border-bottom:1px solid rgba(255,255,255,.64);
+  }
+  .site-header .wrap{
+    min-height:80px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+  }
+  .brand{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    min-width:0;
+  }
+  .brand img{
+    width:min(260px,42vw);
+    height:auto;
+  }
+  .brand-note{
+    color:var(--slate);
+    font-size:10px;
+    white-space:nowrap;
+  }
+  .nav{
+    display:flex;
+    align-items:center;
+    gap:24px;
+    color:var(--slate);
+    font-size:14px;
+    font-weight:700;
+  }
+  .nav a{
     position:relative;
-    top:auto;
+    padding:6px 0;
   }
-  .detail-panel{
-    position:relative;
-    top:auto;
+  .nav a::after{
+    content:"";
+    position:absolute;
+    left:0;
+    right:0;
+    bottom:-7px;
+    height:2px;
+    border-radius:999px;
+    background:linear-gradient(90deg,var(--mint),var(--mint-deep));
+    transform:scaleX(0);
+    transform-origin:left;
+    transition:transform .24s var(--ease);
   }
-  .capability-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
-}
-@media (max-width:860px){
-  .nav{display:none}
-  .proof-video-grid{grid-template-columns:1fr}
-  .thumb-row{grid-template-columns:repeat(3,minmax(0,1fr))}
-  .review-media{grid-template-columns:1fr}
-}
-@media (max-width:760px){
-  html{scroll-padding-top:78px}
-  .header-inner{
-    width:calc(100% - 14px);
-    min-height:72px;
+  .nav a:hover::after,
+  .nav a.active::after{transform:scaleX(1)}
+  .header-actions{
+    display:flex;
+    align-items:center;
+    gap:12px;
   }
-  .header-actions .ghost{display:none}
-  .section{
-    width:min(100% - 14px,1380px);
-  }
+
   .hero{
-    padding:40px 0 28px;
+    padding:44px 0 32px;
   }
   .hero-shell{
-    min-height:auto;
-    gap:18px;
+    display:grid;
+    grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);
+    gap:28px;
+    align-items:start;
   }
-  .hero-copy h1{font-size:clamp(40px,12vw,54px)}
-  .hero-right{grid-template-columns:1fr}
-  .hero-stage{
-    min-height:360px;
+  .hero-copy{
+    padding:22px 0;
   }
-  .tag-one,
-  .tag-two{
+  .hero-copy h1{
+    margin-top:18px;
+    font-size:clamp(52px,8vw,94px);
+    line-height:.9;
+    letter-spacing:-.08em;
+    font-weight:900;
+    max-width:10.3ch;
+  }
+  .hero-copy .accent{
+    color:var(--mint-deep);
+  }
+  .hero-copy p{
+    max-width:640px;
+    margin-top:18px;
+    color:var(--slate);
+    font-size:17px;
+    line-height:1.82;
+  }
+  .hero-actions{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+    margin-top:28px;
+  }
+  .hero-trust{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-top:22px;
+  }
+  .hero-proofline{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    margin-top:22px;
+    color:var(--ink-2);
+    font-size:13px;
+    font-weight:700;
+  }
+  .hero-stars{
+    color:var(--mint-deep);
+    letter-spacing:.18em;
+    font-size:14px;
+  }
+
+  .hero-right{
+    display:grid;
+    grid-template-columns:minmax(0,1fr) 340px;
+    gap:20px;
+  }
+  .product-stage{
+    position:relative;
+    min-height:620px;
+    padding:28px;
+    overflow:hidden;
+    border-radius:34px;
+    border:1px solid rgba(255,255,255,.72);
+    background-image:
+      radial-gradient(circle at 22% 12%, rgba(0,196,179,.36), transparent 30%),
+      radial-gradient(circle at 78% 26%, rgba(0,107,105,.26), transparent 28%),
+      linear-gradient(180deg,#f2fffc 0%, #dff6f2 34%, #eef7f7 100%);
+    background-position:
+      center center,
+      center center,
+      center center;
+    background-size:
+      auto,
+      auto,
+      auto;
+    background-repeat:
+      no-repeat,
+      no-repeat,
+      no-repeat;
+    box-shadow:var(--shadow);
+  }
+  .stage-grid{
     position:absolute;
-    max-width:180px;
-    padding:12px 14px;
+    inset:0;
+    background:
+      linear-gradient(rgba(51,62,72,.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(51,62,72,.06) 1px, transparent 1px);
+    background-size:64px 64px;
+    mask-image:linear-gradient(180deg, rgba(0,0,0,.5), transparent 82%);
   }
-  .capability-grid{grid-template-columns:1fr}
-  .gallery-main{min-height:380px}
-  .thumb-row{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .buy-head{
-    flex-direction:column;
+  .stage-ring{
+    position:absolute;
+    inset:70px 40px auto auto;
+    width:380px;
+    aspect-ratio:1;
+    border-radius:50%;
+    border:1px solid rgba(0,107,105,.12);
+    background:radial-gradient(circle, rgba(255,255,255,.64) 0%, rgba(255,255,255,.16) 45%, transparent 72%);
+    filter:blur(.2px);
   }
-  .buy-head h3{font-size:28px}
-  .price-line{
-    flex-direction:column;
-    align-items:flex-start;
+  .stage-product-card{
+    position:absolute;
+    left:50%;
+    bottom:24px;
+    z-index:2;
+    width:min(390px,78%);
+    padding:16px;
+    border-radius:30px;
+    background:rgba(255,255,255,.94);
+    border:1px solid rgba(255,255,255,.9);
+    box-shadow:0 28px 50px rgba(0,40,46,.16);
+    transform:translateX(-50%);
   }
-  .price-line span{text-align:left}
-  .qty-row{
-    grid-template-columns:1fr;
+  .stage-product{
+    display:block;
+    width:100%;
+    height:auto;
   }
-  .hero-checkout{
-    grid-template-columns:1fr;
+  .stage-badge,
+  .stage-quote{
+    position:absolute;
+    z-index:3;
+    max-width:240px;
+    padding:18px 18px 16px;
   }
-  .use-media{min-height:380px}
-  .use-copy h3{font-size:30px}
-  .attach-stage{min-height:380px}
-  .attach-product{
-    width:min(280px,70%);
+  .stage-badge small,
+  .stage-quote small{
+    display:block;
+    color:var(--mint-deep);
+    font-size:11px;
+    font-weight:800;
+    letter-spacing:.16em;
+    text-transform:uppercase;
   }
-  .compare-row{
-    grid-template-columns:1fr;
-    gap:6px;
+  .stage-badge strong,
+  .stage-quote strong{
+    display:block;
+    margin-top:8px;
+    font-size:17px;
+    line-height:1.28;
+    letter-spacing:-.04em;
   }
-  .compare-row.head{display:none}
-  .cta-panel{
-    padding:24px;
+  .stage-badge p,
+  .stage-quote p{
+    margin-top:8px;
+    color:var(--slate);
+    font-size:13px;
+    line-height:1.6;
   }
-  .sticky-dock{
-    flex-direction:column;
-    align-items:stretch;
+  .stage-badge.one{
+    top:20px;
+    left:20px;
+    max-width:220px;
+    padding:14px 16px;
   }
-  .dock-actions{
-    flex-direction:column;
-    align-items:stretch;
+  .stage-badge.one strong{font-size:15px}
+  .stage-badge.one p{display:none}
+  .stage-badge.two{bottom:30px;left:26px}
+  .stage-quote{
+    right:22px;
+    bottom:24px;
+    max-width:250px;
   }
-  .dock-actions .qty,
-  .dock-actions .cart-form,
-  .dock-actions .buy-now{
+  .stage-inset{display:none}
+
+  .buy-card{
+    padding:22px;
+    align-self:end;
+  }
+  .buy-kicker{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+    color:rgba(255,255,255,.74);
+    font-size:11px;
+  }
+  .buy-kicker span:last-child{
+    color:#8df0e4;
+    font-weight:700;
+  }
+  .buy-card h2{
+    margin-top:18px;
+    font-size:28px;
+    line-height:.96;
+    letter-spacing:-.05em;
+  }
+  .buy-card p{
+    margin-top:14px;
+    color:rgba(255,255,255,.78);
+    font-size:14px;
+    line-height:1.75;
+  }
+  .price-row{
+    display:flex;
+    align-items:end;
+    justify-content:space-between;
+    gap:16px;
+    margin-top:20px;
+  }
+  .price-row strong{
+    font-size:40px;
+    line-height:.92;
+    letter-spacing:-.06em;
+  }
+  .price-row span{
+    max-width:132px;
+    color:#97fff0;
+    font-size:12px;
+    font-weight:700;
+    text-align:right;
+  }
+  .offer{
+    margin-top:16px;
+    padding:14px 16px;
+    border-radius:20px;
+    background:rgba(0,196,179,.12);
+    border:1px solid rgba(141,240,228,.2);
+  }
+  .offer strong{
+    display:block;
+    color:#fff;
+    font-size:13px;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+  }
+  .offer p{
+    margin-top:6px;
+    color:#ddfff9;
+    font-size:12px;
+    line-height:1.55;
+  }
+  .buy-visual{
+    margin-top:18px;
+    padding:14px;
+    border-radius:22px;
+    border:1px solid rgba(255,255,255,.12);
+    background:rgba(255,255,255,.06);
+    display:flex;
+    justify-content:center;
+  }
+  .buy-visual img{
+    width:min(220px,72%);
+    border-radius:16px;
+  }
+  .buy-bullets{
+    display:grid;
+    gap:10px;
+    margin-top:18px;
+  }
+  .buy-bullets li{
+    list-style:none;
+    display:flex;
+    gap:10px;
+    color:#fff;
+    font-size:13px;
+    line-height:1.6;
+  }
+  .buy-bullets li::before{
+    content:"";
+    flex:0 0 8px;
+    width:8px;
+    height:8px;
+    border-radius:999px;
+    margin-top:7px;
+    background:#8df0e4;
+  }
+  .buy-proof{
+    margin-top:18px;
+    padding-top:18px;
+    border-top:1px solid rgba(255,255,255,.09);
+  }
+  .buy-proof blockquote{
+    color:#fff;
+    font-size:15px;
+    line-height:1.72;
+    font-weight:600;
+  }
+  .buy-proof cite{
+    display:block;
+    margin-top:10px;
+    color:rgba(255,255,255,.68);
+    font-size:12px;
+    font-style:normal;
+  }
+  .checkout{
+    display:grid;
+    gap:12px;
+    margin-top:22px;
+  }
+  .qty{
+    display:grid;
+    grid-template-columns:48px 1fr 48px;
+    gap:0;
+    min-height:54px;
+    border-radius:999px;
+    overflow:hidden;
+    border:1px solid rgba(255,255,255,.12);
+    background:rgba(255,255,255,.06);
+  }
+  .qty button{
+    border:0;
+    color:#fff;
+    background:transparent;
+    font-size:24px;
+    cursor:pointer;
+  }
+  .qty input{
+    border:0;
+    background:transparent;
+    color:#fff;
+    text-align:center;
+    outline:none;
+    font-size:16px;
+    font-weight:700;
+  }
+  .cart-form,
+  .buy-now-wrap{
     width:100%;
   }
-  .footer{margin-bottom:160px}
-}
+  .cart-form button,
+  .buy-now{
+    width:100%;
+  }
+  .buy-now{
+    border:1px solid rgba(255,255,255,.16);
+    background:rgba(255,255,255,.06);
+    color:#fff;
+  }
+  .buy-note{
+    color:rgba(255,255,255,.62);
+    font-size:11px;
+    line-height:1.55;
+    text-align:center;
+  }
+
+  .metrics{
+    padding:14px 0 34px;
+  }
+  .metric-grid{
+    display:grid;
+    grid-template-columns:repeat(6,minmax(0,1fr));
+    gap:14px;
+  }
+  .metric{
+    padding:22px 18px;
+    border-radius:24px;
+  }
+  .metric strong{
+    display:block;
+    font-size:28px;
+    line-height:.94;
+    letter-spacing:-.06em;
+  }
+  .metric span{
+    display:block;
+    margin-top:10px;
+    color:var(--slate);
+    font-size:12px;
+    line-height:1.55;
+    text-transform:uppercase;
+    letter-spacing:.08em;
+    font-weight:700;
+  }
+
+  .why{
+    padding:44px 0 32px;
+  }
+  .why-shell{
+    display:grid;
+    grid-template-columns:minmax(0,.96fr) minmax(0,1.04fr);
+    gap:28px;
+    align-items:start;
+  }
+  .why-copy{
+    display:grid;
+    gap:14px;
+  }
+  .why-card{
+    padding:22px 22px 20px;
+  }
+  .why-card strong{
+    display:block;
+    font-size:20px;
+    line-height:1.14;
+    letter-spacing:-.04em;
+  }
+  .why-card p{
+    margin-top:10px;
+    color:var(--slate);
+    font-size:14px;
+    line-height:1.78;
+  }
+  .why-media{
+    display:grid;
+    grid-template-columns:1.25fr .75fr;
+    gap:14px;
+  }
+  .why-media .stack{
+    display:grid;
+    gap:14px;
+  }
+  .media-card{
+    position:relative;
+    overflow:hidden;
+    border-radius:28px;
+    border:1px solid var(--line);
+    box-shadow:var(--shadow);
+  }
+  .media-card img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+  }
+  .media-card.tall{min-height:540px}
+  .media-card.medium{min-height:262px}
+  .media-label{
+    position:absolute;
+    left:16px;
+    right:16px;
+    bottom:16px;
+    padding:14px 16px;
+    border-radius:20px;
+  }
+  .media-label strong{
+    display:block;
+    font-size:16px;
+    line-height:1.18;
+    letter-spacing:-.04em;
+  }
+  .media-label p{
+    margin-top:8px;
+    color:rgba(255,255,255,.72);
+    font-size:12px;
+    line-height:1.58;
+  }
+
+  .use-cases{
+    padding:42px 0 34px;
+  }
+  .use-shell{
+    display:grid;
+    grid-template-columns:260px minmax(0,1fr);
+    gap:20px;
+    align-items:start;
+  }
+  .use-nav{
+    display:grid;
+    gap:12px;
+  }
+  .use-tab{
+    padding:18px 18px 16px;
+    border:1px solid var(--line);
+    border-radius:24px;
+    background:rgba(255,255,255,.84);
+    text-align:left;
+    cursor:pointer;
+    transition:border-color .24s var(--ease), transform .24s var(--ease), box-shadow .24s var(--ease);
+  }
+  .use-tab.active{
+    border-color:rgba(0,107,105,.24);
+    box-shadow:var(--shadow);
+    transform:translateX(4px);
+  }
+  .use-tab small{
+    display:block;
+    color:var(--mint-deep);
+    font-size:11px;
+    font-weight:800;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+  }
+  .use-tab strong{
+    display:block;
+    margin-top:8px;
+    font-size:18px;
+    line-height:1.14;
+    letter-spacing:-.04em;
+  }
+  .use-tab span{
+    display:block;
+    margin-top:8px;
+    color:var(--slate);
+    font-size:13px;
+    line-height:1.6;
+  }
+  .use-panel{
+    overflow:hidden;
+    display:grid;
+    grid-template-columns:minmax(0,.88fr) minmax(0,1.12fr);
+  }
+  .use-image{
+    min-height:540px;
+    background:#d9ece8;
+  }
+  .use-image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+  }
+  .use-copy{
+    padding:34px;
+  }
+  .use-copy small{
+    color:var(--mint-deep);
+    font-size:12px;
+    font-weight:800;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+  }
+  .use-copy h3{
+    margin-top:18px;
+    font-size:clamp(30px,3vw,44px);
+    line-height:.96;
+    letter-spacing:-.06em;
+  }
+  .use-copy p{
+    margin-top:16px;
+    color:var(--slate);
+    font-size:15px;
+    line-height:1.82;
+  }
+  .use-benefits{
+    display:grid;
+    gap:12px;
+    margin-top:20px;
+  }
+  .use-benefit{
+    padding:16px 18px;
+    border-radius:20px;
+    border:1px solid var(--line);
+    background:var(--paper);
+    font-size:14px;
+    line-height:1.68;
+    color:var(--ink-2);
+    font-weight:600;
+  }
+
+  .engineering{
+    padding:44px 0 30px;
+  }
+  .engineering-shell{
+    display:grid;
+    grid-template-columns:minmax(0,1.04fr) minmax(0,.96fr);
+    gap:24px;
+    align-items:start;
+  }
+  .engineering-media{
+    display:grid;
+    gap:14px;
+  }
+  .engineering-media .card{
+    overflow:hidden;
+  }
+  .engineering-media img{
+    width:100%;
+    height:auto;
+  }
+  .engineering-grid{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:14px;
+  }
+  .spec-card{
+    padding:20px;
+  }
+  .spec-card small{
+    display:block;
+    color:var(--mint-deep);
+    font-size:11px;
+    font-weight:800;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+  }
+  .spec-card strong{
+    display:block;
+    margin-top:8px;
+    font-size:20px;
+    line-height:1.12;
+    letter-spacing:-.05em;
+  }
+  .spec-card p{
+    margin-top:10px;
+    color:var(--slate);
+    font-size:13px;
+    line-height:1.68;
+  }
+  .founder{
+    margin-top:16px;
+    padding:24px;
+  }
+  .founder h3{
+    font-size:34px;
+    line-height:.94;
+    letter-spacing:-.06em;
+  }
+  .founder p{
+    margin-top:16px;
+    color:var(--slate);
+    font-size:15px;
+    line-height:1.85;
+  }
+  .founder blockquote{
+    margin-top:20px;
+    padding-top:20px;
+    border-top:1px solid var(--line);
+    color:var(--ink);
+    font-size:18px;
+    line-height:1.65;
+    font-weight:700;
+  }
+  .founder cite{
+    display:block;
+    margin-top:12px;
+    color:var(--slate);
+    font-size:12px;
+    font-style:normal;
+    text-transform:uppercase;
+    letter-spacing:.12em;
+    font-weight:700;
+  }
+
+  .proof{
+    padding:44px 0 32px;
+  }
+  .proof-shell{
+    display:grid;
+    grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);
+    gap:24px;
+    align-items:start;
+  }
+  .quote-video{
+    overflow:hidden;
+  }
+  .quote-copy{
+    padding:28px;
+  }
+  .quote-copy blockquote{
+    font-size:28px;
+    line-height:1.26;
+    letter-spacing:-.05em;
+    font-weight:800;
+  }
+  .quote-copy p{
+    margin-top:14px;
+    color:var(--slate);
+    font-size:15px;
+    line-height:1.82;
+  }
+  .quote-copy cite{
+    display:block;
+    margin-top:14px;
+    color:var(--mint-deep);
+    font-size:12px;
+    font-style:normal;
+    text-transform:uppercase;
+    letter-spacing:.14em;
+    font-weight:800;
+  }
+  .quote-media{
+    background:#0e141a;
+  }
+  .quote-media video{
+    width:100%;
+    aspect-ratio:16 / 10;
+    object-fit:cover;
+    background:#0e141a;
+  }
+  .proof-grid{
+    display:grid;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:14px;
+  }
+  .proof-item{
+    overflow:hidden;
+  }
+  .proof-item video{
+    width:100%;
+    aspect-ratio:4 / 5;
+    object-fit:cover;
+    background:#091114;
+  }
+  .proof-caption{
+    padding:16px;
+  }
+  .proof-caption small{
+    color:var(--mint-deep);
+    font-size:11px;
+    font-weight:800;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+  }
+  .proof-caption strong{
+    display:block;
+    margin-top:8px;
+    font-size:18px;
+    line-height:1.12;
+    letter-spacing:-.04em;
+  }
+  .proof-caption p{
+    margin-top:8px;
+    color:var(--slate);
+    font-size:13px;
+    line-height:1.66;
+  }
+
+  .compare{
+    padding:42px 0 30px;
+  }
+  .compare-panel{
+    overflow:hidden;
+  }
+  .compare-head,
+  .compare-row{
+    display:grid;
+    grid-template-columns:1.2fr .9fr .9fr;
+    gap:18px;
+    align-items:center;
+  }
+  .compare-head{
+    padding:18px 22px;
+    background:#eff8f7;
+    border-bottom:1px solid var(--line);
+    font-size:12px;
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:.14em;
+    color:var(--slate);
+  }
+  .compare-row{
+    padding:20px 22px;
+    border-bottom:1px solid var(--line);
+  }
+  .compare-row:last-child{border-bottom:0}
+  .compare-row strong{
+    font-size:16px;
+    line-height:1.4;
+  }
+  .compare-row span{
+    font-size:14px;
+    line-height:1.65;
+    color:var(--slate);
+  }
+  .compare-row .yes{
+    color:var(--ink);
+    font-weight:700;
+  }
+  .compare-row .snf{
+    color:var(--mint-deep);
+    font-weight:800;
+  }
+
+  .faq{
+    padding:44px 0 80px;
+  }
+  .faq-shell{
+    display:grid;
+    grid-template-columns:minmax(0,.92fr) minmax(0,.88fr);
+    gap:24px;
+    align-items:start;
+  }
+  .faq-list{
+    display:grid;
+    gap:12px;
+  }
+  details{
+    border:1px solid var(--line);
+    border-radius:22px;
+    background:rgba(255,255,255,.88);
+    padding:0 20px;
+    box-shadow:var(--shadow);
+  }
+  summary{
+    list-style:none;
+    cursor:pointer;
+    min-height:74px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+    font-size:17px;
+    line-height:1.4;
+    font-weight:700;
+  }
+  summary::-webkit-details-marker{display:none}
+  summary::after{
+    content:"+";
+    font-size:26px;
+    line-height:1;
+    color:var(--mint-deep);
+  }
+  details[open] summary::after{content:"-"}
+  .faq-answer{
+    padding:0 0 18px;
+    color:var(--slate);
+    font-size:14px;
+    line-height:1.78;
+  }
+  .cta-card{
+    padding:28px;
+    position:sticky;
+    top:102px;
+  }
+  .cta-card h3{
+    font-size:40px;
+    line-height:.92;
+    letter-spacing:-.07em;
+  }
+  .cta-card p{
+    margin-top:16px;
+    color:rgba(255,255,255,.76);
+    font-size:15px;
+    line-height:1.82;
+  }
+  .cta-stack{
+    display:grid;
+    gap:12px;
+    margin-top:22px;
+  }
+  .cta-mini{
+    display:grid;
+    gap:10px;
+    margin-top:18px;
+  }
+  .cta-mini span{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    color:#fff;
+    font-size:13px;
+    line-height:1.58;
+    font-weight:600;
+  }
+  .cta-mini span::before{
+    content:"";
+    width:8px;
+    height:8px;
+    border-radius:999px;
+    background:#8df0e4;
+  }
+  .cta-card .button-ghost{
+    color:#fff;
+    border-color:rgba(255,255,255,.16);
+    background:rgba(255,255,255,.06);
+  }
+
+  .sticky-dock{
+    position:fixed;
+    left:50%;
+    bottom:16px;
+    z-index:90;
+    width:min(660px,calc(100% - 16px));
+    padding:14px;
+    border-radius:24px;
+    transform:translate(-50%, 120%);
+    transition:transform .34s var(--ease);
+  }
+  .sticky-dock.show{transform:translate(-50%, 0)}
+  .sticky-inner{
+    display:grid;
+    grid-template-columns:1fr auto;
+    gap:12px;
+    align-items:center;
+  }
+  .sticky-copy strong{
+    display:block;
+    font-size:18px;
+    letter-spacing:-.04em;
+  }
+  .sticky-copy span{
+    display:block;
+    margin-top:4px;
+    color:var(--slate);
+    font-size:12px;
+    line-height:1.45;
+    font-weight:700;
+  }
+
+  .reveal{
+    opacity:0;
+    transform:translateY(26px);
+    transition:opacity .55s ease, transform .55s ease;
+  }
+  .reveal.in{
+    opacity:1;
+    transform:translateY(0);
+  }
+
+  @media (max-width: 1120px){
+    .hero-shell,
+    .why-shell,
+    .engineering-shell,
+    .proof-shell,
+    .faq-shell{grid-template-columns:1fr}
+    .hero-right{grid-template-columns:1fr}
+    .cta-card{position:static}
+    .metric-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+    .proof-grid{grid-template-columns:1fr}
+    .why-media{grid-template-columns:1fr}
+    .use-shell{grid-template-columns:1fr}
+    .use-nav{grid-template-columns:repeat(4,minmax(0,1fr))}
+    .use-tab.active{transform:none}
+  }
+
+  @media (max-width: 860px){
+    .site-header .wrap{
+      min-height:74px;
+      flex-wrap:wrap;
+      justify-content:center;
+      padding:12px 0;
+    }
+    .brand{width:100%;justify-content:center}
+    .brand-note{display:none}
+    .nav{display:none}
+    .header-actions{width:100%;justify-content:center}
+    .hero{padding-top:28px}
+    .hero-copy h1{font-size:clamp(40px,14vw,62px)}
+    .product-stage{
+      min-height:480px;
+      padding:18px;
+    }
+    .stage-product-card{width:min(320px,82%)}
+    .stage-badge,
+    .stage-quote{
+      position:relative;
+      left:auto;
+      right:auto;
+      top:auto;
+      bottom:auto;
+      max-width:none;
+      margin-top:14px;
+    }
+    .metric-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+    .engineering-grid{grid-template-columns:1fr}
+    .compare-head,
+    .compare-row{grid-template-columns:1.1fr .85fr .95fr}
+  }
+
+  @media (max-width: 640px){
+    .wrap{width:min(1240px,calc(100% - 18px))}
+    .announcement .wrap{gap:8px;padding:8px 0}
+    .hero-actions{display:grid;grid-template-columns:1fr}
+    .hero-actions a{width:100%}
+    .hero-proofline{flex-wrap:wrap}
+    .metric-grid{grid-template-columns:1fr}
+    .use-nav{grid-template-columns:1fr 1fr}
+    .use-panel{grid-template-columns:1fr}
+    .use-image{min-height:320px}
+    .use-copy{padding:24px 20px}
+    .compare-head{display:none}
+    .compare-row{
+      grid-template-columns:1fr;
+      gap:8px;
+    }
+    .compare-row span::before{
+      display:inline-block;
+      min-width:0;
+      margin-right:8px;
+      color:var(--ink);
+      font-weight:700;
+    }
+    .proof-grid{gap:12px}
+    .sticky-inner{grid-template-columns:1fr}
+    .sticky-inner .button{width:100%}
+  }
 </style>
 </head>
 <body>
-<div class="progress"><div id="progressBar"></div></div>
-
-<header class="site-header">
-  <div class="header-inner">
-    <a class="brand" href="#top">
-      <span class="brand-mark"></span>
-      <span>SNIPERFORM <small>LevelUp Performance Grips</small></span>
-    </a>
-    <nav class="nav">
-      <a href="#product">Product</a>
-      <a href="#attach">Attach</a>
-      <a href="#use">Use</a>
-      <a href="#proof">Proof</a>
-      <a href="#compare">Compare</a>
-      <a href="#faq">FAQ</a>
-    </nav>
-    <div class="header-actions">
-      <a class="ghost" href="https://sniperform.com.au/">Live store</a>
-      <a class="button" href="https://sniperform.com.au/cart/49837676495131:1">Buy now</a>
+  <div class="announcement">
+    <div class="wrap mono">
+      <span>Orders before 2pm AEDT dispatch same day</span>
+      <span>30-day money-back guarantee</span>
+      <span>Now shipping to the U.S.A</span>
     </div>
   </div>
-</header>
 
-<main>
-  <section class="section hero" id="top">
-    <div class="hero-shell">
-      <div class="hero-copy reveal">
-        <div class="eyebrow">Patented alignment grips</div>
-        <h1>Clean <span class="accent">alignment</span>. Bigger arms. Better reps.</h1>
-        <p>LevelUp gives lifters thicker-grip tension, a visible levelling cue, and a simple setup on the bars and dumbbells they already use for rows, curls, presses, and pulls.</p>
-        <div class="hero-actions">
-          <a class="button-dark" href="#heroBuy">Shop the grips</a>
-          <a class="ghost-light" href="#proof">Watch it work</a>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="#top" aria-label="Sniperform home">
+        <img src="assets/sniperform/logo-horizontal.png" alt="Sniperform">
+        <span class="brand-note mono">Pure Precision</span>
+      </a>
+      <nav class="nav">
+        <a href="#why">Why it works</a>
+        <a href="#use-cases">Exercises</a>
+        <a href="#engineering">Engineering</a>
+        <a href="#proof">Proof</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <div class="header-actions">
+        <a class="button" href="#buy-box">Get LevelUp</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="wrap hero-shell">
+        <div class="hero-copy reveal">
+          <span class="eyebrow mono">Patented alignment grips</span>
+          <h1>Build bigger arms <span class="accent">without training blind.</span></h1>
+          <p>LevelUp pairs thick-grip training with a real-time level cue, so every curl, row, press and pull drives more forearm and bicep demand without letting one side quietly take over.</p>
+          <p>The result is a cleaner rep, a stronger pump, and a product that feels engineered instead of improvised the second it hits the bar.</p>
+          <div class="hero-actions">
+            <a class="button-dark" href="#buy-box">Get LevelUp Grips</a>
+            <a class="button-ghost" href="#proof">Watch it in action</a>
+          </div>
+          <div class="hero-trust">
+            <span class="pill">30-day returns</span>
+            <span class="pill">Free shaker while stocks last</span>
+            <span class="pill">Fits 28–32mm bars &amp; dumbbells</span>
+            <span class="pill">50mm thick-grip diameter</span>
+          </div>
+          <div class="hero-proofline">
+            <span class="hero-stars">★★★★★</span>
+            <span>IFBB Pro backed and designed to make compensation obvious before it becomes a habit.</span>
+          </div>
         </div>
-        <div class="hero-trust">
-          <span>30-day money-back guarantee</span>
-          <span>Orders before 2pm AEDT dispatch same day</span>
-          <span>Fits 28-32mm Olympic bars and dumbbells</span>
+
+        <div class="hero-right reveal">
+          <div class="product-stage">
+            <div class="stage-grid" aria-hidden="true"></div>
+            <div class="stage-ring" aria-hidden="true"></div>
+            <div class="stage-inset card">
+              <img src="assets/sniperform/featured-product-lifestyle.jpg" alt="Sniperform grip being used on a dumbbell">
+            </div>
+            <div class="stage-badge glass one">
+              <small class="mono">Growth signal</small>
+              <strong>Thick-grip tension helps turn grip strength into bigger arm demand.</strong>
+              <p>Sniperform keeps the category’s arm-growth appeal, then adds a stronger reason to believe.</p>
+            </div>
+            <div class="stage-product-card">
+              <img class="stage-product" src="assets/sniperform/hero-main-product.jpg" alt="LevelUp Performance Grips by Sniperform">
+            </div>
+            <div class="stage-badge glass two">
+              <small class="mono">Core difference</small>
+              <strong>The level window makes imbalance visible while you lift.</strong>
+              <p>That simple cue shifts the page from generic thick grips into precision, control, and trust.</p>
+            </div>
+            <div class="stage-quote glass">
+              <small class="mono">Why people buy</small>
+              <strong>More balanced force. Cleaner reps under fatigue.</strong>
+              <p>It feels like a real training tool, not just another sleeve with a logo on it.</p>
+            </div>
+          </div>
+
+          <aside class="buy-card card-dark" id="buy-box">
+            <div class="buy-kicker mono">
+              <span>Live Shopify checkout</span>
+              <span>Ready for dispatch</span>
+            </div>
+            <h2>LevelUp Performance Grips (Pair)</h2>
+            <p>Patented alignment grips for bigger arms, cleaner reps, and a faster path into checkout.</p>
+            <div class="buy-visual">
+              <img src="assets/sniperform/hero-main-product.jpg" alt="Sniperform LevelUp Performance Grips">
+            </div>
+            <div class="price-row">
+              <strong>$59.95</strong>
+              <span>FREE shaker auto-added while stock lasts</span>
+            </div>
+            <div class="offer">
+              <strong class="mono">Limited time offer</strong>
+              <p>Buy LevelUp Grips and your free Sniperform Shaker is applied automatically at checkout. No code. No extra clicks.</p>
+            </div>
+            <ul class="buy-bullets">
+              <li>30%+ more muscle fibre activation story from the current live product page.</li>
+              <li>Patented levelling integration for even weight distribution and cleaner bar alignment.</li>
+              <li>Quick-lock mounting, universal 28–32mm fit, and fast same-day dispatch before 2pm AEDT.</li>
+            </ul>
+            <div class="buy-proof">
+              <blockquote>“Sniperform has completely transformed the way I approach my lifts. Balanced muscle activation and improved grip strength.”</blockquote>
+              <cite>Nathan Williamson / IFBB Pro Bodybuilder</cite>
+            </div>
+            <div class="checkout">
+              <div class="qty">
+                <button type="button" data-qty-decrease aria-label="Decrease quantity">-</button>
+                <input type="number" min="1" step="1" value="1" data-qty-display aria-label="Quantity">
+                <button type="button" data-qty-increase aria-label="Increase quantity">+</button>
+              </div>
+              <form class="cart-form" action="https://sniperform.com.au/cart/add" method="post">
+                <input type="hidden" name="form_type" value="product">
+                <input type="hidden" name="utf8" value="✓">
+                <input type="hidden" name="id" value="49837676495131">
+                <input type="hidden" name="quantity" value="1" data-qty-input>
+                <button class="button" type="submit">Add to cart</button>
+              </form>
+              <div class="buy-now-wrap">
+                <a class="button buy-now" href="https://sniperform.com.au/cart/49837676495131:1" data-buy-now>Buy now</a>
+              </div>
+              <div class="buy-note">Secure checkout on sniperform.com.au. Auto-applied gift is added when you buy LevelUp Grips while stocks last.</div>
+            </div>
+          </aside>
         </div>
       </div>
+    </section>
 
-      <div class="hero-right reveal">
-        <div class="hero-stage">
-          <div class="sphere-shell">
-            <div class="sphere-shadow"></div>
-            <svg id="heroSphere" viewBox="0 0 500 500" aria-hidden="true"></svg>
-            <img class="product-float" src="https://sniperform.com.au/cdn/shop/files/hero-main-product.png?v=1771839582" alt="Sniperform LevelUp product render">
+    <section class="metrics">
+      <div class="wrap metric-grid">
+        <div class="metric card reveal"><strong>30%+</strong><span>more muscle fibres activated</span></div>
+        <div class="metric card reveal"><strong>50mm</strong><span>scientifically optimised thick-grip diameter</span></div>
+        <div class="metric card reveal"><strong>100mm</strong><span>grip length for bar and dumbbell use</span></div>
+        <div class="metric card reveal"><strong>85g</strong><span>weight per grip</span></div>
+        <div class="metric card reveal"><strong>2pm</strong><span>same-day dispatch cutoff</span></div>
+        <div class="metric card reveal"><strong>30 days</strong><span>money-back guarantee</span></div>
+      </div>
+    </section>
+
+    <section class="why" id="why">
+      <div class="wrap why-shell">
+        <div>
+          <div class="section-head reveal">
+            <span class="eyebrow mono">Why it works</span>
+            <h2>The category already knows thick grips work. Sniperform makes the benefit impossible to miss.</h2>
+            <p>Most thick-grip tools only change the handle. LevelUp adds a visible level cue, a fast locking system, and a premium hardware feel that explains the price in seconds instead of making the buyer work for it.</p>
           </div>
-          <div class="floating-tag tag-one">
-            <small>Why lifters buy</small>
-            <strong>One clear benefit stack, not a confusing range.</strong>
-            <p>Explain the result quickly and the add-to-cart decision gets easier.</p>
-          </div>
-          <div class="floating-tag tag-two">
-            <small>Core value</small>
-            <strong>More grip demand with a visible rep-quality cue.</strong>
-            <p>It feels like a real training tool instead of another generic gym accessory.</p>
+          <div class="why-copy">
+            <article class="why-card card reveal">
+              <strong>Grow through the grip, not around it.</strong>
+              <p>Thick bar training is already associated with stronger forearms, bigger biceps, and more grip demand. Sniperform keeps that proven “bigger arms” hook and makes it feel more premium and more specific.</p>
+            </article>
+            <article class="why-card card reveal">
+              <strong>See imbalance before it becomes a pattern.</strong>
+              <p>The patented level window turns a hidden problem into something a lifter understands at a glance. That makes the offer more memorable than generic sleeves and stronger than vague “better form” promises.</p>
+            </article>
+            <article class="why-card card reveal">
+              <strong>Low-friction setup means faster belief.</strong>
+              <p>Quick-lock mounting, universal fit, and a product shape that looks engineered all reduce hesitation. The page feels easier to trust because the tool feels easier to use.</p>
+            </article>
           </div>
         </div>
 
-        <aside class="hero-buy-card" id="heroBuy">
-          <div class="hero-card-head">
-            <small>Checkout</small>
-            <span>Live Shopify</span>
-          </div>
-          <h3>LevelUp Alignment Grips</h3>
-          <p>Pair of patented alignment grips built to make the product feel premium, useful, and easy to buy from the first visit.</p>
-          <div class="hero-price">
-            <strong>$59.95</strong>
-            <span>Free shaker auto-added while stock lasts</span>
-          </div>
-          <div class="hero-rating">
-            <div class="hero-stars">★★★★★</div>
-            <p>IFBB Pro backed, same-day dispatch before 2pm AEDT, and direct checkout through the live store.</p>
-          </div>
-          <div class="hero-perks">
-            <span>Fits 28-32mm</span>
-            <span>30-day returns</span>
-            <span>Fast checkout</span>
-          </div>
-          <div class="hero-checkout">
-            <div class="qty">
-              <button type="button" data-qty-decrease>-</button>
-              <input type="number" min="1" step="1" value="1" data-qty-display aria-label="Quantity">
-              <button type="button" data-qty-increase>+</button>
+        <div class="why-media">
+          <div class="media-card tall reveal">
+            <img src="assets/sniperform/feature-board.png" alt="Sniperform feature board showing key benefits and product on barbell">
+            <div class="media-label glass">
+              <strong>Patented level feedback, quick-lock mounting, explosive muscle pumps, universal fit.</strong>
+              <p>These are the strongest repeated promises across the live site, packaging, and brand materials.</p>
             </div>
-            <form class="cart-form" action="https://sniperform.com.au/cart/add" method="post">
-              <input type="hidden" name="form_type" value="product">
-              <input type="hidden" name="utf8" value="✓">
-              <input type="hidden" name="id" value="49837676495131">
-              <input type="hidden" name="quantity" value="1" data-qty-input>
-              <button class="button" type="submit">Add to cart</button>
-            </form>
-            <a class="buy-now" href="https://sniperform.com.au/cart/49837676495131:1" data-buy-now>Buy now</a>
           </div>
-          <div class="hero-payments">
-            <span>Shopify Checkout</span>
-            <span>Apple Pay</span>
-            <span>Google Pay</span>
-            <span>Visa / Mastercard</span>
+          <div class="stack">
+            <div class="media-card medium reveal">
+              <img src="assets/sniperform/spirit-level-macro.jpg" alt="Close-up of Sniperform spirit level during training">
+              <div class="media-label glass">
+                <strong>The hero mechanism is visible on contact.</strong>
+                <p>The cue is built into the product story, not buried in a spec list.</p>
+              </div>
+            </div>
+            <div class="media-card medium reveal">
+              <img src="assets/sniperform/packaging-front.jpg" alt="Sniperform LevelUp Performance Grips packaging">
+              <div class="media-label glass">
+                <strong>Premium presentation helps the price feel earned.</strong>
+                <p>Designed in Australia, engineered like a tool, packaged like a real brand.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="use-cases" id="use-cases">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow mono">Exercise fit</span>
+          <h2>Show buyers exactly where LevelUp earns its place in the gym bag.</h2>
+          <p>People convert faster when they can picture the first session. These four patterns cover the strongest use cases repeated across the live product page, science notes, and script deck.</p>
+        </div>
+        <div class="use-shell">
+          <div class="use-nav reveal" id="useTabs"></div>
+          <article class="use-panel card reveal">
+            <div class="use-image">
+              <img id="useImage" src="" alt="Sniperform use case image">
+            </div>
+            <div class="use-copy">
+              <small class="mono" id="useKicker"></small>
+              <h3 id="useTitle"></h3>
+              <p id="useText"></p>
+              <div class="use-benefits" id="useBenefits"></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="engineering" id="engineering">
+      <div class="wrap engineering-shell">
+        <div class="engineering-media reveal">
+          <div class="card">
+            <img src="assets/sniperform/cad-drawing.png" alt="Technical CAD drawing for Sniperform Level Grip">
+          </div>
+          <div class="card">
+            <img src="assets/sniperform/packaging-back.jpg" alt="Sniperform packaging showing product claims and icons">
+          </div>
+        </div>
+
+        <div>
+          <div class="section-head reveal">
+            <span class="eyebrow mono">Engineering</span>
+            <h2>Built like a tool. Not a gimmick.</h2>
+            <p>The CAD pack, packaging system, and product geometry all point to the same thing: LevelUp was developed as real training hardware. That matters because higher-converting pages feel mechanically credible, not overhyped.</p>
+          </div>
+
+          <div class="engineering-grid">
+            <article class="spec-card card reveal">
+              <small class="mono">Patented cue</small>
+              <strong>Real-time level feedback</strong>
+              <p>Balanced barbell lifts and even load distribution are not abstract claims here. The cue is visible on the product during the rep.</p>
+            </article>
+            <article class="spec-card card reveal">
+              <small class="mono">Fast setup</small>
+              <strong>Quick-lock mounting</strong>
+              <p>Slides on and locks in seconds. Low setup friction helps the product feel serious and session-ready immediately.</p>
+            </article>
+            <article class="spec-card card reveal">
+              <small class="mono">Fit</small>
+              <strong>28–32mm universal compatibility</strong>
+              <p>Designed to work with standard Olympic barbells and dumbbells, which removes the need for special equipment or complex onboarding.</p>
+            </article>
+            <article class="spec-card card reveal">
+              <small class="mono">Size</small>
+              <strong>50mm outer diameter, 100mm length, 85g each</strong>
+              <p>Thick enough to change grip demand fast, light enough to carry, and compact enough to feel easy to bring into a normal session.</p>
+            </article>
+          </div>
+
+          <article class="founder card reveal">
+            <h3>The product story becomes stronger when the founder problem is specific.</h3>
+            <p>Sniperform’s founder script is not generic “gym inventor” copy. It is built around one repeated tension: years of lifting with hidden imbalance, an eventual shoulder tear, and the realisation that a few degrees off can twist form, posture, and joints over time.</p>
+            <blockquote>“After 20 years of lifting, I realised one side of my body always did more work. My chest was uneven, my posture twisted, and eventually my shoulder tore.”</blockquote>
+            <cite>Darren / Founder script</cite>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="proof" id="proof">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow mono">Proof</span>
+          <h2>Show it. Then close the sale.</h2>
+          <p>Short-form video, athlete proof, and a confident quote do more conversion work than another wall of explanation. This section keeps the outcome close to the CTA instead of making the buyer go looking for reasons to trust you.</p>
+        </div>
+        <div class="proof-shell">
+          <article class="quote-video card reveal">
+            <div class="quote-copy">
+              <blockquote>“Sniperform has completely transformed the way I approach my lifts.”</blockquote>
+              <p>Balanced muscle activation and improved grip strength are the two outcomes repeated most clearly in the existing athlete proof. That makes the testimonial perfect for closing the performance argument without sounding overproduced.</p>
+              <cite>Nathan Williamson / IFBB Pro Bodybuilder</cite>
+            </div>
+            <div class="quote-media">
+              <video controls playsinline preload="metadata" poster="https://sniperform.com.au/cdn/shop/files/Screenshot_2025-12-12_at_09.31.57.png?v=1765492356">
+                <source src="https://cdn.shopify.com/videos/c/o/v/627a5f4169d54b5d90123d6939ab1d32.mp4" type="video/mp4">
+              </video>
+            </div>
+          </article>
+
+          <div class="proof-grid">
+            <article class="proof-item card reveal">
+              <video data-auto-video playsinline muted loop preload="metadata">
+                <source src="https://cdn.shopify.com/videos/c/o/v/1a1b2fc7b3f84cfd90a3a834fd315127.mp4" type="video/mp4">
+              </video>
+              <div class="proof-caption">
+                <small class="mono">Setup</small>
+                <strong>Clip on and get to work.</strong>
+                <p>Fast installation lowers friction and helps the tool feel practical before the buyer even thinks about objections.</p>
+              </div>
+            </article>
+            <article class="proof-item card reveal">
+              <video data-auto-video playsinline muted loop preload="metadata">
+                <source src="https://cdn.shopify.com/videos/c/o/v/36a673d8e4c94b87982d55fe8f8bd70d.mp4" type="video/mp4">
+              </video>
+              <div class="proof-caption">
+                <small class="mono">Problem</small>
+                <strong>Most lifters miss the imbalance until it becomes a pattern.</strong>
+                <p>Showing the hidden problem clearly makes the patented level cue feel necessary instead of just interesting.</p>
+              </div>
+            </article>
+            <article class="proof-item card reveal">
+              <video data-auto-video playsinline muted loop preload="metadata">
+                <source src="https://cdn.shopify.com/videos/c/o/v/ace461e210a24cb89034e812d44d2fdd.mp4" type="video/mp4">
+              </video>
+              <div class="proof-caption">
+                <small class="mono">Outcome</small>
+                <strong>Cleaner reps under fatigue.</strong>
+                <p>When the closing image is control rather than chaos, the premium perception of the product rises with it.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="compare">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow mono">Comparison</span>
+          <h2>Why this wins against standard thick-grip sleeves.</h2>
+          <p>Standard thick grips increase the handle. LevelUp increases the handle and tells the user when force and alignment start drifting. That is the difference between a commodity accessory and a defendable product page.</p>
+        </div>
+        <div class="compare-panel card reveal">
+          <div class="compare-head">
+            <span>Feature</span>
+            <span>Standard thick grip</span>
+            <span>Sniperform LevelUp</span>
+          </div>
+          <div class="compare-row">
+            <strong>Thick-grip arm and forearm stimulation</strong>
+            <span class="yes">Yes</span>
+            <span class="snf">Yes</span>
+          </div>
+          <div class="compare-row">
+            <strong>Visible level feedback during the rep</strong>
+            <span>No</span>
+            <span class="snf">Yes</span>
+          </div>
+          <div class="compare-row">
+            <strong>Instant cue for uneven load distribution</strong>
+            <span>No</span>
+            <span class="snf">Yes</span>
+          </div>
+          <div class="compare-row">
+            <strong>Quick-lock mounting system</strong>
+            <span>Usually basic slip-on</span>
+            <span class="snf">Quick-lock, session-ready</span>
+          </div>
+          <div class="compare-row">
+            <strong>Balance and joint-strain reduction story</strong>
+            <span>Weak or absent</span>
+            <span class="snf">Core differentiator</span>
+          </div>
+          <div class="compare-row">
+            <strong>Premium engineered presentation</strong>
+            <span>Inconsistent</span>
+            <span class="snf">Strong brand and hardware feel</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq" id="faq">
+      <div class="wrap faq-shell">
+        <div>
+          <div class="section-head reveal">
+            <span class="eyebrow mono">FAQ</span>
+            <h2>Answer the last objections while the intent is still high.</h2>
+            <p>These are the purchase questions repeated across the current live store, the proof section, and the offer stack. Keeping them tight prevents the page from losing momentum this close to checkout.</p>
+          </div>
+          <div class="faq-list">
+            <details class="reveal" open>
+              <summary>Will LevelUp fit my bars and dumbbells?</summary>
+              <div class="faq-answer">Yes. The current live store positions LevelUp for standard Olympic barbells and dumbbells in the 28–32mm range.</div>
+            </details>
+            <details class="reveal">
+              <summary>How does it help bigger arms and more balanced lifting?</summary>
+              <div class="faq-answer">The thick-grip diameter increases grip, forearm and bicep demand, while the patented level cue helps keep force distribution more even as the set gets harder.</div>
+            </details>
+            <details class="reveal">
+              <summary>How fast is shipping?</summary>
+              <div class="faq-answer">According to the current live store, orders placed before 2pm AEDT are dispatched the same day. Australia-wide delivery is currently positioned at 1–4 business days after dispatch, and the site also calls out U.S.A shipping.</div>
+            </details>
+            <details class="reveal">
+              <summary>What happens if it is not for me?</summary>
+              <div class="faq-answer">Sniperform currently offers a 30-day money-back guarantee. That guarantee stays visible near the buy buttons because it directly lowers hesitation.</div>
+            </details>
+            <details class="reveal">
+              <summary>What is included with the offer?</summary>
+              <div class="faq-answer">The page is currently positioned around one pair of LevelUp Performance Grips, with a free Sniperform Shaker auto-applied at checkout while stocks last.</div>
+            </details>
+          </div>
+        </div>
+
+        <aside class="cta-card card-dark reveal">
+          <span class="eyebrow mono" style="color:#8df0e4">Final CTA</span>
+          <h3>Ready to stop guessing through your reps?</h3>
+          <p>LevelUp gives you the thick-grip arm-growth story buyers already want, then adds the patented balance feedback that makes the offer feel smarter, more useful, and easier to justify.</p>
+          <div class="cta-mini">
+            <span>Free shaker auto-applied while stocks last</span>
+            <span>30-day money-back guarantee</span>
+            <span>Fast checkout on the live Sniperform store</span>
+            <span>Now shipping to the U.S.A</span>
+          </div>
+          <div class="cta-stack">
+            <a class="button" href="#buy-box">Get LevelUp Grips</a>
+            <a class="button-ghost" href="https://sniperform.com.au/products/level-up-alignment-grips">Open live product page</a>
           </div>
         </aside>
       </div>
+    </section>
+  </main>
+
+  <div class="sticky-dock glass" id="stickyDock">
+    <div class="sticky-inner">
+      <div class="sticky-copy">
+        <strong>LevelUp Performance Grips / $59.95</strong>
+        <span>Patented alignment feedback, free shaker while stocks last, same-store checkout.</span>
+      </div>
+      <a class="button" href="#buy-box">Buy now</a>
     </div>
-  </section>
-
-  <section class="section metrics reveal">
-    <div class="metric-track">
-      <div class="metric"><strong>30%+</strong><span>more muscle fibre claim</span></div>
-      <div class="metric"><strong>28-32mm</strong><span>universal fit range</span></div>
-      <div class="metric"><strong>2pm</strong><span>same-day dispatch cutoff</span></div>
-      <div class="metric"><strong>30 days</strong><span>money-back guarantee</span></div>
-      <div class="metric"><strong>Free</strong><span>shaker auto-added at checkout</span></div>
-      <div class="metric"><strong>Secure</strong><span>shopify checkout flow</span></div>
-    </div>
-  </section>
-
-  <section class="section intro">
-    <div class="section-head reveal">
-      <div class="eyebrow">Why it sells</div>
-      <h2>Everything a buyer needs before they add to cart.</h2>
-      <p>Keep the page clean, but make the sales path obvious: fast benefit explanation, product proof, trust signals, live checkout actions, and simple objection handling.</p>
-    </div>
-    <div class="capability-grid">
-      <article class="capability reveal">
-        <small>01</small>
-        <strong>Fast understanding</strong>
-        <p>Lead with bigger-arm potential, thicker-grip tension, and the levelling cue so the product is understood in seconds.</p>
-      </article>
-      <article class="capability reveal">
-        <small>02</small>
-        <strong>Real purchase flow</strong>
-        <p>Gallery, quantity, add to cart, buy now, and live Shopify checkout actions are all built into the page.</p>
-      </article>
-      <article class="capability reveal">
-        <small>03</small>
-        <strong>Proof before friction</strong>
-        <p>Short-form clips, athlete proof, and use-case switching make the offer easier to trust before the buyer starts hesitating.</p>
-      </article>
-      <article class="capability reveal">
-        <small>04</small>
-        <strong>Less hesitation</strong>
-        <p>Free shaker messaging, same-day dispatch, and a sticky purchase dock reduce the distance between interest and checkout.</p>
-      </article>
-    </div>
-  </section>
-
-  <section class="section product-section" id="product">
-    <div class="product-shell">
-      <div class="gallery-panel reveal">
-        <div class="gallery-main">
-          <img id="galleryMainImage" src="https://sniperform.com.au/cdn/shop/files/0F3A2557_square_crop_2000.webp?v=1769487620&width=1800" alt="Sniperform product gallery image">
-          <div class="gallery-copy">
-            <small id="galleryLabel">Alignment detail</small>
-            <strong id="galleryTitle">The levelling cue is the feature that changes the category.</strong>
-            <p id="galleryText">That visible indicator helps lifters understand the benefit quickly and see why this does more than a standard thick-grip sleeve.</p>
-          </div>
-        </div>
-        <div class="thumb-row" id="thumbRow"></div>
-      </div>
-
-      <aside class="detail-panel reveal">
-        <small>Why it converts</small>
-        <h3>Trust is built before the buyer even reaches the sticky cart.</h3>
-        <p>This side of the page is about closing the remaining questions fast: what makes LevelUp feel premium, why the benefit is obvious, and why checkout feels low-friction.</p>
-
-        <div class="detail-list">
-          <div class="detail-item">
-            <strong>Visible alignment cue</strong>
-            <span>The product explains itself faster than a generic thick-grip sleeve because the benefit is visible in motion.</span>
-          </div>
-          <div class="detail-item">
-            <strong>Clip-on setup story</strong>
-            <span>Fast install lowers hesitation. It feels like serious gym hardware, not something fiddly or gimmicky.</span>
-          </div>
-          <div class="detail-item">
-            <strong>Premium checkout path</strong>
-            <span>Live Shopify actions, same-day dispatch messaging, and the free shaker offer keep the purchase flow direct.</span>
-          </div>
-        </div>
-
-        <div class="mini-proof">
-          <div class="hero-stars">★★★★★</div>
-          <blockquote>"Sniperform has completely transformed the way I approach my lifts."</blockquote>
-          <cite>Nathan Williamson / IFBB Pro Bodybuilder</cite>
-        </div>
-
-        <div class="detail-actions">
-          <a class="button" href="https://sniperform.com.au/cart/49837676495131:1">Buy now</a>
-          <a class="ghost-light" href="#proof">Watch athlete proof</a>
-        </div>
-      </aside>
-    </div>
-  </section>
-
-  <section class="section attach-section" id="attach">
-    <div class="attach-shell">
-      <div class="attach-copy reveal">
-        <div class="eyebrow">Attach demo</div>
-        <h2>Three quick steps and the product makes sense.</h2>
-        <p>Show the setup clearly so new visitors can picture using LevelUp in a real session without extra explanation.</p>
-        <div class="attach-steps" id="attachSteps"></div>
-      </div>
-
-      <div class="attach-panel reveal">
-        <div class="attach-stage" id="attachStage" data-step="mount">
-          <div class="bar"></div>
-          <div class="plate-stack left">
-            <div class="plate one"></div>
-            <div class="plate two"></div>
-            <div class="plate plate-three"></div>
-          </div>
-          <div class="plate-stack right">
-            <div class="plate one"></div>
-            <div class="plate two"></div>
-            <div class="plate plate-three"></div>
-          </div>
-          <img class="attach-product" src="https://sniperform.com.au/cdn/shop/files/hero-main-product.png?v=1771839582" alt="Sniperform product moving onto a bar">
-          <div class="attach-chip one">
-            <small id="attachKicker">Step 01</small>
-            <strong id="attachTitle">Slide the grips into position.</strong>
-            <p id="attachText">Fast setup matters. The product should feel ready to clip on and train with immediately.</p>
-          </div>
-          <div class="attach-chip two">
-            <small>Result</small>
-            <strong id="attachResult">Place the grips where the lifter wants the leverage and thickness.</strong>
-            <p id="attachResultText">Once it is mounted, the value becomes much easier to understand.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section use-section" id="use">
-    <div class="section-head reveal">
-      <div class="eyebrow">Use cases</div>
-      <h2>Use it on the lifts people actually care about.</h2>
-      <p>Rows, curls, presses, and pulls all reinforce the same message: thicker grip demand, cleaner control, and a product that fits straight into an existing program.</p>
-    </div>
-    <div class="use-pills reveal" id="usePills"></div>
-    <div class="use-shell">
-      <div class="use-media reveal">
-        <img id="useImage" src="https://sniperform.com.au/cdn/shop/files/0F3A2557_square_crop_2000.webp?v=1769487620&width=1800" alt="Sniperform use case image">
-        <div class="use-overlay"></div>
-        <div class="use-tag">
-          <small id="useTagKicker">Rows mode</small>
-          <strong id="useTagTitle">Keep the pull level when fatigue starts to take over.</strong>
-          <p id="useTagText">Rows make the grip and alignment benefit easy to understand right away.</p>
-        </div>
-      </div>
-      <div class="use-copy reveal">
-        <div class="eyebrow" id="useKicker">Rows</div>
-        <h3 id="useTitle">Use LevelUp on rows to keep the pull cleaner and the grip more demanding.</h3>
-        <p id="useText">Rows are a strong first use case because lifters can understand both benefits quickly: harder grip and arm demand, plus a visual cue that helps keep the pull more even.</p>
-        <div class="benefit-list" id="benefitList"></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section proof-section" id="proof">
-    <div class="proof-shell">
-      <div class="proof-copy reveal">
-        <div class="eyebrow">Social proof</div>
-        <h2>Show the result, then let proof close the sale.</h2>
-        <p>Trusted faces, short-form clips, and a clear offer usually do more conversion work than long explanation blocks. This section keeps that proof close to the cart.</p>
-        <div class="review-card">
-          <blockquote>"Sniperform has completely transformed the way I approach my lifts."</blockquote>
-          <cite>Nathan Williamson / IFBB Pro Bodybuilder</cite>
-          <div class="review-media">
-            <img src="https://sniperform.com.au/cdn/shop/files/Screenshot_2025-12-12_at_09.31.57.png?v=1765492356" alt="Nathan Williamson testimonial image">
-            <video controls playsinline preload="metadata" poster="https://sniperform.com.au/cdn/shop/files/Screenshot_2025-12-12_at_09.31.57.png?v=1765492356">
-              <source src="https://cdn.shopify.com/videos/c/o/v/627a5f4169d54b5d90123d6939ab1d32.mp4" type="video/mp4">
-            </video>
-          </div>
-        </div>
-      </div>
-
-      <div class="proof-panel reveal">
-        <div class="proof-video-grid">
-          <article class="proof-video">
-            <video data-video playsinline muted loop preload="metadata">
-              <source src="https://cdn.shopify.com/videos/c/o/v/1a1b2fc7b3f84cfd90a3a834fd315127.mp4" type="video/mp4">
-            </video>
-            <div class="proof-caption">
-              <small>Setup</small>
-              <strong>Clip on and get to work.</strong>
-              <p>Explain the install in seconds so the product feels practical, not complicated.</p>
-            </div>
-          </article>
-          <article class="proof-video">
-            <video data-video playsinline muted loop preload="metadata">
-              <source src="https://cdn.shopify.com/videos/c/o/v/36a673d8e4c94b87982d55fe8f8bd70d.mp4" type="video/mp4">
-            </video>
-            <div class="proof-caption">
-              <small>Problem</small>
-              <strong>Most lifters miss the imbalance until it is a pattern.</strong>
-              <p>Showing the problem clearly makes the levelling story feel more necessary.</p>
-            </div>
-          </article>
-          <article class="proof-video">
-            <video data-video playsinline muted loop preload="metadata">
-              <source src="https://cdn.shopify.com/videos/c/o/v/ace461e210a24cb89034e812d44d2fdd.mp4" type="video/mp4">
-            </video>
-            <div class="proof-caption">
-              <small>Outcome</small>
-              <strong>Cleaner reps under fatigue.</strong>
-              <p>Close the video story on confidence, control, and session quality.</p>
-            </div>
-          </article>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section compare-section" id="compare">
-    <div class="compare-shell">
-      <div class="compare-copy reveal">
-        <div class="eyebrow">Comparison</div>
-        <h2>Why lifters choose this over standard fat grips.</h2>
-        <p>Standard thick grips change the handle. Sniperform adds a visible cue and a stronger hardware story, which makes the product easier to justify at a glance.</p>
-      </div>
-      <div class="compare-panel reveal">
-        <div class="compare-table">
-          <div class="compare-row head"><span>Feature</span><span>Standard thick grip</span><span>Sniperform</span></div>
-          <div class="compare-row"><span>Thick bar contact</span><span>Yes</span><span>Yes</span></div>
-          <div class="compare-row"><span>Visible alignment cue</span><span>No</span><span>Yes</span></div>
-          <div class="compare-row"><span>Quick-lock story</span><span>Weaker</span><span>Stronger</span></div>
-          <div class="compare-row"><span>Cleaner rep feedback</span><span>Limited</span><span>Built in</span></div>
-          <div class="compare-row"><span>Premium product presentation</span><span>Commodity feel</span><span>Higher-end</span></div>
-          <div class="compare-row"><span>Single-product PDP clarity</span><span>Generic</span><span>Sharper</span></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section faq-section" id="faq">
-    <div class="faq-shell">
-      <div class="faq-copy reveal">
-        <div class="eyebrow">FAQ</div>
-        <h2>Answer the last questions before checkout.</h2>
-        <p>Keep the FAQ simple. The rest of the page does the selling; this section just removes hesitation.</p>
-      </div>
-      <div class="faq-panel reveal">
-        <div class="faq-list" id="faqList"></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section cta-section">
-    <div class="cta-panel reveal">
-      <div>
-        <div class="eyebrow">Ready to buy</div>
-        <h3>Ready to train with LevelUp?</h3>
-        <p>Take the direct path into the live Sniperform checkout with live Shopify add-to-cart, buy-now links, and a cleaner single-product flow.</p>
-      </div>
-      <div class="hero-actions">
-        <a class="button-dark" href="#heroBuy">Add to cart</a>
-        <a class="button" href="https://sniperform.com.au/cart/49837676495131:1">Buy now</a>
-      </div>
-    </div>
-  </section>
-</main>
-
-<footer class="footer">
-  <div>Sniperform single-product landing page for LevelUp Performance Grips</div>
-  <div class="footer-links">
-    <a href="https://sniperform.com.au/">Live store</a>
-    <a href="https://sniperform.com.au/products/level-up-alignment-grips">Live product page</a>
   </div>
-</footer>
-
-<div class="sticky-dock" id="stickyDock">
-  <div class="dock-copy">
-    <small>LevelUp Performance Grips</small>
-    <strong>$59.95</strong>
-    <span>Patented alignment grips with free shaker auto-applied at checkout</span>
-  </div>
-  <div class="dock-actions">
-    <div class="qty">
-      <button type="button" data-qty-decrease>-</button>
-      <input type="number" min="1" step="1" value="1" data-qty-display aria-label="Quantity">
-      <button type="button" data-qty-increase>+</button>
-    </div>
-    <form class="cart-form" action="https://sniperform.com.au/cart/add" method="post">
-      <input type="hidden" name="form_type" value="product">
-      <input type="hidden" name="utf8" value="✓">
-      <input type="hidden" name="id" value="49837676495131">
-      <input type="hidden" name="quantity" value="1" data-qty-input>
-      <button class="button" type="submit">Add to cart</button>
-    </form>
-    <a class="buy-now" href="https://sniperform.com.au/cart/49837676495131:1" data-buy-now>Buy now</a>
-  </div>
-</div>
 
 <script>
-const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-let reducedMotion = prefersReducedMotion.matches;
-document.body.classList.toggle('reduce-motion', reducedMotion);
-
-const GALLERY_ITEMS = [
-  {
-    image: 'https://sniperform.com.au/cdn/shop/files/0F3A2557_square_crop_2000.webp?v=1769487620&width=1800',
-    thumb: 'https://sniperform.com.au/cdn/shop/files/0F3A2557_square_crop_2000.webp?v=1769487620&width=400',
-    label: 'Alignment detail',
-    title: 'The levelling cue is the feature that changes the category.',
-    text: 'That visible indicator helps lifters understand the benefit quickly and see why this does more than a standard thick-grip sleeve.'
-  },
-  {
-    image: 'https://sniperform.com.au/cdn/shop/files/hero-main-product.png?v=1771839582',
-    thumb: 'https://sniperform.com.au/cdn/shop/files/hero-main-product.png?v=1771839582',
-    label: 'Product render',
-    title: 'See the product clearly before making the decision.',
-    text: 'A simple product-first frame helps the buyer focus on what LevelUp does and how it fits into training.'
-  },
-  {
-    image: 'https://sniperform.com.au/cdn/shop/files/0F3A2480_square_crop_2000.webp?v=1769488611&width=1800',
-    thumb: 'https://sniperform.com.au/cdn/shop/files/0F3A2480_square_crop_2000.webp?v=1769488611&width=400',
-    label: 'In use',
-    title: 'Show the grip in the hand, not just on white.',
-    text: 'That helps lifters picture the product in a normal gym session, not just as a studio shot.'
-  },
-  {
-    image: 'https://sniperform.com.au/cdn/shop/files/0F3A3029_square_crop_2000.webp?v=1767933896&width=1800',
-    thumb: 'https://sniperform.com.au/cdn/shop/files/0F3A3029_square_crop_2000.webp?v=1767933896&width=400',
-    label: 'Setup',
-    title: 'Simple setup matters because it lowers behavioural friction.',
-    text: 'A product that looks easy to install feels easier to trust and easier to add to cart.'
-  },
-  {
-    image: 'https://sniperform.com.au/cdn/shop/files/0F3A2747.png?v=1738733865&width=1400',
-    thumb: 'https://sniperform.com.au/cdn/shop/files/0F3A2747.png?v=1738733865&width=400',
-    label: 'Training kit',
-    title: 'Frame the product as part of a serious gym setup.',
-    text: 'Show it as part of a serious training setup so it feels useful, not gimmicky.'
-  }
-];
-
-const ATTACH_STEPS = [
-  {
-    id: 'mount',
-    kicker: 'Step 01',
-    title: 'Slide the grips into position.',
-    text: 'Fast setup matters. The product should feel ready to clip on and train with immediately.',
-    result: 'Place the grips where the lifter wants the leverage and thickness.',
-    resultText: 'Once it is mounted, the value becomes much easier to understand.'
-  },
-  {
-    id: 'lock',
-    kicker: 'Step 02',
-    title: 'Lock the hardware and set the line.',
-    text: 'The quick-lock story matters because it makes the product feel gym-ready instead of fiddly.',
-    result: 'Secure enough to feel planted under load.',
-    resultText: 'A secure fit makes the product feel more reliable under real training load.'
-  },
-  {
-    id: 'train',
-    kicker: 'Step 03',
-    title: 'Train with the level in sight.',
-    text: 'Once mounted, the balance cue becomes visible immediately. That is the part most lifters understand at a glance.',
-    result: 'Rows, curls, presses and pulls feel more deliberate.',
-    resultText: 'The easier it is to picture the session, the easier it is to commit to the purchase.'
-  }
-];
-
-const USE_CASES = [
-  {
-    id: 'rows',
-    label: 'Rows',
-    kicker: 'Rows',
-    tagKicker: 'Rows mode',
-    title: 'Use LevelUp on rows to keep the pull cleaner and the grip more demanding.',
-    text: 'Rows are a strong first use case because lifters can understand both benefits quickly: harder grip and arm demand, plus a visual cue that helps keep the pull more even.',
-    tagTitle: 'Keep the pull level when fatigue starts to take over.',
-    tagText: 'Rows make the grip and alignment benefit easy to understand right away.',
-    image: 'https://sniperform.com.au/cdn/shop/files/0F3A2557_square_crop_2000.webp?v=1769487620&width=1800',
-    benefits: [
-      'Keeps the grip story tied to visible execution rather than vague claims.',
-      'Makes forearms and biceps part of the offer from the first pull.',
-      'Strong use case for lifters who train back and arms seriously.'
-    ]
-  },
-  {
-    id: 'curls',
-    label: 'Curls',
-    kicker: 'Curls',
-    tagKicker: 'Curl mode',
-    title: 'Barbell curls become a cleaner growth hook when the grip gets thicker.',
-    text: 'If the angle is bigger arms, curls help lifters see the product as an easy add to an existing routine without changing the whole session.',
-    tagTitle: 'Sell the pump and the control in the same frame.',
-    tagText: 'Thicker contact and more deliberate wrist alignment make curls easy to understand quickly.',
-    image: 'https://sniperform.com.au/cdn/shop/files/0F3A2480_square_crop_2000.webp?v=1769488611&width=1800',
-    benefits: [
-      'Supports the forearm and biceps growth framing from the live product page.',
-      'Feels like a natural addition to any arm-focused training split.',
-      'Simple enough to understand without extra explanation.'
-    ]
-  },
-  {
-    id: 'presses',
-    label: 'Presses',
-    kicker: 'Presses',
-    tagKicker: 'Press mode',
-    title: 'Use the level cue on presses when fatigue starts to shift the bar path.',
-    text: 'Pressing patterns help the alignment story feel less theoretical. The product becomes something that can help clean up rep quality, not just stimulate the forearms.',
-    tagTitle: 'A visible cue helps stop one side taking over.',
-    tagText: 'This is where the balance story starts to feel performance-led as well as protective.',
-    image: 'https://sniperform.com.au/cdn/shop/files/0F3A3029_square_crop_2000.webp?v=1767933896&width=1800',
-    benefits: [
-      'Makes the levelling mechanism feel like a real differentiator.',
-      'Supports the injury-risk reduction framing used on the live store.',
-      'Adds a stronger performance narrative to the product page.'
-    ]
-  },
-  {
-    id: 'pulls',
-    label: 'Pulls',
-    kicker: 'Pulls',
-    tagKicker: 'Pull mode',
-    title: 'Pulling work makes the grip-strength story more serious.',
-    text: 'Heavier pulls make the product feel like it belongs in a serious gym bag because lifters can connect grip, forearms, and control under load immediately.',
-    tagTitle: 'A stronger pull starts with a more demanding handle.',
-    tagText: 'This use case helps the product expand beyond just arm-day framing.',
-    image: 'https://sniperform.com.au/cdn/shop/files/0F3A2747.png?v=1738733865&width=1400',
-    benefits: [
-      'Strengthens the hand-crushing grip angle from the current product messaging.',
-      'Shows the product across more than one exercise pattern.',
-      'Makes the carry-and-use story more believable for advanced lifters.'
-    ]
-  }
-];
-
-const FAQS = [
-  {
-    question: 'Will LevelUp fit my gym bars and dumbbells?',
-    answer: 'LevelUp is positioned for standard Olympic barbells and dumbbells in the 28-32mm range.'
-  },
-  {
-    question: 'How does the product help arm growth as well as balance?',
-    answer: 'Sniperform positions the thicker grip diameter as increasing the work done by grip strength, forearms and biceps, while the levelling cue helps keep the effort more balanced and controlled.'
-  },
-  {
-    question: 'How fast is shipping?',
-    answer: 'According to the current live store messaging, orders before 2pm AEDT are dispatched on the same day.'
-  },
-  {
-    question: 'What if it is not for me?',
-    answer: 'Sniperform offers a 30-day money-back guarantee, which is why it stays visible near the product actions on this page.'
-  }
-];
-
-const progressBar = document.getElementById('progressBar');
-const stickyDock = document.getElementById('stickyDock');
-const navLinks = [...document.querySelectorAll('.nav a')];
-const sections = [...document.querySelectorAll('main section[id]')];
-const galleryMainImage = document.getElementById('galleryMainImage');
-const galleryLabel = document.getElementById('galleryLabel');
-const galleryTitle = document.getElementById('galleryTitle');
-const galleryText = document.getElementById('galleryText');
-const thumbRow = document.getElementById('thumbRow');
-const attachStepsContainer = document.getElementById('attachSteps');
-const attachStage = document.getElementById('attachStage');
-const attachKicker = document.getElementById('attachKicker');
-const attachTitle = document.getElementById('attachTitle');
-const attachText = document.getElementById('attachText');
-const attachResult = document.getElementById('attachResult');
-const attachResultText = document.getElementById('attachResultText');
-const usePills = document.getElementById('usePills');
-const useImage = document.getElementById('useImage');
-const useTagKicker = document.getElementById('useTagKicker');
-const useTagTitle = document.getElementById('useTagTitle');
-const useTagText = document.getElementById('useTagText');
-const useKicker = document.getElementById('useKicker');
-const useTitle = document.getElementById('useTitle');
-const useText = document.getElementById('useText');
-const benefitList = document.getElementById('benefitList');
-const faqList = document.getElementById('faqList');
-const qtyDisplays = [...document.querySelectorAll('[data-qty-display]')];
-const qtyInputs = [...document.querySelectorAll('[data-qty-input]')];
-const qtyIncreaseButtons = [...document.querySelectorAll('[data-qty-increase]')];
-const qtyDecreaseButtons = [...document.querySelectorAll('[data-qty-decrease]')];
-const buyNowLinks = [...document.querySelectorAll('[data-buy-now]')];
-const sphere = document.getElementById('heroSphere');
-const videos = [...document.querySelectorAll('[data-video]')];
-
-let quantity = 1;
-let attachIndex = 0;
-let attachTimer = null;
-
-function renderSphere() {
-  const dots = [];
-  const radius = 188;
-  for (let i = 0; i < 190; i += 1) {
-    const phi = Math.acos(-1 + (2 * i) / 190);
-    const theta = Math.sqrt(190 * Math.PI) * phi;
-    const x = radius * Math.cos(theta) * Math.sin(phi);
-    const y = radius * Math.sin(theta) * Math.sin(phi);
-    const z = radius * Math.cos(phi);
-    const scale = (z + radius) / (radius * 2);
-    const cx = 250 + x;
-    const cy = 250 + y * .72;
-    const r = 2 + scale * 2.6;
-    const opacity = .16 + scale * .34;
-    dots.push(`<circle cx="${cx.toFixed(2)}" cy="${cy.toFixed(2)}" r="${r.toFixed(2)}" fill="rgba(18,20,23,${opacity.toFixed(2)})"></circle>`);
-  }
-  sphere.innerHTML = `<g class="sphere-group">${dots.join('')}</g>`;
-  const group = sphere.querySelector('.sphere-group');
-  if (!reducedMotion && group) {
-    group.animate([
-      { transform: 'rotate(0deg)', transformOrigin: '250px 250px' },
-      { transform: 'rotate(360deg)', transformOrigin: '250px 250px' }
-    ], {
-      duration: 42000,
-      iterations: Infinity
-    });
-  }
-}
-
-function setGallery(index) {
-  const item = GALLERY_ITEMS[index] || GALLERY_ITEMS[0];
-  galleryMainImage.src = item.image;
-  galleryLabel.textContent = item.label;
-  galleryTitle.textContent = item.title;
-  galleryText.textContent = item.text;
-  thumbRow.innerHTML = GALLERY_ITEMS.map((entry, itemIndex) => `
-    <button class="thumb${itemIndex === index ? ' active' : ''}" type="button" data-gallery-index="${itemIndex}">
-      <img src="${entry.thumb}" alt="${entry.label}">
-    </button>
-  `).join('');
-}
-
-function renderAttachSteps() {
-  attachStepsContainer.innerHTML = ATTACH_STEPS.map((step, index) => `
-    <button class="attach-step${index === attachIndex ? ' active' : ''}" type="button" data-attach-index="${index}">
-      <small>${step.kicker}</small>
-      <strong>${step.title}</strong>
-      <p>${step.text}</p>
-    </button>
-  `).join('');
-}
-
-function setAttach(index, userTriggered = false) {
-  attachIndex = (index + ATTACH_STEPS.length) % ATTACH_STEPS.length;
-  const step = ATTACH_STEPS[attachIndex];
-  attachStage.dataset.step = step.id;
-  attachKicker.textContent = step.kicker;
-  attachTitle.textContent = step.title;
-  attachText.textContent = step.text;
-  attachResult.textContent = step.result;
-  attachResultText.textContent = step.resultText;
-  renderAttachSteps();
-  if (userTriggered) restartAttachTimer();
-}
-
-function setUseCase(id) {
-  const item = USE_CASES.find((entry) => entry.id === id) || USE_CASES[0];
-  useImage.src = item.image;
-  useTagKicker.textContent = item.tagKicker;
-  useTagTitle.textContent = item.tagTitle;
-  useTagText.textContent = item.tagText;
-  useKicker.textContent = item.kicker;
-  useTitle.textContent = item.title;
-  useText.textContent = item.text;
-  benefitList.innerHTML = item.benefits.map((benefit) => `<div class="benefit"><span>${benefit}</span></div>`).join('');
-  usePills.innerHTML = USE_CASES.map((entry) => `
-    <button class="use-pill${entry.id === item.id ? ' active' : ''}" type="button" data-use-id="${entry.id}">${entry.label}</button>
-  `).join('');
-}
-
-function renderFaqs() {
-  faqList.innerHTML = FAQS.map((item, index) => `
-    <div class="faq-item${index === 0 ? ' open' : ''}">
-      <button type="button">
-        <strong>${item.question}</strong>
-        <em>${index === 0 ? '-' : '+'}</em>
-      </button>
-      <div class="faq-answer"><div><p>${item.answer}</p></div></div>
-    </div>
-  `).join('');
-}
-
-function syncQuantity(next) {
-  quantity = Math.max(1, Number.isFinite(next) ? Math.floor(next) : 1);
-  qtyDisplays.forEach((input) => {
-    input.value = String(quantity);
-  });
-  qtyInputs.forEach((input) => {
-    input.value = String(quantity);
-  });
-  buyNowLinks.forEach((link) => {
-    link.href = `https://sniperform.com.au/cart/49837676495131:${quantity}`;
-  });
-}
-
-function updateScroll() {
-  const max = document.documentElement.scrollHeight - window.innerHeight;
-  progressBar.style.width = `${max > 0 ? (window.scrollY / max) * 100 : 0}%`;
-  const threshold = window.innerWidth < 760 ? 1600 : 980;
-  stickyDock.classList.toggle('show', window.scrollY > threshold);
-  let active = 'top';
-  const offset = window.scrollY + 120;
-  sections.forEach((section) => {
-    if (offset >= section.offsetTop) active = section.id;
-  });
-  navLinks.forEach((link) => {
-    link.classList.toggle('active', link.getAttribute('href') === `#${active}`);
-  });
-}
-
-function restartAttachTimer() {
-  if (reducedMotion) return;
-  window.clearInterval(attachTimer);
-  attachTimer = window.setInterval(() => setAttach(attachIndex + 1), 3600);
-}
-
-renderSphere();
-setGallery(0);
-setAttach(0);
-setUseCase('rows');
-renderFaqs();
-syncQuantity(1);
-updateScroll();
-restartAttachTimer();
-
-thumbRow.addEventListener('click', (event) => {
-  const button = event.target.closest('[data-gallery-index]');
-  if (!button) return;
-  setGallery(Number(button.dataset.galleryIndex));
-});
-
-attachStepsContainer.addEventListener('click', (event) => {
-  const button = event.target.closest('[data-attach-index]');
-  if (!button) return;
-  setAttach(Number(button.dataset.attachIndex), true);
-});
-
-usePills.addEventListener('click', (event) => {
-  const button = event.target.closest('[data-use-id]');
-  if (!button) return;
-  setUseCase(button.dataset.useId);
-});
-
-faqList.addEventListener('click', (event) => {
-  const button = event.target.closest('button');
-  if (!button) return;
-  const item = button.parentElement;
-  const isOpen = item.classList.contains('open');
-  faqList.querySelectorAll('.faq-item').forEach((entry) => {
-    entry.classList.remove('open');
-    entry.querySelector('em').textContent = '+';
-  });
-  if (!isOpen) {
-    item.classList.add('open');
-    item.querySelector('em').textContent = '-';
-  }
-});
-
-qtyIncreaseButtons.forEach((button) => {
-  button.addEventListener('click', () => syncQuantity(quantity + 1));
-});
-qtyDecreaseButtons.forEach((button) => {
-  button.addEventListener('click', () => syncQuantity(quantity - 1));
-});
-qtyDisplays.forEach((input) => {
-  input.addEventListener('input', () => syncQuantity(Number(input.value)));
-});
-
-const revealObserver = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) entry.target.classList.add('in');
-  });
-}, { threshold: .14 });
-document.querySelectorAll('.reveal').forEach((element) => revealObserver.observe(element));
-
-const videoObserver = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    const video = entry.target;
-    if (reducedMotion) {
-      video.pause();
-      return;
+  const USE_CASES = [
+    {
+      id: "rows",
+      kicker: "Rows",
+      label: "Rows",
+      summary: "Keep the pull level when fatigue climbs.",
+      title: "Rows are where the grip and alignment story click fastest.",
+      text: "Rows make LevelUp easy to understand because both benefits are visible at once: a harder handle for more grip and forearm demand, and a level cue that keeps the pull from quietly drifting off balance.",
+      image: "https://sniperform.com.au/cdn/shop/files/0F3A2557_square_crop_2000.webp?v=1769487620&width=1800",
+      benefits: [
+        "Makes forearm and bicep engagement feel more deliberate from the first rep.",
+        "Turns hidden asymmetry into a visible correction point under load.",
+        "Strong first use case for serious back and arm training."
+      ]
+    },
+    {
+      id: "curls",
+      kicker: "Curls",
+      label: "Curls",
+      summary: "Sell the pump and the control in the same frame.",
+      title: "If the buyer wants bigger arms, curls make the offer obvious.",
+      text: "Curls let the page lean into the strongest growth hook without losing the balance story. The product becomes an easy add to an existing arm session instead of something that requires a new training system.",
+      image: "https://sniperform.com.au/cdn/shop/files/0F3A2480_square_crop_2000.webp?v=1769488611&width=1800",
+      benefits: [
+        "Supports the “explosive arm pumps” and thick-grip growth promise from the live store.",
+        "Makes the thicker handle feel instantly relevant for arm day buyers.",
+        "Keeps the pitch simple: more grip demand, more control, more growth."
+      ]
+    },
+    {
+      id: "presses",
+      kicker: "Presses",
+      label: "Presses",
+      summary: "Stop one side quietly stealing the rep.",
+      title: "Pressing is where the alignment cue starts to feel protective as well as powerful.",
+      text: "The script deck repeatedly leans on the injury and symmetry angle. Pressing movements are the clearest way to show why a visible level cue matters when one wrist, shoulder, or side of the bar starts drifting under fatigue.",
+      image: "https://sniperform.com.au/cdn/shop/files/0F3A3029_square_crop_2000.webp?v=1767933896&width=1800",
+      benefits: [
+        "Helps the buyer connect balance to joint strain reduction and cleaner movement.",
+        "Strengthens the product’s performance-plus-protection positioning.",
+        "Makes the patented cue feel like real engineering, not just novelty."
+      ]
+    },
+    {
+      id: "pulls",
+      kicker: "Pulls",
+      label: "Pulls",
+      summary: "Turn grip from bottleneck into foundation.",
+      title: "Heavy pulling makes the grip-strength story more serious.",
+      text: "When the handle gets more demanding, pulls feel like a test of real grip capacity rather than just another accessory demo. That expands the page beyond arm-day vanity and into serious performance territory.",
+      image: "https://sniperform.com.au/cdn/shop/files/0F3A2747.png?v=1738733865&width=1400",
+      benefits: [
+        "Supports the live store’s hand-crushing grip strength angle.",
+        "Shows the product belongs in more than one exercise slot.",
+        "Makes the tool feel useful for advanced lifters, not just casual buyers."
+      ]
     }
-    if (entry.isIntersecting) video.play().catch(() => {});
-    else video.pause();
+  ];
+
+  const useTabs = document.getElementById("useTabs");
+  const useImage = document.getElementById("useImage");
+  const useKicker = document.getElementById("useKicker");
+  const useTitle = document.getElementById("useTitle");
+  const useText = document.getElementById("useText");
+  const useBenefits = document.getElementById("useBenefits");
+  const qtyDisplays = [...document.querySelectorAll("[data-qty-display]")];
+  const qtyInputs = [...document.querySelectorAll("[data-qty-input]")];
+  const qtyIncrease = [...document.querySelectorAll("[data-qty-increase]")];
+  const qtyDecrease = [...document.querySelectorAll("[data-qty-decrease]")];
+  const buyNowLinks = [...document.querySelectorAll("[data-buy-now]")];
+  const stickyDock = document.getElementById("stickyDock");
+  const autoVideos = [...document.querySelectorAll("[data-auto-video]")];
+  const revealNodes = [...document.querySelectorAll(".reveal")];
+  const navLinks = [...document.querySelectorAll(".nav a")];
+  const sections = [...document.querySelectorAll("main section[id]")];
+
+  let quantity = 1;
+
+  function setUseCase(id){
+    const item = USE_CASES.find((entry) => entry.id === id) || USE_CASES[0];
+    useTabs.innerHTML = USE_CASES.map((entry) => `
+      <button class="use-tab${entry.id === item.id ? " active" : ""}" type="button" data-use-id="${entry.id}">
+        <small class="mono">${entry.label}</small>
+        <strong>${entry.summary}</strong>
+        <span>${entry.id === item.id ? "Currently selected" : "View this use case"}</span>
+      </button>
+    `).join("");
+    useImage.src = item.image;
+    useImage.alt = `${item.label} use case with Sniperform LevelUp`;
+    useKicker.textContent = item.kicker;
+    useTitle.textContent = item.title;
+    useText.textContent = item.text;
+    useBenefits.innerHTML = item.benefits.map((benefit) => `<div class="use-benefit">${benefit}</div>`).join("");
+  }
+
+  function syncQuantity(next){
+    quantity = Math.max(1, Number.isFinite(next) ? Math.floor(next) : 1);
+    qtyDisplays.forEach((input) => { input.value = String(quantity); });
+    qtyInputs.forEach((input) => { input.value = String(quantity); });
+    buyNowLinks.forEach((link) => { link.href = `https://sniperform.com.au/cart/49837676495131:${quantity}`; });
+  }
+
+  function updateDock(){
+    stickyDock.classList.toggle("show", window.scrollY > 860);
+    let active = "";
+    const offset = window.scrollY + 120;
+    sections.forEach((section) => {
+      if (offset >= section.offsetTop) active = `#${section.id}`;
+    });
+    navLinks.forEach((link) => link.classList.toggle("active", link.getAttribute("href") === active));
+  }
+
+  setUseCase("rows");
+  syncQuantity(1);
+  updateDock();
+
+  useTabs.addEventListener("click", (event) => {
+    const button = event.target.closest("[data-use-id]");
+    if (!button) return;
+    setUseCase(button.dataset.useId);
   });
-}, { threshold: .3 });
 
-videos.forEach((video) => {
-  if (!reducedMotion) videoObserver.observe(video);
-});
+  qtyIncrease.forEach((button) => button.addEventListener("click", () => syncQuantity(quantity + 1)));
+  qtyDecrease.forEach((button) => button.addEventListener("click", () => syncQuantity(quantity - 1)));
+  qtyDisplays.forEach((input) => input.addEventListener("input", () => syncQuantity(Number(input.value))));
 
-window.addEventListener('scroll', updateScroll, { passive: true });
-window.addEventListener('resize', updateScroll);
-document.addEventListener('visibilitychange', () => {
-  if (document.hidden) {
-    window.clearInterval(attachTimer);
-    videos.forEach((video) => video.pause());
-  } else {
-    updateScroll();
-    restartAttachTimer();
-    if (!reducedMotion) videos.forEach((video) => video.play().catch(() => {}));
-  }
-});
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) entry.target.classList.add("in");
+    });
+  }, { threshold: 0.14 });
+  revealNodes.forEach((node) => revealObserver.observe(node));
 
-prefersReducedMotion.addEventListener('change', (event) => {
-  reducedMotion = event.matches;
-  document.body.classList.toggle('reduce-motion', reducedMotion);
-  if (reducedMotion) {
-    window.clearInterval(attachTimer);
-    videos.forEach((video) => video.pause());
-  } else {
-    restartAttachTimer();
-  }
-});
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const videoObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      const video = entry.target;
+      if (reducedMotion) {
+        video.pause();
+        return;
+      }
+      if (entry.isIntersecting) video.play().catch(() => {});
+      else video.pause();
+    });
+  }, { threshold: 0.35 });
+  autoVideos.forEach((video) => videoObserver.observe(video));
+
+  window.addEventListener("scroll", updateDock, { passive: true });
 </script>
 </body>
 </html>
