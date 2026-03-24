@@ -13,7 +13,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root{
   --bg:#f4efe6;
@@ -45,7 +45,7 @@ body{
     radial-gradient(circle at 100% 100%, rgba(94,230,209,.08), transparent 28%),
     linear-gradient(180deg,#f7f2e9 0%, #f4efe6 36%, #f7f2ea 100%);
   color:var(--ink);
-  font-family:'Manrope',sans-serif;
+  font-family:'Sora',sans-serif;
   overflow-x:hidden;
 }
 body.reduce-motion *{
@@ -174,14 +174,14 @@ main{position:relative}
   margin:0 auto;
 }
 .hero{
-  padding:56px 0 34px;
+  padding:42px 0 28px;
 }
 .hero-shell{
   display:grid;
-  grid-template-columns:minmax(0,1.05fr) minmax(360px,.95fr);
-  gap:28px;
+  grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);
+  gap:30px;
   align-items:center;
-  min-height:660px;
+  min-height:620px;
 }
 .eyebrow{
   display:inline-flex;
@@ -208,7 +208,7 @@ main{position:relative}
   font-size:clamp(54px,6vw,82px);
   line-height:.94;
   letter-spacing:-.08em;
-  font-weight:600;
+  font-weight:500;
 }
 .hero-copy .accent{
   background:linear-gradient(90deg,var(--ink),var(--cyan),var(--blue));
@@ -257,9 +257,20 @@ main{position:relative}
   color:#5e6470;
   font-size:11px;
 }
+.hero-right{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) 336px;
+  gap:18px;
+  align-items:stretch;
+}
 .hero-stage{
   position:relative;
-  min-height:580px;
+  min-height:500px;
+  padding:18px;
+  border:1px solid rgba(18,20,23,.08);
+  border-radius:32px;
+  background:rgba(255,255,255,.58);
+  box-shadow:var(--shadow);
   display:grid;
   place-items:center;
 }
@@ -334,6 +345,124 @@ main{position:relative}
   bottom:74px;
   max-width:210px;
 }
+.hero-buy-card{
+  padding:18px;
+  border:1px solid rgba(18,20,23,.08);
+  border-radius:32px;
+  background:rgba(255,255,255,.86);
+  box-shadow:var(--shadow-strong);
+  display:grid;
+  align-content:start;
+  gap:12px;
+}
+.hero-card-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+}
+.hero-card-head small,
+.hero-card-head span{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:10px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:#7a808b;
+}
+.hero-card-head span{
+  padding:8px 10px;
+  border-radius:999px;
+  background:rgba(18,20,23,.04);
+  border:1px solid rgba(18,20,23,.08);
+}
+.hero-buy-card h3{
+  font-size:24px;
+  line-height:1.02;
+  letter-spacing:-.06em;
+  font-weight:500;
+}
+.hero-buy-card p{
+  color:#5d6571;
+  font-size:12px;
+  line-height:1.6;
+}
+.hero-price{
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:12px;
+  padding-top:12px;
+  border-top:1px solid rgba(18,20,23,.08);
+}
+.hero-price strong{
+  font-size:36px;
+  line-height:.9;
+  letter-spacing:-.07em;
+}
+.hero-price span{
+  max-width:13ch;
+  text-align:right;
+  color:#69717c;
+  font-size:10px;
+  line-height:1.55;
+}
+.hero-rating{
+  padding:12px 14px;
+  border-radius:22px;
+  border:1px solid rgba(18,20,23,.08);
+  background:linear-gradient(135deg,rgba(57,196,255,.06),rgba(74,117,255,.08));
+}
+.hero-stars{
+  display:inline-flex;
+  gap:2px;
+  color:#0f1115;
+  letter-spacing:.12em;
+  font-size:11px;
+}
+.hero-rating p{
+  margin-top:6px;
+}
+.hero-perks{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+}
+.hero-perks span{
+  padding:9px 11px;
+  border-radius:999px;
+  background:#fff;
+  border:1px solid rgba(18,20,23,.08);
+  font-size:11px;
+  color:#5a6370;
+}
+.hero-checkout{
+  display:grid;
+  grid-template-columns:118px 1fr;
+  gap:10px;
+}
+.hero-checkout .qty{
+  width:100%;
+  justify-content:space-between;
+}
+.hero-checkout .cart-form{
+  display:block;
+}
+.hero-checkout .buy-now{
+  grid-column:1 / -1;
+}
+.hero-payments{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+}
+.hero-payments span{
+  padding:9px 11px;
+  border-radius:999px;
+  border:1px solid rgba(18,20,23,.08);
+  background:rgba(18,20,23,.03);
+  color:#56606d;
+  font-size:11px;
+}
 .metrics{
   margin-top:24px;
   border-top:1px solid rgba(18,20,23,.08);
@@ -377,7 +506,7 @@ main{position:relative}
   font-size:clamp(36px,4vw,60px);
   line-height:.98;
   letter-spacing:-.08em;
-  font-weight:600;
+  font-weight:500;
 }
 .section-head p{
   max-width:640px;
@@ -431,6 +560,7 @@ main{position:relative}
 }
 .gallery-panel,
 .buy-panel,
+.detail-panel,
 .attach-panel,
 .proof-panel,
 .faq-panel,
@@ -515,6 +645,86 @@ main{position:relative}
   position:sticky;
   top:102px;
   padding:22px;
+}
+.detail-panel{
+  position:sticky;
+  top:102px;
+  padding:24px;
+  display:grid;
+  gap:16px;
+  align-content:start;
+}
+.detail-panel small{
+  font-family:'IBM Plex Mono',monospace;
+  font-size:10px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:#7b7f87;
+}
+.detail-panel h3{
+  font-size:30px;
+  line-height:1.02;
+  letter-spacing:-.06em;
+  font-weight:500;
+}
+.detail-panel p{
+  color:#5d6571;
+  font-size:14px;
+  line-height:1.72;
+}
+.detail-list{
+  display:grid;
+  gap:10px;
+}
+.detail-item{
+  padding:16px 18px;
+  border-radius:22px;
+  border:1px solid rgba(18,20,23,.08);
+  background:rgba(248,244,237,.72);
+}
+.detail-item strong{
+  display:block;
+  font-size:16px;
+  line-height:1.15;
+  letter-spacing:-.03em;
+}
+.detail-item span{
+  display:block;
+  margin-top:8px;
+  color:#616976;
+  font-size:12px;
+  line-height:1.62;
+}
+.mini-proof{
+  padding:18px;
+  border-radius:24px;
+  border:1px solid rgba(18,20,23,.08);
+  background:#fff;
+}
+.mini-proof .hero-stars{
+  font-size:12px;
+}
+.mini-proof blockquote{
+  margin-top:10px;
+  font-size:20px;
+  line-height:1.18;
+  letter-spacing:-.04em;
+}
+.mini-proof cite{
+  display:block;
+  margin-top:12px;
+  color:#6c7480;
+  font-style:normal;
+  font-size:12px;
+}
+.detail-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+}
+.detail-actions .button,
+.detail-actions .ghost-light{
+  flex:1 1 160px;
 }
 .buy-panel small{
   display:block;
@@ -697,7 +907,7 @@ main{position:relative}
   font-size:clamp(32px,3.8vw,52px);
   line-height:1;
   letter-spacing:-.08em;
-  font-weight:600;
+  font-weight:500;
 }
 .attach-copy p,
 .proof-copy p,
@@ -952,7 +1162,7 @@ main{position:relative}
   font-size:34px;
   line-height:1;
   letter-spacing:-.06em;
-  font-weight:600;
+  font-weight:500;
 }
 .use-copy p{
   margin-top:14px;
@@ -1205,7 +1415,7 @@ main{position:relative}
   font-size:clamp(30px,3.6vw,48px);
   line-height:1;
   letter-spacing:-.08em;
-  font-weight:600;
+  font-weight:500;
 }
 .cta-panel p{
   max-width:620px;
@@ -1301,7 +1511,14 @@ main{position:relative}
   .compare-shell,
   .faq-shell,
   .cta-panel{grid-template-columns:1fr}
+  .hero-right{grid-template-columns:1fr}
+  .hero-buy-card{order:1}
+  .hero-stage{order:2}
   .buy-panel{
+    position:relative;
+    top:auto;
+  }
+  .detail-panel{
     position:relative;
     top:auto;
   }
@@ -1331,6 +1548,7 @@ main{position:relative}
     gap:18px;
   }
   .hero-copy h1{font-size:clamp(40px,12vw,54px)}
+  .hero-right{grid-template-columns:1fr}
   .hero-stage{
     min-height:360px;
   }
@@ -1353,6 +1571,9 @@ main{position:relative}
   }
   .price-line span{text-align:left}
   .qty-row{
+    grid-template-columns:1fr;
+  }
+  .hero-checkout{
     grid-template-columns:1fr;
   }
   .use-media{min-height:380px}
@@ -1418,7 +1639,7 @@ main{position:relative}
         <h1>Clean <span class="accent">alignment</span>. Bigger arms. Better reps.</h1>
         <p>LevelUp gives lifters thicker-grip tension, a visible levelling cue, and a simple setup on the bars and dumbbells they already use for rows, curls, presses, and pulls.</p>
         <div class="hero-actions">
-          <a class="button-dark" href="#product">Shop the grips</a>
+          <a class="button-dark" href="#heroBuy">Shop the grips</a>
           <a class="ghost-light" href="#proof">Watch it work</a>
         </div>
         <div class="hero-trust">
@@ -1428,22 +1649,67 @@ main{position:relative}
         </div>
       </div>
 
-      <div class="hero-stage reveal">
-        <div class="sphere-shell">
-          <div class="sphere-shadow"></div>
-          <svg id="heroSphere" viewBox="0 0 500 500" aria-hidden="true"></svg>
-          <img class="product-float" src="https://sniperform.com.au/cdn/shop/files/hero-main-product.png?v=1771839582" alt="Sniperform LevelUp product render">
+      <div class="hero-right reveal">
+        <div class="hero-stage">
+          <div class="sphere-shell">
+            <div class="sphere-shadow"></div>
+            <svg id="heroSphere" viewBox="0 0 500 500" aria-hidden="true"></svg>
+            <img class="product-float" src="https://sniperform.com.au/cdn/shop/files/hero-main-product.png?v=1771839582" alt="Sniperform LevelUp product render">
+          </div>
+          <div class="floating-tag tag-one">
+            <small>Why lifters buy</small>
+            <strong>One clear benefit stack, not a confusing range.</strong>
+            <p>Explain the result quickly and the add-to-cart decision gets easier.</p>
+          </div>
+          <div class="floating-tag tag-two">
+            <small>Core value</small>
+            <strong>More grip demand with a visible rep-quality cue.</strong>
+            <p>It feels like a real training tool instead of another generic gym accessory.</p>
+          </div>
         </div>
-        <div class="floating-tag tag-one">
-          <small>Why lifters buy</small>
-          <strong>One clear benefit stack, not a confusing range.</strong>
-          <p>Explain the result quickly and the add-to-cart decision gets easier.</p>
-        </div>
-        <div class="floating-tag tag-two">
-          <small>Core value</small>
-          <strong>More grip demand with a visible rep-quality cue.</strong>
-          <p>It feels like a real training tool instead of another generic gym accessory.</p>
-        </div>
+
+        <aside class="hero-buy-card" id="heroBuy">
+          <div class="hero-card-head">
+            <small>Checkout</small>
+            <span>Live Shopify</span>
+          </div>
+          <h3>LevelUp Alignment Grips</h3>
+          <p>Pair of patented alignment grips built to make the product feel premium, useful, and easy to buy from the first visit.</p>
+          <div class="hero-price">
+            <strong>$59.95</strong>
+            <span>Free shaker auto-added while stock lasts</span>
+          </div>
+          <div class="hero-rating">
+            <div class="hero-stars">★★★★★</div>
+            <p>IFBB Pro backed, same-day dispatch before 2pm AEDT, and direct checkout through the live store.</p>
+          </div>
+          <div class="hero-perks">
+            <span>Fits 28-32mm</span>
+            <span>30-day returns</span>
+            <span>Fast checkout</span>
+          </div>
+          <div class="hero-checkout">
+            <div class="qty">
+              <button type="button" data-qty-decrease>-</button>
+              <input type="number" min="1" step="1" value="1" data-qty-display aria-label="Quantity">
+              <button type="button" data-qty-increase>+</button>
+            </div>
+            <form class="cart-form" action="https://sniperform.com.au/cart/add" method="post">
+              <input type="hidden" name="form_type" value="product">
+              <input type="hidden" name="utf8" value="✓">
+              <input type="hidden" name="id" value="49837676495131">
+              <input type="hidden" name="quantity" value="1" data-qty-input>
+              <button class="button" type="submit">Add to cart</button>
+            </form>
+            <a class="buy-now" href="https://sniperform.com.au/cart/49837676495131:1" data-buy-now>Buy now</a>
+          </div>
+          <div class="hero-payments">
+            <span>Shopify Checkout</span>
+            <span>Apple Pay</span>
+            <span>Google Pay</span>
+            <span>Visa / Mastercard</span>
+          </div>
+        </aside>
       </div>
     </div>
   </section>
@@ -1455,13 +1721,13 @@ main{position:relative}
       <div class="metric"><strong>2pm</strong><span>same-day dispatch cutoff</span></div>
       <div class="metric"><strong>30 days</strong><span>money-back guarantee</span></div>
       <div class="metric"><strong>Free</strong><span>shaker auto-added at checkout</span></div>
-      <div class="metric"><strong>U.S.A</strong><span>shipping enabled on live store</span></div>
+      <div class="metric"><strong>Secure</strong><span>shopify checkout flow</span></div>
     </div>
   </section>
 
   <section class="section intro">
     <div class="section-head reveal">
-      <div class="eyebrow">All capabilities</div>
+      <div class="eyebrow">Why it sells</div>
       <h2>Everything a buyer needs before they add to cart.</h2>
       <p>Keep the page clean, but make the sales path obvious: fast benefit explanation, product proof, trust signals, live checkout actions, and simple objection handling.</p>
     </div>
@@ -1503,53 +1769,35 @@ main{position:relative}
         <div class="thumb-row" id="thumbRow"></div>
       </div>
 
-      <aside class="buy-panel reveal">
-        <small>Best seller</small>
-        <div class="buy-head">
-          <h3>LevelUp Alignment Grips</h3>
-          <span>SKU SFGRIPS</span>
-        </div>
-        <p>Built for lifters who want harder grip demand, better bar awareness, and a cleaner training feel without changing the rest of their routine.</p>
-        <div class="price-line">
-          <strong>$59.95</strong>
-          <span>Free shaker auto-added with every LevelUp order</span>
-        </div>
+      <aside class="detail-panel reveal">
+        <small>Why it converts</small>
+        <h3>Trust is built before the buyer even reaches the sticky cart.</h3>
+        <p>This side of the page is about closing the remaining questions fast: what makes LevelUp feel premium, why the benefit is obvious, and why checkout feels low-friction.</p>
 
-        <div class="spec-list">
-          <div class="spec"><strong>Fit</strong><span>28-32mm Olympic bars and dumbbells</span></div>
-          <div class="spec"><strong>Dispatch</strong><span>Orders before 2pm AEDT ship same day</span></div>
-          <div class="spec"><strong>Returns</strong><span>30-day money-back guarantee</span></div>
-          <div class="spec"><strong>Use on</strong><span>Rows, curls, presses, deadlifts and grip work</span></div>
-        </div>
-
-        <div class="qty-row">
-          <div class="qty">
-            <button type="button" data-qty-decrease>-</button>
-            <input type="number" min="1" step="1" value="1" data-qty-display aria-label="Quantity">
-            <button type="button" data-qty-increase>+</button>
+        <div class="detail-list">
+          <div class="detail-item">
+            <strong>Visible alignment cue</strong>
+            <span>The product explains itself faster than a generic thick-grip sleeve because the benefit is visible in motion.</span>
           </div>
-          <form class="cart-form" action="https://sniperform.com.au/cart/add" method="post">
-            <input type="hidden" name="form_type" value="product">
-            <input type="hidden" name="utf8" value="✓">
-            <input type="hidden" name="id" value="49837676495131">
-            <input type="hidden" name="quantity" value="1" data-qty-input>
-            <button class="button" type="submit">Add to cart</button>
-          </form>
-          <a class="buy-now" href="https://sniperform.com.au/cart/49837676495131:1" data-buy-now>Buy now</a>
+          <div class="detail-item">
+            <strong>Clip-on setup story</strong>
+            <span>Fast install lowers hesitation. It feels like serious gym hardware, not something fiddly or gimmicky.</span>
+          </div>
+          <div class="detail-item">
+            <strong>Premium checkout path</strong>
+            <span>Live Shopify actions, same-day dispatch messaging, and the free shaker offer keep the purchase flow direct.</span>
+          </div>
         </div>
 
-        <div class="buy-links">
-          <a href="https://sniperform.com.au/products/level-up-alignment-grips">Live product page</a>
-          <a href="https://sniperform.com.au/">Shop all</a>
+        <div class="mini-proof">
+          <div class="hero-stars">★★★★★</div>
+          <blockquote>"Sniperform has completely transformed the way I approach my lifts."</blockquote>
+          <cite>Nathan Williamson / IFBB Pro Bodybuilder</cite>
         </div>
 
-        <div class="buy-note">Current live offer: buy LevelUp and a free shaker is auto-added at checkout while stock lasts.</div>
-
-        <div class="payment-row">
-          <span>Apple Pay</span>
-          <span>Google Pay</span>
-          <span>Visa / Mastercard</span>
-          <span>Shopify checkout</span>
+        <div class="detail-actions">
+          <a class="button" href="https://sniperform.com.au/cart/49837676495131:1">Buy now</a>
+          <a class="ghost-light" href="#proof">Watch athlete proof</a>
         </div>
       </aside>
     </div>
@@ -1716,7 +1964,7 @@ main{position:relative}
         <p>Take the direct path into the live Sniperform checkout with live Shopify add-to-cart, buy-now links, and a cleaner single-product flow.</p>
       </div>
       <div class="hero-actions">
-        <a class="button-dark" href="#product">Add to cart</a>
+        <a class="button-dark" href="#heroBuy">Add to cart</a>
         <a class="button" href="https://sniperform.com.au/cart/49837676495131:1">Buy now</a>
       </div>
     </div>
