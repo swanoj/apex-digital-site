@@ -3,46 +3,44 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sniperform - Shopify Conversion Concept</title>
-<meta name="description" content="A conversion-first Shopify remake concept for Sniperform, built around LevelUp Performance Grips, stronger offer framing, short-form education, and a cleaner buy path.">
-<meta name="theme-color" content="#080d12">
-<meta property="og:title" content="Sniperform - Shopify Conversion Concept">
-<meta property="og:description" content="A product-first landing page concept for Sniperform, focused on LevelUp Performance Grips, offer clarity, trust, and Shopify conversion.">
+<title>Sniperform - High-Converting Shopify Landing Concept</title>
+<meta name="description" content="A cleaner, higher-converting Shopify landing page concept for Sniperform, built around LevelUp Performance Grips, ad-click traffic, stronger proof, real videos, and a sharper buy path.">
+<meta name="theme-color" content="#f3f5f7">
+<meta property="og:title" content="Sniperform - High-Converting Shopify Landing Concept">
+<meta property="og:description" content="A cleaner Apple/Tesla-style Shopify landing page concept for Sniperform, focused on product clarity, proof, and conversion.">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Sora:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#080d12;
-  --bg-soft:#0e141b;
-  --panel:#101820;
-  --panel-strong:#141e28;
-  --line:rgba(255,255,255,.08);
-  --line-strong:rgba(255,255,255,.16);
-  --text:#f5f7fb;
-  --muted:#a9b3c3;
-  --mint:#8ff7dc;
-  --cyan:#7cc9ff;
-  --acid:#d6ff47;
-  --amber:#ffb869;
-  --rose:#ff7aa8;
-  --shadow:0 30px 90px rgba(0,0,0,.42);
+  --bg:#f3f5f7;
+  --bg-soft:#ecf0f3;
+  --panel:#ffffff;
+  --panel-soft:#f7f9fb;
+  --ink:#0b1014;
+  --ink-soft:#4f5b67;
+  --line:rgba(8,15,20,.08);
+  --line-strong:rgba(8,15,20,.14);
+  --green:#c9ff3f;
+  --mint:#85f0dd;
+  --cyan:#77bfff;
+  --shadow:0 24px 80px rgba(20,28,36,.08);
+  --shadow-strong:0 34px 100px rgba(10,15,20,.14);
   --ease:cubic-bezier(.22,.84,.24,1);
 }
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;scroll-padding-top:92px}
+html{scroll-behavior:smooth;scroll-padding-top:94px}
 body{
   min-height:100vh;
   overflow-x:hidden;
-  color:var(--text);
-  font-family:'Sora',sans-serif;
   background:
-    radial-gradient(circle at 18% 14%, rgba(124,201,255,.12), transparent 22%),
-    radial-gradient(circle at 78% 12%, rgba(255,122,168,.12), transparent 20%),
-    radial-gradient(circle at 50% 86%, rgba(214,255,71,.08), transparent 24%),
-    linear-gradient(180deg,#090d12 0%, #07090f 40%, #0c1117 72%, #080d12 100%);
+    radial-gradient(circle at 20% 0%, rgba(119,191,255,.14), transparent 20%),
+    radial-gradient(circle at 82% 8%, rgba(133,240,221,.16), transparent 18%),
+    linear-gradient(180deg,#f7f9fb 0%, #eef2f5 38%, #f2f4f7 100%);
+  color:var(--ink);
+  font-family:'Sora',sans-serif;
 }
 body.reduce-motion *{
   animation-duration:.01ms !important;
@@ -51,59 +49,39 @@ body.reduce-motion *{
 }
 a{color:inherit;text-decoration:none}
 button,input,select{font:inherit}
-img{display:block;max-width:100%}
-.ambient,
-.noise{
-  position:fixed;
-  inset:0;
-  pointer-events:none;
-}
-.ambient{
-  background:
-    radial-gradient(circle at 16% 18%, rgba(124,201,255,.12), transparent 20%),
-    radial-gradient(circle at 84% 20%, rgba(255,122,168,.1), transparent 20%),
-    radial-gradient(circle at 56% 74%, rgba(214,255,71,.07), transparent 22%);
-  filter:blur(34px);
-  opacity:.8;
-}
-.noise{
-  opacity:.05;
-  mix-blend-mode:soft-light;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180' viewBox='0 0 180 180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");
-}
+img,video{display:block;max-width:100%}
 .progress{
   position:fixed;
   inset:0 0 auto;
   height:3px;
-  z-index:150;
-  background:rgba(255,255,255,.03);
+  background:rgba(8,15,20,.04);
+  z-index:160;
 }
 #progressBar{
   width:0;
   height:100%;
-  background:linear-gradient(90deg,var(--mint),var(--cyan),var(--acid));
-  box-shadow:0 0 24px rgba(143,247,220,.32);
+  background:linear-gradient(90deg,var(--cyan),var(--mint),var(--green));
+  box-shadow:0 0 24px rgba(119,191,255,.28);
 }
 .announcement{
   position:sticky;
   top:0;
-  z-index:140;
+  z-index:150;
+  background:#0b1014;
+  color:rgba(255,255,255,.82);
+  border-bottom:1px solid rgba(255,255,255,.08);
   overflow:hidden;
-  border-bottom:1px solid rgba(255,255,255,.06);
-  background:rgba(8,13,18,.92);
-  backdrop-filter:blur(16px);
 }
 .announcement-track{
   display:flex;
   gap:18px;
   width:max-content;
   padding:11px 18px;
-  white-space:nowrap;
   font-family:'IBM Plex Mono',monospace;
   font-size:11px;
-  letter-spacing:.16em;
+  letter-spacing:.14em;
   text-transform:uppercase;
-  color:rgba(255,255,255,.72);
+  white-space:nowrap;
   animation:marquee 24s linear infinite;
 }
 .announcement-track span{
@@ -116,51 +94,50 @@ img{display:block;max-width:100%}
   width:7px;
   height:7px;
   border-radius:50%;
-  background:var(--acid);
+  background:var(--green);
 }
 @keyframes marquee{to{transform:translateX(-50%)}}
 .topbar{
   position:sticky;
   top:37px;
-  z-index:130;
-  width:min(1280px,calc(100% - 20px));
+  z-index:140;
+  width:min(1240px,calc(100% - 18px));
   margin:14px auto 0;
+  padding:14px 18px;
   display:flex;
   align-items:center;
   justify-content:space-between;
   gap:18px;
-  padding:14px 18px;
   border-radius:24px;
-  border:1px solid rgba(255,255,255,.08);
-  background:rgba(12,16,22,.74);
+  border:1px solid rgba(8,15,20,.06);
+  background:rgba(255,255,255,.86);
   backdrop-filter:blur(18px);
-  box-shadow:0 18px 40px rgba(0,0,0,.22);
+  box-shadow:0 16px 40px rgba(10,15,20,.06);
 }
 .brand{
   display:inline-flex;
   align-items:center;
   gap:12px;
-  font-family:'Syne',sans-serif;
   font-weight:800;
-  text-transform:uppercase;
-  letter-spacing:.04em;
+  letter-spacing:-.03em;
 }
 .brand-mark{
-  width:38px;
-  height:38px;
+  width:40px;
+  height:40px;
   border-radius:14px;
   display:grid;
   place-items:center;
-  background:linear-gradient(135deg,var(--mint),var(--cyan),var(--rose));
-  color:#071017;
-  box-shadow:0 12px 24px rgba(143,247,220,.16);
+  background:linear-gradient(135deg,var(--cyan),var(--mint),var(--green));
+  color:#091014;
+  box-shadow:0 10px 24px rgba(119,191,255,.16);
 }
 .brand small{
   display:block;
   font-family:'IBM Plex Mono',monospace;
   font-size:10px;
-  letter-spacing:.18em;
-  color:var(--muted);
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--ink-soft);
 }
 .nav{
   display:flex;
@@ -169,10 +146,10 @@ img{display:block;max-width:100%}
 }
 .nav a{
   font-size:13px;
-  color:rgba(255,255,255,.74);
+  color:rgba(11,16,20,.6);
 }
 .nav a:hover,
-.nav a.active{color:#fff}
+.nav a.active{color:var(--ink)}
 .top-actions{
   display:flex;
   align-items:center;
@@ -184,29 +161,29 @@ img{display:block;max-width:100%}
   align-items:center;
   justify-content:center;
   border-radius:999px;
-  transition:transform .24s var(--ease), border-color .24s var(--ease), box-shadow .24s var(--ease);
+  transition:transform .24s var(--ease), box-shadow .24s var(--ease), border-color .24s var(--ease);
 }
 .ghost{
   padding:11px 16px;
-  border:1px solid rgba(255,255,255,.1);
-  background:rgba(255,255,255,.04);
+  background:rgba(8,15,20,.04);
+  border:1px solid rgba(8,15,20,.08);
   font-size:13px;
 }
-.ghost:hover{transform:translateY(-1px);border-color:rgba(255,255,255,.2)}
+.ghost:hover{transform:translateY(-1px);border-color:rgba(8,15,20,.16)}
 .cta{
   padding:11px 18px;
-  background:linear-gradient(135deg,var(--mint),var(--acid));
-  color:#061015;
+  background:linear-gradient(135deg,var(--green),var(--mint));
+  color:#091014;
   font-size:13px;
   font-weight:700;
-  box-shadow:0 18px 32px rgba(143,247,220,.16);
+  box-shadow:0 16px 30px rgba(133,240,221,.2);
 }
-.cta:hover{transform:translateY(-2px);box-shadow:0 24px 42px rgba(143,247,220,.22)}
+.cta:hover{transform:translateY(-2px);box-shadow:0 20px 38px rgba(133,240,221,.24)}
 main{position:relative;z-index:1}
 .section{
-  width:min(1280px,calc(100% - 32px));
+  width:min(1240px,calc(100% - 24px));
   margin:0 auto;
-  padding:94px 0;
+  padding:92px 0;
 }
 .eyebrow{
   display:inline-flex;
@@ -214,290 +191,303 @@ main{position:relative;z-index:1}
   gap:10px;
   font-family:'IBM Plex Mono',monospace;
   font-size:11px;
-  letter-spacing:.16em;
+  letter-spacing:.14em;
   text-transform:uppercase;
-  color:var(--mint);
+  color:#577182;
 }
 .eyebrow::before{
   content:'';
-  width:34px;
+  width:30px;
   height:1px;
-  background:linear-gradient(90deg,var(--mint),transparent);
-}
-.head{
-  display:grid;
-  gap:14px;
-  margin-bottom:28px;
-}
-.head h2{
-  font-family:'Syne',sans-serif;
-  font-size:clamp(42px,6vw,82px);
-  line-height:.9;
-  letter-spacing:-.05em;
-  max-width:9ch;
-}
-.head p{
-  max-width:64ch;
-  color:var(--muted);
-  font-size:15px;
-  line-height:1.85;
+  background:linear-gradient(90deg,var(--cyan),transparent);
 }
 .reveal{
   opacity:0;
   transform:translateY(24px);
-  transition:opacity .8s var(--ease), transform .8s var(--ease);
+  transition:opacity .75s var(--ease), transform .75s var(--ease);
 }
 .reveal.in{
   opacity:1;
   transform:translateY(0);
 }
 .hero{
-  width:min(1280px,calc(100% - 32px));
-  margin:24px auto 0;
-  padding:44px;
-  border-radius:38px;
-  border:1px solid rgba(255,255,255,.08);
-  background:
-    radial-gradient(circle at 18% 18%, rgba(124,201,255,.1), transparent 20%),
-    radial-gradient(circle at 82% 18%, rgba(255,122,168,.1), transparent 18%),
-    linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.02));
-  box-shadow:var(--shadow);
+  width:min(1240px,calc(100% - 24px));
+  margin:22px auto 0;
   display:grid;
-  grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);
-  gap:28px;
-  align-items:center;
-}
-.hero-copy{
-  display:grid;
+  grid-template-columns:minmax(0,.98fr) minmax(360px,.82fr);
   gap:18px;
 }
+.hero-panel,
+.proof-card,
+.video-shell,
+.offer-shell,
+.testimonial-shell,
+.comparison-shell,
+.faq-shell,
+.cta-shell{
+  border-radius:34px;
+  border:1px solid var(--line);
+  background:rgba(255,255,255,.86);
+  box-shadow:var(--shadow);
+}
+.hero-copy{
+  padding:42px;
+  display:grid;
+  gap:18px;
+  align-content:start;
+}
 .hero-copy h1{
-  font-family:'Syne',sans-serif;
-  font-size:clamp(64px,7vw,120px);
-  line-height:.82;
-  letter-spacing:-.06em;
+  font-size:clamp(62px,8vw,112px);
+  line-height:.84;
+  letter-spacing:-.07em;
   max-width:8ch;
 }
 .hero-copy .accent{
-  background:linear-gradient(90deg,var(--mint),var(--cyan),var(--acid));
+  background:linear-gradient(90deg,#0b1014,var(--cyan),var(--green));
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
 }
 .hero-copy p{
   max-width:56ch;
+  color:var(--ink-soft);
   font-size:16px;
   line-height:1.85;
-  color:var(--muted);
 }
 .hero-actions{
   display:flex;
   flex-wrap:wrap;
   gap:12px;
 }
-.trust-row{
+.hero-trust{
   display:flex;
   flex-wrap:wrap;
   gap:10px;
 }
-.trust-pill{
+.trust-chip{
   padding:11px 14px;
   border-radius:999px;
-  border:1px solid rgba(255,255,255,.08);
-  background:rgba(255,255,255,.04);
+  border:1px solid rgba(8,15,20,.08);
+  background:var(--panel-soft);
   font-size:12px;
-  color:rgba(255,255,255,.86);
+  color:#22313d;
 }
-.hero-metrics{
+.hero-stats{
   display:grid;
   grid-template-columns:repeat(3,1fr);
   gap:12px;
 }
-.metric{
+.stat{
   padding:16px;
   border-radius:24px;
-  border:1px solid rgba(255,255,255,.08);
-  background:rgba(255,255,255,.04);
+  background:var(--panel-soft);
+  border:1px solid rgba(8,15,20,.06);
 }
-.metric small{
+.stat small{
   display:block;
   font-family:'IBM Plex Mono',monospace;
   font-size:10px;
-  letter-spacing:.16em;
+  letter-spacing:.14em;
   text-transform:uppercase;
-  color:var(--mint);
+  color:#6a7b88;
   margin-bottom:8px;
 }
-.metric strong{
+.stat strong{
   display:block;
-  font-size:32px;
+  font-size:30px;
   line-height:1;
 }
-.metric p{
+.stat p{
   margin-top:8px;
   font-size:12px;
-  line-height:1.7;
-  color:var(--muted);
+  line-height:1.65;
+  color:var(--ink-soft);
 }
-.hero-stage{
+.hero-product{
   position:relative;
-  min-height:760px;
-  border-radius:34px;
-  border:1px solid rgba(255,255,255,.08);
+  min-height:780px;
+  padding:24px;
   overflow:hidden;
   background:
-    radial-gradient(circle at 54% 22%, rgba(143,247,220,.16), transparent 22%),
-    radial-gradient(circle at 76% 18%, rgba(124,201,255,.12), transparent 18%),
-    linear-gradient(180deg,#0d131a,#091018 58%, #070b11);
+    radial-gradient(circle at 50% 14%, rgba(119,191,255,.14), transparent 22%),
+    radial-gradient(circle at 72% 16%, rgba(133,240,221,.16), transparent 20%),
+    linear-gradient(180deg,#ffffff,#eef3f7 84%);
 }
-.hero-stage::before{
+.hero-product::before{
   content:'';
   position:absolute;
   inset:0;
   background:
-    linear-gradient(transparent 0 96%, rgba(255,255,255,.03) 96%),
-    linear-gradient(90deg, transparent 0 96%, rgba(255,255,255,.03) 96%);
+    linear-gradient(transparent 0 96%, rgba(8,15,20,.02) 96%),
+    linear-gradient(90deg, transparent 0 96%, rgba(8,15,20,.02) 96%);
   background-size:100% 14%, 10% 100%;
-  opacity:.2;
+  opacity:.5;
 }
-.spotlight{
+.product-stage{
   position:absolute;
-  inset:12% 18% auto;
-  height:220px;
-  border-radius:50%;
-  background:radial-gradient(circle, rgba(143,247,220,.18), rgba(124,201,255,.1) 36%, transparent 72%);
-  filter:blur(24px);
-}
-.product-shell{
-  position:absolute;
-  inset:100px 70px 110px;
+  inset:96px 28px 190px;
   display:grid;
   place-items:center;
 }
 .product-frame{
-  position:relative;
-  width:min(580px,100%);
-  padding:26px;
-  border-radius:32px;
-  border:1px solid rgba(255,255,255,.08);
-  background:rgba(255,255,255,.04);
-  box-shadow:0 30px 80px rgba(0,0,0,.32);
-  backdrop-filter:blur(16px);
+  width:min(520px,100%);
+  padding:28px;
+  border-radius:34px;
+  background:rgba(255,255,255,.88);
+  border:1px solid rgba(8,15,20,.06);
+  box-shadow:var(--shadow-strong);
 }
-.product-frame::before{
-  content:'';
-  position:absolute;
-  inset:14px;
-  border-radius:24px;
-  border:1px solid rgba(255,255,255,.06);
-}
-.product-image{
-  position:relative;
-  z-index:1;
+.product-frame img{
   width:100%;
   object-fit:contain;
-  filter:drop-shadow(0 34px 38px rgba(0,0,0,.38));
+  filter:drop-shadow(0 34px 30px rgba(20,28,36,.14));
 }
-.hero-badge,
-.hero-card,
-.hero-proof{
+.floating-note,
+.proof-banner{
   position:absolute;
-  z-index:3;
-  border:1px solid rgba(255,255,255,.08);
-  background:rgba(10,15,22,.72);
-  box-shadow:0 18px 42px rgba(0,0,0,.28);
+  z-index:2;
+  background:rgba(255,255,255,.88);
+  border:1px solid rgba(8,15,20,.08);
+  box-shadow:0 20px 46px rgba(15,24,32,.12);
   backdrop-filter:blur(16px);
 }
-.hero-badge{
-  top:36px;
-  left:34px;
-  padding:12px 14px;
-  border-radius:18px;
-  display:grid;
-  gap:8px;
+.floating-note{
+  top:26px;
+  left:26px;
+  padding:16px;
+  border-radius:24px;
+  max-width:230px;
 }
-.hero-badge small,
-.hero-card small,
-.hero-proof small{
+.floating-note small,
+.proof-banner small,
+.buy-card small{
+  display:block;
   font-family:'IBM Plex Mono',monospace;
   font-size:10px;
-  letter-spacing:.16em;
+  letter-spacing:.14em;
   text-transform:uppercase;
-  color:var(--acid);
+  color:#6a7b88;
+  margin-bottom:8px;
 }
-.hero-badge strong,
-.hero-card strong{
-  font-size:16px;
+.floating-note strong{
+  display:block;
+  font-size:18px;
   line-height:1.2;
 }
-.hero-badge span{
+.floating-note p{
+  margin-top:8px;
   font-size:12px;
-  color:var(--muted);
   line-height:1.7;
+  color:var(--ink-soft);
 }
-.hero-card{
-  right:30px;
-  top:82px;
-  width:min(240px,40%);
+.proof-banner{
+  left:28px;
+  right:28px;
+  bottom:150px;
   padding:14px;
-  border-radius:24px;
-}
-.hero-card ul{
+  border-radius:28px;
   display:grid;
-  gap:10px;
-  margin-top:12px;
-  list-style:none;
-}
-.hero-card li{
-  font-size:12px;
-  color:rgba(255,255,255,.88);
-  line-height:1.65;
-}
-.hero-proof{
-  left:30px;
-  right:30px;
-  bottom:28px;
-  padding:14px;
-  border-radius:26px;
-  display:grid;
-  grid-template-columns:170px 1fr;
+  grid-template-columns:120px 1fr;
   gap:14px;
   align-items:center;
 }
-.hero-proof img{
+.proof-banner img{
   width:100%;
   aspect-ratio:1/1;
   object-fit:cover;
-  border-radius:20px;
+  border-radius:18px;
 }
-.hero-proof strong{
+.proof-banner strong{
   display:block;
-  font-family:'Syne',sans-serif;
-  font-size:26px;
-  line-height:.94;
-  letter-spacing:-.04em;
+  font-size:30px;
+  line-height:.92;
+  letter-spacing:-.05em;
 }
-.hero-proof p{
+.proof-banner p{
   margin-top:8px;
   font-size:13px;
   line-height:1.75;
-  color:var(--muted);
+  color:var(--ink-soft);
 }
-.partner-band{
-  width:min(1280px,calc(100% - 32px));
-  margin:18px auto 0;
-  padding:22px 26px;
+.buy-card{
+  position:absolute;
+  left:28px;
+  right:28px;
+  bottom:24px;
+  padding:18px;
   border-radius:28px;
-  border:1px solid rgba(255,255,255,.08);
-  background:rgba(255,255,255,.03);
-  display:grid;
-  gap:16px;
+  background:#0b1014;
+  color:#f8fbff;
+  box-shadow:0 28px 60px rgba(11,16,20,.24);
 }
-.partner-band p{
+.buy-card-top{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:14px;
+}
+.buy-card h2{
+  font-size:26px;
+  line-height:.94;
+  letter-spacing:-.05em;
+}
+.price{
+  display:flex;
+  align-items:flex-end;
+  gap:10px;
+  margin-top:10px;
+}
+.price strong{
+  font-size:44px;
+  line-height:.88;
+  letter-spacing:-.05em;
+}
+.price span{
+  font-size:15px;
+  color:rgba(255,255,255,.52);
+  text-decoration:line-through;
+}
+.buy-meta{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:14px;
+}
+.buy-meta span{
+  padding:9px 12px;
+  border-radius:999px;
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.08);
+  font-size:12px;
+  color:rgba(255,255,255,.82);
+}
+.buy-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:16px;
+}
+.buy-actions .ghost{
+  background:rgba(255,255,255,.08);
+  border-color:rgba(255,255,255,.12);
+  color:#fff;
+}
+.partner-strip{
+  width:min(1240px,calc(100% - 24px));
+  margin:18px auto 0;
+  padding:18px;
+  border-radius:28px;
+  border:1px solid var(--line);
+  background:rgba(255,255,255,.78);
+  box-shadow:var(--shadow);
+  display:grid;
+  gap:14px;
+}
+.partner-strip p{
   font-family:'IBM Plex Mono',monospace;
   font-size:11px;
-  letter-spacing:.16em;
+  letter-spacing:.14em;
   text-transform:uppercase;
-  color:var(--muted);
+  color:#6a7b88;
 }
 .partner-row{
   display:grid;
@@ -508,394 +498,284 @@ main{position:relative;z-index:1}
   padding:14px;
   border-radius:20px;
   text-align:center;
-  border:1px solid rgba(255,255,255,.08);
-  background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(255,255,255,.02));
+  background:var(--panel-soft);
+  border:1px solid rgba(8,15,20,.06);
   font-family:'IBM Plex Mono',monospace;
   font-size:12px;
   letter-spacing:.12em;
   text-transform:uppercase;
-  color:rgba(255,255,255,.84);
+  color:#24313c;
 }
-.benefit-grid{
+.proof-grid{
   display:grid;
   grid-template-columns:repeat(4,1fr);
   gap:16px;
 }
-.benefit-card,
-.step-card,
-.offer-card,
-.comparison-card,
-.quote-card,
-.faq-item,
-.cta-shell{
-  border-radius:30px;
-  border:1px solid rgba(255,255,255,.08);
-  background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.03));
-  box-shadow:var(--shadow);
-}
-.benefit-card{
+.proof-card{
   padding:24px;
   display:grid;
   gap:12px;
 }
-.benefit-card strong{
-  font-family:'Syne',sans-serif;
+.proof-card strong{
   font-size:32px;
-  line-height:.9;
+  line-height:.92;
   letter-spacing:-.05em;
 }
-.benefit-card p{
-  color:var(--muted);
+.proof-card p{
   font-size:14px;
   line-height:1.8;
+  color:var(--ink-soft);
 }
-.benefit-kicker{
-  font-family:'IBM Plex Mono',monospace;
-  font-size:10px;
-  letter-spacing:.16em;
-  text-transform:uppercase;
-  color:var(--mint);
+.dark-wrap{
+  background:#0b1014;
+  color:#f7fbff;
+  border-radius:40px;
+  padding:40px;
+  box-shadow:0 40px 90px rgba(10,15,20,.18);
 }
-.how-grid{
+.dark-wrap .eyebrow{color:#a8c4d6}
+.dark-wrap .eyebrow::before{background:linear-gradient(90deg,var(--mint),transparent)}
+.dark-wrap h2{
+  font-size:clamp(42px,6vw,78px);
+  line-height:.9;
+  letter-spacing:-.05em;
+  max-width:8ch;
+}
+.dark-wrap p{
+  max-width:60ch;
+  margin-top:14px;
+  color:rgba(255,255,255,.7);
+  line-height:1.85;
+  font-size:15px;
+}
+.video-shell{
+  margin-top:24px;
+  padding:0;
+  overflow:hidden;
+  background:#111821;
+  border-color:rgba(255,255,255,.08);
+  box-shadow:none;
+}
+.video-grid{
   display:grid;
-  grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);
-  gap:18px;
-  align-items:start;
+  grid-template-columns:repeat(3,1fr);
 }
-.reel-stage{
-  position:sticky;
-  top:104px;
-  min-height:760px;
-  padding:28px;
-  border-radius:34px;
-  border:1px solid rgba(255,255,255,.08);
-  background:
-    radial-gradient(circle at 50% 18%, rgba(143,247,220,.16), transparent 20%),
-    linear-gradient(180deg,#0c1218,#081018 64%, #06090f);
-  overflow:hidden;
-  box-shadow:var(--shadow);
-}
-.reel-stage::before{
-  content:'';
-  position:absolute;
-  inset:0;
-  background:
-    linear-gradient(transparent 0 96%, rgba(255,255,255,.03) 96%),
-    linear-gradient(90deg, transparent 0 96%, rgba(255,255,255,.03) 96%);
-  background-size:100% 14%, 12% 100%;
-  opacity:.2;
-}
-.phone{
+.video-card{
   position:relative;
-  width:min(360px,100%);
-  margin:74px auto 0;
-  padding:10px;
-  border-radius:52px;
-  background:
-    linear-gradient(145deg, rgba(255,255,255,.46), rgba(255,255,255,.05) 18%, rgba(8,10,18,.96) 32%, rgba(12,14,22,.96) 82%, rgba(255,255,255,.12)),
-    linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,0));
-  box-shadow:0 42px 90px rgba(0,0,0,.48), inset 0 0 0 1px rgba(255,255,255,.16);
-}
-.phone::before{
-  content:'';
-  position:absolute;
-  inset:8px;
-  border-radius:44px;
-  border:1px solid rgba(255,255,255,.08);
-}
-.phone-screen{
-  position:relative;
-  aspect-ratio:9/19.5;
-  border-radius:42px;
+  min-height:560px;
+  border-right:1px solid rgba(255,255,255,.08);
   overflow:hidden;
-  background:#05080d;
 }
-.phone-notch{
-  position:absolute;
-  top:16px;
-  left:50%;
-  transform:translateX(-50%);
-  width:128px;
-  height:32px;
-  border-radius:999px;
-  background:#03060a;
-  z-index:4;
-}
-.phone-screen img{
+.video-card:last-child{border-right:none}
+.video-card video{
   width:100%;
   height:100%;
   object-fit:cover;
-  opacity:.9;
+  background:#000;
 }
-.phone-overlay{
+.video-overlay{
   position:absolute;
   inset:0;
-  background:
-    linear-gradient(180deg, rgba(0,0,0,.04), rgba(0,0,0,.48)),
-    radial-gradient(circle at 50% 18%, rgba(255,255,255,.16), transparent 18%);
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+  padding:24px;
+  background:linear-gradient(180deg, rgba(0,0,0,.05), rgba(0,0,0,.68));
 }
-.phone-copy{
+.video-tag{
   position:absolute;
+  top:18px;
   left:18px;
-  right:18px;
-  bottom:24px;
-  z-index:3;
-  display:grid;
-  gap:10px;
-}
-.phone-top{
-  position:absolute;
-  top:54px;
-  left:20px;
-  right:20px;
-  z-index:3;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:14px;
-  font-size:13px;
-  font-weight:600;
-}
-.phone-tab{color:rgba(255,255,255,.54)}
-.phone-tab.active{color:#fff}
-.phone-tab.active::after{
-  content:'';
-  display:block;
-  width:34px;
-  height:2px;
-  margin:8px auto 0;
+  padding:8px 12px;
   border-radius:999px;
-  background:#fff;
-}
-.phone-copy small{
-  font-family:'IBM Plex Mono',monospace;
-  font-size:10px;
-  letter-spacing:.14em;
-  text-transform:uppercase;
-  color:rgba(255,255,255,.7);
-}
-.phone-copy strong{
-  font-size:24px;
-  font-family:'Syne',sans-serif;
-  line-height:.94;
-  letter-spacing:-.05em;
-}
-.phone-copy p{
-  font-size:13px;
-  line-height:1.75;
-  color:rgba(255,255,255,.84);
-}
-.phone-tags{
-  display:flex;
-  flex-wrap:wrap;
-  gap:8px;
-}
-.phone-tags span{
-  padding:7px 10px;
-  border-radius:999px;
-  border:1px solid rgba(255,255,255,.08);
-  background:rgba(6,9,14,.48);
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.12);
   font-family:'IBM Plex Mono',monospace;
   font-size:10px;
   letter-spacing:.12em;
   text-transform:uppercase;
+  color:#fff;
 }
-.phone-progress{
-  position:absolute;
-  top:94px;
-  left:18px;
-  right:18px;
-  height:3px;
-  border-radius:999px;
-  background:rgba(255,255,255,.18);
-  overflow:hidden;
-  z-index:3;
-}
-.phone-progress span{
+.video-overlay strong{
   display:block;
-  width:28%;
-  height:100%;
-  border-radius:999px;
-  background:linear-gradient(90deg,var(--mint),var(--acid),var(--cyan));
-  transition:width .35s var(--ease);
-}
-.step-list{
-  display:grid;
-  gap:16px;
-}
-.step-card{
-  padding:24px;
-  display:grid;
-  gap:10px;
-}
-.step-card strong{
-  font-family:'Syne',sans-serif;
-  font-size:34px;
+  font-size:30px;
   line-height:.92;
   letter-spacing:-.05em;
 }
-.step-card p{
+.video-overlay p{
+  margin-top:10px;
   font-size:14px;
-  line-height:1.85;
-  color:var(--muted);
-}
-.step-meta{
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px;
-  margin-top:6px;
-}
-.step-meta span{
-  padding:10px 12px;
-  border-radius:999px;
-  border:1px solid rgba(255,255,255,.08);
-  background:rgba(255,255,255,.04);
-  font-size:12px;
+  line-height:1.75;
   color:rgba(255,255,255,.82);
 }
-.offer-shell{
+.video-mute{
+  position:absolute;
+  right:18px;
+  bottom:18px;
+  z-index:3;
+  padding:10px 12px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.14);
+  background:rgba(255,255,255,.08);
+  color:#fff;
+  font-size:12px;
+  cursor:pointer;
+}
+.offer-grid,
+.testimonial-grid,
+.comparison-grid{
   display:grid;
-  grid-template-columns:minmax(0,.98fr) minmax(0,1.02fr);
+  grid-template-columns:minmax(0,.96fr) minmax(340px,.84fr);
   gap:18px;
 }
-.offer-card{
-  padding:28px;
+.offer-shell,
+.testimonial-shell,
+.comparison-shell,
+.faq-shell,
+.cta-shell{
+  padding:32px;
 }
-.offer-card h3{
-  font-family:'Syne',sans-serif;
-  font-size:clamp(36px,4vw,58px);
+.offer-shell h3,
+.testimonial-shell h3,
+.comparison-shell h3,
+.faq-shell h3,
+.cta-shell h3{
+  font-size:clamp(38px,4vw,64px);
   line-height:.92;
   letter-spacing:-.05em;
+  max-width:9ch;
 }
-.offer-card p{
+.offer-shell p,
+.testimonial-shell p,
+.comparison-shell p,
+.faq-shell p,
+.cta-shell p{
   margin-top:14px;
-  font-size:14px;
+  font-size:15px;
   line-height:1.85;
-  color:var(--muted);
+  color:var(--ink-soft);
 }
-.offer-stack{
+.bundle-card{
+  display:grid;
+  gap:18px;
+  align-content:start;
+}
+.bundle-visual{
+  padding:24px;
+  border-radius:28px;
+  background:linear-gradient(180deg,#ffffff,#edf2f6);
+  border:1px solid rgba(8,15,20,.06);
+}
+.bundle-visual img{
+  width:100%;
+  object-fit:contain;
+}
+.bundle-points{
   display:grid;
   gap:12px;
-  margin-top:22px;
+  margin-top:12px;
 }
-.offer-line{
+.bundle-point{
+  padding:16px 18px;
+  border-radius:22px;
+  background:var(--panel-soft);
+  border:1px solid rgba(8,15,20,.06);
   display:flex;
   align-items:center;
   justify-content:space-between;
   gap:14px;
-  padding:16px 18px;
-  border-radius:22px;
-  border:1px solid rgba(255,255,255,.08);
-  background:rgba(255,255,255,.04);
 }
-.offer-line strong{
+.bundle-point strong{
   font-size:16px;
 }
-.offer-line span{
+.bundle-point span{
   font-size:12px;
-  color:var(--muted);
+  color:var(--ink-soft);
 }
-.price-row{
+.offer-price{
   display:flex;
   align-items:flex-end;
   gap:12px;
-  margin-top:18px;
+  margin-top:20px;
 }
-.price-row strong{
-  font-family:'Syne',sans-serif;
-  font-size:68px;
+.offer-price strong{
+  font-size:72px;
   line-height:.86;
-  letter-spacing:-.05em;
+  letter-spacing:-.06em;
 }
-.price-row span{
+.offer-price span{
   font-size:18px;
-  color:var(--muted);
+  color:var(--ink-soft);
   text-decoration:line-through;
 }
 .offer-actions{
   display:flex;
   flex-wrap:wrap;
   gap:12px;
-  margin-top:22px;
+  margin-top:18px;
 }
 .offer-note{
   margin-top:14px;
   font-size:12px;
   line-height:1.75;
-  color:var(--muted);
+  color:#6a7b88;
 }
-.product-card{
-  position:relative;
-  min-height:100%;
-  overflow:hidden;
+.quote-card{
+  padding:22px;
+  border-radius:28px;
+  background:#0b1014;
+  color:#fff;
+  box-shadow:0 34px 80px rgba(8,15,20,.18);
 }
-.product-card::before{
-  content:'';
-  position:absolute;
-  inset:0;
-  background:
-    radial-gradient(circle at 50% 18%, rgba(143,247,220,.18), transparent 20%),
-    radial-gradient(circle at 78% 18%, rgba(255,184,105,.1), transparent 16%);
+.quote-card blockquote{
+  font-size:28px;
+  line-height:1.16;
+  letter-spacing:-.04em;
 }
-.product-card-inner{
-  position:relative;
-  z-index:1;
-  display:grid;
-  gap:18px;
-  height:100%;
+.quote-card .byline{
+  margin-top:18px;
+  font-family:'IBM Plex Mono',monospace;
+  font-size:11px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:rgba(255,255,255,.68);
 }
-.commerce-top{
-  display:grid;
-  grid-template-columns:minmax(0,220px) 1fr;
-  gap:16px;
-  align-items:center;
-}
-.commerce-top img{
-  width:100%;
-  object-fit:contain;
-  filter:drop-shadow(0 28px 30px rgba(0,0,0,.28));
-}
-.commerce-copy h4{
-  font-family:'Syne',sans-serif;
-  font-size:42px;
-  line-height:.92;
-  letter-spacing:-.05em;
-}
-.commerce-copy p{
-  margin-top:10px;
-  font-size:14px;
-  line-height:1.8;
-  color:var(--muted);
-}
-.checkout-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:12px;
-}
-.checkout-grid div{
+.testimonial-media{
   padding:16px;
-  border-radius:20px;
-  border:1px solid rgba(255,255,255,.08);
-  background:rgba(255,255,255,.04);
+  border-radius:28px;
+  background:linear-gradient(180deg,#0b1014,#162029);
+  display:grid;
+  gap:14px;
+  color:#fff;
 }
-.checkout-grid strong{
+.testimonial-media img{
+  width:100%;
+  aspect-ratio:4/4.6;
+  object-fit:cover;
+  border-radius:22px;
+}
+.testimonial-media video{
+  width:100%;
+  aspect-ratio:16/9;
+  object-fit:cover;
+  border-radius:22px;
+  background:#000;
+}
+.testimonial-meta{
+  padding:4px 6px 10px;
+}
+.testimonial-meta strong{
   display:block;
   font-size:26px;
+  line-height:.96;
+  letter-spacing:-.04em;
 }
-.checkout-grid span{
+.testimonial-meta span{
   display:block;
-  margin-top:6px;
-  font-size:12px;
-  line-height:1.7;
-  color:var(--muted);
-}
-.comparison-grid{
-  display:grid;
-  grid-template-columns:1.1fr .9fr;
-  gap:18px;
-}
-.comparison-card{
-  padding:28px;
+  margin-top:8px;
+  font-size:13px;
+  line-height:1.75;
+  color:rgba(255,255,255,.72);
 }
 .comparison-table{
   display:grid;
@@ -906,10 +786,10 @@ main{position:relative;z-index:1}
   display:grid;
   grid-template-columns:1.2fr .8fr .8fr;
   gap:12px;
-  padding:14px 16px;
-  border-radius:20px;
-  background:rgba(255,255,255,.04);
-  border:1px solid rgba(255,255,255,.06);
+  padding:16px 18px;
+  border-radius:22px;
+  border:1px solid rgba(8,15,20,.06);
+  background:var(--panel-soft);
   align-items:center;
 }
 .comparison-row.headline{
@@ -917,115 +797,87 @@ main{position:relative;z-index:1}
   font-size:11px;
   letter-spacing:.14em;
   text-transform:uppercase;
-  color:rgba(255,255,255,.72);
+  color:#6a7b88;
 }
-.comparison-row span:last-child{
-  color:var(--mint);
+.comparison-row span:nth-child(2){
+  color:#7c8791;
+}
+.comparison-row span:nth-child(3){
+  color:#163028;
   font-weight:600;
-}
-.quote-card{
-  padding:28px;
-  display:grid;
-  gap:18px;
-}
-.quote-card strong{
-  font-family:'Syne',sans-serif;
-  font-size:46px;
-  line-height:.92;
-  letter-spacing:-.05em;
-}
-.quote-card p{
-  font-size:14px;
-  line-height:1.85;
-  color:var(--muted);
-}
-.quote-card .attribution{
-  font-family:'IBM Plex Mono',monospace;
-  font-size:11px;
-  letter-spacing:.14em;
-  text-transform:uppercase;
-  color:var(--mint);
 }
 .faq-list{
   display:grid;
   gap:12px;
+  margin-top:22px;
 }
 .faq-item{
-  padding:22px;
+  border-radius:24px;
+  border:1px solid rgba(8,15,20,.08);
+  background:var(--panel-soft);
+  overflow:hidden;
 }
 .faq-item button{
   width:100%;
+  padding:20px 22px;
   display:flex;
   align-items:center;
   justify-content:space-between;
   gap:18px;
-  background:none;
   border:none;
+  background:none;
+  cursor:pointer;
   color:inherit;
   text-align:left;
-  cursor:pointer;
 }
 .faq-item strong{
   font-size:18px;
+  line-height:1.35;
 }
-.faq-item span{
+.faq-item em{
   width:30px;
   height:30px;
   border-radius:50%;
-  border:1px solid rgba(255,255,255,.12);
+  border:1px solid rgba(8,15,20,.12);
   display:grid;
   place-items:center;
-  font-size:18px;
-  color:var(--muted);
+  color:#6a7b88;
+  font-style:normal;
 }
 .faq-answer{
   display:grid;
   grid-template-rows:0fr;
   transition:grid-template-rows .28s var(--ease);
 }
-.faq-answer > div{
-  overflow:hidden;
-}
+.faq-answer > div{overflow:hidden}
 .faq-answer p{
-  padding-top:14px;
+  padding:0 22px 20px;
+  margin:0;
   font-size:14px;
   line-height:1.8;
-  color:var(--muted);
 }
 .faq-item.open .faq-answer{grid-template-rows:1fr}
-.faq-item.open span{color:#fff;border-color:rgba(255,255,255,.24)}
+.faq-item.open em{
+  color:var(--ink);
+  border-color:rgba(8,15,20,.18);
+}
 .cta-shell{
-  padding:34px;
   display:grid;
   grid-template-columns:minmax(0,1fr) auto;
   gap:18px;
   align-items:center;
 }
-.cta-shell h3{
-  font-family:'Syne',sans-serif;
-  font-size:clamp(38px,4.6vw,68px);
-  line-height:.9;
-  letter-spacing:-.05em;
-  max-width:12ch;
-}
-.cta-shell p{
-  margin-top:14px;
-  max-width:56ch;
-  font-size:15px;
-  line-height:1.8;
-  color:var(--muted);
-}
 .footer{
-  width:min(1280px,calc(100% - 32px));
-  margin:20px auto 110px;
+  width:min(1240px,calc(100% - 24px));
+  margin:18px auto 108px;
+  padding:0 4px;
   display:flex;
   flex-wrap:wrap;
   align-items:center;
   justify-content:space-between;
   gap:12px;
-  padding:0 4px;
   font-size:12px;
-  color:rgba(255,255,255,.56);
+  color:#6a7b88;
 }
 .footer-links{
   display:flex;
@@ -1036,59 +888,56 @@ main{position:relative;z-index:1}
   position:fixed;
   left:50%;
   bottom:16px;
-  transform:translate(-50%,20px);
-  width:min(720px,calc(100% - 18px));
+  transform:translate(-50%,18px);
+  width:min(760px,calc(100% - 18px));
   padding:12px 14px;
-  border-radius:24px;
-  border:1px solid rgba(255,255,255,.1);
-  background:rgba(8,13,18,.88);
-  backdrop-filter:blur(18px);
-  box-shadow:0 20px 50px rgba(0,0,0,.34);
   display:flex;
   align-items:center;
   justify-content:space-between;
   gap:14px;
+  border-radius:24px;
+  border:1px solid rgba(8,15,20,.08);
+  background:rgba(255,255,255,.92);
+  backdrop-filter:blur(16px);
+  box-shadow:0 22px 50px rgba(12,16,20,.12);
   opacity:0;
   pointer-events:none;
-  transition:opacity .3s var(--ease), transform .3s var(--ease);
-  z-index:160;
+  transition:opacity .28s var(--ease), transform .28s var(--ease);
+  z-index:170;
 }
 .sticky-bar.show{
   opacity:1;
   pointer-events:auto;
   transform:translate(-50%,0);
 }
-.sticky-meta{
+.sticky-copy{
   display:grid;
   gap:4px;
 }
-.sticky-meta small{
+.sticky-copy small{
   font-family:'IBM Plex Mono',monospace;
   font-size:10px;
   letter-spacing:.14em;
   text-transform:uppercase;
-  color:var(--muted);
+  color:#6a7b88;
 }
-.sticky-meta strong{
+.sticky-copy strong{
   font-size:18px;
 }
-.sticky-meta span{
+.sticky-copy span{
   font-size:12px;
-  color:var(--muted);
+  color:var(--ink-soft);
 }
 @media (max-width:1180px){
   .nav{display:none}
   .hero,
-  .how-grid,
-  .offer-shell,
+  .offer-grid,
+  .testimonial-grid,
   .comparison-grid,
   .cta-shell{grid-template-columns:1fr}
-  .benefit-grid,
-  .partner-row,
-  .checkout-grid{grid-template-columns:1fr 1fr}
-  .reel-stage{position:relative;top:auto}
-  .hero-stage{min-height:720px}
-  .cta-shell{align-items:start}
+  .hero-product{min-height:760px}
+  .proof-grid,
+  .partner-row{grid-template-columns:1fr 1fr}
 }
 @media (max-width:760px){
   html{scroll-padding-top:82px}
@@ -1097,68 +946,69 @@ main{position:relative;z-index:1}
     top:34px;
     width:calc(100% - 12px);
     padding:12px 14px;
-    gap:10px;
   }
   .top-actions .ghost{display:none}
   .hero{
-    width:min(100% - 14px,1280px);
-    padding:20px;
-    gap:18px;
+    width:min(100% - 14px,1240px);
   }
-  .hero-copy h1{font-size:clamp(46px,16vw,76px)}
+  .hero-copy,
+  .offer-shell,
+  .testimonial-shell,
+  .comparison-shell,
+  .faq-shell,
+  .cta-shell{padding:24px}
+  .hero-copy h1{font-size:clamp(48px,16vw,74px)}
   .hero-copy p{font-size:15px;line-height:1.75}
-  .hero-metrics,
-  .benefit-grid,
+  .hero-stats,
+  .proof-grid,
   .partner-row,
-  .checkout-grid,
-  .comparison-row,
-  .commerce-top{grid-template-columns:1fr}
-  .hero-stage{min-height:760px}
-  .product-shell{inset:100px 18px 156px}
-  .hero-card{right:18px;top:110px;width:min(220px,60%)}
-  .hero-proof{
+  .video-grid,
+  .cta-shell{grid-template-columns:1fr}
+  .hero-product{
+    min-height:760px;
+    padding:18px;
+  }
+  .product-stage{inset:104px 18px 230px}
+  .proof-banner{
     left:18px;
     right:18px;
-    bottom:18px;
+    bottom:146px;
     grid-template-columns:1fr;
   }
-  .section{width:min(100% - 14px,1280px);padding:82px 0}
-  .head h2{font-size:clamp(38px,13vw,64px)}
-  .reel-stage{min-height:680px;padding:20px}
-  .phone{width:min(320px,100%);margin-top:58px}
-  .comparison-row{gap:8px}
-  .comparison-row.headline{display:none}
-  .comparison-row span:first-child{
-    font-family:'IBM Plex Mono',monospace;
-    font-size:10px;
-    letter-spacing:.14em;
-    text-transform:uppercase;
-    color:var(--muted);
+  .buy-card{
+    left:18px;
+    right:18px;
   }
-  .comparison-row span:nth-child(2),
-  .comparison-row span:nth-child(3){font-size:14px}
-  .cta-shell{padding:28px}
-  .footer{margin-bottom:112px}
+  .buy-card-top{flex-direction:column}
+  .dark-wrap{padding:24px;border-radius:30px}
+  .dark-wrap h2{font-size:clamp(36px,12vw,58px)}
+  .video-card{min-height:420px;border-right:none;border-bottom:1px solid rgba(255,255,255,.08)}
+  .video-card:last-child{border-bottom:none}
+  .comparison-row{
+    grid-template-columns:1fr;
+    gap:6px;
+  }
+  .comparison-row.headline{display:none}
+  .cta-shell{align-items:start}
   .sticky-bar{
-    align-items:flex-start;
     flex-direction:column;
+    align-items:flex-start;
   }
   .sticky-bar .cta{width:100%}
+  .footer{margin-bottom:118px}
 }
 </style>
 </head>
 <body>
-<div class="ambient"></div>
-<div class="noise"></div>
 <div class="progress"><div id="progressBar"></div></div>
 
 <div class="announcement">
   <div class="announcement-track">
-    <span>Orders before 2pm AEDT dispatch same day</span>
+    <span>Orders before 2pm AEDT are dispatched same day</span>
     <span>30-day money-back guarantee</span>
     <span>Secure Shopify checkout</span>
     <span>Now shipping to the U.S.A</span>
-    <span>Orders before 2pm AEDT dispatch same day</span>
+    <span>Orders before 2pm AEDT are dispatched same day</span>
     <span>30-day money-back guarantee</span>
     <span>Secure Shopify checkout</span>
     <span>Now shipping to the U.S.A</span>
@@ -1168,11 +1018,11 @@ main{position:relative;z-index:1}
 <header class="topbar">
   <a class="brand" href="#top">
     <span class="brand-mark">SF</span>
-    <span>Sniperform <small>Shopify remake</small></span>
+    <span>SNIPERFORM <small>Shopify ad landing concept</small></span>
   </a>
   <nav class="nav">
     <a href="#benefits">Benefits</a>
-    <a href="#how">How it works</a>
+    <a href="#videos">Videos</a>
     <a href="#offer">Offer</a>
     <a href="#comparison">Compare</a>
     <a href="#faq">FAQ</a>
@@ -1185,73 +1035,82 @@ main{position:relative;z-index:1}
 
 <main>
   <section class="hero" id="top">
-    <div class="hero-copy reveal">
-      <div class="eyebrow">Product-first Shopify concept</div>
-      <h1>Pure <span class="accent">precision</span> for bigger arms, balanced lifts, and cleaner reps.</h1>
-      <p>This remake turns Sniperform into a sharper conversion machine around one flagship product. The structure pushes offer clarity, trust, short-form education, and a much stronger buy path for LevelUp Performance Grips.</p>
+    <article class="hero-panel hero-copy reveal">
+      <div class="eyebrow">Ad-click Shopify landing page</div>
+      <h1>Balanced <span class="accent">lifting</span>, bigger arms, and cleaner reps.</h1>
+      <p>This rebuild is designed for cold traffic. Someone lands from an ad, instantly understands the product, sees the proof, watches the product in action, and clicks through to the live Shopify checkout without friction.</p>
       <div class="hero-actions">
         <a class="cta" href="https://sniperform.com.au/products/level-up-alignment-grips">Unlock my free shaker</a>
-        <a class="ghost" href="#how">See how it works</a>
+        <a class="ghost" href="#videos">Watch it in action</a>
       </div>
-      <div class="trust-row">
-        <div class="trust-pill">5.0 rated</div>
-        <div class="trust-pill">28-32mm compatibility</div>
-        <div class="trust-pill">30-day money-back</div>
-        <div class="trust-pill">Fast dispatch Australia-wide</div>
+      <div class="hero-trust">
+        <div class="trust-chip">5.0 rated product</div>
+        <div class="trust-chip">28-32mm compatibility</div>
+        <div class="trust-chip">Ready for dispatch</div>
+        <div class="trust-chip">30-day money-back</div>
       </div>
-      <div class="hero-metrics">
-        <div class="metric">
+      <div class="hero-stats">
+        <div class="stat">
           <small>Offer</small>
           <strong>$59.95</strong>
-          <p>Flagship product with a free shaker offer pushed clearly and early.</p>
+          <p>Lead with one flagship product and one clear bonus instead of splitting attention.</p>
         </div>
-        <div class="metric">
-          <small>Form</small>
+        <div class="stat">
+          <small>Growth angle</small>
           <strong>30%+</strong>
-          <p>Thicker grip diameter positioned around harder muscle recruitment.</p>
+          <p>The thicker grip story gives a clear reason to care from the first screen.</p>
         </div>
-        <div class="metric">
-          <small>Trust</small>
+        <div class="stat">
+          <small>Trust layer</small>
           <strong>2pm</strong>
-          <p>Same-day dispatch messaging surfaced above the fold where it matters.</p>
+          <p>Same-day dispatch belongs right next to the action, not hidden in support pages.</p>
         </div>
       </div>
-    </div>
+    </article>
 
-    <div class="hero-stage reveal">
-      <div class="spotlight"></div>
-      <div class="hero-badge">
-        <small>Live Shopify angle</small>
-        <strong>Free shaker auto-applied at checkout</strong>
-        <span>Make the hero sell the offer immediately, not force people to hunt for it.</span>
+    <article class="hero-panel hero-product reveal">
+      <div class="floating-note">
+        <small>Why this should convert harder</small>
+        <strong>One product. One promise. One clear path to checkout.</strong>
+        <p>Less wandering, clearer proof, and better commercial pacing for paid traffic.</p>
       </div>
-      <div class="hero-card">
-        <small>Why this converts better</small>
-        <strong>One main action. One main promise. Less friction.</strong>
-        <ul>
-          <li>Single-product focus with fewer competing decisions.</li>
-          <li>Education, social proof, and trust stacked before checkout.</li>
-          <li>Persistent buy CTA linked to the live Shopify product page.</li>
-        </ul>
-      </div>
-      <div class="product-shell" id="heroStage">
+      <div class="product-stage">
         <div class="product-frame">
-          <img class="product-image" src="https://sniperform.com.au/cdn/shop/files/sniperform_grip_amazon_tight_v2_2000x2000_1f9db07d-6f90-4ad6-878a-a3d0ea33913c.jpg?v=1769488611&width=2048" alt="Sniperform LevelUp Performance Grips product shot">
+          <img src="https://sniperform.com.au/cdn/shop/files/hero-main-product.png?v=1771839582" alt="Sniperform LevelUp hero product image">
         </div>
       </div>
-      <div class="hero-proof">
-        <img src="https://sniperform.com.au/cdn/shop/files/0F3A2480_square_crop_2000.webp?v=1769488611&width=1200" alt="Athlete training with Sniperform LevelUp Performance Grips">
+      <div class="proof-banner">
+        <img src="https://sniperform.com.au/cdn/shop/files/0F3A2480_square_crop_2000.webp?v=1769488611&width=1200" alt="Athlete using Sniperform LevelUp grips">
         <div>
-          <small>Short-form education</small>
-          <strong>Clip on. Lift. Stay level.</strong>
-          <p>Short clips, athlete proof, and objection handling should feel native to the buy path. That keeps the page modern without losing conversion discipline.</p>
+          <small>Short-form proof</small>
+          <strong>Show the lift. Show the problem. Show the outcome.</strong>
+          <p>The current site already has the right videos. This format just places them earlier and makes them work harder for conversion.</p>
         </div>
       </div>
-    </div>
+      <div class="buy-card" id="buyCard">
+        <small>LevelUp Performance Grips (Pair)</small>
+        <div class="buy-card-top">
+          <div>
+            <h2>Free shaker auto-applied at checkout.</h2>
+            <div class="price"><strong>$59.95</strong><span>$71.95</span></div>
+          </div>
+          <a class="cta" href="https://sniperform.com.au/products/level-up-alignment-grips">Buy now</a>
+        </div>
+        <div class="buy-meta">
+          <span>Fast dispatch Australia-wide</span>
+          <span>30-day money-back</span>
+          <span>Secure Shopify checkout</span>
+          <span>Universal 28-32mm fit</span>
+        </div>
+        <div class="buy-actions">
+          <a class="ghost" href="https://sniperform.com.au/products/level-up-alignment-grips">View live product page</a>
+        </div>
+      </div>
+    </article>
   </section>
 
-  <section class="partner-band reveal">
-    <p>Partner brands and trust layer</p>
+  <section class="partner-strip reveal">
+    <p>Partner brands already used as trust on the live site</p>
     <div class="partner-row">
       <div class="partner-chip">IFBB</div>
       <div class="partner-chip">ICN</div>
@@ -1263,133 +1122,126 @@ main{position:relative;z-index:1}
   </section>
 
   <section class="section" id="benefits">
-    <div class="head reveal">
-      <div class="eyebrow">Benefit stack</div>
-      <h2>Make the product advantages impossible to miss.</h2>
-      <p>The current site has the right ingredients. This version just gives them a tighter hierarchy: bigger arms, more balanced lifting, better grip strength, and lower injury risk framed with clearer contrast and better pacing.</p>
-    </div>
-
-    <div class="benefit-grid">
-      <article class="benefit-card reveal">
-        <div class="benefit-kicker">Explosive pump</div>
+    <div class="proof-grid">
+      <article class="proof-card reveal">
+        <div class="eyebrow">Benefit 01</div>
         <strong>Bigger arms, faster.</strong>
-        <p>Lead harder with the thick-grip benefit. Put forearms, biceps, and grip strength front and centre instead of burying the value in a long block of copy.</p>
+        <p>Lead with the thick-grip outcome because that is the ad-click reason most gym buyers care about first.</p>
       </article>
-      <article class="benefit-card reveal">
-        <div class="benefit-kicker">Balanced lifting</div>
-        <strong>Catch compensation earlier.</strong>
-        <p>The levelling system becomes a visible visual hook and a practical injury-prevention argument at the same time.</p>
+      <article class="proof-card reveal">
+        <div class="eyebrow">Benefit 02</div>
+        <strong>Balanced barbell lifts.</strong>
+        <p>Move the levelling technology from “interesting feature” to obvious performance and injury-prevention benefit.</p>
       </article>
-      <article class="benefit-card reveal">
-        <div class="benefit-kicker">Built for gyms</div>
-        <strong>Quick-lock. Durable. Portable.</strong>
-        <p>Use setup speed, universal fit, and high-density material as reassurance that this is not a gimmick accessory.</p>
+      <article class="proof-card reveal">
+        <div class="eyebrow">Benefit 03</div>
+        <strong>Quick-lock and gym-ready.</strong>
+        <p>Setup speed, material quality, and fit reassurance help the page feel more serious and less gadget-like.</p>
       </article>
-      <article class="benefit-card reveal">
-        <div class="benefit-kicker">Shopify trust</div>
-        <strong>Fast dispatch and clean checkout.</strong>
-        <p>The site should tell people exactly what happens next: shipping speed, guarantee, live product page, and secure Shopify purchase path.</p>
+      <article class="proof-card reveal">
+        <div class="eyebrow">Benefit 04</div>
+        <strong>Cleaner ad-to-checkout flow.</strong>
+        <p>Build the page to answer questions in the order a paid visitor actually asks them, then push the live Shopify CTA.</p>
       </article>
     </div>
   </section>
 
-  <section class="section" id="how">
-    <div class="head reveal">
-      <div class="eyebrow">How it works</div>
-      <h2>Short-form education should do the selling.</h2>
-      <p>Instead of throwing everything into one long product description, this layout turns the buying journey into a content system: quick clips, simple states, and friction-killing explanations that move directly into the offer.</p>
-    </div>
+  <section class="section" id="videos">
+    <div class="dark-wrap reveal">
+      <div class="eyebrow">See it in action</div>
+      <h2>Real product videos, surfaced where they help conversion.</h2>
+      <p>The current Sniperform site already has strong short-form assets. This page makes them a core part of the landing experience instead of an optional side detail lower down the funnel.</p>
 
-    <div class="how-grid">
-      <article class="reel-stage reveal">
-        <div class="eyebrow">See it in action</div>
-        <div class="phone">
-          <div class="phone-screen">
-            <div class="phone-notch"></div>
-            <div class="phone-top"><span class="phone-tab">Following</span><span class="phone-tab active">For You</span></div>
-            <div class="phone-progress"><span id="reelProgress"></span></div>
-            <img id="reelImage" src="https://sniperform.com.au/cdn/shop/files/0F3A2480_square_crop_2000.webp?v=1769488611&width=1200" alt="Sniperform athlete using LevelUp grips">
-            <div class="phone-overlay"></div>
-            <div class="phone-copy">
-              <small id="reelKicker">How it works</small>
-              <strong id="reelTitle">Clip on. Lift. Stay level.</strong>
-              <p id="reelBody">Lead with the easiest explanation first. Make the product feel obvious in under five seconds.</p>
-              <div class="phone-tags" id="reelTags">
-                <span>#balancedlift</span>
-                <span>#biggerarms</span>
-                <span>#shopify</span>
-              </div>
+      <div class="video-shell">
+        <div class="video-grid">
+          <article class="video-card">
+            <div class="video-tag">How it works</div>
+            <video data-video playsinline muted loop preload="metadata">
+              <source src="https://cdn.shopify.com/videos/c/o/v/1a1b2fc7b3f84cfd90a3a834fd315127.mp4" type="video/mp4">
+            </video>
+            <div class="video-overlay">
+              <strong>Clip on. Lift. Stay level.</strong>
+              <p>Open with the fastest explanation possible. Make setup and product logic feel obvious in seconds.</p>
             </div>
-          </div>
+          </article>
+          <article class="video-card">
+            <div class="video-tag">The problem</div>
+            <video data-video playsinline muted loop preload="metadata">
+              <source src="https://cdn.shopify.com/videos/c/o/v/36a673d8e4c94b87982d55fe8f8bd70d.mp4" type="video/mp4">
+            </video>
+            <div class="video-overlay">
+              <strong>Most lifters don't realise they're compensating.</strong>
+              <p>Use the second clip to make the problem feel real: one side takes over, imbalances build, and progress gets messy.</p>
+            </div>
+          </article>
+          <article class="video-card">
+            <div class="video-tag">Outcome</div>
+            <video data-video playsinline muted loop preload="metadata">
+              <source src="https://cdn.shopify.com/videos/c/o/v/ace461e210a24cb89034e812d44d2fdd.mp4" type="video/mp4">
+            </video>
+            <div class="video-overlay">
+              <strong>Cleaner reps under fatigue.</strong>
+              <p>Close on control, confidence, and performance. That ties the videos directly back to the purchase decision.</p>
+            </div>
+          </article>
         </div>
-      </article>
-
-      <div class="step-list">
-        <article class="step-card reveal">
-          <div class="eyebrow">Step 01</div>
-          <strong>Open with the hook people actually care about.</strong>
-          <p>Most buyers are not looking for a spirit level on a gym accessory. They are looking for better arm growth, stronger grip, cleaner form, and less compensation. Put those outcomes first.</p>
-          <div class="step-meta"><span>Growth angle</span><span>Injury prevention</span><span>Grip strength</span></div>
-        </article>
-        <article class="step-card reveal">
-          <div class="eyebrow">Step 02</div>
-          <strong>Use short clips to kill objections before checkout.</strong>
-          <p>Show how it mounts, how it levels, how it feels in motion, and why that matters under fatigue. That is where the TikTok-style layout helps conversion instead of just adding noise.</p>
-          <div class="step-meta"><span>Mounting system</span><span>How it works</span><span>Outcome</span></div>
-        </article>
-        <article class="step-card reveal">
-          <div class="eyebrow">Step 03</div>
-          <strong>Drop the offer and trust stack while attention is still high.</strong>
-          <p>Fast dispatch, 30-day money-back, secure Shopify checkout, and the free shaker offer should sit right next to the primary product CTA, not in distant sections.</p>
-          <div class="step-meta"><span>Free shaker</span><span>Same-day dispatch</span><span>Money-back</span></div>
-        </article>
+        <button class="video-mute" id="muteToggle" type="button">Sound Off</button>
       </div>
     </div>
   </section>
 
   <section class="section" id="offer">
-    <div class="head reveal">
-      <div class="eyebrow">Offer design</div>
-      <h2>The page should make the deal feel easy to say yes to.</h2>
-      <p>The existing Sniperform offer is already strong. This rebuild just makes it much clearer: one flagship product, one visible bonus, one trusted Shopify path, and less visual wandering before the decision point.</p>
-    </div>
-
-    <div class="offer-shell">
-      <article class="offer-card reveal">
-        <div class="eyebrow">LevelUp hero offer</div>
-        <h3>Buy LevelUp. Get the shaker free. Keep the buy path clean.</h3>
-        <p>Use the product page like a high-converting landing page: immediate price anchoring, bonus stack, dispatch reassurance, and stronger product framing around outcomes people can feel in the gym.</p>
-        <div class="price-row">
+    <div class="offer-grid">
+      <article class="offer-shell reveal">
+        <div class="eyebrow">Limited-time offer</div>
+        <h3>Get a free shaker with LevelUp grips.</h3>
+        <p>The live store already has the right offer. This page just puts it in the perfect spot, with cleaner price anchoring, stronger trust framing, and a more obvious relationship between the product, the bonus, and the checkout button.</p>
+        <div class="offer-price">
           <strong>$59.95</strong>
           <span>$71.95</span>
         </div>
-        <div class="offer-stack">
-          <div class="offer-line"><strong>Free shaker included</strong><span>Auto-applied while stock lasts</span></div>
-          <div class="offer-line"><strong>Orders before 2pm AEDT</strong><span>Dispatched same day</span></div>
-          <div class="offer-line"><strong>30-day money-back</strong><span>Clear reassurance at the point of action</span></div>
+        <div class="bundle-points">
+          <div class="bundle-point"><strong>Free Sniperform shaker</strong><span>Auto-applied at checkout</span></div>
+          <div class="bundle-point"><strong>Orders before 2pm AEDT</strong><span>Dispatched same day</span></div>
+          <div class="bundle-point"><strong>30-day money-back</strong><span>Cleaner reassurance at the buying moment</span></div>
         </div>
         <div class="offer-actions">
-          <a class="cta" href="https://sniperform.com.au/products/level-up-alignment-grips">Go to live Shopify page</a>
+          <a class="cta" href="https://sniperform.com.au/products/level-up-alignment-grips">Unlock my free shaker</a>
           <a class="ghost" href="https://sniperform.com.au/">Visit current store</a>
         </div>
-        <div class="offer-note">This GitHub Pages concept keeps the real checkout on Sniperform's live Shopify store. The design layer here is about stronger framing, better content structure, and higher conversion discipline.</div>
+        <div class="offer-note">This concept page sends buyers to the live Sniperform Shopify product page for the actual purchase flow.</div>
       </article>
 
-      <article class="offer-card product-card reveal">
-        <div class="product-card-inner">
-          <div class="commerce-top">
-            <img src="https://sniperform.com.au/cdn/shop/files/sniperform_grip_amazon_tight_v2_2000x2000_1f9db07d-6f90-4ad6-878a-a3d0ea33913c.jpg?v=1769488611&width=1200" alt="LevelUp Performance Grips product image">
-            <div class="commerce-copy">
-              <div class="eyebrow">Shopify product focus</div>
-              <h4>One flagship product. Stronger merchandising.</h4>
-              <p>Push the LevelUp grips harder as the entry product, then use the tee and shaker as add-ons or bundle momentum instead of splitting attention too early.</p>
-            </div>
-          </div>
-          <div class="checkout-grid">
-            <div><strong>5.0</strong><span>Use rating trust closer to the CTA and offer stack.</span></div>
-            <div><strong>28-32mm</strong><span>Compatibility should be visible before people start asking.</span></div>
-            <div><strong>1-4 days</strong><span>Delivery expectation belongs near the buying decision.</span></div>
-          </div>
+      <article class="offer-shell bundle-card reveal">
+        <div class="bundle-visual">
+          <img src="https://sniperform.com.au/cdn/shop/files/Firefly_put_these_two_products_together_in_1_image_for_website_product_shot_652364.png?v=1773714783&width=1200" alt="Sniperform LevelUp grips with free shaker bundle image">
+        </div>
+        <div class="eyebrow">Bundle framing</div>
+        <p>Put the visual of the bonus right next to the offer so the page feels like a direct-response landing page, not just a styled catalog.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="testimonial-grid">
+      <article class="testimonial-shell reveal">
+        <div class="eyebrow">Testimonials and authority</div>
+        <h3>Social proof should feel immediate, not buried.</h3>
+        <p>For a gym buyer, proof matters fast. Use the pro endorsement, the five-star signal, and the partner-brand credibility to make the product feel safer and more serious before the comparison or FAQ sections even begin.</p>
+        <div class="quote-card">
+          <blockquote>"Sniperform has completely transformed the way I approach my lifts."</blockquote>
+          <div class="byline">Nathan Williamson / IFBB Pro Bodybuilder</div>
+        </div>
+      </article>
+
+      <article class="testimonial-media reveal">
+        <img src="https://sniperform.com.au/cdn/shop/files/Screenshot_2025-12-12_at_09.31.57.png?v=1765492356" alt="Nathan Williamson flexing for Sniperform testimonial">
+        <video controls playsinline preload="metadata" poster="https://sniperform.com.au/cdn/shop/files/Screenshot_2025-12-12_at_09.31.57.png?v=1765492356">
+          <source src="https://cdn.shopify.com/videos/c/o/v/627a5f4169d54b5d90123d6939ab1d32.mp4" type="video/mp4">
+        </video>
+        <div class="testimonial-meta">
+          <strong>What the pros have to say</strong>
+          <span>Keep the proof on the page, but give it a cleaner visual treatment and stronger placement in the flow.</span>
         </div>
       </article>
     </div>
@@ -1397,94 +1249,98 @@ main{position:relative;z-index:1}
 
   <section class="section" id="comparison">
     <div class="comparison-grid">
-      <article class="comparison-card reveal">
-        <div class="eyebrow">Comparison framing</div>
-        <h2>Why Sniperform beats a generic thick grip.</h2>
-        <p>Keep the classic comparison table, but make it cleaner and more persuasive. The goal is to make the levelling system feel like the real step up, not just another accessory in the same bucket.</p>
+      <article class="comparison-shell reveal">
+        <div class="eyebrow">Comparison</div>
+        <h3>Why Sniperform beats a generic thick-grip tool.</h3>
+        <p>The current comparison content is strong. This version just makes it easier to scan and more credible for a paid visitor deciding whether this is meaningfully better than a normal grip accessory.</p>
         <div class="comparison-table">
-          <div class="comparison-row headline"><span>Feature</span><span>Standard tools</span><span>Sniperform</span></div>
-          <div class="comparison-row"><span>Even weight distribution</span><span>Maybe</span><span>Built in</span></div>
-          <div class="comparison-row"><span>Visual alignment feedback</span><span>No</span><span>Yes</span></div>
-          <div class="comparison-row"><span>Thicker grip training</span><span>Yes</span><span>Yes</span></div>
-          <div class="comparison-row"><span>Reduced compensation risk</span><span>Weak</span><span>Stronger</span></div>
-          <div class="comparison-row"><span>Setup speed</span><span>Varies</span><span>Quick-lock</span></div>
+          <div class="comparison-row headline"><span>Feature</span><span>Standard thick grip</span><span>Sniperform</span></div>
+          <div class="comparison-row"><span>Even weight distribution</span><span>No feedback</span><span>Built in</span></div>
+          <div class="comparison-row"><span>Optimal form alignment</span><span>Weak</span><span>Visual cue</span></div>
+          <div class="comparison-row"><span>Thicker bar grip</span><span>Yes</span><span>Yes</span></div>
+          <div class="comparison-row"><span>Prevents muscle imbalances</span><span>Not directly</span><span>Stronger case</span></div>
+          <div class="comparison-row"><span>Reduces joint strain</span><span>Indirect</span><span>Better positioning</span></div>
+          <div class="comparison-row"><span>Visual alignment system</span><span>No</span><span>Yes</span></div>
         </div>
       </article>
 
-      <article class="quote-card reveal">
-        <div class="eyebrow">Proof and positioning</div>
-        <strong>Keep the page feeling premium, but pointed at purchase.</strong>
-        <p>Use pro endorsement, partner credibility, and action imagery as confidence builders. Then make sure every proof block helps the buyer reach a cleaner yes, instead of turning into a distraction.</p>
-        <div class="attribution">Used by serious lifters, backed by partner credibility, sold through Shopify</div>
+      <article class="comparison-shell reveal">
+        <div class="eyebrow">Positioning</div>
+        <h3>Make the levelling system the headline differentiator.</h3>
+        <p>The thicker grip benefit gets attention, but the real moat is the combination of arm-growth framing and visual alignment feedback. That is what separates Sniperform from the normal category language.</p>
+        <div class="bundle-points">
+          <div class="bundle-point"><strong>Explosive arm pumps</strong><span>Strong front-of-page hook</span></div>
+          <div class="bundle-point"><strong>Balanced barbell lifts</strong><span>Unique mechanism-based proof</span></div>
+          <div class="bundle-point"><strong>Engineered to last</strong><span>Removes “cheap accessory” doubt</span></div>
+        </div>
       </article>
     </div>
   </section>
 
   <section class="section" id="faq">
-    <div class="head reveal">
+    <article class="faq-shell reveal">
       <div class="eyebrow">FAQ</div>
-      <h2>Answer the objections that slow the purchase.</h2>
-      <p>A conversion page should not wait until the footer to address fit, use cases, shipping, and beginner confidence. Put those answers into a cleaner, easier scan.</p>
-    </div>
-
-    <div class="faq-list">
-      <article class="faq-item open reveal">
-        <button type="button">
-          <strong>Will LevelUp fit my gym's barbells and dumbbells?</strong>
-          <span>+</span>
-        </button>
-        <div class="faq-answer"><div><p>Frame compatibility clearly: LevelUp is built for standard Olympic bars and dumbbells in the 28-32mm range, so buyers know quickly whether it fits their setup.</p></div></div>
-      </article>
-      <article class="faq-item reveal">
-        <button type="button">
-          <strong>Is this only for advanced lifters?</strong>
-          <span>+</span>
-        </button>
-        <div class="faq-answer"><div><p>Use beginner confidence as a selling point. The product helps newer lifters feel alignment earlier while still giving experienced lifters a sharper feedback layer.</p></div></div>
-      </article>
-      <article class="faq-item reveal">
-        <button type="button">
-          <strong>How fast is dispatch and what happens if I change my mind?</strong>
-          <span>+</span>
-        </button>
-        <div class="faq-answer"><div><p>Keep the practical trust copy close to the CTA: same-day dispatch before 2pm AEDT, Australia-wide delivery, and the 30-day money-back guarantee.</p></div></div>
-      </article>
-      <article class="faq-item reveal">
-        <button type="button">
-          <strong>Why is this better than a normal thick grip?</strong>
-          <span>+</span>
-        </button>
-        <div class="faq-answer"><div><p>The thicker grip angle matters, but the real differentiator is the levelling feedback system. The page should make that distinction feel obvious in the first minute of scrolling.</p></div></div>
-      </article>
-    </div>
+      <h3>Answer the questions that stop the purchase.</h3>
+      <p>The current store already answers the right objections. This version just gives those answers a cleaner, faster structure that feels more premium and more useful to someone landing cold from an ad.</p>
+      <div class="faq-list">
+        <div class="faq-item open">
+          <button type="button">
+            <strong>Will LevelUp fit my gym's barbells and dumbbells?</strong>
+            <em>+</em>
+          </button>
+          <div class="faq-answer"><div><p>Yes. The current product page positions LevelUp for standard Olympic bars and dumbbells in the 28-32mm range, which should be surfaced earlier for confidence.</p></div></div>
+        </div>
+        <div class="faq-item">
+          <button type="button">
+            <strong>Can I use Sniperform if I'm just starting out?</strong>
+            <em>+</em>
+          </button>
+          <div class="faq-answer"><div><p>Yes. Beginners get a clearer form cue from day one, while experienced lifters can use the levelling feedback to sharpen technique and reduce compensation.</p></div></div>
+        </div>
+        <div class="faq-item">
+          <button type="button">
+            <strong>How fast is shipping and what if I change my mind?</strong>
+            <em>+</em>
+          </button>
+          <div class="faq-answer"><div><p>Orders before 2pm AEDT are dispatched same day, delivery is positioned at 1-4 business days Australia-wide, and the site uses a 30-day money-back guarantee as a core trust signal.</p></div></div>
+        </div>
+        <div class="faq-item">
+          <button type="button">
+            <strong>How do these grips actually help arm growth?</strong>
+            <em>+</em>
+          </button>
+          <div class="faq-answer"><div><p>The thick grip increases the demand on grip strength, forearms, and biceps, while the levelling feedback helps keep the work more balanced and controlled under load.</p></div></div>
+        </div>
+      </div>
+    </article>
   </section>
 
   <section class="section">
-    <div class="cta-shell reveal">
+    <article class="cta-shell reveal">
       <div>
         <div class="eyebrow">Next step</div>
-        <h3>Take this visual system and wire it into the live Shopify store.</h3>
-        <p>The concept page is built to prove the direction: stronger product framing, clearer content hierarchy, better trust pacing, and a more modern short-form commerce feel. The next real move is implementing the same structure inside the live Sniperform theme.</p>
+        <h3>Port this structure into the live Shopify theme.</h3>
+        <p>This concept is built around the actual Sniperform offer, current videos, current proof, and current FAQ logic. The next real move is implementing this cleaner structure inside the live Shopify store so the ads and checkout path feel consistent end-to-end.</p>
       </div>
-      <a class="cta" href="https://sniperform.com.au/products/level-up-alignment-grips">Open live product page</a>
-    </div>
+      <a class="cta" href="https://sniperform.com.au/products/level-up-alignment-grips">Open live Shopify product</a>
+    </article>
   </section>
 </main>
 
-<div class="footer">
-  <div>Concept remake for Sniperform's Shopify storefront</div>
+<footer class="footer">
+  <div>Sniperform landing-page concept focused on ad-click conversion</div>
   <div class="footer-links">
     <a href="v4.html">Back to V4</a>
     <a href="https://sniperform.com.au/">Live store</a>
-    <a href="https://sniperform.com.au/products/level-up-alignment-grips">LevelUp product</a>
+    <a href="https://sniperform.com.au/products/level-up-alignment-grips">Live product page</a>
   </div>
-</div>
+</footer>
 
 <div class="sticky-bar" id="stickyBar">
-  <div class="sticky-meta">
+  <div class="sticky-copy">
     <small>Sniperform / LevelUp</small>
-    <strong>$59.95 with free shaker offer</strong>
-    <span>Live checkout stays on the current Shopify store</span>
+    <strong>$59.95 with free shaker bonus</strong>
+    <span>Same-day dispatch, 30-day money-back, secure Shopify checkout</span>
   </div>
   <a class="cta" href="https://sniperform.com.au/products/level-up-alignment-grips">Buy on Shopify</a>
 </div>
@@ -1508,7 +1364,8 @@ document.querySelectorAll('.reveal').forEach((el)=>revealObserver.observe(el));
 function updateScroll(){
   const max=document.documentElement.scrollHeight-window.innerHeight;
   progressBar.style.width=`${max>0?(window.scrollY/max)*100:0}%`;
-  stickyBar.classList.toggle('show',window.scrollY>520);
+  const stickyThreshold=window.innerWidth<760?640:920;
+  stickyBar.classList.toggle('show',window.scrollY>stickyThreshold);
   let active='top';
   sectionEls.forEach((section)=>{
     const rect=section.getBoundingClientRect();
@@ -1520,68 +1377,52 @@ window.addEventListener('scroll',updateScroll,{passive:true});
 window.addEventListener('resize',updateScroll);
 updateScroll();
 
-const reelImage=document.getElementById('reelImage');
-const reelKicker=document.getElementById('reelKicker');
-const reelTitle=document.getElementById('reelTitle');
-const reelBody=document.getElementById('reelBody');
-const reelTags=document.getElementById('reelTags');
-const reelProgress=document.getElementById('reelProgress');
-const reelStates=[
-  {
-    image:'https://sniperform.com.au/cdn/shop/files/0F3A2480_square_crop_2000.webp?v=1769488611&width=1200',
-    kicker:'How it works',
-    title:'Clip on. Lift. Stay level.',
-    body:'Open with the most watchable explanation first. Show the setup, the lift, and the alignment feedback in a single fast sequence.',
-    tags:['#balancedlift','#biggerarms','#shopify'],
-    progress:30
-  },
-  {
-    image:'https://sniperform.com.au/cdn/shop/files/0F3A2557_square_crop_2000.webp?v=1769487620&width=1200',
-    kicker:'The problem',
-    title:'Most lifters do not notice the compensation.',
-    body:'Use the second state to show how one side quietly takes over under fatigue, and why that matters for growth and joint stress.',
-    tags:['#formfeedback','#injuryprevention','#gripstrength'],
-    progress:62
-  },
-  {
-    image:'https://sniperform.com.au/cdn/shop/files/0F3A2975.png?v=1739344712&width=1200',
-    kicker:'Outcome',
-    title:'Cleaner reps with a much stronger trust story.',
-    body:'Close on the product angle, the free shaker offer, and the dispatch plus guarantee stack while attention is still high.',
-    tags:['#offer','#shopifyconversion','#freebonus'],
-    progress:92
-  }
-];
-let reelIndex=0;
-function setReelState(index){
-  reelIndex=index;
-  const state=reelStates[index];
-  reelImage.src=state.image;
-  reelKicker.textContent=state.kicker;
-  reelTitle.textContent=state.title;
-  reelBody.textContent=state.body;
-  reelProgress.style.width=`${state.progress}%`;
-  reelTags.innerHTML=state.tags.map((tag)=>`<span>${tag}</span>`).join('');
-}
-setReelState(0);
-if(!reducedMotion){
-  setInterval(()=>{
-    setReelState((reelIndex+1)%reelStates.length);
-  },3200);
-}
-
 document.querySelectorAll('.faq-item button').forEach((button)=>{
   button.addEventListener('click',()=>{
     const item=button.closest('.faq-item');
-    const open=item.classList.contains('open');
+    const isOpen=item.classList.contains('open');
     document.querySelectorAll('.faq-item').forEach((entry)=>entry.classList.remove('open'));
-    if(!open)item.classList.add('open');
+    if(!isOpen)item.classList.add('open');
   });
 });
+
+const videos=[...document.querySelectorAll('[data-video]')];
+const muteToggle=document.getElementById('muteToggle');
+let muted=true;
+function syncMuteLabel(){
+  if(!muteToggle)return;
+  muteToggle.textContent=muted?'Sound Off':'Sound On';
+}
+syncMuteLabel();
+const videoObserver=new IntersectionObserver((entries)=>{
+  entries.forEach((entry)=>{
+    const video=entry.target;
+    if(entry.isIntersecting && !reducedMotion){
+      video.play().catch(()=>{});
+    }else{
+      video.pause();
+    }
+  });
+},{threshold:.4});
+videos.forEach((video)=>{
+  video.muted=muted;
+  if(!reducedMotion)videoObserver.observe(video);
+});
+if(muteToggle){
+  muteToggle.addEventListener('click',()=>{
+    muted=!muted;
+    videos.forEach((video)=>{video.muted=muted;});
+    syncMuteLabel();
+  });
+}
 
 prefersReducedMotion.addEventListener?.('change',(event)=>{
   reducedMotion=event.matches;
   document.body.classList.toggle('reduce-motion',reducedMotion);
+  videos.forEach((video)=>{
+    if(reducedMotion)video.pause();
+    else video.play().catch(()=>{});
+  });
 });
 </script>
 </body>
