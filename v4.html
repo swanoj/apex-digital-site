@@ -2439,6 +2439,35 @@ main{position:relative;z-index:1}
   font-size:12px;
   color:rgba(255,255,255,.82);
 }
+.proof-link{
+  margin-top:18px;
+}
+.proof-study-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:10px;
+  margin-top:18px;
+}
+.proof-study-grid div{
+  padding:14px;
+  border-radius:18px;
+  border:1px solid rgba(255,255,255,.08);
+  background:rgba(255,255,255,.04);
+}
+.proof-study-grid strong{
+  display:block;
+  font-size:18px;
+}
+.proof-study-grid span{
+  display:block;
+  margin-top:6px;
+  font-size:11px;
+  line-height:1.65;
+  color:var(--muted);
+}
+.proof-study-grid div:last-child{
+  grid-column:1/-1;
+}
 .proof-split{
   display:grid;
   grid-template-columns:1fr 1fr;
@@ -2659,6 +2688,7 @@ main{position:relative;z-index:1}
   .launch-stat{min-height:0}
   .launch-meta,
   .proof-metrics,
+  .proof-study-grid,
   .field-grid,
   .proof-split,
   .system-metrics,
@@ -3489,10 +3519,16 @@ main{position:relative;z-index:1}
 
         <div class="proof-split">
           <article class="proof-card reveal">
-            <small>Commerce concept</small>
-            <h4>Mooncart</h4>
-            <p>Showroom-grade product storytelling with product film, premium PDP design, and member logic built into the purchase path.</p>
-            <div class="proof-tags"><span>Shopify</span><span>Bundles</span><span>CRO</span></div>
+            <small>Live case study</small>
+            <h4>Sniperform</h4>
+            <p>An Australian Shopify fitness brand built around LevelUp Performance Grips. The storefront leans on single-product clarity, fast dispatch and guarantee messaging, partner-brand credibility, and short-form product education that answers objections before checkout.</p>
+            <div class="proof-tags"><span>Shopify</span><span>Single-product CRO</span><span>Guarantee-led trust</span><span>Short-form demo content</span></div>
+            <div class="proof-study-grid">
+              <div><strong>LevelUp</strong><span>The hero product stays front and centre across the whole store.</span></div>
+              <div><strong>2pm</strong><span>Same-day dispatch is surfaced early to remove buying friction.</span></div>
+              <div><strong>30-day</strong><span>Money-back reassurance is used as a clear trust layer.</span></div>
+            </div>
+            <a class="ghost proof-link" href="https://sniperform.com.au/" target="_blank" rel="noreferrer">View Sniperform</a>
           </article>
           <article class="proof-card reveal">
             <small>Content concept</small>
