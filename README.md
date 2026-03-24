@@ -15,6 +15,7 @@ Open `http://localhost:8000`.
 - `index.html` is the main public site.
 - `v2.html` is the second, more ambitious concept version.
 - `v3.html` is the more radical hyperstaged concept version.
+- `v4.html` is the maximal-motion TikTok and live-edit concept version.
 - `privacy.html` and `terms.html` back the footer links.
 - The chatbot is a local scripted assistant in the GitHub Pages build.
 - The contact form opens a prefilled email draft instead of posting to a backend.
