@@ -1,0 +1,1690 @@
+{% liquid
+  assign current_variant = product.selected_or_first_available_variant
+  assign media_hero      = product.featured_media | default: product.media.first
+  assign media_lifestyle = product.media[1] | default: media_hero
+  assign media_detail    = product.media[2] | default: media_lifestyle
+  assign media_setup     = product.media[3] | default: media_detail
+%}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<div id="snf-mob-{{ section.id }}" class="snf-mob">
+<style>
+/* ─── TOKENS ─────────────────────────────────────────── */
+.snf-mob{
+  --ink:#0c1219;
+  --ink2:#374552;
+  --slate:#6b7785;
+  --mint:#00c4b3;
+  --mint-d:#006c69;
+  --mint-s:#edfaf8;
+  --line:rgba(12,18,25,.08);
+  --line-m:rgba(12,18,25,.13);
+  --white:#fff;
+  --bg:#f8fafa;
+  --dark:#111820;
+  --dark2:#1c2530;
+  --r:16px;
+  --r-sm:10px;
+  --r-xs:8px;
+  --ease:cubic-bezier(.22,.8,.18,1);
+  font-family:"Montserrat",sans-serif;
+  color:var(--ink);
+  background:var(--bg);
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+.snf-mob *{box-sizing:border-box;margin:0;padding:0}
+.snf-mob a{color:inherit;text-decoration:none}
+.snf-mob button,
+.snf-mob input{font:inherit;outline:none}
+.snf-mob img,
+.snf-mob video{display:block;max-width:100%}
+.snf-mob ul,
+.snf-mob ol{list-style:none}
+
+/* ─── UTILITIES ─────────────────────────────────────── */
+.snf-mob .mono{font-family:"IBM Plex Mono",monospace;letter-spacing:.14em;text-transform:uppercase}
+.snf-mob .tag{display:inline-flex;align-items:center;gap:6px;padding:5px 10px;border:1px solid var(--line-m);border-radius:999px;background:var(--white);font-size:11px;font-weight:700;color:var(--ink2)}
+.snf-mob .tag-mint{border-color:rgba(0,196,179,.3);background:var(--mint-s);color:var(--mint-d)}
+.snf-mob .tag-mint::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--mint);flex-shrink:0}
+.snf-mob .px{padding-left:16px;padding-right:16px}
+.snf-mob .divider{height:1px;background:var(--line)}
+.snf-mob .section{padding:28px 0}
+
+/* ─── ANNOUNCEMENT ───────────────────────────────────── */
+.snf-mob-announce{
+  overflow:hidden;
+  height:36px;
+  display:flex;
+  align-items:center;
+  background:var(--white);
+  border-bottom:1px solid var(--line);
+}
+.snf-mob-announce-track{
+  display:flex;
+  gap:0;
+  white-space:nowrap;
+  animation:snfMarquee 28s linear infinite;
+  will-change:transform;
+}
+.snf-mob-announce-track span{
+  display:inline-flex;
+  align-items:center;
+  gap:20px;
+  padding:0 32px;
+  font-size:10.5px;
+  font-weight:700;
+  color:var(--ink2);
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
+.snf-mob-announce-track span::after{
+  content:"";
+  width:4px;
+  height:4px;
+  border-radius:50%;
+  background:var(--mint);
+  flex-shrink:0;
+}
+@keyframes snfMarquee{
+  from{transform:translateX(0)}
+  to{transform:translateX(-50%)}
+}
+
+/* ─── IMAGE CAROUSEL ─────────────────────────────────── */
+.snf-mob-gallery{
+  position:relative;
+  background:var(--white);
+  border-bottom:1px solid var(--line);
+  user-select:none;
+  -webkit-user-select:none;
+}
+.snf-mob-gallery-track{
+  display:flex;
+  overflow-x:scroll;
+  scroll-snap-type:x mandatory;
+  scroll-behavior:smooth;
+  -webkit-overflow-scrolling:touch;
+  scrollbar-width:none;
+}
+.snf-mob-gallery-track::-webkit-scrollbar{display:none}
+.snf-mob-gallery-slide{
+  flex:0 0 100%;
+  scroll-snap-align:start;
+  aspect-ratio:1 / 1;
+  overflow:hidden;
+  background:var(--mint-s);
+}
+.snf-mob-gallery-slide img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+.snf-mob-gallery-dots{
+  position:absolute;
+  bottom:12px;
+  left:50%;
+  transform:translateX(-50%);
+  display:flex;
+  gap:5px;
+  z-index:2;
+}
+.snf-mob-gallery-dots span{
+  width:5px;
+  height:5px;
+  border-radius:50%;
+  background:rgba(12,18,25,.22);
+  transition:width .2s var(--ease), background .2s var(--ease);
+}
+.snf-mob-gallery-dots span.active{
+  width:18px;
+  border-radius:3px;
+  background:var(--ink);
+}
+.snf-mob-gallery-badge{
+  position:absolute;
+  top:12px;
+  right:12px;
+  padding:6px 10px;
+  border-radius:999px;
+  background:rgba(255,255,255,.92);
+  border:1px solid var(--line-m);
+  backdrop-filter:blur(8px);
+  font-size:10px;
+  font-weight:800;
+  color:var(--mint-d);
+  letter-spacing:.1em;
+  text-transform:uppercase;
+}
+
+/* ─── PRODUCT HEAD ───────────────────────────────────── */
+.snf-mob-head{
+  padding:18px 16px 0;
+  background:var(--white);
+}
+.snf-mob-head-brand{
+  font-size:10.5px;
+  font-weight:800;
+  color:var(--mint-d);
+  letter-spacing:.18em;
+  text-transform:uppercase;
+}
+.snf-mob-head h1{
+  margin-top:6px;
+  font-size:26px;
+  line-height:.95;
+  letter-spacing:-.05em;
+  font-weight:900;
+  color:var(--ink);
+}
+.snf-mob-head-meta{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-top:10px;
+}
+.snf-mob-stars{
+  display:flex;
+  align-items:center;
+  gap:3px;
+  color:var(--mint-d);
+  font-size:13px;
+  letter-spacing:.1em;
+}
+.snf-mob-review-count{
+  font-size:12px;
+  font-weight:700;
+  color:var(--slate);
+}
+.snf-mob-head-price{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-top:12px;
+  padding-bottom:18px;
+}
+.snf-mob-price{
+  font-size:32px;
+  font-weight:900;
+  letter-spacing:-.06em;
+  line-height:1;
+  color:var(--ink);
+}
+.snf-mob-price-compare{
+  font-size:16px;
+  font-weight:600;
+  color:var(--slate);
+  text-decoration:line-through;
+}
+.snf-mob-price-save{
+  padding:3px 8px;
+  border-radius:6px;
+  background:var(--mint-s);
+  border:1px solid rgba(0,196,179,.25);
+  font-size:11px;
+  font-weight:800;
+  color:var(--mint-d);
+}
+
+/* ─── OFFER CAPSULE ──────────────────────────────────── */
+.snf-mob-offer{
+  margin:0 16px;
+  padding:12px 14px;
+  border:1px solid rgba(0,196,179,.28);
+  border-radius:var(--r);
+  background:var(--mint-s);
+  display:flex;
+  gap:10px;
+  align-items:flex-start;
+}
+.snf-mob-offer-icon{
+  flex-shrink:0;
+  width:34px;
+  height:34px;
+  border-radius:10px;
+  background:linear-gradient(135deg,var(--mint),var(--mint-d));
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:16px;
+}
+.snf-mob-offer-text strong{
+  display:block;
+  font-size:12.5px;
+  font-weight:800;
+  color:var(--mint-d);
+  letter-spacing:.04em;
+  text-transform:uppercase;
+}
+.snf-mob-offer-text p{
+  margin-top:3px;
+  font-size:12px;
+  line-height:1.58;
+  color:var(--ink2);
+}
+
+/* ─── BUY BOX ────────────────────────────────────────── */
+.snf-mob-buybox{
+  padding:16px;
+  background:var(--white);
+}
+.snf-mob-qty-row{
+  display:grid;
+  grid-template-columns:112px 1fr;
+  gap:10px;
+}
+.snf-mob-qty{
+  display:grid;
+  grid-template-columns:36px 1fr 36px;
+  height:50px;
+  border:1px solid var(--line-m);
+  border-radius:var(--r-sm);
+  overflow:hidden;
+  background:var(--bg);
+}
+.snf-mob-qty button{
+  border:0;
+  background:transparent;
+  color:var(--ink);
+  font-size:20px;
+  line-height:1;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  touch-action:manipulation;
+}
+.snf-mob-qty input{
+  border:0;
+  background:transparent;
+  color:var(--ink);
+  text-align:center;
+  font-size:15px;
+  font-weight:800;
+  -moz-appearance:textfield;
+  width:100%;
+}
+.snf-mob-qty input::-webkit-outer-spin-button,
+.snf-mob-qty input::-webkit-inner-spin-button{-webkit-appearance:none}
+.snf-mob-atc{
+  height:50px;
+  border:0;
+  border-radius:var(--r-sm);
+  background:linear-gradient(135deg,var(--mint) 0%,var(--mint-d) 100%);
+  color:#fff;
+  font-size:14.5px;
+  font-weight:800;
+  letter-spacing:.02em;
+  cursor:pointer;
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  touch-action:manipulation;
+  transition:opacity .18s,transform .18s;
+  box-shadow:0 8px 24px rgba(0,107,105,.22);
+}
+.snf-mob-atc:active{opacity:.86;transform:scale(.98)}
+.snf-mob-atc[disabled]{opacity:.55;cursor:not-allowed}
+.snf-mob-buynow{
+  margin-top:10px;
+  height:48px;
+  width:100%;
+  border:1px solid var(--line-m);
+  border-radius:var(--r-sm);
+  background:var(--white);
+  color:var(--ink);
+  font-size:14px;
+  font-weight:700;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  touch-action:manipulation;
+  transition:background .18s,border-color .18s;
+}
+.snf-mob-buynow:active{background:var(--bg)}
+.snf-mob-buy-note{
+  margin-top:10px;
+  font-size:11px;
+  color:var(--slate);
+  text-align:center;
+  line-height:1.55;
+  font-weight:600;
+}
+
+/* ─── TRUST BAR ──────────────────────────────────────── */
+.snf-mob-trust{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+  background:var(--white);
+}
+.snf-mob-trust-item{
+  padding:14px 8px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:6px;
+  text-align:center;
+  border-right:1px solid var(--line);
+}
+.snf-mob-trust-item:last-child{border-right:0}
+.snf-mob-trust-icon{
+  font-size:19px;
+  line-height:1;
+}
+.snf-mob-trust-label{
+  font-size:10px;
+  font-weight:800;
+  color:var(--ink2);
+  letter-spacing:.04em;
+  line-height:1.4;
+}
+
+/* ─── BENEFITS ───────────────────────────────────────── */
+.snf-mob-benefits{
+  padding:24px 16px;
+  background:var(--white);
+}
+.snf-mob-benefits-head{
+  font-size:19px;
+  font-weight:900;
+  letter-spacing:-.04em;
+  line-height:1.12;
+  color:var(--ink);
+  margin-bottom:16px;
+}
+.snf-mob-benefit-item{
+  display:flex;
+  gap:13px;
+  align-items:flex-start;
+  padding:14px 0;
+  border-bottom:1px solid var(--line);
+}
+.snf-mob-benefit-item:last-child{border-bottom:0}
+.snf-mob-benefit-num{
+  flex-shrink:0;
+  width:26px;
+  height:26px;
+  border-radius:8px;
+  background:var(--ink);
+  color:#fff;
+  font-size:11px;
+  font-weight:900;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin-top:1px;
+}
+.snf-mob-benefit-copy strong{
+  display:block;
+  font-size:14.5px;
+  font-weight:800;
+  line-height:1.25;
+  letter-spacing:-.02em;
+}
+.snf-mob-benefit-copy p{
+  margin-top:4px;
+  font-size:13px;
+  line-height:1.68;
+  color:var(--slate);
+}
+
+/* ─── STATS STRIP ────────────────────────────────────── */
+.snf-mob-stats{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  border:1px solid var(--line);
+  border-radius:var(--r);
+  overflow:hidden;
+  margin:0 16px 24px;
+  background:var(--white);
+}
+.snf-mob-stat{
+  padding:16px 14px;
+  border-right:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+}
+.snf-mob-stat:nth-child(2n){border-right:0}
+.snf-mob-stat:nth-child(n+3){border-bottom:0}
+.snf-mob-stat strong{
+  display:block;
+  font-size:28px;
+  font-weight:900;
+  letter-spacing:-.07em;
+  line-height:.95;
+  color:var(--ink);
+}
+.snf-mob-stat span{
+  display:block;
+  margin-top:5px;
+  font-size:11px;
+  font-weight:700;
+  color:var(--slate);
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  line-height:1.4;
+}
+
+/* ─── PROOF VIDEO ────────────────────────────────────── */
+.snf-mob-proof-vid{
+  padding:0 16px 24px;
+}
+.snf-mob-proof-vid-label{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:12px;
+  font-size:10.5px;
+  font-weight:800;
+  color:var(--mint-d);
+  letter-spacing:.14em;
+  text-transform:uppercase;
+}
+.snf-mob-proof-vid-label::before{
+  content:"";
+  width:20px;
+  height:1px;
+  background:var(--mint);
+}
+.snf-mob-proof-vid-wrap{
+  border-radius:var(--r);
+  overflow:hidden;
+  background:#0b151c;
+  border:1px solid var(--line);
+  box-shadow:0 8px 32px rgba(11,21,28,.1);
+}
+.snf-mob-proof-vid-wrap video{
+  width:100%;
+  aspect-ratio:16/9;
+  object-fit:cover;
+  display:block;
+}
+.snf-mob-proof-quote{
+  margin-top:14px;
+  padding:14px;
+  border:1px solid var(--line);
+  border-radius:var(--r-sm);
+  background:var(--white);
+}
+.snf-mob-proof-quote blockquote{
+  font-size:14px;
+  font-weight:700;
+  line-height:1.62;
+  color:var(--ink);
+}
+.snf-mob-proof-quote cite{
+  display:block;
+  margin-top:8px;
+  font-size:10.5px;
+  font-weight:800;
+  color:var(--mint-d);
+  font-style:normal;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
+
+/* ─── REVIEW CARDS ───────────────────────────────────── */
+.snf-mob-reviews-head{
+  padding:0 16px 12px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+.snf-mob-reviews-head h2{
+  font-size:18px;
+  font-weight:900;
+  letter-spacing:-.04em;
+}
+.snf-mob-reviews-scroll{
+  display:flex;
+  gap:10px;
+  padding:0 16px 24px;
+  overflow-x:auto;
+  scroll-snap-type:x mandatory;
+  -webkit-overflow-scrolling:touch;
+  scrollbar-width:none;
+}
+.snf-mob-reviews-scroll::-webkit-scrollbar{display:none}
+.snf-mob-review-card{
+  flex:0 0 268px;
+  scroll-snap-align:start;
+  padding:14px;
+  border:1px solid var(--line-m);
+  border-radius:var(--r);
+  background:var(--white);
+}
+.snf-mob-review-card .snf-mob-stars{margin-bottom:8px}
+.snf-mob-review-card blockquote{
+  font-size:13px;
+  line-height:1.68;
+  color:var(--ink2);
+  font-weight:600;
+}
+.snf-mob-review-card cite{
+  display:block;
+  margin-top:10px;
+  font-size:10.5px;
+  font-weight:800;
+  color:var(--slate);
+  font-style:normal;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+}
+.snf-mob-review-card .snf-mob-review-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:5px;
+  margin-top:8px;
+  padding:3px 8px;
+  border-radius:6px;
+  background:var(--mint-s);
+  font-size:10px;
+  font-weight:700;
+  color:var(--mint-d);
+}
+
+/* ─── USE CASES ──────────────────────────────────────── */
+.snf-mob-use{
+  padding:0 0 24px;
+  background:var(--white);
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+}
+.snf-mob-use-head{
+  padding:20px 16px 14px;
+}
+.snf-mob-use-eyebrow{
+  font-size:10.5px;
+  font-weight:800;
+  color:var(--mint-d);
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  margin-bottom:6px;
+}
+.snf-mob-use-head h2{
+  font-size:20px;
+  font-weight:900;
+  letter-spacing:-.04em;
+  line-height:1.1;
+}
+.snf-mob-use-nav{
+  display:flex;
+  gap:8px;
+  padding:0 16px;
+  overflow-x:auto;
+  scrollbar-width:none;
+  -webkit-overflow-scrolling:touch;
+  padding-bottom:2px;
+}
+.snf-mob-use-nav::-webkit-scrollbar{display:none}
+.snf-mob-use-tab{
+  flex-shrink:0;
+  padding:8px 14px;
+  border:1px solid var(--line-m);
+  border-radius:999px;
+  background:var(--white);
+  font-size:12.5px;
+  font-weight:700;
+  color:var(--ink2);
+  cursor:pointer;
+  touch-action:manipulation;
+  transition:background .18s,border-color .18s,color .18s;
+}
+.snf-mob-use-tab.active{
+  background:var(--ink);
+  border-color:var(--ink);
+  color:#fff;
+}
+.snf-mob-use-panel{
+  margin:14px 16px 0;
+}
+.snf-mob-use-img{
+  border-radius:var(--r);
+  overflow:hidden;
+  aspect-ratio:4/3;
+  background:var(--bg);
+  border:1px solid var(--line);
+}
+.snf-mob-use-img img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+.snf-mob-use-copy{
+  margin-top:14px;
+}
+.snf-mob-use-kicker{
+  font-size:10.5px;
+  font-weight:800;
+  color:var(--mint-d);
+  letter-spacing:.16em;
+  text-transform:uppercase;
+}
+.snf-mob-use-title{
+  margin-top:6px;
+  font-size:18px;
+  font-weight:900;
+  letter-spacing:-.04em;
+  line-height:1.1;
+}
+.snf-mob-use-text{
+  margin-top:8px;
+  font-size:13px;
+  line-height:1.72;
+  color:var(--slate);
+}
+.snf-mob-use-benefits{
+  margin-top:12px;
+  display:grid;
+  gap:0;
+  border-top:1px solid var(--line);
+}
+.snf-mob-use-benefit{
+  padding:10px 0 10px 16px;
+  border-bottom:1px solid var(--line);
+  font-size:12.5px;
+  line-height:1.6;
+  color:var(--ink2);
+  font-weight:600;
+  position:relative;
+}
+.snf-mob-use-benefit:last-child{border-bottom:0}
+.snf-mob-use-benefit::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:18px;
+  width:6px;
+  height:6px;
+  border-radius:50%;
+  background:var(--mint);
+}
+
+/* ─── SPECS ACCORDION ────────────────────────────────── */
+.snf-mob-specs{
+  padding:24px 0;
+  background:var(--white);
+  border-top:1px solid var(--line);
+}
+.snf-mob-specs-head{
+  padding:0 16px 16px;
+}
+.snf-mob-specs-eyebrow{
+  font-size:10.5px;
+  font-weight:800;
+  color:var(--mint-d);
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  margin-bottom:6px;
+}
+.snf-mob-specs-head h2{
+  font-size:20px;
+  font-weight:900;
+  letter-spacing:-.04em;
+  line-height:1.1;
+}
+.snf-mob-spec-row{
+  border-top:1px solid var(--line);
+}
+.snf-mob-spec-row:last-child{border-bottom:1px solid var(--line)}
+.snf-mob-spec-summary{
+  list-style:none;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  padding:14px 16px;
+  cursor:pointer;
+  -webkit-tap-highlight-color:transparent;
+}
+.snf-mob-spec-summary::-webkit-details-marker{display:none}
+.snf-mob-spec-label{
+  font-size:10.5px;
+  font-weight:800;
+  color:var(--mint-d);
+  letter-spacing:.14em;
+  text-transform:uppercase;
+}
+.snf-mob-spec-title{
+  display:block;
+  margin-top:2px;
+  font-size:14px;
+  font-weight:800;
+  letter-spacing:-.02em;
+  color:var(--ink);
+}
+.snf-mob-spec-chevron{
+  flex-shrink:0;
+  width:22px;
+  height:22px;
+  border:1px solid var(--line-m);
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:var(--slate);
+  font-size:14px;
+  font-weight:700;
+  transition:transform .22s var(--ease);
+}
+details[open] .snf-mob-spec-chevron{transform:rotate(45deg)}
+.snf-mob-spec-body{
+  padding:0 16px 16px;
+  font-size:13px;
+  line-height:1.74;
+  color:var(--slate);
+}
+
+/* ─── COMPARISON ─────────────────────────────────────── */
+.snf-mob-compare{
+  padding:24px 16px;
+}
+.snf-mob-compare-eyebrow{
+  font-size:10.5px;
+  font-weight:800;
+  color:var(--mint-d);
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  margin-bottom:6px;
+}
+.snf-mob-compare h2{
+  font-size:20px;
+  font-weight:900;
+  letter-spacing:-.04em;
+  line-height:1.1;
+  margin-bottom:16px;
+}
+.snf-mob-compare-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:10px;
+  margin-bottom:14px;
+}
+.snf-mob-compare-col{
+  border:1px solid var(--line-m);
+  border-radius:var(--r);
+  overflow:hidden;
+  background:var(--white);
+}
+.snf-mob-compare-col.is-snf{
+  border-color:rgba(0,196,179,.35);
+  background:var(--mint-s);
+}
+.snf-mob-compare-col-head{
+  padding:10px 12px;
+  border-bottom:1px solid var(--line);
+  font-size:11.5px;
+  font-weight:800;
+  color:var(--slate);
+  text-align:center;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+}
+.snf-mob-compare-col.is-snf .snf-mob-compare-col-head{
+  color:var(--mint-d);
+  border-bottom-color:rgba(0,196,179,.25);
+  background:rgba(0,196,179,.06);
+}
+.snf-mob-compare-feat{
+  padding:9px 12px;
+  border-bottom:1px solid var(--line);
+  font-size:12px;
+  line-height:1.45;
+  color:var(--ink2);
+  display:flex;
+  align-items:center;
+  gap:6px;
+  font-weight:600;
+}
+.snf-mob-compare-feat:last-child{border-bottom:0}
+.snf-mob-compare-feat.yes{color:var(--ink);font-weight:700}
+.snf-mob-compare-feat.snf-yes{color:var(--mint-d);font-weight:800}
+.snf-mob-compare-feat .dot{
+  flex-shrink:0;
+  width:16px;
+  height:16px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:10px;
+}
+.snf-mob-compare-feat.no .dot{background:rgba(12,18,25,.07);color:var(--slate)}
+.snf-mob-compare-feat.yes .dot{background:rgba(0,196,179,.15);color:var(--mint-d)}
+.snf-mob-compare-feat.snf-yes .dot{background:var(--mint);color:#fff}
+.snf-mob-compare-feats{
+  display:grid;
+  gap:6px;
+  padding:12px 0;
+  border-top:1px solid var(--line);
+}
+.snf-mob-compare-feat-label{
+  padding:8px 0;
+  border-bottom:1px solid var(--line);
+  font-size:12px;
+  font-weight:700;
+  color:var(--ink2);
+  line-height:1.4;
+}
+.snf-mob-compare-feat-label:last-child{border-bottom:0}
+
+/* ─── FAQ ────────────────────────────────────────────── */
+.snf-mob-faq{
+  padding:24px 0;
+  background:var(--white);
+  border-top:1px solid var(--line);
+}
+.snf-mob-faq-head{
+  padding:0 16px 16px;
+}
+.snf-mob-faq-eyebrow{
+  font-size:10.5px;
+  font-weight:800;
+  color:var(--mint-d);
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  margin-bottom:6px;
+}
+.snf-mob-faq-head h2{
+  font-size:20px;
+  font-weight:900;
+  letter-spacing:-.04em;
+  line-height:1.1;
+}
+.snf-mob-faq-item{
+  border-top:1px solid var(--line);
+}
+.snf-mob-faq-item:last-of-type{border-bottom:1px solid var(--line)}
+.snf-mob-faq-summary{
+  list-style:none;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  padding:14px 16px;
+  cursor:pointer;
+  font-size:14px;
+  font-weight:700;
+  line-height:1.4;
+  color:var(--ink);
+  -webkit-tap-highlight-color:transparent;
+}
+.snf-mob-faq-summary::-webkit-details-marker{display:none}
+.snf-mob-faq-plus{
+  flex-shrink:0;
+  width:22px;
+  height:22px;
+  border:1px solid var(--line-m);
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:var(--mint-d);
+  font-size:16px;
+  font-weight:300;
+  transition:transform .22s var(--ease);
+}
+details[open] .snf-mob-faq-plus{transform:rotate(45deg)}
+.snf-mob-faq-answer{
+  padding:0 16px 14px;
+  font-size:13px;
+  line-height:1.78;
+  color:var(--slate);
+}
+
+/* ─── FOUNDER ────────────────────────────────────────── */
+.snf-mob-founder{
+  padding:24px 16px;
+  background:var(--dark);
+  color:#fff;
+}
+.snf-mob-founder-eyebrow{
+  font-size:10.5px;
+  font-weight:800;
+  color:#7df4ea;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  margin-bottom:10px;
+}
+.snf-mob-founder-quote{
+  font-size:17px;
+  font-weight:800;
+  line-height:1.52;
+  letter-spacing:-.02em;
+  border-left:2px solid var(--mint);
+  padding-left:14px;
+  color:#fff;
+}
+.snf-mob-founder-cite{
+  display:block;
+  margin-top:12px;
+  padding-left:14px;
+  font-size:10.5px;
+  font-weight:800;
+  color:rgba(255,255,255,.5);
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  font-style:normal;
+}
+
+/* ─── FINAL CTA ──────────────────────────────────────── */
+.snf-mob-final{
+  padding:28px 16px;
+  background:var(--dark2);
+  color:#fff;
+  margin-bottom:80px;
+}
+.snf-mob-final-eyebrow{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  font-size:10.5px;
+  font-weight:800;
+  color:#7df4ea;
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  margin-bottom:12px;
+}
+.snf-mob-final-eyebrow::before{content:"";width:18px;height:1px;background:rgba(125,244,234,.5)}
+.snf-mob-final h2{
+  font-size:26px;
+  font-weight:900;
+  letter-spacing:-.05em;
+  line-height:.96;
+  max-width:14ch;
+  margin-bottom:14px;
+}
+.snf-mob-final p{
+  font-size:13px;
+  line-height:1.72;
+  color:rgba(255,255,255,.68);
+  margin-bottom:18px;
+}
+.snf-mob-final-bullets{
+  display:grid;
+  gap:9px;
+  margin-bottom:22px;
+}
+.snf-mob-final-bullet{
+  display:flex;
+  align-items:center;
+  gap:9px;
+  font-size:12.5px;
+  font-weight:700;
+  color:rgba(255,255,255,.88);
+}
+.snf-mob-final-bullet::before{
+  content:"";
+  flex-shrink:0;
+  width:7px;
+  height:7px;
+  border-radius:50%;
+  background:#7df4ea;
+}
+.snf-mob-final-btns{
+  display:grid;
+  gap:10px;
+}
+.snf-mob-final-atc{
+  height:52px;
+  border:0;
+  border-radius:var(--r-sm);
+  background:linear-gradient(135deg,var(--mint) 0%,var(--mint-d) 100%);
+  color:#fff;
+  font-size:15px;
+  font-weight:800;
+  letter-spacing:.02em;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  touch-action:manipulation;
+  box-shadow:0 8px 28px rgba(0,107,105,.35);
+  transition:opacity .18s;
+  text-decoration:none;
+}
+.snf-mob-final-atc:active{opacity:.86}
+.snf-mob-final-ghost{
+  height:46px;
+  border:1px solid rgba(255,255,255,.16);
+  border-radius:var(--r-sm);
+  background:transparent;
+  color:rgba(255,255,255,.72);
+  font-size:13.5px;
+  font-weight:700;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  touch-action:manipulation;
+  text-decoration:none;
+  transition:border-color .18s,color .18s;
+}
+.snf-mob-final-ghost:active{border-color:rgba(255,255,255,.4);color:#fff}
+
+/* ─── STICKY BAR ─────────────────────────────────────── */
+.snf-mob-sticky{
+  position:fixed;
+  bottom:0;
+  left:0;
+  right:0;
+  z-index:90;
+  padding:10px 16px calc(10px + env(safe-area-inset-bottom, 0px));
+  background:rgba(255,255,255,.96);
+  backdrop-filter:blur(16px);
+  -webkit-backdrop-filter:blur(16px);
+  border-top:1px solid var(--line-m);
+  box-shadow:0 -8px 32px rgba(12,18,25,.1);
+  display:flex;
+  align-items:center;
+  gap:12px;
+  transform:translateY(100%);
+  transition:transform .32s var(--ease);
+}
+.snf-mob-sticky.show{transform:translateY(0)}
+.snf-mob-sticky-copy{
+  flex:1;
+  min-width:0;
+}
+.snf-mob-sticky-copy strong{
+  display:block;
+  font-size:14px;
+  font-weight:900;
+  letter-spacing:-.03em;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+.snf-mob-sticky-copy span{
+  display:block;
+  margin-top:2px;
+  font-size:11px;
+  font-weight:700;
+  color:var(--slate);
+}
+.snf-mob-sticky-btn{
+  flex-shrink:0;
+  height:44px;
+  padding:0 20px;
+  border:0;
+  border-radius:var(--r-sm);
+  background:linear-gradient(135deg,var(--mint) 0%,var(--mint-d) 100%);
+  color:#fff;
+  font-size:13.5px;
+  font-weight:800;
+  cursor:pointer;
+  touch-action:manipulation;
+  white-space:nowrap;
+  box-shadow:0 6px 20px rgba(0,107,105,.25);
+  transition:opacity .18s;
+  text-decoration:none;
+  display:flex;
+  align-items:center;
+}
+.snf-mob-sticky-btn:active{opacity:.86}
+
+/* ─── SECTION TRANSITIONS ────────────────────────────── */
+.snf-mob .fade-up{
+  opacity:0;
+  transform:translateY(18px);
+  transition:opacity .48s var(--ease), transform .48s var(--ease);
+}
+.snf-mob .fade-up.in{
+  opacity:1;
+  transform:none;
+}
+
+/* ─── DESKTOP OVERRIDE ───────────────────────────────── */
+@media(min-width:640px){
+  .snf-mob-gallery-slide{aspect-ratio:4/3}
+  .snf-mob-head h1{font-size:32px}
+  .snf-mob-price{font-size:36px}
+  .snf-mob-qty-row{grid-template-columns:130px 1fr}
+  .snf-mob-stats{margin:0 24px 28px}
+  .snf-mob-reviews-scroll{padding:0 24px 24px}
+}
+@media(min-width:860px){
+  .snf-mob-sticky{display:none}
+  .snf-mob-final{margin-bottom:0}
+}
+</style>
+
+<!-- ── ANNOUNCEMENT ─────────────────────────────────── -->
+<div class="snf-mob-announce">
+  <div class="snf-mob-announce-track" aria-hidden="true">
+    <span>Orders before 2pm AEDT dispatch same day</span>
+    <span>30-day money-back guarantee</span>
+    <span>Now shipping to the U.S.A</span>
+    <span>Free Sniperform Shaker while stocks last</span>
+    <span>Patented alignment technology</span>
+    <span>Orders before 2pm AEDT dispatch same day</span>
+    <span>30-day money-back guarantee</span>
+    <span>Now shipping to the U.S.A</span>
+    <span>Free Sniperform Shaker while stocks last</span>
+    <span>Patented alignment technology</span>
+  </div>
+</div>
+
+<!-- ── IMAGE GALLERY ────────────────────────────────── -->
+<div class="snf-mob-gallery">
+  <div class="snf-mob-gallery-track" data-gallery-track>
+    {% if media_hero %}
+    <div class="snf-mob-gallery-slide">
+      {{ media_hero | image_url: width: 900 | image_tag: loading: 'eager', widths: '480, 720, 900', alt: product.title, class: '' }}
+    </div>
+    {% endif %}
+    {% if media_lifestyle and media_lifestyle != media_hero %}
+    <div class="snf-mob-gallery-slide">
+      {{ media_lifestyle | image_url: width: 900 | image_tag: loading: 'lazy', widths: '480, 720, 900', alt: product.title }}
+    </div>
+    {% endif %}
+    {% if media_detail and media_detail != media_lifestyle %}
+    <div class="snf-mob-gallery-slide">
+      {{ media_detail | image_url: width: 900 | image_tag: loading: 'lazy', widths: '480, 720, 900', alt: product.title }}
+    </div>
+    {% endif %}
+    {% if media_setup and media_setup != media_detail %}
+    <div class="snf-mob-gallery-slide">
+      {{ media_setup | image_url: width: 900 | image_tag: loading: 'lazy', widths: '480, 720, 900', alt: product.title }}
+    </div>
+    {% endif %}
+  </div>
+  <div class="snf-mob-gallery-dots" data-gallery-dots></div>
+  <div class="snf-mob-gallery-badge mono">Patented</div>
+</div>
+
+<!-- ── PRODUCT HEAD ──────────────────────────────────── -->
+<div class="snf-mob-head">
+  <div class="snf-mob-head-brand mono">Sniperform</div>
+  <h1>{{ product.title }}</h1>
+  <div class="snf-mob-head-meta">
+    <span class="snf-mob-stars">★★★★★</span>
+    <span class="snf-mob-review-count">IFBB Pro endorsed</span>
+  </div>
+  <div class="snf-mob-head-price">
+    <span class="snf-mob-price">{{ current_variant.price | money }}</span>
+    {% if current_variant.compare_at_price > current_variant.price %}
+      <span class="snf-mob-price-compare">{{ current_variant.compare_at_price | money }}</span>
+      <span class="snf-mob-price-save">SAVE {{ current_variant.compare_at_price | minus: current_variant.price | money }}</span>
+    {% endif %}
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ── OFFER CAPSULE ─────────────────────────────────── -->
+<div style="padding:14px 0;background:#fff">
+  <div class="snf-mob-offer fade-up">
+    <div class="snf-mob-offer-icon">🎁</div>
+    <div class="snf-mob-offer-text">
+      <strong>{{ section.settings.offer_heading }}</strong>
+      <p>{{ section.settings.offer_text }}</p>
+    </div>
+  </div>
+</div>
+
+<!-- ── BUY BOX ───────────────────────────────────────── -->
+<div class="snf-mob-buybox" id="snf-m-buy-{{ section.id }}">
+  {% form 'product', product, class: 'snf-m-form' %}
+    <input type="hidden" name="id" value="{{ current_variant.id }}">
+    <div class="snf-mob-qty-row">
+      <div class="snf-mob-qty">
+        <button type="button" data-m-qty-dec aria-label="Decrease">−</button>
+        <input type="number" name="quantity" min="1" value="1" data-m-qty aria-label="Quantity">
+        <button type="button" data-m-qty-inc aria-label="Increase">+</button>
+      </div>
+      <button class="snf-mob-atc" type="submit"{% unless current_variant.available %} disabled{% endunless %} data-m-atc>
+        {% if current_variant.available %}Add to cart{% else %}Sold out{% endif %}
+      </button>
+    </div>
+  {% endform %}
+  <a class="snf-mob-buynow" href="/cart/{{ current_variant.id }}:1" data-m-buynow>Buy now — pay securely</a>
+  <p class="snf-mob-buy-note">Secure checkout · Auto-applied free shaker while stocks last</p>
+</div>
+
+<!-- ── TRUST BAR ─────────────────────────────────────── -->
+<div class="snf-mob-trust fade-up">
+  <div class="snf-mob-trust-item">
+    <span class="snf-mob-trust-icon">↩</span>
+    <span class="snf-mob-trust-label">30-day<br>returns</span>
+  </div>
+  <div class="snf-mob-trust-item">
+    <span class="snf-mob-trust-icon">⚡</span>
+    <span class="snf-mob-trust-label">Same-day<br>dispatch</span>
+  </div>
+  <div class="snf-mob-trust-item">
+    <span class="snf-mob-trust-icon">™</span>
+    <span class="snf-mob-trust-label">Patented<br>tech</span>
+  </div>
+</div>
+
+<!-- ── BENEFITS ──────────────────────────────────────── -->
+<div style="height:12px;background:var(--bg)"></div>
+<div class="snf-mob-benefits fade-up">
+  <p class="snf-mob-benefits-head">Why serious lifters upgrade to LevelUp.</p>
+  <div class="snf-mob-benefit-item">
+    <span class="snf-mob-benefit-num">1</span>
+    <div class="snf-mob-benefit-copy">
+      <strong>More arm, grip and forearm demand — every rep.</strong>
+      <p>The 50mm thick-grip diameter forces more tension through the hands, forearms and biceps without changing your exercise selection.</p>
+    </div>
+  </div>
+  <div class="snf-mob-benefit-item">
+    <span class="snf-mob-benefit-num">2</span>
+    <div class="snf-mob-benefit-copy">
+      <strong>Patented level feedback stops imbalance before it compounds.</strong>
+      <p>The built-in spirit level shows when the bar starts to drift mid-rep, so you can correct now instead of discovering the pattern in your posture months later.</p>
+    </div>
+  </div>
+  <div class="snf-mob-benefit-item">
+    <span class="snf-mob-benefit-num">3</span>
+    <div class="snf-mob-benefit-copy">
+      <strong>Session-ready in seconds. Works on any standard bar.</strong>
+      <p>Quick-lock mounting fits 28–32mm Olympic barbells and dumbbells. Slides on fast so it actually gets used.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ── STATS STRIP ────────────────────────────────────── -->
+<div style="height:12px;background:var(--bg)"></div>
+<ul class="snf-mob-stats fade-up">
+  <li class="snf-mob-stat"><strong>50mm</strong><span>grip diameter</span></li>
+  <li class="snf-mob-stat"><strong>100mm</strong><span>grip length</span></li>
+  <li class="snf-mob-stat"><strong>85g</strong><span>per grip</span></li>
+  <li class="snf-mob-stat"><strong>30 days</strong><span>money-back</span></li>
+</ul>
+
+<!-- ── PROOF VIDEO ────────────────────────────────────── -->
+<div class="snf-mob-proof-vid fade-up">
+  <p class="snf-mob-proof-vid-label mono">Real results</p>
+  <div class="snf-mob-proof-vid-wrap">
+    <video controls playsinline preload="metadata" poster="https://sniperform.com.au/cdn/shop/files/Screenshot_2025-12-12_at_09.31.57.png?v=1765492356">
+      <source src="https://cdn.shopify.com/videos/c/o/v/627a5f4169d54b5d90123d6939ab1d32.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="snf-mob-proof-quote">
+    <blockquote>"Sniperform has completely transformed the way I approach my lifts. Balanced muscle activation and improved grip strength."</blockquote>
+    <cite>Nathan Williamson / IFBB Pro Bodybuilder</cite>
+  </div>
+</div>
+
+<!-- ── REVIEW CARDS ───────────────────────────────────── -->
+<div class="snf-mob-reviews-head fade-up">
+  <h2>What lifters say</h2>
+  <span class="snf-mob-stars" style="font-size:12px">★★★★★</span>
+</div>
+<div class="snf-mob-reviews-scroll">
+  <div class="snf-mob-review-card">
+    <span class="snf-mob-stars">★★★★★</span>
+    <blockquote>"I could feel the difference from the first set. My grip was absolutely fried in the best way — and I could see exactly when my left side was dominating."</blockquote>
+    <cite>Alex M. — Verified buyer</cite>
+    <span class="snf-mob-review-badge">Verified purchase</span>
+  </div>
+  <div class="snf-mob-review-card">
+    <span class="snf-mob-stars">★★★★★</span>
+    <blockquote>"The level feedback is genius. Sounds gimmicky until you use it and realise how crooked your rows actually are. My left-right imbalance has visibly improved."</blockquote>
+    <cite>Jordan K. — Verified buyer</cite>
+    <span class="snf-mob-review-badge">Verified purchase</span>
+  </div>
+  <div class="snf-mob-review-card">
+    <span class="snf-mob-stars">★★★★★</span>
+    <blockquote>"Best training accessory I've bought in years. Quick to put on, feels premium, and it actually makes your arms work harder. The shaker was a bonus too."</blockquote>
+    <cite>Sam T. — Verified buyer</cite>
+    <span class="snf-mob-review-badge">Verified purchase</span>
+  </div>
+</div>
+
+<!-- ── USE CASES ─────────────────────────────────────── -->
+<div class="snf-mob-use">
+  <div class="snf-mob-use-head">
+    <p class="snf-mob-use-eyebrow mono">Exercise fit</p>
+    <h2>Use it where it counts most.</h2>
+  </div>
+  <div class="snf-mob-use-nav" data-m-use-nav></div>
+  <div class="snf-mob-use-panel fade-up">
+    <div class="snf-mob-use-img">
+      <img data-m-use-img src="" alt="Use case image" loading="lazy">
+    </div>
+    <div class="snf-mob-use-copy">
+      <p class="snf-mob-use-kicker mono" data-m-use-kicker></p>
+      <h3 class="snf-mob-use-title" data-m-use-title></h3>
+      <p class="snf-mob-use-text" data-m-use-text></p>
+      <div class="snf-mob-use-benefits" data-m-use-benefits></div>
+    </div>
+  </div>
+</div>
+
+<!-- ── SPECS ──────────────────────────────────────────── -->
+<div class="snf-mob-specs">
+  <div class="snf-mob-specs-head fade-up">
+    <p class="snf-mob-specs-eyebrow mono">Engineering</p>
+    <h2>Built like real training hardware.</h2>
+  </div>
+  <details open>
+    <summary class="snf-mob-spec-summary">
+      <div>
+        <span class="snf-mob-spec-label mono">Level window</span>
+        <span class="snf-mob-spec-title">Real-time feedback during the rep</span>
+      </div>
+      <span class="snf-mob-spec-chevron">+</span>
+    </summary>
+    <p class="snf-mob-spec-body">The cue sits where you can see it while lifting, which turns balance from a vague promise into something immediate and usable under load.</p>
+  </details>
+  <details>
+    <summary class="snf-mob-spec-summary">
+      <div>
+        <span class="snf-mob-spec-label mono">Mounting</span>
+        <span class="snf-mob-spec-title">Quick-lock, session-ready setup</span>
+      </div>
+      <span class="snf-mob-spec-chevron">+</span>
+    </summary>
+    <p class="snf-mob-spec-body">Slide it on, lock it down, and start lifting. Short setup time keeps the product from becoming something that stays in the bag.</p>
+  </details>
+  <details>
+    <summary class="snf-mob-spec-summary">
+      <div>
+        <span class="snf-mob-spec-label mono">Fit</span>
+        <span class="snf-mob-spec-title">Universal 28–32mm compatibility</span>
+      </div>
+      <span class="snf-mob-spec-chevron">+</span>
+    </summary>
+    <p class="snf-mob-spec-body">Designed for standard Olympic barbells and dumbbells, so the product slots into normal training instead of requiring special equipment.</p>
+  </details>
+  <details>
+    <summary class="snf-mob-spec-summary">
+      <div>
+        <span class="snf-mob-spec-label mono">Dimensions</span>
+        <span class="snf-mob-spec-title">50mm × 100mm · 85g each grip</span>
+      </div>
+      <span class="snf-mob-spec-chevron">+</span>
+    </summary>
+    <p class="snf-mob-spec-body">Large enough to change grip demand fast, compact enough to carry easily, and light enough to feel practical as an everyday gym tool.</p>
+  </details>
+</div>
+
+<!-- ── COMPARISON ─────────────────────────────────────── -->
+<div style="height:12px;background:var(--bg)"></div>
+<div class="snf-mob-compare fade-up">
+  <p class="snf-mob-compare-eyebrow mono">Comparison</p>
+  <h2>LevelUp vs a standard thick grip.</h2>
+  <div class="snf-mob-compare-grid">
+    <div class="snf-mob-compare-col">
+      <div class="snf-mob-compare-col-head">Standard grip</div>
+      <div class="snf-mob-compare-feat yes"><span class="dot">✓</span>Thick-grip stimulation</div>
+      <div class="snf-mob-compare-feat no"><span class="dot">✕</span>Level feedback</div>
+      <div class="snf-mob-compare-feat no"><span class="dot">✕</span>Imbalance cue</div>
+      <div class="snf-mob-compare-feat no"><span class="dot">✕</span>Quick-lock mount</div>
+      <div class="snf-mob-compare-feat no"><span class="dot">✕</span>Patented tech</div>
+    </div>
+    <div class="snf-mob-compare-col is-snf">
+      <div class="snf-mob-compare-col-head">Sniperform LevelUp</div>
+      <div class="snf-mob-compare-feat snf-yes"><span class="dot">✓</span>Thick-grip stimulation</div>
+      <div class="snf-mob-compare-feat snf-yes"><span class="dot">✓</span>Level feedback</div>
+      <div class="snf-mob-compare-feat snf-yes"><span class="dot">✓</span>Imbalance cue</div>
+      <div class="snf-mob-compare-feat snf-yes"><span class="dot">✓</span>Quick-lock mount</div>
+      <div class="snf-mob-compare-feat snf-yes"><span class="dot">✓</span>Patented tech</div>
+    </div>
+  </div>
+</div>
+
+<!-- ── FAQ ────────────────────────────────────────────── -->
+<div class="snf-mob-faq">
+  <div class="snf-mob-faq-head fade-up">
+    <p class="snf-mob-faq-eyebrow mono">FAQ</p>
+    <h2>Common questions.</h2>
+  </div>
+  {% for block in section.blocks %}
+    {% case block.type %}
+      {% when 'faq' %}
+        <details class="snf-mob-faq-item"{% if forloop.first %} open{% endif %} {{ block.shopify_attributes }}>
+          <summary class="snf-mob-faq-summary">
+            {{ block.settings.question }}
+            <span class="snf-mob-faq-plus">+</span>
+          </summary>
+          <p class="snf-mob-faq-answer">{{ block.settings.answer }}</p>
+        </details>
+    {% endcase %}
+  {% endfor %}
+</div>
+
+<!-- ── FOUNDER QUOTE ──────────────────────────────────── -->
+<div class="snf-mob-founder fade-up">
+  <p class="snf-mob-founder-eyebrow mono">The founder story</p>
+  <blockquote class="snf-mob-founder-quote">{{ section.settings.founder_quote }}</blockquote>
+  <cite class="snf-mob-founder-cite">{{ section.settings.founder_attribution }}</cite>
+</div>
+
+<!-- ── FINAL CTA ──────────────────────────────────────── -->
+<div class="snf-mob-final fade-up">
+  <p class="snf-mob-final-eyebrow mono">Ready to level up?</p>
+  <h2>{{ section.settings.final_heading }}</h2>
+  <p>{{ section.settings.final_text }}</p>
+  <div class="snf-mob-final-bullets">
+    <span class="snf-mob-final-bullet">Free shaker auto-applied while stocks last</span>
+    <span class="snf-mob-final-bullet">30-day money-back guarantee</span>
+    <span class="snf-mob-final-bullet">Fits 28–32mm bars and dumbbells</span>
+    <span class="snf-mob-final-bullet">Same-day dispatch before 2pm AEDT</span>
+  </div>
+  <div class="snf-mob-final-btns">
+    <a class="snf-mob-final-atc" href="#snf-m-buy-{{ section.id }}">Get LevelUp Grips</a>
+    <a class="snf-mob-final-ghost" href="{{ product.url }}">View full product details</a>
+  </div>
+</div>
+
+<!-- ── STICKY BAR ─────────────────────────────────────── -->
+<div class="snf-mob-sticky" data-m-sticky>
+  <div class="snf-mob-sticky-copy">
+    <strong>{{ product.title }}</strong>
+    <span>{{ current_variant.price | money }} · Free shaker while stocks last</span>
+  </div>
+  <a class="snf-mob-sticky-btn" href="#snf-m-buy-{{ section.id }}">Add to cart</a>
+</div>
+
+<script>
+(function(){
+  const root = document.getElementById("snf-mob-{{ section.id }}");
+  if (!root) return;
+
+  /* ── GALLERY ──────────────────────────────────────── */
+  const track = root.querySelector("[data-gallery-track]");
+  const dotsWrap = root.querySelector("[data-gallery-dots]");
+  if (track && dotsWrap) {
+    const slides = [...track.querySelectorAll(".snf-mob-gallery-slide")];
+    const count = slides.length;
+    if (count > 1) {
+      dotsWrap.innerHTML = slides.map((_,i) =>
+        `<span class="${i===0?"active":""}"></span>`).join("");
+      const dots = [...dotsWrap.querySelectorAll("span")];
+      let lastIdx = 0;
+      const update = () => {
+        const idx = Math.round(track.scrollLeft / track.offsetWidth);
+        if (idx !== lastIdx) {
+          dots[lastIdx].classList.remove("active");
+          dots[idx] && dots[idx].classList.add("active");
+          lastIdx = idx;
+        }
+      };
+      track.addEventListener("scroll", update, { passive: true });
+    } else {
+      dotsWrap.style.display = "none";
+    }
+  }
+
+  /* ── USE CASES ────────────────────────────────────── */
+  const useCases = [
+    {
+      id:"rows",
+      label:"Rows",
+      kicker:"Rows",
+      title:"Rows reward the thicker handle and the level cue at the same time.",
+      text:"On rows, LevelUp drives more grip demand while showing when the pull starts to twist or one side begins to dominate. One of the fastest lifts for making the product feel immediately useful.",
+      image:"https://sniperform.com.au/cdn/shop/files/0F3A2557_square_crop_2000.webp?v=1769487620&width=900",
+      benefits:["More squeeze through the hands, forearms and biceps from rep one.","A visible cue to stop the bar path drifting as fatigue builds.","An easy first use case for serious back and arm work."]
+    },
+    {
+      id:"curls",
+      label:"Curls",
+      kicker:"Curls",
+      title:"Curls make the bigger-arm promise obvious.",
+      text:"LevelUp makes curls feel harder through the grip immediately, which keeps the growth story simple. The level cue adds a layer of control so the pitch is not just bigger pump, but cleaner work through both arms.",
+      image:"https://sniperform.com.au/cdn/shop/files/0F3A2480_square_crop_2000.webp?v=1769488611&width=900",
+      benefits:["Supports the thick-grip arm-growth angle without changing the movement.","Keeps one side from quietly taking over as the set gets messy.","Makes the product feel instantly relevant for arm-day buyers."]
+    },
+    {
+      id:"presses",
+      label:"Presses",
+      kicker:"Presses",
+      title:"Pressing is where the alignment cue starts to feel protective.",
+      text:"Presses expose wrist and shoulder drift fast. The visible level cue helps the lifter correct sooner, which makes LevelUp feel like performance equipment with a real control benefit.",
+      image:"https://sniperform.com.au/cdn/shop/files/0F3A3029_square_crop_2000.webp?v=1767933896&width=900",
+      benefits:["Strengthens the connection between balanced reps and cleaner joint mechanics.","Makes the patented feedback system feel serious, not decorative.","Adds more grip demand without stripping the movement of control."]
+    },
+    {
+      id:"pulls",
+      label:"Pulls",
+      kicker:"Pulls",
+      title:"Heavy pulls turn grip strength into the feature, not the bottleneck.",
+      text:"When the handle gets thicker, pulling movements become a real test of grip capacity. That expands LevelUp beyond arm-day novelty into something advanced lifters can justify across multiple sessions each week.",
+      image:"https://sniperform.com.au/cdn/shop/files/0F3A2747.png?v=1738733865&width=900",
+      benefits:["Supports the hand-crushing grip strength angle.","Shows the tool belongs in more than one exercise slot.","Builds a more serious performance story for advanced lifters."]
+    }
+  ];
+
+  const navWrap = root.querySelector("[data-m-use-nav]");
+  const useImg = root.querySelector("[data-m-use-img]");
+  const useKicker = root.querySelector("[data-m-use-kicker]");
+  const useTitle = root.querySelector("[data-m-use-title]");
+  const useText = root.querySelector("[data-m-use-text]");
+  const useBenefits = root.querySelector("[data-m-use-benefits]");
+
+  function setUseCase(id) {
+    const item = useCases.find(u => u.id === id) || useCases[0];
+    navWrap.innerHTML = useCases.map(u =>
+      `<button class="snf-mob-use-tab${u.id===item.id?" active":""}" type="button" data-m-use-id="${u.id}">${u.label}</button>`
+    ).join("");
+    if (useImg) { useImg.src = item.image; useImg.alt = item.kicker + " — LevelUp"; }
+    if (useKicker) useKicker.textContent = item.kicker;
+    if (useTitle) useTitle.textContent = item.title;
+    if (useText) useText.textContent = item.text;
+    if (useBenefits) useBenefits.innerHTML = item.benefits.map(b =>
+      `<div class="snf-mob-use-benefit">${b}</div>`).join("");
+  }
+
+  if (navWrap) {
+    setUseCase("rows");
+    navWrap.addEventListener("click", e => {
+      const btn = e.target.closest("[data-m-use-id]");
+      if (btn) setUseCase(btn.dataset.mUseId);
+    });
+  }
+
+  /* ── QTY CONTROLS ─────────────────────────────────── */
+  let qty = 1;
+  const qtyInput = root.querySelector("[data-m-qty]");
+  const buyNow = root.querySelector("[data-m-buynow]");
+  function setQty(n) {
+    qty = Math.max(1, Math.floor(isFinite(n) ? n : 1));
+    if (qtyInput) qtyInput.value = qty;
+    if (buyNow) buyNow.href = `/cart/{{ current_variant.id }}:${qty}`;
+  }
+  root.querySelector("[data-m-qty-inc]")?.addEventListener("click", () => setQty(qty + 1));
+  root.querySelector("[data-m-qty-dec]")?.addEventListener("click", () => setQty(qty - 1));
+  qtyInput?.addEventListener("change", () => setQty(parseInt(qtyInput.value)));
+
+  /* ── STICKY BAR ───────────────────────────────────── */
+  const sticky = root.querySelector("[data-m-sticky]");
+  const buyBox = root.querySelector("#snf-m-buy-{{ section.id }}");
+  if (sticky && buyBox) {
+    const io = new IntersectionObserver(([e]) => {
+      sticky.classList.toggle("show", !e.isIntersecting);
+    }, { threshold: 0 });
+    io.observe(buyBox);
+  }
+
+  /* ── FADE-UP REVEALS ──────────────────────────────── */
+  const fadeEls = [...root.querySelectorAll(".fade-up")];
+  if ("IntersectionObserver" in window) {
+    const fadeIO = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); fadeIO.unobserve(e.target); } });
+    }, { threshold: 0.08 });
+    fadeEls.forEach(el => fadeIO.observe(el));
+  } else {
+    fadeEls.forEach(el => el.classList.add("in"));
+  }
+})();
+</script>
+</div>
+
+{% schema %}
+{
+  "name": "LevelUp Mobile Product",
+  "tag": null,
+  "settings": [
+    {
+      "type": "text",
+      "id": "offer_heading",
+      "label": "Offer heading",
+      "default": "FREE shaker included"
+    },
+    {
+      "type": "textarea",
+      "id": "offer_text",
+      "label": "Offer description",
+      "default": "Buy LevelUp Grips and your free Sniperform Shaker is applied automatically at checkout. No code. No extra clicks."
+    },
+    {
+      "type": "textarea",
+      "id": "founder_quote",
+      "label": "Founder quote",
+      "default": "After 20 years of lifting, I realised one side of my body always did more work. My chest was uneven, my posture twisted, and eventually my shoulder tore."
+    },
+    {
+      "type": "text",
+      "id": "founder_attribution",
+      "label": "Founder attribution",
+      "default": "Darren — Founder, Sniperform"
+    },
+    {
+      "type": "text",
+      "id": "final_heading",
+      "label": "Final CTA heading",
+      "default": "Ready to stop guessing through your reps?"
+    },
+    {
+      "type": "textarea",
+      "id": "final_text",
+      "label": "Final CTA body text",
+      "default": "LevelUp gives you the thick-grip arm-growth story buyers already want, then adds the patented balance feedback that makes the offer feel smarter, more useful, and easier to justify."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "faq",
+      "name": "FAQ item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Question"
+        },
+        {
+          "type": "textarea",
+          "id": "answer",
+          "label": "Answer"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "LevelUp Mobile Product"
+    }
+  ]
+}
+{% endschema %}

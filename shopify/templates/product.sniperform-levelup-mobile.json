@@ -1,0 +1,62 @@
+{
+  "sections": {
+    "main": {
+      "type": "sniperform-levelup-mobile",
+      "settings": {
+        "offer_heading": "FREE shaker included",
+        "offer_text": "Buy LevelUp Grips and your free Sniperform Shaker is applied automatically at checkout. No code. No extra clicks.",
+        "founder_quote": "After 20 years of lifting, I realised one side of my body always did more work. My chest was uneven, my posture twisted, and eventually my shoulder tore.",
+        "founder_attribution": "Darren — Founder, Sniperform",
+        "final_heading": "Ready to stop guessing through your reps?",
+        "final_text": "LevelUp gives you the thick-grip arm-growth story buyers already want, then adds the patented balance feedback that makes the offer feel smarter, more useful, and easier to justify."
+      },
+      "blocks": {
+        "faq_1": {
+          "type": "faq",
+          "settings": {
+            "question": "Will LevelUp fit my bars and dumbbells?",
+            "answer": "Yes. LevelUp is designed for standard Olympic barbells and dumbbells in the 28–32mm range."
+          }
+        },
+        "faq_2": {
+          "type": "faq",
+          "settings": {
+            "question": "How does it help bigger arms and more balanced lifting?",
+            "answer": "The thick-grip diameter increases grip, forearm and bicep demand, while the patented level cue helps keep force distribution more even as the set gets harder."
+          }
+        },
+        "faq_3": {
+          "type": "faq",
+          "settings": {
+            "question": "How fast is shipping?",
+            "answer": "Orders placed before 2pm AEDT are dispatched the same day. Australia-wide delivery is 1–4 business days after dispatch. We also ship to the U.S.A."
+          }
+        },
+        "faq_4": {
+          "type": "faq",
+          "settings": {
+            "question": "What if it's not for me?",
+            "answer": "Sniperform offers a 30-day money-back guarantee. Return it within 30 days for a full refund — no questions asked."
+          }
+        },
+        "faq_5": {
+          "type": "faq",
+          "settings": {
+            "question": "What's included with my order?",
+            "answer": "One pair of LevelUp Performance Grips, plus a free Sniperform Shaker auto-applied at checkout while stocks last."
+          }
+        }
+      },
+      "block_order": [
+        "faq_1",
+        "faq_2",
+        "faq_3",
+        "faq_4",
+        "faq_5"
+      ]
+    }
+  },
+  "order": [
+    "main"
+  ]
+}
