@@ -506,6 +506,64 @@ details.snf-faq-item[open] .snf-faq-plus{transform:rotate(45deg)}
 /* ─── FADE UP ─── */
 .snf .fu{opacity:0;transform:translateY(16px);transition:opacity .44s var(--ease),transform .44s var(--ease)}
 .snf .fu.in{opacity:1;transform:none}
+
+/* ─── DARK MODE TOKENS ─── */
+.snf.dark{
+  --w:#0f1419;
+  --off:#161d24;
+  --ink:#edf1f5;
+  --ink2:#b8c8d8;
+  --slate:#6e8398;
+  --mint-s:rgba(0,196,179,.1);
+  --dark:#060a0d;
+  --dark2:#08080d;
+  --dark3:#0c1010;
+  --line:rgba(255,255,255,.07);
+  --line-m:rgba(255,255,255,.11);
+  background:var(--w);color:var(--ink);
+}
+body.dark{background:#0f1419}
+
+/* dark overrides — elements with hardcoded colours */
+.snf.dark .snf-gal-logo{filter:none;opacity:.85}
+.snf.dark .snf-gal-chip{background:rgba(8,12,18,.8);color:var(--mint);border-color:rgba(0,196,179,.3)}
+.snf.dark .snf-gal-dots span{background:rgba(255,255,255,.2)}
+.snf.dark .snf-gal-dots span.on{background:#fff}
+.snf.dark .snf-gal-slide{background:var(--off)}
+.snf.dark .snf-price-save{background:rgba(0,196,179,.12);border-color:rgba(0,196,179,.22)}
+.snf.dark .snf-buynow{background:transparent}
+.snf.dark .snf-atc{background:var(--mint);color:#fff}
+.snf.dark .snf-sticky{background:rgba(10,14,20,.97);border-top-color:rgba(255,255,255,.08);box-shadow:0 -8px 30px rgba(0,0,0,.45)}
+.snf.dark .snf-sticky-logo{filter:none;opacity:.82}
+.snf.dark .snf-sticky-btn{background:var(--mint)}
+.snf.dark .snf-rev{background:var(--off);border-color:var(--line)}
+.snf.dark .snf-spec-chev{border-color:var(--line-m)}
+.snf.dark .snf-faq-plus{border-color:var(--line-m)}
+
+/* ─── THEME TOGGLE BUTTON ─── */
+.snf-theme-toggle{
+  position:fixed;bottom:90px;right:16px;z-index:100;
+  width:40px;height:40px;border-radius:50%;
+  border:1px solid rgba(128,145,165,.22);
+  background:rgba(255,255,255,.92);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  box-shadow:0 4px 18px rgba(0,0,0,.12);
+  cursor:pointer;display:flex;align-items:center;justify-content:center;
+  font-size:18px;touch-action:manipulation;
+  transition:transform .18s,background .25s,border-color .25s,box-shadow .25s;
+}
+.snf-theme-toggle:active{transform:scale(.9)}
+.snf.dark .snf-theme-toggle{
+  background:rgba(20,28,38,.94);
+  border-color:rgba(255,255,255,.12);
+  box-shadow:0 4px 18px rgba(0,0,0,.4);
+}
+
+/* ─── SMOOTH TRANSITION ON TOGGLE ─── */
+.snf-transitioning,.snf-transitioning *{
+  transition:background .28s,color .22s,border-color .22s,
+             box-shadow .22s,filter .22s,opacity .22s !important;
+}
 </style>
 
 <!-- ANNOUNCE -->
@@ -831,6 +889,9 @@ details.snf-faq-item[open] .snf-faq-plus{transform:rotate(45deg)}
   </div>
 </div>
 
+<!-- THEME TOGGLE -->
+<button id="themeToggle" class="snf-theme-toggle" aria-label="Toggle dark mode">🌙</button>
+
 <!-- STICKY BAR -->
 <div class="snf-sticky" id="sticky">
   <img class="snf-sticky-logo" src="https://sniperform.com.au/cdn/shop/files/Layer_-1.svg" alt="Sniperform">
@@ -891,6 +952,23 @@ details.snf-faq-item[open] .snf-faq-plus{transform:rotate(45deg)}
   if(sticky&&buy){
     new IntersectionObserver(([e])=>sticky.classList.toggle('on',!e.isIntersecting),{threshold:0}).observe(buy);
   }
+
+  /* THEME TOGGLE */
+  const themeBtn=document.getElementById('themeToggle');
+  const snfRoot=document.getElementById('snf');
+  function applyTheme(dark){
+    snfRoot.classList.toggle('dark',dark);
+    document.body.classList.toggle('dark',dark);
+    if(themeBtn)themeBtn.textContent=dark?'☀':'🌙';
+    try{localStorage.setItem('snf_dark',dark?'1':'0')}catch(e){}
+  }
+  const _saved=(()=>{try{return localStorage.getItem('snf_dark')}catch(e){return null}})();
+  applyTheme(_saved!==null?_saved==='1':!!(window.matchMedia&&window.matchMedia('(prefers-color-scheme:dark)').matches));
+  themeBtn?.addEventListener('click',()=>{
+    snfRoot.classList.add('snf-transitioning');
+    setTimeout(()=>snfRoot.classList.remove('snf-transitioning'),350);
+    applyTheme(!snfRoot.classList.contains('dark'));
+  });
 
   /* FADE UP */
   if('IntersectionObserver' in window){
