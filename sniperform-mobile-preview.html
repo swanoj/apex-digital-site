@@ -3,1340 +3,903 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>LevelUp Grips — Mobile Product Page</title>
+<title>LevelUp Grips — Sniperform</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-html{background:#0c1219}
-body{
-  max-width:430px;
-  margin:0 auto;
-  background:#f8fafa;
-  min-height:100dvh;
-}
+html{background:#080b0e}
+body{max-width:430px;margin:0 auto;background:#fff;min-height:100dvh;font-family:"Montserrat",sans-serif;-webkit-font-smoothing:antialiased}
 </style>
 </head>
 <body>
-
-<div id="snf-mob-1" class="snf-mob">
+<div id="snf" class="snf">
 <style>
-.snf-mob{
-  --ink:#0c1219;
-  --ink2:#374552;
-  --slate:#6b7785;
+/* ─── TOKENS ─── */
+.snf{
+  --w:#ffffff;
+  --off:#f7f8f9;
+  --ink:#080b0e;
+  --ink2:#2c3540;
+  --slate:#5c6878;
   --mint:#00c4b3;
-  --mint-d:#006c69;
-  --mint-s:#edfaf8;
-  --line:rgba(12,18,25,.08);
-  --line-m:rgba(12,18,25,.13);
-  --white:#fff;
-  --bg:#f8fafa;
-  --dark:#111820;
-  --dark2:#1c2530;
-  --r:16px;
+  --mint-d:#009688;
+  --mint-s:#e6f9f7;
+  --dark:#080b0e;
+  --dark2:#0f1419;
+  --dark3:#161d24;
+  --line:rgba(8,11,14,.08);
+  --line-m:rgba(8,11,14,.12);
+  --line-d:rgba(255,255,255,.08);
+  --r:14px;
   --r-sm:10px;
-  --r-xs:8px;
   --ease:cubic-bezier(.22,.8,.18,1);
-  font-family:"Montserrat",sans-serif;
   color:var(--ink);
-  background:var(--bg);
-  -webkit-font-smoothing:antialiased;
-  overflow-x:hidden;
+  background:var(--w);
 }
-.snf-mob *{box-sizing:border-box;margin:0;padding:0}
-.snf-mob a{color:inherit;text-decoration:none}
-.snf-mob button,.snf-mob input{font:inherit;outline:none}
-.snf-mob img,.snf-mob video{display:block;max-width:100%}
-.snf-mob ul,.snf-mob ol{list-style:none}
+.snf *{box-sizing:border-box;margin:0;padding:0}
+.snf a{color:inherit;text-decoration:none}
+.snf button,.snf input{font-family:inherit;outline:none}
+.snf img,.snf video{display:block;max-width:100%}
+.snf ul{list-style:none}
+.snf .mono{font-family:"IBM Plex Mono",monospace;letter-spacing:.14em;text-transform:uppercase}
 
-/* UTILITIES */
-.snf-mob .mono{font-family:"IBM Plex Mono",monospace;letter-spacing:.14em;text-transform:uppercase}
-.snf-mob .divider{height:1px;background:var(--line)}
-
-/* ANNOUNCEMENT */
-.snf-mob-announce{
-  overflow:hidden;
-  height:36px;
-  display:flex;
-  align-items:center;
-  background:var(--white);
-  border-bottom:1px solid var(--line);
+/* ─── ANNOUNCE ─── */
+.snf-ann{
+  height:34px;overflow:hidden;
+  display:flex;align-items:center;
+  background:var(--dark);border-bottom:1px solid var(--line-d);
 }
-.snf-mob-announce-track{
-  display:flex;
-  gap:0;
-  white-space:nowrap;
-  animation:snfMarquee 28s linear infinite;
+.snf-ann-track{
+  display:flex;white-space:nowrap;
+  animation:annScroll 26s linear infinite;
   will-change:transform;
 }
-.snf-mob-announce-track span{
-  display:inline-flex;
-  align-items:center;
-  gap:20px;
-  padding:0 32px;
-  font-size:10.5px;
-  font-weight:700;
-  color:var(--ink2);
-  letter-spacing:.12em;
-  text-transform:uppercase;
+.snf-ann-track span{
+  display:inline-flex;align-items:center;gap:18px;
+  padding:0 28px;font-size:10px;font-weight:700;
+  color:rgba(255,255,255,.72);letter-spacing:.13em;text-transform:uppercase;
 }
-.snf-mob-announce-track span::after{
-  content:"";
-  width:4px;
-  height:4px;
-  border-radius:50%;
-  background:var(--mint);
-  flex-shrink:0;
+.snf-ann-track span::after{
+  content:"";width:3px;height:3px;border-radius:50%;
+  background:var(--mint);flex-shrink:0;
 }
-@keyframes snfMarquee{
-  from{transform:translateX(0)}
-  to{transform:translateX(-50%)}
+@keyframes annScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ─── GALLERY ─── */
+.snf-gal{position:relative;background:var(--w);border-bottom:1px solid var(--line)}
+.snf-gal-track{
+  display:flex;overflow-x:scroll;scroll-snap-type:x mandatory;
+  scroll-behavior:smooth;-webkit-overflow-scrolling:touch;scrollbar-width:none;
+}
+.snf-gal-track::-webkit-scrollbar{display:none}
+.snf-gal-slide{
+  flex:0 0 100%;scroll-snap-align:start;
+  aspect-ratio:1/1;overflow:hidden;background:var(--off);
+}
+.snf-gal-slide img{width:100%;height:100%;object-fit:cover;display:block}
+.snf-gal-dots{
+  position:absolute;bottom:10px;left:50%;transform:translateX(-50%);
+  display:flex;gap:5px;z-index:2;
+}
+.snf-gal-dots span{
+  width:5px;height:5px;border-radius:50%;
+  background:rgba(8,11,14,.2);transition:width .22s var(--ease),background .22s var(--ease);
+}
+.snf-gal-dots span.on{width:16px;border-radius:3px;background:var(--ink)}
+.snf-gal-chip{
+  position:absolute;top:12px;right:12px;
+  padding:5px 10px;border-radius:999px;
+  background:rgba(255,255,255,.9);border:1px solid var(--line-m);
+  backdrop-filter:blur(10px);font-size:9.5px;font-weight:800;
+  color:var(--mint-d);letter-spacing:.12em;text-transform:uppercase;
+}
+.snf-gal-logo{
+  position:absolute;top:12px;left:14px;
+  height:22px;width:auto;
+  filter:invert(1) brightness(0);
+  opacity:.7;
 }
 
-/* GALLERY */
-.snf-mob-gallery{
-  position:relative;
-  background:var(--white);
-  border-bottom:1px solid var(--line);
-  user-select:none;
-  -webkit-user-select:none;
+/* ─── PRODUCT HEAD ─── */
+.snf-head{padding:18px 16px 0;background:var(--w)}
+.snf-head-brand{
+  font-size:10px;font-weight:800;color:var(--mint-d);
+  letter-spacing:.2em;text-transform:uppercase;margin-bottom:7px;
 }
-.snf-mob-gallery-track{
-  display:flex;
-  overflow-x:scroll;
-  scroll-snap-type:x mandatory;
-  scroll-behavior:smooth;
-  -webkit-overflow-scrolling:touch;
-  scrollbar-width:none;
+.snf-head h1{
+  font-size:25px;line-height:.96;letter-spacing:-.05em;
+  font-weight:900;color:var(--ink);
 }
-.snf-mob-gallery-track::-webkit-scrollbar{display:none}
-.snf-mob-gallery-slide{
-  flex:0 0 100%;
-  scroll-snap-align:start;
-  aspect-ratio:1/1;
-  overflow:hidden;
-  background:var(--mint-s);
+.snf-head-meta{display:flex;align-items:center;gap:9px;margin-top:9px}
+.snf-stars{color:var(--mint-d);font-size:13px;letter-spacing:.08em}
+.snf-review-ct{font-size:11.5px;font-weight:700;color:var(--slate)}
+.snf-head-price{
+  display:flex;align-items:center;gap:10px;
+  margin-top:12px;padding-bottom:16px;
 }
-.snf-mob-gallery-slide img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
+.snf-price{font-size:30px;font-weight:900;letter-spacing:-.06em;line-height:1;color:var(--ink)}
+.snf-price-was{font-size:15px;font-weight:600;color:var(--slate);text-decoration:line-through}
+.snf-price-save{
+  padding:3px 8px;border-radius:5px;
+  background:var(--mint-s);border:1px solid rgba(0,196,179,.22);
+  font-size:10.5px;font-weight:800;color:var(--mint-d);
 }
-.snf-mob-gallery-dots{
-  position:absolute;
-  bottom:12px;
-  left:50%;
-  transform:translateX(-50%);
-  display:flex;
-  gap:5px;
-  z-index:2;
-}
-.snf-mob-gallery-dots span{
-  width:5px;
-  height:5px;
-  border-radius:50%;
-  background:rgba(12,18,25,.22);
-  transition:width .2s var(--ease),background .2s var(--ease);
-}
-.snf-mob-gallery-dots span.active{
-  width:18px;
-  border-radius:3px;
-  background:var(--ink);
-}
-.snf-mob-gallery-badge{
-  position:absolute;
-  top:12px;
-  right:12px;
-  padding:6px 10px;
-  border-radius:999px;
-  background:rgba(255,255,255,.92);
-  border:1px solid var(--line-m);
-  backdrop-filter:blur(8px);
-  font-size:10px;
-  font-weight:800;
-  color:var(--mint-d);
-  letter-spacing:.1em;
-  text-transform:uppercase;
-}
+.snf-hr{height:1px;background:var(--line)}
 
-/* PRODUCT HEAD */
-.snf-mob-head{
-  padding:18px 16px 0;
-  background:var(--white);
-}
-.snf-mob-head-brand{
-  font-size:10.5px;
-  font-weight:800;
-  color:var(--mint-d);
-  letter-spacing:.18em;
-  text-transform:uppercase;
-}
-.snf-mob-head h1{
-  margin-top:6px;
-  font-size:26px;
-  line-height:.95;
-  letter-spacing:-.05em;
-  font-weight:900;
-  color:var(--ink);
-}
-.snf-mob-head-meta{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  margin-top:10px;
-}
-.snf-mob-stars{
-  display:flex;
-  align-items:center;
-  gap:3px;
-  color:var(--mint-d);
-  font-size:13px;
-  letter-spacing:.1em;
-}
-.snf-mob-review-count{
-  font-size:12px;
-  font-weight:700;
-  color:var(--slate);
-}
-.snf-mob-head-price{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  margin-top:12px;
-  padding-bottom:18px;
-}
-.snf-mob-price{
-  font-size:32px;
-  font-weight:900;
-  letter-spacing:-.06em;
-  line-height:1;
-  color:var(--ink);
-}
-.snf-mob-price-save{
-  padding:3px 8px;
-  border-radius:6px;
+/* ─── OFFER ─── */
+.snf-offer-wrap{padding:12px 16px;background:var(--w)}
+.snf-offer{
+  padding:11px 13px;
+  border:1px solid rgba(0,196,179,.25);border-radius:var(--r);
   background:var(--mint-s);
-  border:1px solid rgba(0,196,179,.25);
-  font-size:11px;
-  font-weight:800;
-  color:var(--mint-d);
+  display:flex;gap:10px;align-items:flex-start;
 }
-
-/* OFFER */
-.snf-mob-offer{
-  margin:0 16px;
-  padding:12px 14px;
-  border:1px solid rgba(0,196,179,.28);
-  border-radius:var(--r);
-  background:var(--mint-s);
-  display:flex;
-  gap:10px;
-  align-items:flex-start;
-}
-.snf-mob-offer-icon{
-  flex-shrink:0;
-  width:34px;
-  height:34px;
-  border-radius:10px;
+.snf-offer-icon{
+  flex-shrink:0;width:32px;height:32px;border-radius:9px;
   background:linear-gradient(135deg,var(--mint),var(--mint-d));
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:16px;
+  display:flex;align-items:center;justify-content:center;font-size:15px;
 }
-.snf-mob-offer-text strong{
-  display:block;
-  font-size:12.5px;
-  font-weight:800;
-  color:var(--mint-d);
-  letter-spacing:.04em;
-  text-transform:uppercase;
+.snf-offer-copy strong{
+  display:block;font-size:11.5px;font-weight:800;
+  color:var(--mint-d);letter-spacing:.06em;text-transform:uppercase;
 }
-.snf-mob-offer-text p{
-  margin-top:3px;
-  font-size:12px;
-  line-height:1.58;
-  color:var(--ink2);
+.snf-offer-copy p{
+  margin-top:3px;font-size:11.5px;line-height:1.55;color:var(--ink2);
 }
 
-/* BUY BOX */
-.snf-mob-buybox{
-  padding:16px;
-  background:var(--white);
+/* ─── BUY BOX ─── */
+.snf-buy{padding:14px 16px;background:var(--w)}
+.snf-qty-row{display:grid;grid-template-columns:106px 1fr;gap:9px}
+.snf-qty{
+  display:grid;grid-template-columns:34px 1fr 34px;height:48px;
+  border:1px solid var(--line-m);border-radius:var(--r-sm);
+  overflow:hidden;background:var(--off);
 }
-.snf-mob-qty-row{
-  display:grid;
-  grid-template-columns:112px 1fr;
-  gap:10px;
-}
-.snf-mob-qty{
-  display:grid;
-  grid-template-columns:36px 1fr 36px;
-  height:50px;
-  border:1px solid var(--line-m);
-  border-radius:var(--r-sm);
-  overflow:hidden;
-  background:var(--bg);
-}
-.snf-mob-qty button{
-  border:0;
-  background:transparent;
-  color:var(--ink);
-  font-size:20px;
-  line-height:1;
-  cursor:pointer;
-  display:flex;
-  align-items:center;
-  justify-content:center;
+.snf-qty button{
+  border:0;background:transparent;color:var(--ink);font-size:19px;
+  cursor:pointer;display:flex;align-items:center;justify-content:center;
   touch-action:manipulation;
 }
-.snf-mob-qty input{
-  border:0;
-  background:transparent;
-  color:var(--ink);
-  text-align:center;
-  font-size:15px;
-  font-weight:800;
+.snf-qty input{
+  border:0;background:transparent;color:var(--ink);text-align:center;
+  font-size:14px;font-weight:800;width:100%;
   -moz-appearance:textfield;
-  width:100%;
 }
-.snf-mob-qty input::-webkit-outer-spin-button,
-.snf-mob-qty input::-webkit-inner-spin-button{-webkit-appearance:none}
-.snf-mob-atc{
-  height:50px;
-  border:0;
-  border-radius:var(--r-sm);
-  background:linear-gradient(135deg,var(--mint) 0%,var(--mint-d) 100%);
-  color:#fff;
-  font-size:14.5px;
-  font-weight:800;
-  letter-spacing:.02em;
-  cursor:pointer;
-  width:100%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:8px;
-  touch-action:manipulation;
-  transition:opacity .18s,transform .18s;
-  box-shadow:0 8px 24px rgba(0,107,105,.22);
-}
-.snf-mob-atc:active{opacity:.86;transform:scale(.98)}
-.snf-mob-buynow{
-  margin-top:10px;
-  height:48px;
-  width:100%;
-  border:1px solid var(--line-m);
-  border-radius:var(--r-sm);
-  background:var(--white);
-  color:var(--ink);
-  font-size:14px;
-  font-weight:700;
-  cursor:pointer;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  touch-action:manipulation;
-}
-.snf-mob-buy-note{
-  margin-top:10px;
-  font-size:11px;
-  color:var(--slate);
-  text-align:center;
-  line-height:1.55;
-  font-weight:600;
-}
-
-/* TRUST BAR */
-.snf-mob-trust{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  border-top:1px solid var(--line);
-  border-bottom:1px solid var(--line);
-  background:var(--white);
-}
-.snf-mob-trust-item{
-  padding:14px 8px;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  gap:6px;
-  text-align:center;
-  border-right:1px solid var(--line);
-}
-.snf-mob-trust-item:last-child{border-right:0}
-.snf-mob-trust-icon{font-size:19px;line-height:1}
-.snf-mob-trust-label{
-  font-size:10px;
-  font-weight:800;
-  color:var(--ink2);
-  letter-spacing:.04em;
-  line-height:1.4;
-}
-
-/* BENEFITS */
-.snf-mob-benefits{
-  padding:24px 16px;
-  background:var(--white);
-}
-.snf-mob-benefits-head{
-  font-size:19px;
-  font-weight:900;
-  letter-spacing:-.04em;
-  line-height:1.12;
-  color:var(--ink);
-  margin-bottom:16px;
-}
-.snf-mob-benefit-item{
-  display:flex;
-  gap:13px;
-  align-items:flex-start;
-  padding:14px 0;
-  border-bottom:1px solid var(--line);
-}
-.snf-mob-benefit-item:last-child{border-bottom:0}
-.snf-mob-benefit-num{
-  flex-shrink:0;
-  width:26px;
-  height:26px;
-  border-radius:8px;
-  background:var(--ink);
-  color:#fff;
-  font-size:11px;
-  font-weight:900;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  margin-top:1px;
-}
-.snf-mob-benefit-copy strong{
-  display:block;
-  font-size:14.5px;
-  font-weight:800;
-  line-height:1.25;
-  letter-spacing:-.02em;
-}
-.snf-mob-benefit-copy p{
-  margin-top:4px;
-  font-size:13px;
-  line-height:1.68;
-  color:var(--slate);
-}
-
-/* STATS */
-.snf-mob-stats{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  border:1px solid var(--line);
-  border-radius:var(--r);
-  overflow:hidden;
-  margin:0 16px 24px;
-  background:var(--white);
-}
-.snf-mob-stat{
-  padding:16px 14px;
-  border-right:1px solid var(--line);
-  border-bottom:1px solid var(--line);
-}
-.snf-mob-stat:nth-child(2n){border-right:0}
-.snf-mob-stat:nth-child(n+3){border-bottom:0}
-.snf-mob-stat strong{
-  display:block;
-  font-size:28px;
-  font-weight:900;
-  letter-spacing:-.07em;
-  line-height:.95;
-  color:var(--ink);
-}
-.snf-mob-stat span{
-  display:block;
-  margin-top:5px;
-  font-size:11px;
-  font-weight:700;
-  color:var(--slate);
-  letter-spacing:.06em;
-  text-transform:uppercase;
-  line-height:1.4;
-}
-
-/* PROOF VIDEO */
-.snf-mob-proof-vid{padding:0 16px 24px}
-.snf-mob-proof-vid-label{
-  display:flex;
-  align-items:center;
-  gap:8px;
-  margin-bottom:12px;
-  font-size:10.5px;
-  font-weight:800;
-  color:var(--mint-d);
-  letter-spacing:.14em;
-  text-transform:uppercase;
-}
-.snf-mob-proof-vid-label::before{
-  content:"";
-  width:20px;
-  height:1px;
-  background:var(--mint);
-}
-.snf-mob-proof-vid-wrap{
-  border-radius:var(--r);
-  overflow:hidden;
-  background:#0b151c;
-  border:1px solid var(--line);
-  box-shadow:0 8px 32px rgba(11,21,28,.1);
-}
-.snf-mob-proof-vid-wrap video{
-  width:100%;
-  aspect-ratio:16/9;
-  object-fit:cover;
-  display:block;
-}
-.snf-mob-proof-quote{
-  margin-top:14px;
-  padding:14px;
-  border:1px solid var(--line);
-  border-radius:var(--r-sm);
-  background:var(--white);
-}
-.snf-mob-proof-quote blockquote{
-  font-size:14px;
-  font-weight:700;
-  line-height:1.62;
-  color:var(--ink);
-}
-.snf-mob-proof-quote cite{
-  display:block;
-  margin-top:8px;
-  font-size:10.5px;
-  font-weight:800;
-  color:var(--mint-d);
-  font-style:normal;
-  letter-spacing:.12em;
-  text-transform:uppercase;
-}
-
-/* REVIEWS */
-.snf-mob-reviews-head{
-  padding:0 16px 12px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-}
-.snf-mob-reviews-head h2{
-  font-size:18px;
-  font-weight:900;
-  letter-spacing:-.04em;
-}
-.snf-mob-reviews-scroll{
-  display:flex;
-  gap:10px;
-  padding:0 16px 24px;
-  overflow-x:auto;
-  scroll-snap-type:x mandatory;
-  -webkit-overflow-scrolling:touch;
-  scrollbar-width:none;
-}
-.snf-mob-reviews-scroll::-webkit-scrollbar{display:none}
-.snf-mob-review-card{
-  flex:0 0 268px;
-  scroll-snap-align:start;
-  padding:14px;
-  border:1px solid var(--line-m);
-  border-radius:var(--r);
-  background:var(--white);
-}
-.snf-mob-review-card .snf-mob-stars{margin-bottom:8px}
-.snf-mob-review-card blockquote{
-  font-size:13px;
-  line-height:1.68;
-  color:var(--ink2);
-  font-weight:600;
-}
-.snf-mob-review-card cite{
-  display:block;
-  margin-top:10px;
-  font-size:10.5px;
-  font-weight:800;
-  color:var(--slate);
-  font-style:normal;
-  letter-spacing:.1em;
-  text-transform:uppercase;
-}
-.snf-mob-review-badge{
-  display:inline-flex;
-  align-items:center;
-  gap:5px;
-  margin-top:8px;
-  padding:3px 8px;
-  border-radius:6px;
-  background:var(--mint-s);
-  font-size:10px;
-  font-weight:700;
-  color:var(--mint-d);
-}
-
-/* USE CASES */
-.snf-mob-use{
-  padding:0 0 24px;
-  background:var(--white);
-  border-top:1px solid var(--line);
-  border-bottom:1px solid var(--line);
-}
-.snf-mob-use-head{padding:20px 16px 14px}
-.snf-mob-use-eyebrow{
-  font-size:10.5px;
-  font-weight:800;
-  color:var(--mint-d);
-  letter-spacing:.16em;
-  text-transform:uppercase;
-  margin-bottom:6px;
-}
-.snf-mob-use-head h2{
-  font-size:20px;
-  font-weight:900;
-  letter-spacing:-.04em;
-  line-height:1.1;
-}
-.snf-mob-use-nav{
-  display:flex;
-  gap:8px;
-  padding:0 16px;
-  overflow-x:auto;
-  scrollbar-width:none;
-  -webkit-overflow-scrolling:touch;
-}
-.snf-mob-use-nav::-webkit-scrollbar{display:none}
-.snf-mob-use-tab{
-  flex-shrink:0;
-  padding:8px 14px;
-  border:1px solid var(--line-m);
-  border-radius:999px;
-  background:var(--white);
-  font-size:12.5px;
-  font-weight:700;
-  color:var(--ink2);
-  cursor:pointer;
-  touch-action:manipulation;
-  transition:background .18s,border-color .18s,color .18s;
-}
-.snf-mob-use-tab.active{
-  background:var(--ink);
-  border-color:var(--ink);
-  color:#fff;
-}
-.snf-mob-use-panel{margin:14px 16px 0}
-.snf-mob-use-img{
-  border-radius:var(--r);
-  overflow:hidden;
-  aspect-ratio:4/3;
-  background:var(--bg);
-  border:1px solid var(--line);
-}
-.snf-mob-use-img img{width:100%;height:100%;object-fit:cover}
-.snf-mob-use-copy{margin-top:14px}
-.snf-mob-use-kicker{
-  font-size:10.5px;
-  font-weight:800;
-  color:var(--mint-d);
-  letter-spacing:.16em;
-  text-transform:uppercase;
-}
-.snf-mob-use-title{
-  margin-top:6px;
-  font-size:18px;
-  font-weight:900;
-  letter-spacing:-.04em;
-  line-height:1.1;
-}
-.snf-mob-use-text{
-  margin-top:8px;
-  font-size:13px;
-  line-height:1.72;
-  color:var(--slate);
-}
-.snf-mob-use-benefits{
-  margin-top:12px;
-  border-top:1px solid var(--line);
-}
-.snf-mob-use-benefit{
-  padding:10px 0 10px 16px;
-  border-bottom:1px solid var(--line);
-  font-size:12.5px;
-  line-height:1.6;
-  color:var(--ink2);
-  font-weight:600;
-  position:relative;
-}
-.snf-mob-use-benefit:last-child{border-bottom:0}
-.snf-mob-use-benefit::before{
-  content:"";
-  position:absolute;
-  left:0;top:18px;
-  width:6px;height:6px;
-  border-radius:50%;
-  background:var(--mint);
-}
-
-/* SPECS */
-.snf-mob-specs{
-  padding:24px 0;
-  background:var(--white);
-  border-top:1px solid var(--line);
-}
-.snf-mob-specs-head{padding:0 16px 16px}
-.snf-mob-specs-eyebrow{
-  font-size:10.5px;font-weight:800;
-  color:var(--mint-d);letter-spacing:.16em;
-  text-transform:uppercase;margin-bottom:6px;
-}
-.snf-mob-specs-head h2{
-  font-size:20px;font-weight:900;
-  letter-spacing:-.04em;line-height:1.1;
-}
-details.snf-spec{border-top:1px solid var(--line)}
-details.snf-spec:last-of-type{border-bottom:1px solid var(--line)}
-.snf-mob-spec-summary{
-  list-style:none;
-  display:flex;align-items:center;
-  justify-content:space-between;gap:12px;
-  padding:14px 16px;cursor:pointer;
-  -webkit-tap-highlight-color:transparent;
-}
-.snf-mob-spec-summary::-webkit-details-marker{display:none}
-.snf-mob-spec-label{
-  font-size:10.5px;font-weight:800;
-  color:var(--mint-d);letter-spacing:.14em;
-  text-transform:uppercase;
-}
-.snf-mob-spec-title{
-  display:block;margin-top:2px;
-  font-size:14px;font-weight:800;
-  letter-spacing:-.02em;color:var(--ink);
-}
-.snf-mob-spec-chevron{
-  flex-shrink:0;width:22px;height:22px;
-  border:1px solid var(--line-m);border-radius:50%;
-  display:flex;align-items:center;justify-content:center;
-  color:var(--slate);font-size:14px;font-weight:700;
-  transition:transform .22s var(--ease);
-}
-details.snf-spec[open] .snf-mob-spec-chevron{transform:rotate(45deg)}
-.snf-mob-spec-body{
-  padding:0 16px 16px;
-  font-size:13px;line-height:1.74;color:var(--slate);
-}
-
-/* COMPARISON */
-.snf-mob-compare{padding:24px 16px}
-.snf-mob-compare-eyebrow{
-  font-size:10.5px;font-weight:800;
-  color:var(--mint-d);letter-spacing:.16em;
-  text-transform:uppercase;margin-bottom:6px;
-}
-.snf-mob-compare h2{
-  font-size:20px;font-weight:900;
-  letter-spacing:-.04em;line-height:1.1;margin-bottom:16px;
-}
-.snf-mob-compare-grid{
-  display:grid;grid-template-columns:1fr 1fr;gap:10px;
-}
-.snf-mob-compare-col{
-  border:1px solid var(--line-m);
-  border-radius:var(--r);overflow:hidden;background:var(--white);
-}
-.snf-mob-compare-col.is-snf{
-  border-color:rgba(0,196,179,.35);background:var(--mint-s);
-}
-.snf-mob-compare-col-head{
-  padding:10px 12px;border-bottom:1px solid var(--line);
-  font-size:11.5px;font-weight:800;color:var(--slate);
-  text-align:center;letter-spacing:.06em;text-transform:uppercase;
-}
-.snf-mob-compare-col.is-snf .snf-mob-compare-col-head{
-  color:var(--mint-d);border-bottom-color:rgba(0,196,179,.25);
-  background:rgba(0,196,179,.06);
-}
-.snf-mob-compare-feat{
-  padding:9px 12px;border-bottom:1px solid var(--line);
-  font-size:12px;line-height:1.45;color:var(--ink2);
-  display:flex;align-items:center;gap:6px;font-weight:600;
-}
-.snf-mob-compare-feat:last-child{border-bottom:0}
-.snf-mob-compare-feat .dot{
-  flex-shrink:0;width:16px;height:16px;border-radius:50%;
-  display:flex;align-items:center;justify-content:center;font-size:10px;
-}
-.snf-mob-compare-feat.no .dot{background:rgba(12,18,25,.07);color:var(--slate)}
-.snf-mob-compare-feat.yes .dot{background:rgba(0,196,179,.15);color:var(--mint-d)}
-.snf-mob-compare-feat.snf-yes{color:var(--mint-d);font-weight:800}
-.snf-mob-compare-feat.snf-yes .dot{background:var(--mint);color:#fff}
-
-/* FAQ */
-.snf-mob-faq{
-  padding:24px 0;background:var(--white);
-  border-top:1px solid var(--line);
-}
-.snf-mob-faq-head{padding:0 16px 16px}
-.snf-mob-faq-eyebrow{
-  font-size:10.5px;font-weight:800;
-  color:var(--mint-d);letter-spacing:.16em;
-  text-transform:uppercase;margin-bottom:6px;
-}
-.snf-mob-faq-head h2{
-  font-size:20px;font-weight:900;
-  letter-spacing:-.04em;line-height:1.1;
-}
-details.snf-faq{border-top:1px solid var(--line)}
-details.snf-faq:last-of-type{border-bottom:1px solid var(--line)}
-.snf-mob-faq-summary{
-  list-style:none;
-  display:flex;align-items:center;
-  justify-content:space-between;gap:12px;
-  padding:14px 16px;cursor:pointer;
-  font-size:14px;font-weight:700;line-height:1.4;
-  color:var(--ink);-webkit-tap-highlight-color:transparent;
-}
-.snf-mob-faq-summary::-webkit-details-marker{display:none}
-.snf-mob-faq-plus{
-  flex-shrink:0;width:22px;height:22px;
-  border:1px solid var(--line-m);border-radius:50%;
-  display:flex;align-items:center;justify-content:center;
-  color:var(--mint-d);font-size:16px;font-weight:300;
-  transition:transform .22s var(--ease);
-}
-details.snf-faq[open] .snf-mob-faq-plus{transform:rotate(45deg)}
-.snf-mob-faq-answer{
-  padding:0 16px 14px;
-  font-size:13px;line-height:1.78;color:var(--slate);
-}
-
-/* FOUNDER */
-.snf-mob-founder{
-  padding:24px 16px;
-  background:var(--dark);color:#fff;
-}
-.snf-mob-founder-eyebrow{
-  font-size:10.5px;font-weight:800;color:#7df4ea;
-  letter-spacing:.16em;text-transform:uppercase;margin-bottom:10px;
-}
-.snf-mob-founder-quote{
-  font-size:17px;font-weight:800;line-height:1.52;
-  letter-spacing:-.02em;
-  border-left:2px solid var(--mint);padding-left:14px;
-}
-.snf-mob-founder-cite{
-  display:block;margin-top:12px;padding-left:14px;
-  font-size:10.5px;font-weight:800;
-  color:rgba(255,255,255,.5);letter-spacing:.12em;
-  text-transform:uppercase;font-style:normal;
-}
-
-/* FINAL CTA */
-.snf-mob-final{
-  padding:28px 16px;
-  background:var(--dark2);color:#fff;
-  margin-bottom:80px;
-}
-.snf-mob-final-eyebrow{
-  display:inline-flex;align-items:center;gap:7px;
-  font-size:10.5px;font-weight:800;color:#7df4ea;
-  letter-spacing:.16em;text-transform:uppercase;margin-bottom:12px;
-}
-.snf-mob-final-eyebrow::before{content:"";width:18px;height:1px;background:rgba(125,244,234,.5)}
-.snf-mob-final h2{
-  font-size:26px;font-weight:900;
-  letter-spacing:-.05em;line-height:.96;max-width:14ch;margin-bottom:14px;
-}
-.snf-mob-final p{
-  font-size:13px;line-height:1.72;
-  color:rgba(255,255,255,.68);margin-bottom:18px;
-}
-.snf-mob-final-bullets{display:grid;gap:9px;margin-bottom:22px}
-.snf-mob-final-bullet{
-  display:flex;align-items:center;gap:9px;
-  font-size:12.5px;font-weight:700;color:rgba(255,255,255,.88);
-}
-.snf-mob-final-bullet::before{
-  content:"";flex-shrink:0;width:7px;height:7px;
-  border-radius:50%;background:#7df4ea;
-}
-.snf-mob-final-btns{display:grid;gap:10px}
-.snf-mob-final-atc{
-  height:52px;border:0;border-radius:var(--r-sm);
-  background:linear-gradient(135deg,var(--mint) 0%,var(--mint-d) 100%);
-  color:#fff;font-size:15px;font-weight:800;letter-spacing:.02em;
+.snf-qty input::-webkit-outer-spin-button,
+.snf-qty input::-webkit-inner-spin-button{-webkit-appearance:none}
+.snf-atc{
+  height:48px;border:0;border-radius:var(--r-sm);
+  background:var(--ink);color:#fff;
+  font-size:13.5px;font-weight:800;letter-spacing:.03em;
+  cursor:pointer;width:100%;display:flex;align-items:center;
+  justify-content:center;gap:7px;touch-action:manipulation;
+  transition:opacity .16s;
+}
+.snf-atc:active{opacity:.82}
+.snf-buynow{
+  margin-top:9px;height:46px;width:100%;
+  border:1.5px solid var(--line-m);border-radius:var(--r-sm);
+  background:var(--w);color:var(--ink);font-size:13px;font-weight:700;
   cursor:pointer;display:flex;align-items:center;justify-content:center;
-  touch-action:manipulation;
-  box-shadow:0 8px 28px rgba(0,107,105,.35);
-  transition:opacity .18s;text-decoration:none;
-}
-.snf-mob-final-atc:active{opacity:.86}
-.snf-mob-final-ghost{
-  height:46px;
-  border:1px solid rgba(255,255,255,.16);
-  border-radius:var(--r-sm);background:transparent;
-  color:rgba(255,255,255,.72);font-size:13.5px;font-weight:700;
-  cursor:pointer;display:flex;align-items:center;justify-content:center;
+  touch-action:manipulation;transition:border-color .16s;
   text-decoration:none;
 }
+.snf-buynow:active{border-color:var(--ink)}
+.snf-buy-note{
+  margin-top:9px;font-size:10.5px;color:var(--slate);
+  text-align:center;line-height:1.5;font-weight:600;
+}
 
-/* STICKY BAR */
-.snf-mob-sticky{
+/* ─── TRUST ─── */
+.snf-trust{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  background:var(--w);
+}
+.snf-trust-item{
+  padding:13px 6px;display:flex;flex-direction:column;
+  align-items:center;gap:5px;text-align:center;
+  border-right:1px solid var(--line);
+}
+.snf-trust-item:last-child{border-right:0}
+.snf-trust-icon{font-size:17px;line-height:1}
+.snf-trust-label{font-size:9.5px;font-weight:800;color:var(--ink2);letter-spacing:.04em;line-height:1.35}
+
+/* ─── GAP ─── */
+.snf-gap{height:10px;background:var(--off)}
+
+/* ─── BENEFITS ─── */
+.snf-bens{padding:22px 16px;background:var(--w)}
+.snf-bens-head{
+  font-size:18px;font-weight:900;letter-spacing:-.04em;
+  line-height:1.1;color:var(--ink);margin-bottom:15px;
+}
+.snf-ben{
+  display:flex;gap:12px;align-items:flex-start;
+  padding:13px 0;border-bottom:1px solid var(--line);
+}
+.snf-ben:last-child{border-bottom:0}
+.snf-ben-n{
+  flex-shrink:0;width:24px;height:24px;border-radius:7px;
+  background:var(--ink);color:#fff;font-size:10.5px;font-weight:900;
+  display:flex;align-items:center;justify-content:center;margin-top:1px;
+}
+.snf-ben strong{display:block;font-size:13.5px;font-weight:800;line-height:1.22;letter-spacing:-.02em}
+.snf-ben p{margin-top:3px;font-size:12px;line-height:1.65;color:var(--slate)}
+
+/* ─── STATS ─── */
+.snf-stats{
+  display:grid;grid-template-columns:1fr 1fr;
+  border:1px solid var(--line);border-radius:var(--r);
+  overflow:hidden;margin:0 16px 10px;background:var(--w);
+}
+.snf-stat{padding:14px 13px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+.snf-stat:nth-child(2n){border-right:0}
+.snf-stat:nth-child(n+3){border-bottom:0}
+.snf-stat strong{display:block;font-size:26px;font-weight:900;letter-spacing:-.07em;line-height:.95;color:var(--ink)}
+.snf-stat span{display:block;margin-top:4px;font-size:10px;font-weight:700;color:var(--slate);letter-spacing:.07em;text-transform:uppercase;line-height:1.4}
+
+/* ─── DARK PROOF ─── */
+.snf-proof{background:var(--dark);padding:28px 16px}
+.snf-proof-eyebrow{
+  display:flex;align-items:center;gap:8px;margin-bottom:14px;
+  font-size:10px;font-weight:800;color:var(--mint);
+  letter-spacing:.16em;text-transform:uppercase;
+}
+.snf-proof-eyebrow::before{content:"";width:18px;height:1px;background:var(--mint)}
+.snf-proof-vid-wrap{
+  border-radius:var(--r);overflow:hidden;
+  background:#0a1018;border:1px solid rgba(255,255,255,.07);
+  box-shadow:0 12px 40px rgba(0,0,0,.4);
+}
+.snf-proof-vid-wrap video{width:100%;aspect-ratio:16/9;object-fit:cover;display:block}
+.snf-proof-quote{
+  margin-top:14px;padding:14px;
+  border:1px solid rgba(255,255,255,.08);border-radius:var(--r-sm);
+  background:rgba(255,255,255,.03);
+}
+.snf-proof-quote blockquote{
+  font-size:13.5px;font-weight:700;line-height:1.6;color:#fff;
+}
+.snf-proof-quote cite{
+  display:block;margin-top:8px;font-size:10px;font-weight:800;
+  color:var(--mint);font-style:normal;letter-spacing:.14em;text-transform:uppercase;
+}
+
+/* ─── REVIEWS ─── */
+.snf-revs{background:var(--w);padding:22px 0}
+.snf-revs-head{
+  padding:0 16px 12px;display:flex;align-items:center;
+  justify-content:space-between;
+}
+.snf-revs-head h2{font-size:17px;font-weight:900;letter-spacing:-.04em}
+.snf-revs-scroll{
+  display:flex;gap:9px;padding:0 16px;
+  overflow-x:auto;scroll-snap-type:x mandatory;
+  -webkit-overflow-scrolling:touch;scrollbar-width:none;
+}
+.snf-revs-scroll::-webkit-scrollbar{display:none}
+.snf-rev{
+  flex:0 0 256px;scroll-snap-align:start;padding:13px;
+  border:1px solid var(--line-m);border-radius:var(--r);background:var(--w);
+}
+.snf-rev .snf-stars{margin-bottom:7px;display:block}
+.snf-rev blockquote{font-size:12.5px;line-height:1.65;color:var(--ink2);font-weight:600}
+.snf-rev cite{
+  display:block;margin-top:9px;font-size:10px;font-weight:800;
+  color:var(--slate);font-style:normal;letter-spacing:.1em;text-transform:uppercase;
+}
+.snf-rev-badge{
+  display:inline-flex;align-items:center;gap:4px;margin-top:7px;
+  padding:3px 7px;border-radius:5px;
+  background:var(--mint-s);font-size:9.5px;font-weight:700;color:var(--mint-d);
+}
+.snf-rev-badge::before{content:"✓";font-size:9px}
+
+/* ─── USE CASES ─── */
+.snf-use{
+  background:var(--w);border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);padding:0 0 22px;
+}
+.snf-use-head{padding:20px 16px 13px}
+.snf-use-ey{
+  font-size:10px;font-weight:800;color:var(--mint-d);
+  letter-spacing:.16em;text-transform:uppercase;margin-bottom:6px;
+}
+.snf-use-head h2{font-size:19px;font-weight:900;letter-spacing:-.04em;line-height:1.1}
+.snf-use-nav{
+  display:flex;gap:7px;padding:0 16px;overflow-x:auto;
+  scrollbar-width:none;-webkit-overflow-scrolling:touch;
+}
+.snf-use-nav::-webkit-scrollbar{display:none}
+.snf-use-tab{
+  flex-shrink:0;padding:7px 13px;
+  border:1px solid var(--line-m);border-radius:999px;
+  background:var(--w);font-size:12px;font-weight:700;color:var(--ink2);
+  cursor:pointer;touch-action:manipulation;
+  transition:background .16s,border-color .16s,color .16s;
+}
+.snf-use-tab.on{background:var(--ink);border-color:var(--ink);color:#fff}
+.snf-use-panel{margin:13px 16px 0}
+.snf-use-img{
+  border-radius:var(--r);overflow:hidden;aspect-ratio:4/3;
+  background:var(--off);border:1px solid var(--line);
+}
+.snf-use-img img{width:100%;height:100%;object-fit:cover}
+.snf-use-copy{margin-top:13px}
+.snf-use-kicker{font-size:10px;font-weight:800;color:var(--mint-d);letter-spacing:.16em;text-transform:uppercase}
+.snf-use-title{margin-top:5px;font-size:17px;font-weight:900;letter-spacing:-.04em;line-height:1.1}
+.snf-use-txt{margin-top:7px;font-size:12.5px;line-height:1.7;color:var(--slate)}
+.snf-use-bens{margin-top:11px;border-top:1px solid var(--line)}
+.snf-use-ben{
+  padding:9px 0 9px 15px;border-bottom:1px solid var(--line);
+  font-size:12px;line-height:1.58;color:var(--ink2);font-weight:600;position:relative;
+}
+.snf-use-ben:last-child{border-bottom:0}
+.snf-use-ben::before{
+  content:"";position:absolute;left:0;top:17px;
+  width:5px;height:5px;border-radius:50%;background:var(--mint);
+}
+
+/* ─── SPECS ─── */
+.snf-specs{padding:22px 0;background:var(--w);border-top:1px solid var(--line)}
+.snf-specs-head{padding:0 16px 14px}
+.snf-specs-ey{font-size:10px;font-weight:800;color:var(--mint-d);letter-spacing:.16em;text-transform:uppercase;margin-bottom:5px}
+.snf-specs-head h2{font-size:19px;font-weight:900;letter-spacing:-.04em;line-height:1.1}
+details.snf-spec{border-top:1px solid var(--line)}
+details.snf-spec:last-of-type{border-bottom:1px solid var(--line)}
+.snf-spec-sum{
+  list-style:none;display:flex;align-items:center;
+  justify-content:space-between;gap:11px;
+  padding:13px 16px;cursor:pointer;-webkit-tap-highlight-color:transparent;
+}
+.snf-spec-sum::-webkit-details-marker{display:none}
+.snf-spec-lbl{font-size:10px;font-weight:800;color:var(--mint-d);letter-spacing:.14em;text-transform:uppercase}
+.snf-spec-ttl{display:block;margin-top:2px;font-size:13px;font-weight:800;letter-spacing:-.02em;color:var(--ink)}
+.snf-spec-chev{
+  flex-shrink:0;width:20px;height:20px;
+  border:1px solid var(--line-m);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  color:var(--slate);font-size:13px;font-weight:400;
+  transition:transform .2s var(--ease);
+}
+details.snf-spec[open] .snf-spec-chev{transform:rotate(45deg)}
+.snf-spec-body{padding:0 16px 14px;font-size:12.5px;line-height:1.72;color:var(--slate)}
+
+/* ─── COMPARE ─── */
+.snf-cmp{background:var(--dark);padding:24px 16px}
+.snf-cmp-ey{font-size:10px;font-weight:800;color:var(--mint);letter-spacing:.16em;text-transform:uppercase;margin-bottom:6px}
+.snf-cmp h2{font-size:19px;font-weight:900;letter-spacing:-.04em;line-height:1.1;color:#fff;margin-bottom:16px}
+.snf-cmp-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.snf-cmp-col{border:1px solid rgba(255,255,255,.1);border-radius:var(--r);overflow:hidden}
+.snf-cmp-col.snf{border-color:rgba(0,196,179,.35)}
+.snf-cmp-col-h{
+  padding:10px 11px;border-bottom:1px solid rgba(255,255,255,.08);
+  font-size:10.5px;font-weight:800;color:rgba(255,255,255,.5);
+  text-align:center;letter-spacing:.06em;text-transform:uppercase;
+}
+.snf-cmp-col.snf .snf-cmp-col-h{color:var(--mint);border-bottom-color:rgba(0,196,179,.2);background:rgba(0,196,179,.06)}
+.snf-cmp-feat{
+  padding:8px 11px;border-bottom:1px solid rgba(255,255,255,.06);
+  font-size:11.5px;line-height:1.4;color:rgba(255,255,255,.5);
+  display:flex;align-items:center;gap:6px;font-weight:600;
+}
+.snf-cmp-feat:last-child{border-bottom:0}
+.snf-cmp-feat .d{
+  flex-shrink:0;width:15px;height:15px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;font-size:9px;
+}
+.snf-cmp-feat.y .d{background:rgba(0,196,179,.18);color:var(--mint)}
+.snf-cmp-feat.y{color:rgba(255,255,255,.6)}
+.snf-cmp-feat.sy .d{background:var(--mint);color:#fff}
+.snf-cmp-feat.sy{color:#fff;font-weight:700}
+.snf-cmp-feat.n .d{background:rgba(255,255,255,.07);color:rgba(255,255,255,.3)}
+
+/* ─── FAQ ─── */
+.snf-faq{padding:22px 0;background:var(--w);border-top:1px solid var(--line)}
+.snf-faq-head{padding:0 16px 14px}
+.snf-faq-ey{font-size:10px;font-weight:800;color:var(--mint-d);letter-spacing:.16em;text-transform:uppercase;margin-bottom:5px}
+.snf-faq-head h2{font-size:19px;font-weight:900;letter-spacing:-.04em;line-height:1.1}
+details.snf-faq-item{border-top:1px solid var(--line)}
+details.snf-faq-item:last-of-type{border-bottom:1px solid var(--line)}
+.snf-faq-sum{
+  list-style:none;display:flex;align-items:center;
+  justify-content:space-between;gap:11px;
+  padding:14px 16px;cursor:pointer;
+  font-size:13px;font-weight:700;line-height:1.38;color:var(--ink);
+  -webkit-tap-highlight-color:transparent;
+}
+.snf-faq-sum::-webkit-details-marker{display:none}
+.snf-faq-plus{
+  flex-shrink:0;width:20px;height:20px;
+  border:1px solid var(--line-m);border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  color:var(--mint-d);font-size:15px;font-weight:300;
+  transition:transform .2s var(--ease);
+}
+details.snf-faq-item[open] .snf-faq-plus{transform:rotate(45deg)}
+.snf-faq-ans{padding:0 16px 13px;font-size:12.5px;line-height:1.76;color:var(--slate)}
+
+/* ─── FOUNDER ─── */
+.snf-founder{padding:24px 16px;background:var(--dark)}
+.snf-founder-ey{font-size:10px;font-weight:800;color:var(--mint);letter-spacing:.16em;text-transform:uppercase;margin-bottom:11px}
+.snf-founder-q{
+  font-size:16px;font-weight:800;line-height:1.5;letter-spacing:-.02em;
+  border-left:2px solid var(--mint);padding-left:13px;color:#fff;
+}
+.snf-founder-cite{
+  display:block;margin-top:10px;padding-left:13px;
+  font-size:10px;font-weight:800;color:rgba(255,255,255,.42);
+  letter-spacing:.13em;text-transform:uppercase;font-style:normal;
+}
+
+/* ─── FINAL CTA ─── */
+.snf-final{padding:26px 16px;background:var(--dark2);margin-bottom:76px}
+.snf-final-ey{
+  display:inline-flex;align-items:center;gap:7px;
+  font-size:10px;font-weight:800;color:var(--mint);
+  letter-spacing:.16em;text-transform:uppercase;margin-bottom:11px;
+}
+.snf-final-ey::before{content:"";width:16px;height:1px;background:rgba(0,196,179,.5)}
+.snf-final h2{
+  font-size:24px;font-weight:900;letter-spacing:-.05em;
+  line-height:.96;max-width:14ch;color:#fff;margin-bottom:12px;
+}
+.snf-final p{font-size:12.5px;line-height:1.7;color:rgba(255,255,255,.6);margin-bottom:16px}
+.snf-final-bullets{display:grid;gap:8px;margin-bottom:20px}
+.snf-final-bullet{
+  display:flex;align-items:center;gap:8px;
+  font-size:12px;font-weight:700;color:rgba(255,255,255,.85);
+}
+.snf-final-bullet::before{content:"";flex-shrink:0;width:6px;height:6px;border-radius:50%;background:var(--mint)}
+.snf-final-btns{display:grid;gap:9px}
+.snf-final-atc{
+  height:50px;border:0;border-radius:var(--r-sm);
+  background:var(--mint);color:#fff;
+  font-size:14px;font-weight:800;letter-spacing:.02em;
+  cursor:pointer;display:flex;align-items:center;justify-content:center;
+  touch-action:manipulation;
+  box-shadow:0 8px 28px rgba(0,196,179,.3);
+  transition:opacity .16s;text-decoration:none;
+}
+.snf-final-atc:active{opacity:.85}
+.snf-final-ghost{
+  height:44px;border:1px solid rgba(255,255,255,.14);
+  border-radius:var(--r-sm);background:transparent;
+  color:rgba(255,255,255,.65);font-size:13px;font-weight:700;
+  cursor:pointer;display:flex;align-items:center;justify-content:center;
+  text-decoration:none;touch-action:manipulation;
+}
+
+/* ─── STICKY ─── */
+.snf-sticky{
   position:fixed;bottom:0;left:0;right:0;z-index:90;
   padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px));
   background:rgba(255,255,255,.96);
-  backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
   border-top:1px solid var(--line-m);
-  box-shadow:0 -8px 32px rgba(12,18,25,.1);
+  box-shadow:0 -6px 28px rgba(8,11,14,.09);
   display:flex;align-items:center;gap:12px;
-  transform:translateY(100%);
-  transition:transform .32s var(--ease);
+  transform:translateY(110%);transition:transform .3s var(--ease);
 }
-.snf-mob-sticky.show{transform:translateY(0)}
-.snf-mob-sticky-copy{flex:1;min-width:0}
-.snf-mob-sticky-copy strong{
-  display:block;font-size:14px;font-weight:900;
-  letter-spacing:-.03em;white-space:nowrap;
-  overflow:hidden;text-overflow:ellipsis;
+.snf-sticky.on{transform:translateY(0)}
+.snf-sticky-logo{height:18px;width:auto;filter:brightness(0);opacity:.9}
+.snf-sticky-copy{flex:1;min-width:0}
+.snf-sticky-copy strong{
+  display:block;font-size:13px;font-weight:900;letter-spacing:-.03em;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
 }
-.snf-mob-sticky-copy span{
-  display:block;margin-top:2px;
-  font-size:11px;font-weight:700;color:var(--slate);
-}
-.snf-mob-sticky-btn{
-  flex-shrink:0;height:44px;padding:0 20px;border:0;
+.snf-sticky-copy span{display:block;margin-top:1px;font-size:10.5px;font-weight:700;color:var(--slate)}
+.snf-sticky-btn{
+  flex-shrink:0;height:42px;padding:0 18px;border:0;
   border-radius:var(--r-sm);
-  background:linear-gradient(135deg,var(--mint) 0%,var(--mint-d) 100%);
-  color:#fff;font-size:13.5px;font-weight:800;cursor:pointer;
+  background:var(--ink);
+  color:#fff;font-size:13px;font-weight:800;cursor:pointer;
   touch-action:manipulation;white-space:nowrap;
-  box-shadow:0 6px 20px rgba(0,107,105,.25);
   display:flex;align-items:center;text-decoration:none;
+  transition:opacity .16s;
 }
+.snf-sticky-btn:active{opacity:.82}
 
-/* FADE-UP */
-.snf-mob .fade-up{
-  opacity:0;transform:translateY(18px);
-  transition:opacity .48s var(--ease),transform .48s var(--ease);
-}
-.snf-mob .fade-up.in{opacity:1;transform:none}
-
-/* SPACER */
-.snf-gap-sm{height:12px;background:var(--bg)}
-.snf-gap{height:12px;background:var(--bg)}
+/* ─── FADE UP ─── */
+.snf .fu{opacity:0;transform:translateY(16px);transition:opacity .44s var(--ease),transform .44s var(--ease)}
+.snf .fu.in{opacity:1;transform:none}
 </style>
 
-<!-- ANNOUNCEMENT -->
-<div class="snf-mob-announce">
-  <div class="snf-mob-announce-track" aria-hidden="true">
+<!-- ANNOUNCE -->
+<div class="snf-ann">
+  <div class="snf-ann-track">
     <span>Orders before 2pm AEDT dispatch same day</span>
     <span>30-day money-back guarantee</span>
-    <span>Now shipping to the U.S.A</span>
-    <span>Free Sniperform Shaker while stocks last</span>
+    <span>Free Sniperform Shaker auto-applied</span>
     <span>Patented alignment technology</span>
+    <span>Now shipping to the U.S.A</span>
     <span>Orders before 2pm AEDT dispatch same day</span>
     <span>30-day money-back guarantee</span>
-    <span>Now shipping to the U.S.A</span>
-    <span>Free Sniperform Shaker while stocks last</span>
+    <span>Free Sniperform Shaker auto-applied</span>
     <span>Patented alignment technology</span>
+    <span>Now shipping to the U.S.A</span>
   </div>
 </div>
 
 <!-- GALLERY -->
-<div class="snf-mob-gallery">
-  <div class="snf-mob-gallery-track" data-gallery-track>
-    <div class="snf-mob-gallery-slide">
-      <img src="https://sniperform.com.au/cdn/shop/files/0F3A3029_square_crop_2000.webp?v=1767933896&width=900" alt="LevelUp Performance Grips" loading="eager">
+<div class="snf-gal">
+  <div class="snf-gal-track" id="galTrack">
+    <div class="snf-gal-slide">
+      <img src="https://sniperform.com.au/cdn/shop/files/Sniperform_Front_Exportorignal11.png" alt="LevelUp Performance Grips" loading="eager">
     </div>
-    <div class="snf-mob-gallery-slide">
-      <img src="https://sniperform.com.au/cdn/shop/files/0F3A2557_square_crop_2000.webp?v=1769487620&width=900" alt="LevelUp in use — rows" loading="lazy">
+    <div class="snf-gal-slide">
+      <img src="https://sniperform.com.au/cdn/shop/files/sniperform_grip_amazon_tight_v2_2000x2000_1f9db07d-6f90-4ad6-878a-a3d0ea33913c.jpg" alt="LevelUp Grips studio shot" loading="lazy">
     </div>
-    <div class="snf-mob-gallery-slide">
-      <img src="https://sniperform.com.au/cdn/shop/files/0F3A2480_square_crop_2000.webp?v=1769488611&width=900" alt="LevelUp in use — curls" loading="lazy">
+    <div class="snf-gal-slide">
+      <img src="https://sniperform.com.au/cdn/shop/files/0F3A2557_square_crop_2000.webp" alt="LevelUp in use — rows" loading="lazy">
     </div>
-    <div class="snf-mob-gallery-slide">
-      <img src="https://sniperform.com.au/cdn/shop/files/0F3A2747.png?v=1738733865&width=900" alt="LevelUp heavy pulls" loading="lazy">
+    <div class="snf-gal-slide">
+      <img src="https://sniperform.com.au/cdn/shop/files/0F3A2480_square_crop_2000.webp" alt="LevelUp in use — curls" loading="lazy">
+    </div>
+    <div class="snf-gal-slide">
+      <img src="https://sniperform.com.au/cdn/shop/files/0F3A3029_square_crop_2000.webp" alt="LevelUp in use — presses" loading="lazy">
     </div>
   </div>
-  <div class="snf-mob-gallery-dots" data-gallery-dots></div>
-  <div class="snf-mob-gallery-badge mono">Patented</div>
+  <div class="snf-gal-dots" id="galDots"></div>
+  <div class="snf-gal-chip mono">Patented</div>
+  <img class="snf-gal-logo" src="https://sniperform.com.au/cdn/shop/files/Layer_-1.svg" alt="Sniperform" loading="eager">
 </div>
 
 <!-- PRODUCT HEAD -->
-<div class="snf-mob-head">
-  <div class="snf-mob-head-brand mono">Sniperform</div>
+<div class="snf-head">
+  <div class="snf-head-brand mono">Sniperform</div>
   <h1>LevelUp Performance Grips</h1>
-  <div class="snf-mob-head-meta">
-    <span class="snf-mob-stars">★★★★★</span>
-    <span class="snf-mob-review-count">IFBB Pro endorsed</span>
+  <div class="snf-head-meta">
+    <span class="snf-stars">★★★★★</span>
+    <span class="snf-review-ct">IFBB Pro endorsed</span>
   </div>
-  <div class="snf-mob-head-price">
-    <span class="snf-mob-price">$79.00</span>
-    <span class="snf-mob-price-save">FREE SHAKER</span>
+  <div class="snf-head-price">
+    <span class="snf-price">$59.95</span>
+    <span class="snf-price-was">$71.95</span>
+    <span class="snf-price-save">SAVE $12</span>
   </div>
 </div>
-
-<div class="divider"></div>
+<div class="snf-hr"></div>
 
 <!-- OFFER -->
-<div style="padding:14px 0;background:#fff">
-  <div class="snf-mob-offer fade-up">
-    <div class="snf-mob-offer-icon">🎁</div>
-    <div class="snf-mob-offer-text">
-      <strong>FREE shaker included</strong>
-      <p>Buy LevelUp Grips and your free Sniperform Shaker is applied automatically at checkout. No code. No extra clicks.</p>
+<div class="snf-offer-wrap">
+  <div class="snf-offer fu">
+    <div class="snf-offer-icon">🎁</div>
+    <div class="snf-offer-copy">
+      <strong>Free Sniperform Shaker — worth $11.95</strong>
+      <p>Auto-applied at checkout when you buy LevelUp Grips. No code needed. While stocks last.</p>
     </div>
   </div>
 </div>
 
 <!-- BUY BOX -->
-<div class="snf-mob-buybox" id="snf-m-buy-1">
-  <div class="snf-mob-qty-row">
-    <div class="snf-mob-qty">
-      <button type="button" data-m-qty-dec aria-label="Decrease">−</button>
-      <input type="number" min="1" value="1" data-m-qty aria-label="Quantity">
-      <button type="button" data-m-qty-inc aria-label="Increase">+</button>
+<div class="snf-buy" id="buyBox">
+  <div class="snf-qty-row">
+    <div class="snf-qty">
+      <button type="button" id="qtyDec" aria-label="Decrease">−</button>
+      <input type="number" min="1" value="1" id="qtyInput" aria-label="Quantity">
+      <button type="button" id="qtyInc" aria-label="Increase">+</button>
     </div>
-    <button class="snf-mob-atc" type="button" data-m-atc>Add to cart</button>
+    <button class="snf-atc" type="button">Add to cart</button>
   </div>
-  <a class="snf-mob-buynow" href="https://sniperform.com.au/cart" target="_blank">Buy now — pay securely</a>
-  <p class="snf-mob-buy-note">Secure checkout · Auto-applied free shaker while stocks last</p>
+  <a class="snf-buynow" href="https://sniperform.com.au/products/level-up-alignment-grips" target="_blank">Buy now — pay securely</a>
+  <p class="snf-buy-note">Secure checkout · Free shaker auto-applied at checkout</p>
 </div>
 
-<!-- TRUST BAR -->
-<div class="snf-mob-trust fade-up">
-  <div class="snf-mob-trust-item">
-    <span class="snf-mob-trust-icon">↩</span>
-    <span class="snf-mob-trust-label">30-day<br>returns</span>
+<!-- TRUST -->
+<div class="snf-trust fu">
+  <div class="snf-trust-item">
+    <span class="snf-trust-icon">↩</span>
+    <span class="snf-trust-label">30-day<br>returns</span>
   </div>
-  <div class="snf-mob-trust-item">
-    <span class="snf-mob-trust-icon">⚡</span>
-    <span class="snf-mob-trust-label">Same-day<br>dispatch</span>
+  <div class="snf-trust-item">
+    <span class="snf-trust-icon">⚡</span>
+    <span class="snf-trust-label">Same-day<br>dispatch</span>
   </div>
-  <div class="snf-mob-trust-item">
-    <span class="snf-mob-trust-icon">™</span>
-    <span class="snf-mob-trust-label">Patented<br>tech</span>
+  <div class="snf-trust-item">
+    <span class="snf-trust-icon">™</span>
+    <span class="snf-trust-label">Patented<br>tech</span>
   </div>
 </div>
+
+<!-- GAP -->
+<div class="snf-gap"></div>
 
 <!-- BENEFITS -->
-<div class="snf-gap"></div>
-<div class="snf-mob-benefits fade-up">
-  <p class="snf-mob-benefits-head">Why serious lifters upgrade to LevelUp.</p>
-  <div class="snf-mob-benefit-item">
-    <span class="snf-mob-benefit-num">1</span>
-    <div class="snf-mob-benefit-copy">
-      <strong>More arm, grip and forearm demand — every rep.</strong>
-      <p>The 50mm thick-grip diameter forces more tension through the hands, forearms and biceps without changing your exercise selection.</p>
+<div class="snf-bens fu">
+  <p class="snf-bens-head">Why serious lifters upgrade to LevelUp.</p>
+  <div class="snf-ben">
+    <span class="snf-ben-n">1</span>
+    <div>
+      <strong>30%+ more muscle activation from rep one.</strong>
+      <p>The 50mm thick-grip diameter forces your hands, forearms and biceps to work harder every set — without changing the exercise.</p>
     </div>
   </div>
-  <div class="snf-mob-benefit-item">
-    <span class="snf-mob-benefit-num">2</span>
-    <div class="snf-mob-benefit-copy">
-      <strong>Patented level feedback stops imbalance before it compounds.</strong>
-      <p>The built-in spirit level shows when the bar starts to drift mid-rep, so you can correct now instead of discovering the pattern months later.</p>
+  <div class="snf-ben">
+    <span class="snf-ben-n">2</span>
+    <div>
+      <strong>Patented spirit level catches imbalance mid-rep.</strong>
+      <p>See when the bar drifts before the set is done. Correct now instead of compounding the problem across months of training.</p>
     </div>
   </div>
-  <div class="snf-mob-benefit-item">
-    <span class="snf-mob-benefit-num">3</span>
-    <div class="snf-mob-benefit-copy">
-      <strong>Session-ready in seconds. Works on any standard bar.</strong>
-      <p>Quick-lock mounting fits 28–32mm Olympic barbells and dumbbells. Slides on fast so it actually gets used.</p>
+  <div class="snf-ben">
+    <span class="snf-ben-n">3</span>
+    <div>
+      <strong>Session-ready in seconds on any standard bar.</strong>
+      <p>Quick-lock fits 28–32mm Olympic barbells and dumbbells. Slides on fast so it actually makes it into the gym bag.</p>
     </div>
   </div>
 </div>
 
-<!-- STATS -->
+<!-- GAP -->
 <div class="snf-gap"></div>
-<ul class="snf-mob-stats fade-up">
-  <li class="snf-mob-stat"><strong>50mm</strong><span>grip diameter</span></li>
-  <li class="snf-mob-stat"><strong>100mm</strong><span>grip length</span></li>
-  <li class="snf-mob-stat"><strong>85g</strong><span>per grip</span></li>
-  <li class="snf-mob-stat"><strong>30 days</strong><span>money-back</span></li>
+
+<!-- STATS -->
+<ul class="snf-stats fu">
+  <li class="snf-stat"><strong>50mm</strong><span>outer diameter</span></li>
+  <li class="snf-stat"><strong>100mm</strong><span>grip length</span></li>
+  <li class="snf-stat"><strong>85g</strong><span>per grip</span></li>
+  <li class="snf-stat"><strong>30 days</strong><span>money-back</span></li>
 </ul>
 
-<!-- PROOF VIDEO -->
-<div class="snf-mob-proof-vid fade-up">
-  <p class="snf-mob-proof-vid-label mono">Real results</p>
-  <div class="snf-mob-proof-vid-wrap">
-    <video controls playsinline preload="metadata" poster="https://sniperform.com.au/cdn/shop/files/Screenshot_2025-12-12_at_09.31.57.png?v=1765492356">
+<!-- GAP -->
+<div class="snf-gap"></div>
+
+<!-- DARK PROOF VIDEO -->
+<div class="snf-proof fu">
+  <p class="snf-proof-eyebrow mono">What the pros say</p>
+  <div class="snf-proof-vid-wrap">
+    <video controls playsinline preload="metadata"
+      poster="https://sniperform.com.au/cdn/shop/files/Screenshot_2025-12-12_at_09.31.57.png">
       <source src="https://cdn.shopify.com/videos/c/o/v/627a5f4169d54b5d90123d6939ab1d32.mp4" type="video/mp4">
     </video>
   </div>
-  <div class="snf-mob-proof-quote">
-    <blockquote>"Sniperform has completely transformed the way I approach my lifts. Balanced muscle activation and improved grip strength."</blockquote>
-    <cite>Nathan Williamson / IFBB Pro Bodybuilder</cite>
+  <div class="snf-proof-quote">
+    <blockquote>"Sniperform has completely transformed the way I approach my lifts. Balanced muscle activation and improved grip strength — this tool is a game-changer."</blockquote>
+    <cite>Nathan Williamson — IFBB Pro Bodybuilder</cite>
   </div>
 </div>
 
 <!-- REVIEWS -->
-<div class="snf-mob-reviews-head fade-up">
-  <h2>What lifters say</h2>
-  <span class="snf-mob-stars" style="font-size:12px">★★★★★</span>
-</div>
-<div class="snf-mob-reviews-scroll">
-  <div class="snf-mob-review-card">
-    <span class="snf-mob-stars">★★★★★</span>
-    <blockquote>"I could feel the difference from the first set. My grip was absolutely fried in the best way — and I could see exactly when my left side was dominating."</blockquote>
-    <cite>Alex M. — Verified buyer</cite>
-    <span class="snf-mob-review-badge">Verified purchase</span>
+<div class="snf-revs">
+  <div class="snf-revs-head fu">
+    <h2>What lifters say</h2>
+    <span class="snf-stars" style="font-size:12px">★★★★★</span>
   </div>
-  <div class="snf-mob-review-card">
-    <span class="snf-mob-stars">★★★★★</span>
-    <blockquote>"The level feedback is genius. Sounds gimmicky until you use it and realise how crooked your rows actually are. My left-right imbalance has visibly improved."</blockquote>
-    <cite>Jordan K. — Verified buyer</cite>
-    <span class="snf-mob-review-badge">Verified purchase</span>
-  </div>
-  <div class="snf-mob-review-card">
-    <span class="snf-mob-stars">★★★★★</span>
-    <blockquote>"Best training accessory I've bought in years. Quick to put on, feels premium, and it actually makes your arms work harder. The shaker was a bonus too."</blockquote>
-    <cite>Sam T. — Verified buyer</cite>
-    <span class="snf-mob-review-badge">Verified purchase</span>
+  <div class="snf-revs-scroll">
+    <div class="snf-rev">
+      <span class="snf-stars">★★★★★</span>
+      <blockquote>"I could feel the difference from the first set. Grip absolutely fried in the best way — I could see exactly when my left side was dominating."</blockquote>
+      <cite>Alex M.</cite>
+      <span class="snf-rev-badge">Verified purchase</span>
+    </div>
+    <div class="snf-rev">
+      <span class="snf-stars">★★★★★</span>
+      <blockquote>"The level feedback is genius. Sounds gimmicky until you use it and realise how crooked your rows actually are. My imbalance has visibly improved."</blockquote>
+      <cite>Jordan K.</cite>
+      <span class="snf-rev-badge">Verified purchase</span>
+    </div>
+    <div class="snf-rev">
+      <span class="snf-stars">★★★★★</span>
+      <blockquote>"1 pec would always pump more than the other. The level grip humbled me — had to reduce the weight, but the pumps were even after the first set!"</blockquote>
+      <cite>Danny</cite>
+      <span class="snf-rev-badge">Verified purchase</span>
+    </div>
+    <div class="snf-rev">
+      <span class="snf-stars">★★★★★</span>
+      <blockquote>"Best grips I've used to date. Noticed a significant decrease in joint pain since using these. Forearms have absolutely exploded."</blockquote>
+      <cite>Bryce</cite>
+      <span class="snf-rev-badge">Verified purchase</span>
+    </div>
   </div>
 </div>
 
 <!-- USE CASES -->
-<div class="snf-mob-use">
-  <div class="snf-mob-use-head">
-    <p class="snf-mob-use-eyebrow mono">Exercise fit</p>
+<div class="snf-use">
+  <div class="snf-use-head">
+    <p class="snf-use-ey mono">Exercise fit</p>
     <h2>Use it where it counts most.</h2>
   </div>
-  <div class="snf-mob-use-nav" data-m-use-nav></div>
-  <div class="snf-mob-use-panel fade-up">
-    <div class="snf-mob-use-img">
-      <img data-m-use-img src="" alt="Use case" loading="lazy">
+  <div class="snf-use-nav" id="useNav"></div>
+  <div class="snf-use-panel fu">
+    <div class="snf-use-img">
+      <img id="useImg" src="" alt="Use case" loading="lazy">
     </div>
-    <div class="snf-mob-use-copy">
-      <p class="snf-mob-use-kicker mono" data-m-use-kicker></p>
-      <h3 class="snf-mob-use-title" data-m-use-title></h3>
-      <p class="snf-mob-use-text" data-m-use-text></p>
-      <div class="snf-mob-use-benefits" data-m-use-benefits></div>
+    <div class="snf-use-copy">
+      <p class="snf-use-kicker mono" id="useKicker"></p>
+      <h3 class="snf-use-title" id="useTitle"></h3>
+      <p class="snf-use-txt" id="useTxt"></p>
+      <div class="snf-use-bens" id="useBens"></div>
     </div>
   </div>
 </div>
 
 <!-- SPECS -->
-<div class="snf-mob-specs">
-  <div class="snf-mob-specs-head fade-up">
-    <p class="snf-mob-specs-eyebrow mono">Engineering</p>
+<div class="snf-specs">
+  <div class="snf-specs-head fu">
+    <p class="snf-specs-ey mono">Engineering</p>
     <h2>Built like real training hardware.</h2>
   </div>
   <details class="snf-spec" open>
-    <summary class="snf-mob-spec-summary">
-      <div>
-        <span class="snf-mob-spec-label mono">Level window</span>
-        <span class="snf-mob-spec-title">Real-time feedback during the rep</span>
-      </div>
-      <span class="snf-mob-spec-chevron">+</span>
+    <summary class="snf-spec-sum">
+      <div><span class="snf-spec-lbl mono">Level window</span><span class="snf-spec-ttl">Real-time feedback during the rep</span></div>
+      <span class="snf-spec-chev">+</span>
     </summary>
-    <p class="snf-mob-spec-body">The cue sits where you can see it while lifting, which turns balance from a vague promise into something immediate and usable under load.</p>
+    <p class="snf-spec-body">The spirit level sits where you can see it while lifting — turning balance from a vague promise into something immediate and usable under load.</p>
   </details>
   <details class="snf-spec">
-    <summary class="snf-mob-spec-summary">
-      <div>
-        <span class="snf-mob-spec-label mono">Mounting</span>
-        <span class="snf-mob-spec-title">Quick-lock, session-ready setup</span>
-      </div>
-      <span class="snf-mob-spec-chevron">+</span>
+    <summary class="snf-spec-sum">
+      <div><span class="snf-spec-lbl mono">Mounting</span><span class="snf-spec-ttl">Quick-lock, session-ready</span></div>
+      <span class="snf-spec-chev">+</span>
     </summary>
-    <p class="snf-mob-spec-body">Slide it on, lock it down, and start lifting. Short setup time keeps the product from becoming something that stays in the bag.</p>
+    <p class="snf-spec-body">Slides on and locks in seconds. Short setup time is what keeps this product from being left in the bag.</p>
   </details>
   <details class="snf-spec">
-    <summary class="snf-mob-spec-summary">
-      <div>
-        <span class="snf-mob-spec-label mono">Fit</span>
-        <span class="snf-mob-spec-title">Universal 28–32mm compatibility</span>
-      </div>
-      <span class="snf-mob-spec-chevron">+</span>
+    <summary class="snf-spec-sum">
+      <div><span class="snf-spec-lbl mono">Compatibility</span><span class="snf-spec-ttl">Universal 28–32mm fit</span></div>
+      <span class="snf-spec-chev">+</span>
     </summary>
-    <p class="snf-mob-spec-body">Designed for standard Olympic barbells and dumbbells, so the product slots into normal training instead of requiring special equipment.</p>
+    <p class="snf-spec-body">Designed for standard Olympic barbells and dumbbells. Slots into normal training without requiring any special equipment.</p>
   </details>
   <details class="snf-spec">
-    <summary class="snf-mob-spec-summary">
-      <div>
-        <span class="snf-mob-spec-label mono">Dimensions</span>
-        <span class="snf-mob-spec-title">50mm × 100mm · 85g each grip</span>
-      </div>
-      <span class="snf-mob-spec-chevron">+</span>
+    <summary class="snf-spec-sum">
+      <div><span class="snf-spec-lbl mono">Dimensions</span><span class="snf-spec-ttl">50mm × 100mm · 85g each</span></div>
+      <span class="snf-spec-chev">+</span>
     </summary>
-    <p class="snf-mob-spec-body">Large enough to change grip demand fast, compact enough to carry easily, and light enough to feel practical as an everyday gym tool.</p>
+    <p class="snf-spec-body">Premium high-density EPDM/TPE compound. Large enough to change grip demand fast, light enough to feel practical every session.</p>
   </details>
 </div>
 
-<!-- COMPARISON -->
-<div class="snf-gap"></div>
-<div class="snf-mob-compare fade-up">
-  <p class="snf-mob-compare-eyebrow mono">Comparison</p>
-  <h2>LevelUp vs a standard thick grip.</h2>
-  <div class="snf-mob-compare-grid">
-    <div class="snf-mob-compare-col">
-      <div class="snf-mob-compare-col-head">Standard grip</div>
-      <div class="snf-mob-compare-feat yes"><span class="dot">✓</span>Thick-grip stimulation</div>
-      <div class="snf-mob-compare-feat no"><span class="dot">✕</span>Level feedback</div>
-      <div class="snf-mob-compare-feat no"><span class="dot">✕</span>Imbalance cue</div>
-      <div class="snf-mob-compare-feat no"><span class="dot">✕</span>Quick-lock mount</div>
-      <div class="snf-mob-compare-feat no"><span class="dot">✕</span>Patented tech</div>
+<!-- COMPARISON — DARK -->
+<div class="snf-cmp fu">
+  <p class="snf-cmp-ey mono">Comparison</p>
+  <h2>LevelUp vs Fat Gripz &amp; standard thick grips.</h2>
+  <div class="snf-cmp-grid">
+    <div class="snf-cmp-col">
+      <div class="snf-cmp-col-h">Standard grip</div>
+      <div class="snf-cmp-feat y"><span class="d">✓</span>Thick-grip gains</div>
+      <div class="snf-cmp-feat n"><span class="d">✕</span>Level feedback</div>
+      <div class="snf-cmp-feat n"><span class="d">✕</span>Imbalance cue</div>
+      <div class="snf-cmp-feat n"><span class="d">✕</span>Quick-lock mount</div>
+      <div class="snf-cmp-feat n"><span class="d">✕</span>Patented tech</div>
+      <div class="snf-cmp-feat n"><span class="d">✕</span>Injury prevention</div>
     </div>
-    <div class="snf-mob-compare-col is-snf">
-      <div class="snf-mob-compare-col-head">Sniperform LevelUp</div>
-      <div class="snf-mob-compare-feat snf-yes"><span class="dot">✓</span>Thick-grip stimulation</div>
-      <div class="snf-mob-compare-feat snf-yes"><span class="dot">✓</span>Level feedback</div>
-      <div class="snf-mob-compare-feat snf-yes"><span class="dot">✓</span>Imbalance cue</div>
-      <div class="snf-mob-compare-feat snf-yes"><span class="dot">✓</span>Quick-lock mount</div>
-      <div class="snf-mob-compare-feat snf-yes"><span class="dot">✓</span>Patented tech</div>
+    <div class="snf-cmp-col snf">
+      <div class="snf-cmp-col-h">Sniperform LevelUp</div>
+      <div class="snf-cmp-feat sy"><span class="d">✓</span>Thick-grip gains</div>
+      <div class="snf-cmp-feat sy"><span class="d">✓</span>Level feedback</div>
+      <div class="snf-cmp-feat sy"><span class="d">✓</span>Imbalance cue</div>
+      <div class="snf-cmp-feat sy"><span class="d">✓</span>Quick-lock mount</div>
+      <div class="snf-cmp-feat sy"><span class="d">✓</span>Patented tech</div>
+      <div class="snf-cmp-feat sy"><span class="d">✓</span>Injury prevention</div>
     </div>
   </div>
 </div>
 
 <!-- FAQ -->
-<div class="snf-gap"></div>
-<div class="snf-mob-faq">
-  <div class="snf-mob-faq-head fade-up">
-    <p class="snf-mob-faq-eyebrow mono">FAQ</p>
+<div class="snf-faq">
+  <div class="snf-faq-head fu">
+    <p class="snf-faq-ey mono">FAQ</p>
     <h2>Common questions.</h2>
   </div>
-  <details class="snf-faq" open>
-    <summary class="snf-mob-faq-summary">Will LevelUp fit my bars and dumbbells?<span class="snf-mob-faq-plus">+</span></summary>
-    <p class="snf-mob-faq-answer">Yes. LevelUp is designed for standard Olympic barbells and dumbbells in the 28–32mm range.</p>
+  <details class="snf-faq-item" open>
+    <summary class="snf-faq-sum">Will LevelUp fit my bars and dumbbells?<span class="snf-faq-plus">+</span></summary>
+    <p class="snf-faq-ans">Yes. Fits all standard Olympic barbells and dumbbells with a 28–32mm diameter. No special equipment required.</p>
   </details>
-  <details class="snf-faq">
-    <summary class="snf-mob-faq-summary">How does it help bigger arms and more balanced lifting?<span class="snf-mob-faq-plus">+</span></summary>
-    <p class="snf-mob-faq-answer">The thick-grip diameter increases grip, forearm and bicep demand, while the patented level cue helps keep force distribution more even as the set gets harder.</p>
+  <details class="snf-faq-item">
+    <summary class="snf-faq-sum">How does it help build bigger arms?<span class="snf-faq-plus">+</span></summary>
+    <p class="snf-faq-ans">The thicker 50mm diameter forces your grip, forearms and biceps to work harder with every rep — activating 30%+ more muscle fibres than a standard bar.</p>
   </details>
-  <details class="snf-faq">
-    <summary class="snf-mob-faq-summary">How fast is shipping?<span class="snf-mob-faq-plus">+</span></summary>
-    <p class="snf-mob-faq-answer">Orders placed before 2pm AEDT are dispatched the same day. Australia-wide delivery is 1–4 business days after dispatch. We also ship to the U.S.A.</p>
+  <details class="snf-faq-item">
+    <summary class="snf-faq-sum">How fast is shipping?<span class="snf-faq-plus">+</span></summary>
+    <p class="snf-faq-ans">Orders before 2pm AEDT dispatch same day. Australia-wide delivery 1–4 business days. Also ships to the U.S.A.</p>
   </details>
-  <details class="snf-faq">
-    <summary class="snf-mob-faq-summary">What if it's not for me?<span class="snf-mob-faq-plus">+</span></summary>
-    <p class="snf-mob-faq-answer">Sniperform offers a 30-day money-back guarantee. Return it within 30 days for a full refund — no questions asked.</p>
+  <details class="snf-faq-item">
+    <summary class="snf-faq-sum">What if it's not for me?<span class="snf-faq-plus">+</span></summary>
+    <p class="snf-faq-ans">30-day money-back guarantee. Return within 30 days for a full refund, no questions asked.</p>
   </details>
-  <details class="snf-faq">
-    <summary class="snf-mob-faq-summary">What's included with my order?<span class="snf-mob-faq-plus">+</span></summary>
-    <p class="snf-mob-faq-answer">One pair of LevelUp Performance Grips, plus a free Sniperform Shaker auto-applied at checkout while stocks last.</p>
+  <details class="snf-faq-item">
+    <summary class="snf-faq-sum">What's included?<span class="snf-faq-plus">+</span></summary>
+    <p class="snf-faq-ans">One pair of LevelUp Performance Grips, plus a free Sniperform Shaker (worth $11.95) auto-applied at checkout while stocks last.</p>
   </details>
 </div>
 
-<!-- FOUNDER -->
-<div class="snf-mob-founder fade-up">
-  <p class="snf-mob-founder-eyebrow mono">The founder story</p>
-  <blockquote class="snf-mob-founder-quote">"After 20 years of lifting, I realised one side of my body always did more work. My chest was uneven, my posture twisted, and eventually my shoulder tore."</blockquote>
-  <cite class="snf-mob-founder-cite">Darren — Founder, Sniperform</cite>
+<!-- FOUNDER QUOTE — DARK -->
+<div class="snf-founder fu">
+  <p class="snf-founder-ey mono">The founder story</p>
+  <blockquote class="snf-founder-q">"After 20 years of lifting, I realised one side of my body always did more work. My chest was uneven, my posture twisted, and eventually my shoulder tore."</blockquote>
+  <cite class="snf-founder-cite">Darren — Founder, Sniperform</cite>
 </div>
 
-<!-- FINAL CTA -->
-<div class="snf-mob-final fade-up">
-  <p class="snf-mob-final-eyebrow mono">Ready to level up?</p>
-  <h2>Ready to stop guessing through your reps?</h2>
-  <p>LevelUp gives you the thick-grip arm-growth story buyers already want, then adds the patented balance feedback that makes the offer smarter and easier to justify.</p>
-  <div class="snf-mob-final-bullets">
-    <span class="snf-mob-final-bullet">Free shaker auto-applied while stocks last</span>
-    <span class="snf-mob-final-bullet">30-day money-back guarantee</span>
-    <span class="snf-mob-final-bullet">Fits 28–32mm bars and dumbbells</span>
-    <span class="snf-mob-final-bullet">Same-day dispatch before 2pm AEDT</span>
+<!-- FINAL CTA — DARK -->
+<div class="snf-final fu">
+  <p class="snf-final-ey mono">Ready to level up?</p>
+  <h2>Stop guessing through your reps.</h2>
+  <p>LevelUp gives you the thick-grip arm-growth story — plus the patented balance feedback that makes every set smarter, cleaner, and more productive.</p>
+  <div class="snf-final-bullets">
+    <span class="snf-final-bullet">Free Sniperform Shaker auto-applied at checkout</span>
+    <span class="snf-final-bullet">30-day money-back guarantee</span>
+    <span class="snf-final-bullet">Fits all 28–32mm bars and dumbbells</span>
+    <span class="snf-final-bullet">Same-day dispatch before 2pm AEDT</span>
   </div>
-  <div class="snf-mob-final-btns">
-    <a class="snf-mob-final-atc" href="#snf-m-buy-1">Get LevelUp Grips</a>
-    <a class="snf-mob-final-ghost" href="https://sniperform.com.au" target="_blank">Visit sniperform.com.au</a>
+  <div class="snf-final-btns">
+    <a class="snf-final-atc" href="#buyBox">Get LevelUp Grips — $59.95</a>
+    <a class="snf-final-ghost" href="https://sniperform.com.au" target="_blank">Visit sniperform.com.au</a>
   </div>
 </div>
 
 <!-- STICKY BAR -->
-<div class="snf-mob-sticky" data-m-sticky>
-  <div class="snf-mob-sticky-copy">
-    <strong>LevelUp Grips — $79.00</strong>
-    <span>Free shaker while stocks last</span>
+<div class="snf-sticky" id="sticky">
+  <img class="snf-sticky-logo" src="https://sniperform.com.au/cdn/shop/files/Layer_-1.svg" alt="Sniperform">
+  <div class="snf-sticky-copy">
+    <strong>LevelUp Grips — $59.95</strong>
+    <span>Free shaker · 30-day returns</span>
   </div>
-  <a class="snf-mob-sticky-btn" href="#snf-m-buy-1">Add to cart</a>
+  <a class="snf-sticky-btn" href="#buyBox">Add to cart</a>
 </div>
 
 <script>
 (function(){
-  const root = document.getElementById("snf-mob-1");
-  if (!root) return;
-
   /* GALLERY */
-  const track = root.querySelector("[data-gallery-track]");
-  const dotsWrap = root.querySelector("[data-gallery-dots]");
-  if (track && dotsWrap) {
-    const slides = [...track.querySelectorAll(".snf-mob-gallery-slide")];
-    dotsWrap.innerHTML = slides.map((_,i) => `<span class="${i===0?"active":""}"></span>`).join("");
-    const dots = [...dotsWrap.querySelectorAll("span")];
-    let last = 0;
-    track.addEventListener("scroll", () => {
-      const idx = Math.round(track.scrollLeft / track.offsetWidth);
-      if (idx !== last && dots[idx]) {
-        dots[last].classList.remove("active");
-        dots[idx].classList.add("active");
-        last = idx;
-      }
-    }, { passive: true });
+  const track = document.getElementById('galTrack');
+  const dotsEl = document.getElementById('galDots');
+  if(track && dotsEl){
+    const slides = [...track.querySelectorAll('.snf-gal-slide')];
+    dotsEl.innerHTML = slides.map((_,i)=>`<span class="${i===0?'on':''}"></span>`).join('');
+    const dots = [...dotsEl.querySelectorAll('span')];
+    let last=0;
+    track.addEventListener('scroll',()=>{
+      const i = Math.round(track.scrollLeft/track.offsetWidth);
+      if(i!==last&&dots[i]){dots[last].classList.remove('on');dots[i].classList.add('on');last=i;}
+    },{passive:true});
   }
 
   /* USE CASES */
-  const useCases = [
-    { id:"rows", label:"Rows", kicker:"Rows", title:"Rows reward the thicker handle and the level cue at the same time.", text:"On rows, LevelUp drives more grip demand while showing when the pull starts to twist or one side begins to dominate. One of the fastest lifts for making the product feel immediately useful.", image:"https://sniperform.com.au/cdn/shop/files/0F3A2557_square_crop_2000.webp?v=1769487620&width=900", benefits:["More squeeze through the hands, forearms and biceps from rep one.","A visible cue to stop the bar path drifting as fatigue builds.","An easy first use case for serious back and arm work."] },
-    { id:"curls", label:"Curls", kicker:"Curls", title:"Curls make the bigger-arm promise obvious.", text:"LevelUp makes curls feel harder through the grip immediately. The level cue adds a layer of control so the pitch is not just bigger pump, but cleaner work through both arms.", image:"https://sniperform.com.au/cdn/shop/files/0F3A2480_square_crop_2000.webp?v=1769488611&width=900", benefits:["Supports the thick-grip arm-growth angle without changing the movement.","Keeps one side from quietly taking over as the set gets messy.","Makes the product feel instantly relevant for arm-day buyers."] },
-    { id:"presses", label:"Presses", kicker:"Presses", title:"Pressing is where the alignment cue starts to feel protective.", text:"Presses expose wrist and shoulder drift fast. The visible level cue helps the lifter correct sooner, making LevelUp feel like performance equipment with a real control benefit.", image:"https://sniperform.com.au/cdn/shop/files/0F3A3029_square_crop_2000.webp?v=1767933896&width=900", benefits:["Strengthens the connection between balanced reps and cleaner joint mechanics.","Makes the patented feedback system feel serious, not decorative.","Adds more grip demand without stripping the movement of control."] },
-    { id:"pulls", label:"Pulls", kicker:"Pulls", title:"Heavy pulls turn grip strength into the feature, not the bottleneck.", text:"When the handle gets thicker, pulling movements become a real test of grip capacity. That expands LevelUp beyond arm-day novelty into something advanced lifters can justify across multiple sessions.", image:"https://sniperform.com.au/cdn/shop/files/0F3A2747.png?v=1738733865&width=900", benefits:["Supports the hand-crushing grip strength angle.","Shows the tool belongs in more than one exercise slot.","Builds a more serious performance story for advanced lifters."] }
+  const uses=[
+    {id:'rows',label:'Rows',kicker:'Rows',title:'Rows reward the thicker handle and the level cue at the same time.',txt:'On rows, LevelUp drives more grip demand while showing when the pull starts to twist. One of the fastest lifts for feeling the product work immediately.',img:'https://sniperform.com.au/cdn/shop/files/0F3A2557_square_crop_2000.webp',bens:['More squeeze through hands, forearms and biceps from rep one.','A visible cue to stop bar path drifting as fatigue builds.','Perfect first use case for back and arm day.']},
+    {id:'curls',label:'Curls',kicker:'Curls',title:'Curls make the bigger-arm promise obvious from rep one.',txt:'Thicker handle means curls hit harder immediately — the level cue adds control so both arms work equally instead of one compensating.',img:'https://sniperform.com.au/cdn/shop/files/0F3A2480_square_crop_2000.webp',bens:['Thick-grip arm-growth without changing the movement.','Stops one side quietly taking over as fatigue builds.','Instantly relevant for any arm-day lifter.']},
+    {id:'press',label:'Presses',kicker:'Presses',title:'Presses are where the alignment cue becomes protective.',txt:'Presses expose wrist and shoulder drift fast. The level cue helps you correct sooner — LevelUp feels like real performance equipment, not a grip gimmick.',img:'https://sniperform.com.au/cdn/shop/files/0F3A3029_square_crop_2000.webp',bens:['Connects balanced reps to cleaner joint mechanics.','Makes the patented feedback feel serious and functional.','Adds grip demand without removing control.']},
+    {id:'pulls',label:'Pulls',kicker:'Pulls',title:'Heavy pulls turn grip strength into the feature.',txt:'When the handle gets thicker, pulling movements become a serious test of grip capacity — expanding LevelUp into something advanced lifters use across multiple sessions.',img:'https://sniperform.com.au/cdn/shop/files/0F3A2747.png',bens:['Supports the hand-crushing grip strength story.','Shows the product belongs across multiple exercise slots.','Builds a serious performance case for advanced lifters.']}
   ];
-
-  const navWrap = root.querySelector("[data-m-use-nav]");
-  const useImg = root.querySelector("[data-m-use-img]");
-  const useKicker = root.querySelector("[data-m-use-kicker]");
-  const useTitle = root.querySelector("[data-m-use-title]");
-  const useText = root.querySelector("[data-m-use-text]");
-  const useBenefits = root.querySelector("[data-m-use-benefits]");
-
-  function setUseCase(id) {
-    const item = useCases.find(u => u.id === id) || useCases[0];
-    if (navWrap) navWrap.innerHTML = useCases.map(u =>
-      `<button class="snf-mob-use-tab${u.id===item.id?" active":""}" type="button" data-m-use-id="${u.id}">${u.label}</button>`
-    ).join("");
-    if (useImg) { useImg.src = item.image; useImg.alt = item.label; }
-    if (useKicker) useKicker.textContent = item.kicker;
-    if (useTitle) useTitle.textContent = item.title;
-    if (useText) useText.textContent = item.text;
-    if (useBenefits) useBenefits.innerHTML = item.benefits.map(b =>
-      `<div class="snf-mob-use-benefit">${b}</div>`).join("");
+  const nav=document.getElementById('useNav'),img=document.getElementById('useImg'),
+    kicker=document.getElementById('useKicker'),title=document.getElementById('useTitle'),
+    txt=document.getElementById('useTxt'),bens=document.getElementById('useBens');
+  function setUse(id){
+    const u=uses.find(x=>x.id===id)||uses[0];
+    if(nav) nav.innerHTML=uses.map(x=>`<button class="snf-use-tab${x.id===u.id?' on':''}" data-id="${x.id}">${x.label}</button>`).join('');
+    if(img){img.src=u.img;img.alt=u.label;}
+    if(kicker) kicker.textContent=u.kicker;
+    if(title) title.textContent=u.title;
+    if(txt) txt.textContent=u.txt;
+    if(bens) bens.innerHTML=u.bens.map(b=>`<div class="snf-use-ben">${b}</div>`).join('');
   }
-  if (navWrap) {
-    setUseCase("rows");
-    navWrap.addEventListener("click", e => {
-      const btn = e.target.closest("[data-m-use-id]");
-      if (btn) setUseCase(btn.dataset.mUseId);
-    });
-  }
+  if(nav){setUse('rows');nav.addEventListener('click',e=>{const b=e.target.closest('[data-id]');if(b)setUse(b.dataset.id);});}
 
   /* QTY */
-  let qty = 1;
-  const qtyInput = root.querySelector("[data-m-qty]");
-  function setQty(n) {
-    qty = Math.max(1, Math.floor(isFinite(n) ? n : 1));
-    if (qtyInput) qtyInput.value = qty;
-  }
-  root.querySelector("[data-m-qty-inc]")?.addEventListener("click", () => setQty(qty + 1));
-  root.querySelector("[data-m-qty-dec]")?.addEventListener("click", () => setQty(qty - 1));
-  qtyInput?.addEventListener("change", () => setQty(parseInt(qtyInput.value)));
+  let qty=1;
+  const qi=document.getElementById('qtyInput');
+  const updateQty=n=>{qty=Math.max(1,Math.floor(isFinite(n)?n:1));if(qi)qi.value=qty;};
+  document.getElementById('qtyInc')?.addEventListener('click',()=>updateQty(qty+1));
+  document.getElementById('qtyDec')?.addEventListener('click',()=>updateQty(qty-1));
+  qi?.addEventListener('change',()=>updateQty(parseInt(qi.value)));
 
-  /* STICKY BAR */
-  const sticky = root.querySelector("[data-m-sticky]");
-  const buyBox = root.querySelector("#snf-m-buy-1");
-  if (sticky && buyBox) {
-    new IntersectionObserver(([e]) => {
-      sticky.classList.toggle("show", !e.isIntersecting);
-    }, { threshold: 0 }).observe(buyBox);
+  /* STICKY */
+  const sticky=document.getElementById('sticky'),buy=document.getElementById('buyBox');
+  if(sticky&&buy){
+    new IntersectionObserver(([e])=>sticky.classList.toggle('on',!e.isIntersecting),{threshold:0}).observe(buy);
   }
 
-  /* FADE-UP */
-  if ("IntersectionObserver" in window) {
-    const io = new IntersectionObserver(entries => {
-      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } });
-    }, { threshold: 0.08 });
-    root.querySelectorAll(".fade-up").forEach(el => io.observe(el));
+  /* FADE UP */
+  if('IntersectionObserver' in window){
+    const io=new IntersectionObserver(entries=>{
+      entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
+    },{threshold:0.07});
+    document.querySelectorAll('.fu').forEach(el=>io.observe(el));
   } else {
-    root.querySelectorAll(".fade-up").forEach(el => el.classList.add("in"));
+    document.querySelectorAll('.fu').forEach(el=>el.classList.add('in'));
   }
 })();
 </script>
